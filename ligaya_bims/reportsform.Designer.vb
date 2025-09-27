@@ -23,9 +23,6 @@ Partial Class reportsform
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.panelMain = New System.Windows.Forms.Panel()
-        Me.btnLoadTemplate = New Guna.UI2.WinForms.Guna2Button()
-        Me.txtTemplatePreview = New System.Windows.Forms.RichTextBox()
-        Me.lblTemplateName = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.lblTypeOfIncident = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.txtTypeOfIncident = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lblInclusive = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -40,9 +37,6 @@ Partial Class reportsform
         Me.btnPageSetup = New Guna.UI2.WinForms.Guna2Button()
         Me.btnPreview = New Guna.UI2.WinForms.Guna2Button()
         Me.btnPrint = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnGenerateDocx = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnPreviewDocx = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnCustomizeLabels = New Guna.UI2.WinForms.Guna2Button()
         Me.txtBody = New System.Windows.Forms.TextBox()
         Me.lblBody = New System.Windows.Forms.Label()
         Me.txtSubject = New System.Windows.Forms.TextBox()
@@ -60,9 +54,7 @@ Partial Class reportsform
         'panelMain
         '
         Me.panelMain.BackColor = System.Drawing.Color.White
-        Me.panelMain.Controls.Add(Me.btnLoadTemplate)
-        Me.panelMain.Controls.Add(Me.txtTemplatePreview)
-        Me.panelMain.Controls.Add(Me.lblTemplateName)
+        ' Template controls removed
         Me.panelMain.Controls.Add(Me.lblTypeOfIncident)
         Me.panelMain.Controls.Add(Me.txtTypeOfIncident)
         Me.panelMain.Controls.Add(Me.lblInclusive)
@@ -77,52 +69,12 @@ Partial Class reportsform
         Me.panelMain.Controls.Add(Me.btnPageSetup)
         Me.panelMain.Controls.Add(Me.btnPreview)
         Me.panelMain.Controls.Add(Me.btnPrint)
-        Me.panelMain.Controls.Add(Me.btnGenerateDocx)
-        Me.panelMain.Controls.Add(Me.btnPreviewDocx)
-        Me.panelMain.Controls.Add(Me.btnCustomizeLabels)
         Me.panelMain.Controls.Add(Me.txtBody)
         Me.panelMain.Controls.Add(Me.lblBody)
         Me.panelMain.Controls.Add(Me.txtSubject)
         Me.panelMain.Controls.Add(Me.lblSubject)
         Me.panelMain.Controls.Add(Me.txtTitle)
         Me.panelMain.Controls.Add(Me.lblTitle)
-        'btnLoadTemplate
-        '
-        Me.btnLoadTemplate.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnLoadTemplate.BorderRadius = 6
-        Me.btnLoadTemplate.FillColor = System.Drawing.Color.FromArgb(76, 132, 255)
-        Me.btnLoadTemplate.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnLoadTemplate.ForeColor = System.Drawing.Color.White
-        Me.btnLoadTemplate.Location = New System.Drawing.Point(782, 12)
-        Me.btnLoadTemplate.Name = "btnLoadTemplate"
-        Me.btnLoadTemplate.Size = New System.Drawing.Size(100, 26)
-        Me.btnLoadTemplate.TabIndex = 10
-        Me.btnLoadTemplate.Text = "Load Template"
-        '
-        'txtTemplatePreview
-        '
-        Me.txtTemplatePreview.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtTemplatePreview.BackColor = System.Drawing.Color.White
-        Me.txtTemplatePreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtTemplatePreview.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtTemplatePreview.Location = New System.Drawing.Point(672, 48)
-        Me.txtTemplatePreview.Name = "txtTemplatePreview"
-        Me.txtTemplatePreview.ReadOnly = True
-        Me.txtTemplatePreview.Size = New System.Drawing.Size(210, 140)
-        Me.txtTemplatePreview.TabIndex = 0
-        Me.txtTemplatePreview.Text = "No template loaded. Click 'Load Template' to select a DOCX file."
-        '
-        'lblTemplateName
-        '
-        Me.lblTemplateName.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblTemplateName.BackColor = System.Drawing.Color.Transparent
-        Me.lblTemplateName.Font = New System.Drawing.Font("Segoe UI", 8.0!)
-        Me.lblTemplateName.ForeColor = System.Drawing.Color.Gray
-        Me.lblTemplateName.Location = New System.Drawing.Point(672, 194)
-        Me.lblTemplateName.Name = "lblTemplateName"
-        Me.lblTemplateName.Size = New System.Drawing.Size(210, 20)
-        Me.lblTemplateName.TabIndex = 0
-        Me.lblTemplateName.Text = "No template selected"
         '
         'lblTypeOfIncident
         '
@@ -284,44 +236,7 @@ Partial Class reportsform
         Me.btnPrint.TabIndex = 8
         Me.btnPrint.Text = "Print"
         '
-        'btnGenerateDocx
-        '
-        Me.btnGenerateDocx.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnGenerateDocx.BorderRadius = 6
-        Me.btnGenerateDocx.FillColor = System.Drawing.Color.FromArgb(128, 0, 128)
-        Me.btnGenerateDocx.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnGenerateDocx.ForeColor = System.Drawing.Color.White
-        Me.btnGenerateDocx.Location = New System.Drawing.Point(333, 555)
-        Me.btnGenerateDocx.Name = "btnGenerateDocx"
-        Me.btnGenerateDocx.Size = New System.Drawing.Size(100, 30)
-        Me.btnGenerateDocx.TabIndex = 9
-        Me.btnGenerateDocx.Text = "Generate DOCX"
-        '
-        'btnPreviewDocx
-        '
-        Me.btnPreviewDocx.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnPreviewDocx.BorderRadius = 6
-        Me.btnPreviewDocx.FillColor = System.Drawing.Color.FromArgb(255, 165, 0)
-        Me.btnPreviewDocx.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnPreviewDocx.ForeColor = System.Drawing.Color.White
-        Me.btnPreviewDocx.Location = New System.Drawing.Point(439, 555)
-        Me.btnPreviewDocx.Name = "btnPreviewDocx"
-        Me.btnPreviewDocx.Size = New System.Drawing.Size(100, 30)
-        Me.btnPreviewDocx.TabIndex = 10
-        Me.btnPreviewDocx.Text = "Preview Report"
-        '
-        'btnCustomizeLabels
-        '
-        Me.btnCustomizeLabels.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnCustomizeLabels.BorderRadius = 6
-        Me.btnCustomizeLabels.FillColor = System.Drawing.Color.FromArgb(0, 150, 136)
-        Me.btnCustomizeLabels.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnCustomizeLabels.ForeColor = System.Drawing.Color.White
-        Me.btnCustomizeLabels.Location = New System.Drawing.Point(545, 555)
-        Me.btnCustomizeLabels.Name = "btnCustomizeLabels"
-        Me.btnCustomizeLabels.Size = New System.Drawing.Size(120, 30)
-        Me.btnCustomizeLabels.TabIndex = 11
-        Me.btnCustomizeLabels.Text = "Customize Labels"
+
 
         '
         'txtBody (hidden legacy)
@@ -417,9 +332,6 @@ Partial Class reportsform
     End Sub
 
     Friend WithEvents panelMain As System.Windows.Forms.Panel
-    Friend WithEvents btnLoadTemplate As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents txtTemplatePreview As System.Windows.Forms.RichTextBox
-    Friend WithEvents lblTemplateName As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents lblTypeOfIncident As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents txtTypeOfIncident As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblInclusive As Guna.UI2.WinForms.Guna2HtmlLabel
@@ -434,9 +346,6 @@ Partial Class reportsform
     Friend WithEvents btnPageSetup As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnPreview As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnPrint As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnGenerateDocx As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnPreviewDocx As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnCustomizeLabels As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents txtBody As System.Windows.Forms.TextBox
     Friend WithEvents lblBody As System.Windows.Forms.Label
     Friend WithEvents txtSubject As System.Windows.Forms.TextBox
@@ -448,5 +357,7 @@ Partial Class reportsform
     Friend WithEvents PrintDialog1 As System.Windows.Forms.PrintDialog
     Friend WithEvents PageSetupDialog1 As System.Windows.Forms.PageSetupDialog
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    
+
 
 End Class

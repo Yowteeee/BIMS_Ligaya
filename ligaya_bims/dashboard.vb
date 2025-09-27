@@ -1,4 +1,4 @@
-﻿Public Class dashboard
+Public Class dashboard
     Private currentChildForm As Form
     Private isChartsInitialized As Boolean = False
 
@@ -39,6 +39,10 @@
         End If
         RestoreDashboardControls()
         InitializeBottomPanels()
+    End Sub
+
+    Private Sub navDocs_Click(sender As Object, e As EventArgs) Handles navDocs.Click
+        OpenChildForm(New certissuance())
     End Sub
 
     Private Sub RestoreDashboardControls()
