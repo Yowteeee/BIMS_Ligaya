@@ -1,13 +1,16 @@
-﻿Public Class residentform
+﻿Imports Guna.UI2.WinForms
+
+Public Class residentform
     Public Event ResidentSaved(resident As ResidentData)
     Private idPicturePath As String = ""
+    Private selectedImagePath As String
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         ' Validate required fields
-        If String.IsNullOrEmpty(txtFirstName.Text) OrElse
+        If String.IsNullOrEmpty(txtLastName.Text) OrElse
            String.IsNullOrEmpty(txtLastName.Text) OrElse
            String.IsNullOrEmpty(txtPhoneNumber.Text) Then
-            MessageBox.Show("Please fill in all required fields (First Name, Last Name, Phone Number)", 
+            MessageBox.Show("Please fill in all required fields (First Name, Last Name, Phone Number)",
                            "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
@@ -18,7 +21,7 @@
 
         ' Create new resident data
         Dim newResident As New ResidentData With {
-            .FirstName = txtFirstName.Text.Trim(),
+            .FirstName = txtLastName.Text.Trim(),
             .LastName = txtLastName.Text.Trim(),
             .MiddleName = txtMiddleName.Text.Trim(),
             .BirthDate = dtpBirthDate.Value,
@@ -42,7 +45,7 @@
         RaiseEvent ResidentSaved(newResident)
 
         ' Show success message
-        MessageBox.Show("Resident information saved successfully!", "Success", 
+        MessageBox.Show("Resident information saved successfully!", "Success",
                       MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         ' Clear form
@@ -60,8 +63,8 @@
     End Function
 
     Private Sub ClearForm()
-        txtFirstName.Clear()
         txtLastName.Clear()
+        txtFirstName.Clear()
         txtMiddleName.Clear()
         txtPhoneNumber.Clear()
         txtCitizenship.Clear()
@@ -85,14 +88,33 @@
     End Sub
 
     Private Sub btnChoosePicture_Click(sender As Object, e As EventArgs) Handles btnChoosePicture.Click
-        If ofdIdPicture.ShowDialog() = DialogResult.OK Then
+        ' Open file dialog to select an image
+        Dim openFileDialog As New OpenFileDialog()
+
+        ' Set filter for image files
+        openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.bmp; *.gif)|*.jpg; *.jpeg; *.png; *.bmp; *.gif|All Files (*.*)|*.*"
+        openFileDialog.Title = "Select Resident Photo"
+
+        ' Set initial directory to Pictures folder
+        openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures)
+
+        ' Show dialog and check if user selected a file
+        If openFileDialog.ShowDialog() = DialogResult.OK Then
             Try
                 ' Load the selected image
-                picIdPicture.Image = Image.FromFile(ofdIdPicture.FileName)
-                idPicturePath = ofdIdPicture.FileName
+                Dim selectedImage As Image = Image.FromFile(openFileDialog.FileName)
+
+                ' Set the image to the picturebox
+                picIdPicture.Image = selectedImage
+
+                ' Set the SizeMode to StretchImage to fill all gaps in the picturebox
+                picIdPicture.SizeMode = PictureBoxSizeMode.StretchImage
+
+                ' Store the file path for saving to database
+                selectedImagePath = openFileDialog.FileName
+
             Catch ex As Exception
-                MessageBox.Show("Error loading image: " & ex.Message, "Error", 
-                              MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Error loading image: " & ex.Message, "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End If
     End Sub
@@ -101,5 +123,21 @@
         ' Auto-calculate age when birth date changes
         Dim age As Integer = CalculateAge(dtpBirthDate.Value)
         txtAge.Text = age.ToString()
+    End Sub
+
+    Private Sub pnlFields_Paint(sender As Object, e As PaintEventArgs) Handles pnlFields.Paint
+
+    End Sub
+
+    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ButtonCANCEL.Click
+
+    End Sub
+
+    Private Sub picIdPicture_Click(sender As Object, e As EventArgs) Handles picIdPicture.Click
+
     End Sub
 End Class
