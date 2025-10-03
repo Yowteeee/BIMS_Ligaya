@@ -1,4 +1,5 @@
-﻿Imports Guna.UI2.WinForms
+﻿Imports MySql.Data.MySqlClient
+Imports Guna.UI2.WinForms
 
 Public Class residentform
     Public Event ResidentSaved(resident As ResidentData)
@@ -6,15 +7,35 @@ Public Class residentform
     Private selectedImagePath As String
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        ' Validate required fields
-        If String.IsNullOrEmpty(txtLastName.Text) OrElse
-           String.IsNullOrEmpty(txtLastName.Text) OrElse
-           String.IsNullOrEmpty(txtPhoneNumber.Text) Then
-            MessageBox.Show("Please fill in all required fields (First Name, Last Name, Phone Number)",
-                           "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
-
+        Try
+            Using conn = Database.CreateConnection()
+                conn.Open()
+                Dim sql As String = "INSERT INTO tbl_residentinfo (lastname, firstname, middlename, gender, birthdate, age, phoneno, civilstatus, citizenship, fathersname, mothersname, spouse, email, voterstatus, weight, height) VALUES (@ln,@fn,@mn,@gender,@bd,@age,@phone,@cstat,@cit,@father,@mother,@spouse,@mail,@vstat,@weight,@height)"
+                Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
+                    cmd.Parameters.AddWithValue("@ln", txtLastName.Text.Trim())
+                    cmd.Parameters.AddWithValue("@fn", txtFirstName.Text.Trim())
+                    cmd.Parameters.AddWithValue("@mn", txtMiddleName.Text.Trim())
+                    cmd.Parameters.AddWithValue("@gender", If(TryCast(cmbGender.SelectedItem, String), ""))
+                    cmd.Parameters.AddWithValue("@bd", dtpBirthDate.Value)
+                    cmd.Parameters.AddWithValue("@age", If(String.IsNullOrWhiteSpace(txtAge.Text), DBNull.Value, CType(txtAge.Text, Object)))
+                    cmd.Parameters.AddWithValue("@phone", txtPhoneNumber.Text.Trim())
+                    cmd.Parameters.AddWithValue("@cstat", If(TryCast(cmbCivilStatus.SelectedItem, String), ""))
+                    cmd.Parameters.AddWithValue("@cit", txtCitizenship.Text.Trim())
+                    cmd.Parameters.AddWithValue("@father", txtFathersName.Text.Trim())
+                    cmd.Parameters.AddWithValue("@mother", txtMothersName.Text.Trim())
+                    cmd.Parameters.AddWithValue("@spouse", txtSpouse.Text.Trim())
+                    cmd.Parameters.AddWithValue("@mail", txtEmail.Text.Trim())
+                    cmd.Parameters.AddWithValue("@vstat", If(TryCast(cmbVotersStatus.SelectedItem, String), ""))
+                    cmd.Parameters.AddWithValue("@weight", txtWeight.Text.Trim())
+                    cmd.Parameters.AddWithValue("@height", txtHeight.Text.Trim())
+                    cmd.ExecuteNonQuery()
+                End Using
+            End Using
+            MessageBox.Show("Resident saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ClearForm()
+        Catch ex As Exception
+            MessageBox.Show("Database error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
         ' Calculate age from birth date
         Dim age As Integer = CalculateAge(dtpBirthDate.Value)
         txtAge.Text = age.ToString()
@@ -129,15 +150,52 @@ Public Class residentform
 
     End Sub
 
-    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
-
+    Private Sub btnSubmit_Click(sender As Object, e As EventArgs)
+        ' Insert resident info into tbl_residentinfo
+        Try
+            Using conn = Database.CreateConnection()
+                conn.Open()
+                Dim sql As String = "INSERT INTO tbl_residentinfo (lastname, firstname, middlename, gender, birthdate, age, phoneno, civilstatus, citizenship, fathersname, mothersname, spouse, email, voterstatus, weight, height) VALUES (@ln,@fn,@mn,@gender,@bd,@age,@phone,@cstat,@cit,@father,@mother,@spouse,@mail,@vstat,@weight,@height)"
+                Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
+                    cmd.Parameters.AddWithValue("@ln", txtLastName.Text.Trim())
+                    cmd.Parameters.AddWithValue("@fn", txtFirstName.Text.Trim())
+                    cmd.Parameters.AddWithValue("@mn", txtMiddleName.Text.Trim())
+                    cmd.Parameters.AddWithValue("@gender", If(TryCast(cmbGender.SelectedItem, String), ""))
+                    cmd.Parameters.AddWithValue("@bd", dtpBirthDate.Value)
+                    cmd.Parameters.AddWithValue("@age", If(String.IsNullOrWhiteSpace(txtAge.Text), DBNull.Value, CType(txtAge.Text, Object)))
+                    cmd.Parameters.AddWithValue("@phone", txtPhoneNumber.Text.Trim())
+                    cmd.Parameters.AddWithValue("@cstat", If(TryCast(cmbCivilStatus.SelectedItem, String), ""))
+                    cmd.Parameters.AddWithValue("@cit", txtCitizenship.Text.Trim())
+                    cmd.Parameters.AddWithValue("@father", txtFathersName.Text.Trim())
+                    cmd.Parameters.AddWithValue("@mother", txtMothersName.Text.Trim())
+                    cmd.Parameters.AddWithValue("@spouse", txtSpouse.Text.Trim())
+                    cmd.Parameters.AddWithValue("@mail", txtEmail.Text.Trim())
+                    cmd.Parameters.AddWithValue("@vstat", If(TryCast(cmbVotersStatus.SelectedItem, String), ""))
+                    cmd.Parameters.AddWithValue("@weight", txtWeight.Text.Trim())
+                    cmd.Parameters.AddWithValue("@height", txtHeight.Text.Trim())
+                    cmd.ExecuteNonQuery()
+                End Using
+            End Using
+            MessageBox.Show("Resident saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ClearForm()
+        Catch ex As Exception
+            MessageBox.Show("Database error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ButtonCANCEL.Click
-
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+        Me.Close()
     End Sub
 
     Private Sub picIdPicture_Click(sender As Object, e As EventArgs) Handles picIdPicture.Click
+
+    End Sub
+
+    Private Sub residentform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub cmbCivilStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCivilStatus.SelectedIndexChanged
 
     End Sub
 End Class

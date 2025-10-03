@@ -123,6 +123,10 @@
     Private Sub panelMain_Paint(sender As Object, e As PaintEventArgs) Handles panelMain.Paint
 
     End Sub
+
+    Private Sub dgvResidents_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvResidents.CellContentClick
+
+    End Sub
 End Class
 
 Public Class ResidentData
