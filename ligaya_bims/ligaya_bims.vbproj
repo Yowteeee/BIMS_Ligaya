@@ -146,6 +146,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CertBrgyClearance.Designer.vb">
+      <DependentUpon>CertBrgyClearance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CertBrgyClearance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CertifcateIndigency.Designer.vb">
+      <DependentUpon>CertifcateIndigency.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CertifcateIndigency.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="certificateform.Designer.vb">
       <DependentUpon>certificateform.vb</DependentUpon>
     </Compile>
@@ -156,6 +168,12 @@
       <DependentUpon>certissuance.vb</DependentUpon>
     </Compile>
     <Compile Include="certissuance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CertResidency.Designer.vb">
+      <DependentUpon>CertResidency.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CertResidency.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="dashboard.Designer.vb">
@@ -209,11 +227,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CertBrgyClearance.resx">
+      <DependentUpon>CertBrgyClearance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CertifcateIndigency.resx">
+      <DependentUpon>CertifcateIndigency.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="certificateform.resx">
       <DependentUpon>certificateform.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="certissuance.resx">
       <DependentUpon>certissuance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CertResidency.resx">
+      <DependentUpon>CertResidency.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.vb</DependentUpon>

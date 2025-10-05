@@ -20,78 +20,69 @@ Public Class certificateform
             PrintDocument1.Print()
         End If
     End Sub
+    Private Sub PrintPreviewControl1_Click(sender As Object, e As EventArgs)
 
-    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
-        ' Get form values
-        Dim certificateType As String = cmbCertificateType.Text
-        Dim name As String = txtName.Text
-        Dim age As String = txtAge.Text
-        Dim civilStatus As String = If(rbSingle.Checked, "Single", "Married")
-        Dim address As String = txtAddress.Text
-        Dim yearsStayed As String = txtYearsStayed.Text
-        Dim issuedDate As String = dtpIssuedDate.Value.ToString("MMMM dd, yyyy")
+    End Sub
 
-        ' Set up fonts
-        Dim titleFont As New Font("Arial", 16, FontStyle.Bold)
-        Dim headerFont As New Font("Arial", 14, FontStyle.Bold)
-        Dim normalFont As New Font("Arial", 12)
-        Dim signatureFont As New Font("Arial", 12, FontStyle.Bold)
+    Private Sub panelRight_Paint(sender As Object, e As PaintEventArgs) Handles panelRight.Paint
 
-        ' Set up graphics
-        Dim graphics As Graphics = e.Graphics
-        Dim pageWidth As Integer = e.PageBounds.Width
-        Dim centerX As Integer = pageWidth / 2
-        Dim currentY As Integer = 100
-        Dim leftMargin As Integer = 100
-        Dim rightMargin As Integer = pageWidth - 100
+    End Sub
 
-        ' Draw header
-        graphics.DrawString("REPUBLIC OF THE PHILIPPINES", titleFont, Brushes.Black, centerX - 150, currentY)
-        currentY += 30
-        graphics.DrawString("BARANGAY LIGAYA", titleFont, Brushes.Black, centerX - 100, currentY)
-        currentY += 30
-        graphics.DrawString("OFFICE OF THE BARANGAY CHAIRMAN", headerFont, Brushes.Black, centerX - 180, currentY)
-        currentY += 60
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
 
-        ' Draw certificate title
-        graphics.DrawString("CERTIFICATE OF " & certificateType.ToUpper(), headerFont, Brushes.Black, centerX - 120, currentY)
-        currentY += 60
+    End Sub
 
-        ' Draw content
-        graphics.DrawString("TO WHOM IT MAY CONCERN:", normalFont, Brushes.Black, leftMargin, currentY)
-        currentY += 40
+    Private Sub pnlPic_Paint(sender As Object, e As PaintEventArgs) Handles pnlPic.Paint
 
-        Dim contentText As String = "This is to certify that " & name & ", " & age & " years of age, " & civilStatus & ", "
-        contentText &= "is a resident of " & address & ", Barangay Ligaya for " & yearsStayed & " years."
-
-        ' Add specific text based on certificate type
-        Select Case certificateType
-            Case "Residency"
-                contentText &= " This certification is being issued upon the request of the above-named person for whatever legal purpose it may serve."
-            Case "Indigency"
-                contentText &= " This further certifies that the above-named person belongs to the indigent family in this Barangay."
-            Case "Barangay Clearance"
-                contentText &= " This certifies that the above-named person has no derogatory record filed in this Barangay."
-        End Select
-
-        ' Draw wrapped text
-        Dim textWidth As Integer = rightMargin - leftMargin
-        Dim textRect As New RectangleF(leftMargin, currentY, textWidth, 300)
-        graphics.DrawString(contentText, normalFont, Brushes.Black, textRect)
-        currentY += 120
-
-        ' Draw issued date
-        graphics.DrawString("Issued this " & issuedDate & " at the Office of the Barangay Chairman, Barangay Ligaya.", normalFont, Brushes.Black, leftMargin, currentY)
-        currentY += 80
-
-        ' Draw signature line
-        graphics.DrawString("_________________________", signatureFont, Brushes.Black, centerX + 50, currentY)
-        currentY += 25
-        graphics.DrawString("Barangay Chairman", normalFont, Brushes.Black, centerX + 70, currentY)
     End Sub
 
     Private Sub cmbCertificateType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCertificateType.SelectedIndexChanged
-        ' Refresh the print preview when certificate type changes
-        PrintPreviewControl1.Invalidate()
+        pnlPic.Controls.Clear()
+        Dim selected As String = If(cmbCertificateType.SelectedItem, "").ToString()
+
+        Dim sourceForm As Form = Nothing
+        Try
+            If selected = "Residency" Then
+                sourceForm = New CertResidency()
+            ElseIf selected = "Indigency" Then
+                sourceForm = New CertifcateIndigency()
+            ElseIf selected = "Barangay Clearance" Then
+                sourceForm = New CertBrgyClearance()
+            End If
+
+            If sourceForm Is Nothing Then Return
+
+            Dim sourcePanel As Panel = Nothing
+            ' Prefer a Panel1 container when present
+            For Each ctrl As Control In sourceForm.Controls
+                If TypeOf ctrl Is Panel AndAlso String.Equals(ctrl.Name, "Panel1", StringComparison.OrdinalIgnoreCase) Then
+                    sourcePanel = DirectCast(ctrl, Panel)
+                    Exit For
+                End If
+            Next
+
+            Dim container As Control = If(sourcePanel IsNot Nothing, DirectCast(sourcePanel, Control), DirectCast(sourceForm, Control))
+
+            ' Copy all PictureBoxes from the container to pnlPic
+            For Each ctrl As Control In container.Controls
+                If TypeOf ctrl Is PictureBox Then
+                    Dim src As PictureBox = DirectCast(ctrl, PictureBox)
+                    Dim pb As New PictureBox()
+                    pb.Image = src.Image
+                    pb.SizeMode = src.SizeMode
+                    pb.Location = src.Location
+                    pb.Size = src.Size
+                    pb.Anchor = src.Anchor
+                    pb.Dock = DockStyle.None
+                    pb.BackColor = src.BackColor
+                    pb.Margin = src.Margin
+                    pnlPic.Controls.Add(pb)
+                End If
+            Next
+        Finally
+            If sourceForm IsNot Nothing Then
+                sourceForm.Dispose()
+            End If
+        End Try
     End Sub
 End Class
