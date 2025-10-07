@@ -45,7 +45,7 @@ Partial Class certissuance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(686, 390)
+        Me.ClientSize = New System.Drawing.Size(776, 487)
         Me.Controls.Add(Me.btnCreateCertificate)
         Me.Name = "certissuance"
         Me.Text = "Certificate Issuance"

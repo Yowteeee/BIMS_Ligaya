@@ -119,6 +119,14 @@
     Private Sub btnDeleteResident_Click(sender As Object, e As EventArgs) Handles btnDeleteResident.Click
         MessageBox.Show("Delete functionality will be implemented here", "Delete Residents", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
+
+    Private Sub panelMain_Paint(sender As Object, e As PaintEventArgs) Handles panelMain.Paint
+
+    End Sub
+
+    Private Sub dgvResidents_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvResidents.CellContentClick
+
+    End Sub
 End Class
 
 Public Class ResidentData

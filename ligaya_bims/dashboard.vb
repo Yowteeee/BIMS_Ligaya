@@ -107,5 +107,7 @@ Public Class dashboard
 
     End Sub
 
+    Private Sub leftNav_Paint(sender As Object, e As PaintEventArgs) Handles leftNav.Paint
 
+    End Sub
 End Class
