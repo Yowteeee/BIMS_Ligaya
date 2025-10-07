@@ -67,7 +67,7 @@ Partial Class certificateform
         Me.panelMain.Location = New System.Drawing.Point(0, 0)
         Me.panelMain.Margin = New System.Windows.Forms.Padding(2)
         Me.panelMain.Name = "panelMain"
-        Me.panelMain.Size = New System.Drawing.Size(750, 568)
+        Me.panelMain.Size = New System.Drawing.Size(745, 611)
         Me.panelMain.TabIndex = 0
         '
         'panelLeft
@@ -79,7 +79,7 @@ Partial Class certificateform
         Me.panelLeft.Location = New System.Drawing.Point(0, 0)
         Me.panelLeft.Margin = New System.Windows.Forms.Padding(2)
         Me.panelLeft.Name = "panelLeft"
-        Me.panelLeft.Size = New System.Drawing.Size(375, 568)
+        Me.panelLeft.Size = New System.Drawing.Size(375, 611)
         Me.panelLeft.TabIndex = 0
         '
         'panelFormFields
@@ -97,7 +97,7 @@ Partial Class certificateform
         Me.panelFormFields.Margin = New System.Windows.Forms.Padding(2)
         Me.panelFormFields.Name = "panelFormFields"
         Me.panelFormFields.Padding = New System.Windows.Forms.Padding(15, 16, 15, 16)
-        Me.panelFormFields.Size = New System.Drawing.Size(375, 527)
+        Me.panelFormFields.Size = New System.Drawing.Size(375, 570)
         Me.panelFormFields.TabIndex = 1
         '
         'dtpIssuedDate
@@ -212,17 +212,17 @@ Partial Class certificateform
         Me.panelRight.Controls.Add(Me.panelButtons)
         Me.panelRight.Controls.Add(Me.panelRightHeader)
         Me.panelRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.panelRight.Location = New System.Drawing.Point(375, 0)
+        Me.panelRight.Location = New System.Drawing.Point(370, 0)
         Me.panelRight.Margin = New System.Windows.Forms.Padding(2)
         Me.panelRight.Name = "panelRight"
-        Me.panelRight.Size = New System.Drawing.Size(375, 568)
+        Me.panelRight.Size = New System.Drawing.Size(375, 611)
         Me.panelRight.TabIndex = 1
         '
         'pnlPic
         '
-        Me.pnlPic.Location = New System.Drawing.Point(2, 42)
+        Me.pnlPic.Location = New System.Drawing.Point(4, 41)
         Me.pnlPic.Name = "pnlPic"
-        Me.pnlPic.Size = New System.Drawing.Size(373, 488)
+        Me.pnlPic.Size = New System.Drawing.Size(370, 532)
         Me.pnlPic.TabIndex = 4
         '
         'panelButtons
@@ -231,10 +231,10 @@ Partial Class certificateform
         Me.panelButtons.Controls.Add(Me.btnPreview)
         Me.panelButtons.Controls.Add(Me.btnPageSetup)
         Me.panelButtons.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.panelButtons.Location = New System.Drawing.Point(0, 528)
+        Me.panelButtons.Location = New System.Drawing.Point(0, 570)
         Me.panelButtons.Margin = New System.Windows.Forms.Padding(2)
         Me.panelButtons.Name = "panelButtons"
-        Me.panelButtons.Size = New System.Drawing.Size(375, 40)
+        Me.panelButtons.Size = New System.Drawing.Size(375, 41)
         Me.panelButtons.TabIndex = 2
         '
         'btnPrint
@@ -317,7 +317,7 @@ Partial Class certificateform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(750, 568)
+        Me.ClientSize = New System.Drawing.Size(745, 611)
         Me.Controls.Add(Me.panelMain)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(2)

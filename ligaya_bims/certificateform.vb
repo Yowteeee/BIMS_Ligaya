@@ -85,4 +85,8 @@ Public Class certificateform
             End If
         End Try
     End Sub
+
+    Private Sub panelRightHeader_Paint(sender As Object, e As PaintEventArgs) Handles panelRightHeader.Paint
+
+    End Sub
 End Class

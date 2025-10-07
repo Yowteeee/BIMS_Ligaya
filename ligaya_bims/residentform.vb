@@ -198,4 +198,8 @@ Public Class residentform
     Private Sub cmbCivilStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCivilStatus.SelectedIndexChanged
 
     End Sub
+
+    Private Sub pnlMain_Paint(sender As Object, e As PaintEventArgs) Handles pnlMain.Paint
+
+    End Sub
 End Class
