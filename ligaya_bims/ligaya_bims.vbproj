@@ -239,6 +239,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="cedulaform.resx">
+      <DependentUpon>cedulaform.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="cedulatracker.resx">
       <DependentUpon>cedulatracker.vb</DependentUpon>
     </EmbeddedResource>

@@ -63,7 +63,7 @@ Partial Class cedulatracker
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.lblTitle.Location = New System.Drawing.Point(23, 23)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(269, 45)
+        Me.lblTitle.Size = New System.Drawing.Size(241, 45)
         Me.lblTitle.TabIndex = 0
         Me.lblTitle.Text = "Cedula Tracker"
         '
@@ -108,6 +108,7 @@ Partial Class cedulatracker
         Me.cmbFilter.BorderRadius = 8
         Me.cmbFilter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.cmbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbFilter.FillColor = System.Drawing.Color.FromArgb(CType(CType(7, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.cmbFilter.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cmbFilter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cmbFilter.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -118,7 +119,6 @@ Partial Class cedulatracker
         Me.cmbFilter.Name = "cmbFilter"
         Me.cmbFilter.Size = New System.Drawing.Size(200, 36)
         Me.cmbFilter.TabIndex = 3
-        Me.cmbFilter.FillColor = System.Drawing.Color.FromArgb(CType(CType(7, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(60, Byte), Integer))
         '
         'dgvCedula
         '
@@ -220,7 +220,7 @@ Partial Class cedulatracker
         Me.lblShowingEntries.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.lblShowingEntries.Location = New System.Drawing.Point(23, 560)
         Me.lblShowingEntries.Name = "lblShowingEntries"
-        Me.lblShowingEntries.Size = New System.Drawing.Size(158, 15)
+        Me.lblShowingEntries.Size = New System.Drawing.Size(146, 15)
         Me.lblShowingEntries.TabIndex = 5
         Me.lblShowingEntries.Text = "Showing 1 to 0 of 0 entries"
         '

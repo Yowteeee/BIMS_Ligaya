@@ -81,7 +81,7 @@
         
         For Each resident In filteredResidents
             Dim rowIndex = dgvResidents.Rows.Add()
-            dgvResidents.Rows(rowIndex).Cells("chkSelectAll").Value = False
+            dgvResidents.Rows(rowIndex).Cells("chkSelectAll").Value = True
             dgvResidents.Rows(rowIndex).Cells("colAction").Value = "✏️ 👁️ 🗑️"
             dgvResidents.Rows(rowIndex).Cells("colLastName").Value = resident.LastName
             dgvResidents.Rows(rowIndex).Cells("colFirstName").Value = resident.FirstName
