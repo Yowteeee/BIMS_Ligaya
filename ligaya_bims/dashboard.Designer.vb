@@ -96,7 +96,7 @@ Partial Class dashboard
         Me.leftNav.Controls.Add(Me.navDashboard)
         Me.leftNav.Controls.Add(Me.leftHeader)
         Me.leftNav.Dock = System.Windows.Forms.DockStyle.Left
-        Me.leftNav.FillColor = System.Drawing.Color.FromArgb(CType(CType(7, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.leftNav.FillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(95, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.leftNav.Location = New System.Drawing.Point(0, 0)
         Me.leftNav.Name = "leftNav"
         Me.leftNav.Size = New System.Drawing.Size(200, 861)
@@ -229,7 +229,7 @@ Partial Class dashboard
         Me.leftHeader.BackColor = System.Drawing.Color.Transparent
         Me.leftHeader.Controls.Add(Me.lblBrand)
         Me.leftHeader.Dock = System.Windows.Forms.DockStyle.Top
-        Me.leftHeader.FillColor = System.Drawing.Color.FromArgb(CType(CType(7, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.leftHeader.FillColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.leftHeader.Location = New System.Drawing.Point(0, 0)
         Me.leftHeader.Name = "leftHeader"
         Me.leftHeader.Size = New System.Drawing.Size(200, 70)

@@ -104,7 +104,7 @@ Public Class dashboard
     End Sub
 
     Private Sub navCedula_Click(sender As Object, e As EventArgs) Handles navCedula.Click
-
+        OpenChildForm(New cedulatracker())
     End Sub
 
     Private Sub leftNav_Paint(sender As Object, e As PaintEventArgs) Handles leftNav.Paint

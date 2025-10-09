@@ -8,50 +8,31 @@
     End Sub
 
     Private Sub LoadResidents()
-        ' Load sample data for demonstration
+        ' Load residents from database: only lastname, firstname, middlename, phoneno, gender
         residentsList.Clear()
-        
-        ' Add sample residents
-        residentsList.Add(New ResidentData With {
-            .LastName = "Enriquez",
-            .FirstName = "Ricardo", 
-            .MiddleName = "Saavedra",
-            .MobileNo = "09172630847",
-            .Gender = "male"
-        })
-        
-        residentsList.Add(New ResidentData With {
-            .LastName = "De Lacruz",
-            .FirstName = "Juan",
-            .MiddleName = "Diamante", 
-            .MobileNo = "123123123",
-            .Gender = "male"
-        })
-        
-        residentsList.Add(New ResidentData With {
-            .LastName = "Hodkiewicz",
-            .FirstName = "Emmanuelle",
-            .MiddleName = "Javier",
-            .MobileNo = "+1-239-598-5809", 
-            .Gender = "male"
-        })
-        
-        residentsList.Add(New ResidentData With {
-            .LastName = "Johnston",
-            .FirstName = "Cordia",
-            .MiddleName = "Cristian",
-            .MobileNo = "8305130233",
-            .Gender = "female"
-        })
-        
-        residentsList.Add(New ResidentData With {
-            .LastName = "Howe",
-            .FirstName = "Chris",
-            .MiddleName = "Hazel",
-            .MobileNo = "(201) 476-1215",
-            .Gender = "female"
-        })
-        
+
+        Try
+            Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
+                conn.Open()
+                Dim sql As String = "SELECT lastname, firstname, middlename, phoneno, gender FROM tbl_residentinfo"
+                Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
+                    Using reader As Global.MySql.Data.MySqlClient.MySqlDataReader = cmd.ExecuteReader()
+                        While reader.Read()
+                            Dim data As New ResidentData()
+                            data.LastName = If(Not reader.IsDBNull(0), reader.GetString(0), String.Empty)
+                            data.FirstName = If(Not reader.IsDBNull(1), reader.GetString(1), String.Empty)
+                            data.MiddleName = If(Not reader.IsDBNull(2), reader.GetString(2), String.Empty)
+                            data.MobileNo = If(Not reader.IsDBNull(3), reader.GetString(3), String.Empty)
+                            data.Gender = If(Not reader.IsDBNull(4), reader.GetString(4), String.Empty)
+                            residentsList.Add(data)
+                        End While
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            System.Windows.Forms.MessageBox.Show("Failed to load residents: " & ex.Message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
+        End Try
+
         RefreshDataGrid()
     End Sub
 
@@ -100,7 +81,7 @@
         
         For Each resident In filteredResidents
             Dim rowIndex = dgvResidents.Rows.Add()
-            dgvResidents.Rows(rowIndex).Cells("chkSelectAll").Value = False
+            dgvResidents.Rows(rowIndex).Cells("chkSelectAll").Value = True
             dgvResidents.Rows(rowIndex).Cells("colAction").Value = "✏️ 👁️ 🗑️"
             dgvResidents.Rows(rowIndex).Cells("colLastName").Value = resident.LastName
             dgvResidents.Rows(rowIndex).Cells("colFirstName").Value = resident.FirstName

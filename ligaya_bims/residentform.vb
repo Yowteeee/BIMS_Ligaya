@@ -4,13 +4,12 @@ Imports Guna.UI2.WinForms
 Public Class residentform
     Public Event ResidentSaved(resident As ResidentData)
     Private idPicturePath As String = ""
-    Private selectedImagePath As String
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
             Using conn = Database.CreateConnection()
                 conn.Open()
-                Dim sql As String = "INSERT INTO tbl_residentinfo (lastname, firstname, middlename, gender, birthdate, age, phoneno, civilstatus, citizenship, fathersname, mothersname, spouse, email, voterstatus, weight, height) VALUES (@ln,@fn,@mn,@gender,@bd,@age,@phone,@cstat,@cit,@father,@mother,@spouse,@mail,@vstat,@weight,@height)"
+                Dim sql As String = "INSERT INTO tbl_residentinfo (lastname, firstname, middlename, gender, birthdate, age, phoneno, civilstatus, citizenship, fathersname, mothersname, spouse, email, voterstatus, weight, height, idpic) VALUES (@ln,@fn,@mn,@gender,@bd,@age,@phone,@cstat,@cit,@father,@mother,@spouse,@mail,@vstat,@weight,@height,@idpic)"
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
                     cmd.Parameters.AddWithValue("@ln", txtLastName.Text.Trim())
                     cmd.Parameters.AddWithValue("@fn", txtFirstName.Text.Trim())
@@ -28,21 +27,19 @@ Public Class residentform
                     cmd.Parameters.AddWithValue("@vstat", If(TryCast(cmbVotersStatus.SelectedItem, String), ""))
                     cmd.Parameters.AddWithValue("@weight", txtWeight.Text.Trim())
                     cmd.Parameters.AddWithValue("@height", txtHeight.Text.Trim())
+                    ' Add the idpic parameter - saves the file path or NULL if no picture
+                    cmd.Parameters.AddWithValue("@idpic", If(String.IsNullOrWhiteSpace(idPicturePath), DBNull.Value, CType(idPicturePath, Object)))
                     cmd.ExecuteNonQuery()
                 End Using
             End Using
-            MessageBox.Show("Resident saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            ClearForm()
-        Catch ex As Exception
-            MessageBox.Show("Database error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-        ' Calculate age from birth date
-        Dim age As Integer = CalculateAge(dtpBirthDate.Value)
-        txtAge.Text = age.ToString()
 
-        ' Create new resident data
-        Dim newResident As New ResidentData With {
-            .FirstName = txtLastName.Text.Trim(),
+            ' Calculate age from birth date
+            Dim age As Integer = CalculateAge(dtpBirthDate.Value)
+            txtAge.Text = age.ToString()
+
+            ' Create new resident data
+            Dim newResident As New ResidentData With {
+            .FirstName = txtFirstName.Text.Trim(),
             .LastName = txtLastName.Text.Trim(),
             .MiddleName = txtMiddleName.Text.Trim(),
             .BirthDate = dtpBirthDate.Value,
@@ -62,18 +59,21 @@ Public Class residentform
             .MobileNo = txtPhoneNumber.Text.Trim()
         }
 
-        ' Raise the event to notify parent form
-        RaiseEvent ResidentSaved(newResident)
+            ' Raise the event to notify parent form
+            RaiseEvent ResidentSaved(newResident)
 
-        ' Show success message
-        MessageBox.Show("Resident information saved successfully!", "Success",
+            ' Show success message
+            MessageBox.Show("Resident information saved successfully!", "Success",
                       MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-        ' Clear form
-        ClearForm()
+            ' Clear form
+            ClearForm()
 
-        ' Close the form
-        Me.Close()
+            ' Close the form
+            Me.Close()
+        Catch ex As Exception
+            MessageBox.Show("Database error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Function CalculateAge(birthDate As DateTime) As Integer
@@ -132,7 +132,7 @@ Public Class residentform
                 picIdPicture.SizeMode = PictureBoxSizeMode.StretchImage
 
                 ' Store the file path for saving to database
-                selectedImagePath = openFileDialog.FileName
+                idPicturePath = openFileDialog.FileName
 
             Catch ex As Exception
                 MessageBox.Show("Error loading image: " & ex.Message, "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -150,42 +150,7 @@ Public Class residentform
 
     End Sub
 
-    Private Sub btnSubmit_Click(sender As Object, e As EventArgs)
-        ' Insert resident info into tbl_residentinfo
-        Try
-            Using conn = Database.CreateConnection()
-                conn.Open()
-                Dim sql As String = "INSERT INTO tbl_residentinfo (lastname, firstname, middlename, gender, birthdate, age, phoneno, civilstatus, citizenship, fathersname, mothersname, spouse, email, voterstatus, weight, height) VALUES (@ln,@fn,@mn,@gender,@bd,@age,@phone,@cstat,@cit,@father,@mother,@spouse,@mail,@vstat,@weight,@height)"
-                Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
-                    cmd.Parameters.AddWithValue("@ln", txtLastName.Text.Trim())
-                    cmd.Parameters.AddWithValue("@fn", txtFirstName.Text.Trim())
-                    cmd.Parameters.AddWithValue("@mn", txtMiddleName.Text.Trim())
-                    cmd.Parameters.AddWithValue("@gender", If(TryCast(cmbGender.SelectedItem, String), ""))
-                    cmd.Parameters.AddWithValue("@bd", dtpBirthDate.Value)
-                    cmd.Parameters.AddWithValue("@age", If(String.IsNullOrWhiteSpace(txtAge.Text), DBNull.Value, CType(txtAge.Text, Object)))
-                    cmd.Parameters.AddWithValue("@phone", txtPhoneNumber.Text.Trim())
-                    cmd.Parameters.AddWithValue("@cstat", If(TryCast(cmbCivilStatus.SelectedItem, String), ""))
-                    cmd.Parameters.AddWithValue("@cit", txtCitizenship.Text.Trim())
-                    cmd.Parameters.AddWithValue("@father", txtFathersName.Text.Trim())
-                    cmd.Parameters.AddWithValue("@mother", txtMothersName.Text.Trim())
-                    cmd.Parameters.AddWithValue("@spouse", txtSpouse.Text.Trim())
-                    cmd.Parameters.AddWithValue("@mail", txtEmail.Text.Trim())
-                    cmd.Parameters.AddWithValue("@vstat", If(TryCast(cmbVotersStatus.SelectedItem, String), ""))
-                    cmd.Parameters.AddWithValue("@weight", txtWeight.Text.Trim())
-                    cmd.Parameters.AddWithValue("@height", txtHeight.Text.Trim())
-                    cmd.ExecuteNonQuery()
-                End Using
-            End Using
-            MessageBox.Show("Resident saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            ClearForm()
-        Catch ex As Exception
-            MessageBox.Show("Database error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        Me.Close()
-    End Sub
 
     Private Sub picIdPicture_Click(sender As Object, e As EventArgs) Handles picIdPicture.Click
 

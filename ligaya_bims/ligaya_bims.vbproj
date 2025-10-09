@@ -146,6 +146,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cedulaform.Designer.vb">
+      <DependentUpon>cedulaform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="cedulaform.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cedulatracker.Designer.vb">
+      <DependentUpon>cedulatracker.vb</DependentUpon>
+    </Compile>
+    <Compile Include="cedulatracker.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CertBrgyClearance.Designer.vb">
       <DependentUpon>CertBrgyClearance.vb</DependentUpon>
     </Compile>
@@ -227,6 +239,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="cedulaform.resx">
+      <DependentUpon>cedulaform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cedulatracker.resx">
+      <DependentUpon>cedulatracker.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CertBrgyClearance.resx">
       <DependentUpon>CertBrgyClearance.vb</DependentUpon>
     </EmbeddedResource>

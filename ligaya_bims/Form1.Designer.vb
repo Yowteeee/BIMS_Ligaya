@@ -30,14 +30,18 @@ Partial Class Form1
         Me.txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtUsername = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lblTitle = New System.Windows.Forms.Label()
+        Me.Guna2CirclePictureBox1 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        Me.leftPanel.SuspendLayout()
         Me.rightPanel.SuspendLayout()
         Me.card.SuspendLayout()
+        CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'leftPanel
         '
+        Me.leftPanel.Controls.Add(Me.Guna2CirclePictureBox1)
         Me.leftPanel.Dock = System.Windows.Forms.DockStyle.Left
-        Me.leftPanel.FillColor = System.Drawing.Color.RoyalBlue
+        Me.leftPanel.FillColor = System.Drawing.Color.SeaGreen
         Me.leftPanel.Location = New System.Drawing.Point(0, 0)
         Me.leftPanel.Name = "leftPanel"
         Me.leftPanel.Size = New System.Drawing.Size(480, 600)
@@ -47,7 +51,7 @@ Partial Class Form1
         '
         Me.rightPanel.Controls.Add(Me.card)
         Me.rightPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.rightPanel.FillColor = System.Drawing.Color.White
+        Me.rightPanel.FillColor = System.Drawing.Color.Beige
         Me.rightPanel.Location = New System.Drawing.Point(480, 0)
         Me.rightPanel.Name = "rightPanel"
         Me.rightPanel.Size = New System.Drawing.Size(480, 600)
@@ -62,7 +66,7 @@ Partial Class Form1
         Me.card.Controls.Add(Me.txtPassword)
         Me.card.Controls.Add(Me.txtUsername)
         Me.card.Controls.Add(Me.lblTitle)
-        Me.card.FillColor = System.Drawing.Color.White
+        Me.card.FillColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(96, Byte), Integer))
         Me.card.Location = New System.Drawing.Point(31, 123)
         Me.card.Name = "card"
         Me.card.ShadowDecoration.Depth = 8
@@ -84,8 +88,10 @@ Partial Class Form1
         '
         'lnkForgot
         '
+        Me.lnkForgot.ActiveLinkColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.lnkForgot.AutoSize = True
-        Me.lnkForgot.LinkColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(130, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.lnkForgot.DisabledLinkColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer))
+        Me.lnkForgot.LinkColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.lnkForgot.Location = New System.Drawing.Point(59, 199)
         Me.lnkForgot.Name = "lnkForgot"
         Me.lnkForgot.Size = New System.Drawing.Size(144, 17)
@@ -147,6 +153,21 @@ Partial Class Form1
         Me.lblTitle.Text = "Welcome!"
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Guna2CirclePictureBox1
+        '
+        Me.Guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2CirclePictureBox1.FillColor = System.Drawing.Color.DarkGray
+        Me.Guna2CirclePictureBox1.Image = Global.ligaya_bims.My.Resources.Resources.brgy_ligaya_logo
+        Me.Guna2CirclePictureBox1.ImageRotate = 0!
+        Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(1, 51)
+        Me.Guna2CirclePictureBox1.Name = "Guna2CirclePictureBox1"
+        Me.Guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.Guna2CirclePictureBox1.Size = New System.Drawing.Size(474, 471)
+        Me.Guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Guna2CirclePictureBox1.TabIndex = 1
+        Me.Guna2CirclePictureBox1.TabStop = False
+        Me.Guna2CirclePictureBox1.UseTransparentBackground = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -159,9 +180,11 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
+        Me.leftPanel.ResumeLayout(False)
         Me.rightPanel.ResumeLayout(False)
         Me.card.ResumeLayout(False)
         Me.card.PerformLayout()
+        CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -174,5 +197,5 @@ Partial Class Form1
     Friend WithEvents txtPassword As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lnkForgot As System.Windows.Forms.LinkLabel
     Friend WithEvents btnLogin As Guna.UI2.WinForms.Guna2Button
-
+    Friend WithEvents Guna2CirclePictureBox1 As Guna.UI2.WinForms.Guna2CirclePictureBox
 End Class
