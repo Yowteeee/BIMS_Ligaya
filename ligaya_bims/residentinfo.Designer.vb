@@ -1,9 +1,9 @@
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class residentinfo
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class residentinfo
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -41,15 +41,6 @@ Partial Class residentinfo
         Me.colMiddleName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colMobileNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colGender = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lblShowingEntries = New System.Windows.Forms.Label()
-        Me.btnPrevious = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnPage1 = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnPage2 = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnPage3 = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnPage4 = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnPage5 = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnPage6 = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnNext = New Guna.UI2.WinForms.Guna2Button()
         Me.panelMain.SuspendLayout()
         CType(Me.dgvResidents, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -65,15 +56,6 @@ Partial Class residentinfo
         Me.panelMain.Controls.Add(Me.lblShowEntries)
         Me.panelMain.Controls.Add(Me.cmbShowEntries)
         Me.panelMain.Controls.Add(Me.dgvResidents)
-        Me.panelMain.Controls.Add(Me.lblShowingEntries)
-        Me.panelMain.Controls.Add(Me.btnPrevious)
-        Me.panelMain.Controls.Add(Me.btnPage1)
-        Me.panelMain.Controls.Add(Me.btnPage2)
-        Me.panelMain.Controls.Add(Me.btnPage3)
-        Me.panelMain.Controls.Add(Me.btnPage4)
-        Me.panelMain.Controls.Add(Me.btnPage5)
-        Me.panelMain.Controls.Add(Me.btnPage6)
-        Me.panelMain.Controls.Add(Me.btnNext)
         Me.panelMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panelMain.Location = New System.Drawing.Point(0, 0)
         Me.panelMain.Name = "panelMain"
@@ -296,129 +278,6 @@ Partial Class residentinfo
         Me.colGender.Name = "colGender"
         Me.colGender.ReadOnly = True
         '
-        'lblShowingEntries
-        '
-        Me.lblShowingEntries.AutoSize = True
-        Me.lblShowingEntries.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.lblShowingEntries.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.lblShowingEntries.Location = New System.Drawing.Point(23, 560)
-        Me.lblShowingEntries.Name = "lblShowingEntries"
-        Me.lblShowingEntries.Size = New System.Drawing.Size(158, 15)
-        Me.lblShowingEntries.TabIndex = 8
-        Me.lblShowingEntries.Text = "Showing 1 to 10 of 52 entries"
-        '
-        'btnPrevious
-        '
-        Me.btnPrevious.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnPrevious.BackColor = System.Drawing.Color.Transparent
-        Me.btnPrevious.BorderRadius = 8
-        Me.btnPrevious.FillColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnPrevious.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnPrevious.ForeColor = System.Drawing.Color.White
-        Me.btnPrevious.Location = New System.Drawing.Point(800, 560)
-        Me.btnPrevious.Name = "btnPrevious"
-        Me.btnPrevious.Size = New System.Drawing.Size(60, 35)
-        Me.btnPrevious.TabIndex = 9
-        Me.btnPrevious.Text = "Previous"
-        '
-        'btnPage1
-        '
-        Me.btnPage1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnPage1.BackColor = System.Drawing.Color.Transparent
-        Me.btnPage1.BorderRadius = 8
-        Me.btnPage1.FillColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnPage1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnPage1.ForeColor = System.Drawing.Color.White
-        Me.btnPage1.Location = New System.Drawing.Point(870, 560)
-        Me.btnPage1.Name = "btnPage1"
-        Me.btnPage1.Size = New System.Drawing.Size(35, 35)
-        Me.btnPage1.TabIndex = 10
-        Me.btnPage1.Text = "1"
-        '
-        'btnPage2
-        '
-        Me.btnPage2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnPage2.BackColor = System.Drawing.Color.Transparent
-        Me.btnPage2.BorderRadius = 8
-        Me.btnPage2.FillColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnPage2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnPage2.ForeColor = System.Drawing.Color.White
-        Me.btnPage2.Location = New System.Drawing.Point(910, 560)
-        Me.btnPage2.Name = "btnPage2"
-        Me.btnPage2.Size = New System.Drawing.Size(35, 35)
-        Me.btnPage2.TabIndex = 11
-        Me.btnPage2.Text = "2"
-        '
-        'btnPage3
-        '
-        Me.btnPage3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnPage3.BackColor = System.Drawing.Color.Transparent
-        Me.btnPage3.BorderRadius = 8
-        Me.btnPage3.FillColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnPage3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnPage3.ForeColor = System.Drawing.Color.White
-        Me.btnPage3.Location = New System.Drawing.Point(950, 560)
-        Me.btnPage3.Name = "btnPage3"
-        Me.btnPage3.Size = New System.Drawing.Size(35, 35)
-        Me.btnPage3.TabIndex = 12
-        Me.btnPage3.Text = "3"
-        '
-        'btnPage4
-        '
-        Me.btnPage4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnPage4.BackColor = System.Drawing.Color.Transparent
-        Me.btnPage4.BorderRadius = 8
-        Me.btnPage4.FillColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnPage4.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnPage4.ForeColor = System.Drawing.Color.White
-        Me.btnPage4.Location = New System.Drawing.Point(990, 560)
-        Me.btnPage4.Name = "btnPage4"
-        Me.btnPage4.Size = New System.Drawing.Size(35, 35)
-        Me.btnPage4.TabIndex = 13
-        Me.btnPage4.Text = "4"
-        '
-        'btnPage5
-        '
-        Me.btnPage5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnPage5.BackColor = System.Drawing.Color.Transparent
-        Me.btnPage5.BorderRadius = 8
-        Me.btnPage5.FillColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnPage5.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnPage5.ForeColor = System.Drawing.Color.White
-        Me.btnPage5.Location = New System.Drawing.Point(1030, 560)
-        Me.btnPage5.Name = "btnPage5"
-        Me.btnPage5.Size = New System.Drawing.Size(35, 35)
-        Me.btnPage5.TabIndex = 14
-        Me.btnPage5.Text = "5"
-        '
-        'btnPage6
-        '
-        Me.btnPage6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnPage6.BackColor = System.Drawing.Color.Transparent
-        Me.btnPage6.BorderRadius = 8
-        Me.btnPage6.FillColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnPage6.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnPage6.ForeColor = System.Drawing.Color.White
-        Me.btnPage6.Location = New System.Drawing.Point(1070, 560)
-        Me.btnPage6.Name = "btnPage6"
-        Me.btnPage6.Size = New System.Drawing.Size(35, 35)
-        Me.btnPage6.TabIndex = 15
-        Me.btnPage6.Text = "6"
-        '
-        'btnNext
-        '
-        Me.btnNext.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnNext.BackColor = System.Drawing.Color.Transparent
-        Me.btnNext.BorderRadius = 8
-        Me.btnNext.FillColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnNext.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnNext.ForeColor = System.Drawing.Color.White
-        Me.btnNext.Location = New System.Drawing.Point(1110, 560)
-        Me.btnNext.Name = "btnNext"
-        Me.btnNext.Size = New System.Drawing.Size(60, 35)
-        Me.btnNext.TabIndex = 16
-        Me.btnNext.Text = "Next"
-        '
         'residentinfo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -452,13 +311,4 @@ Partial Class residentinfo
     Friend WithEvents colMiddleName As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colMobileNo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colGender As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents lblShowingEntries As System.Windows.Forms.Label
-    Friend WithEvents btnPrevious As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnPage1 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnPage2 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnPage3 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnPage4 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnPage5 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnPage6 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnNext As Guna.UI2.WinForms.Guna2Button
 End Class

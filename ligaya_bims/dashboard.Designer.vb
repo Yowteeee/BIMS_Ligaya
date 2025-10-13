@@ -268,7 +268,7 @@ Partial Class dashboard
         Me.lblWelcome.Name = "lblWelcome"
         Me.lblWelcome.Size = New System.Drawing.Size(200, 48)
         Me.lblWelcome.TabIndex = 1
-        Me.lblWelcome.Text = "Welcome, Jesse!"
+        Me.lblWelcome.Text = "Welcome, John!"
         Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblAppTitle

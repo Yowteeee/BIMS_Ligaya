@@ -75,7 +75,7 @@ Partial Class residentform
         '
         'pnlMain
         '
-        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pnlMain.BackColor = System.Drawing.Color.SeaGreen
         Me.pnlMain.Controls.Add(Me.pnlForm)
         Me.pnlMain.Controls.Add(Me.pnlButtons)
         Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill

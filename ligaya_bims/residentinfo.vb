@@ -50,7 +50,7 @@
             dgvResidents.Rows(rowIndex).Cells("colGender").Value = resident.Gender
         Next
         
-        lblShowingEntries.Text = $"Showing 1 to {residentsList.Count} of {residentsList.Count} entries"
+        lblShowEntries.Text = $"Showing 1 to {residentsList.Count} of {residentsList.Count} entries"
     End Sub
 
     Private Sub btnNewResident_Click(sender As Object, e As EventArgs) Handles btnNewResident.Click
@@ -90,7 +90,7 @@
             dgvResidents.Rows(rowIndex).Cells("colGender").Value = resident.Gender
         Next
         
-        lblShowingEntries.Text = $"Showing 1 to {filteredResidents.Count} of {filteredResidents.Count} entries"
+        lblShowEntries.Text = $"Showing 1 to {filteredResidents.Count} of {filteredResidents.Count} entries"
     End Sub
 
     Private Sub btnExportResident_Click(sender As Object, e As EventArgs) Handles btnExportResident.Click

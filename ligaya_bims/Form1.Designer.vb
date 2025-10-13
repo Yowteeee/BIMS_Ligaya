@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.leftPanel = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2CirclePictureBox1 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.rightPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.card = New Guna.UI2.WinForms.Guna2Panel()
         Me.btnLogin = New Guna.UI2.WinForms.Guna2Button()
@@ -30,11 +31,10 @@ Partial Class Form1
         Me.txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtUsername = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lblTitle = New System.Windows.Forms.Label()
-        Me.Guna2CirclePictureBox1 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.leftPanel.SuspendLayout()
+        CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.rightPanel.SuspendLayout()
         Me.card.SuspendLayout()
-        CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'leftPanel
@@ -46,6 +46,21 @@ Partial Class Form1
         Me.leftPanel.Name = "leftPanel"
         Me.leftPanel.Size = New System.Drawing.Size(480, 600)
         Me.leftPanel.TabIndex = 0
+        '
+        'Guna2CirclePictureBox1
+        '
+        Me.Guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2CirclePictureBox1.FillColor = System.Drawing.Color.DarkGray
+        Me.Guna2CirclePictureBox1.Image = Global.ligaya_bims.My.Resources.Resources.brgy_ligaya_logo
+        Me.Guna2CirclePictureBox1.ImageRotate = 0!
+        Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(1, 51)
+        Me.Guna2CirclePictureBox1.Name = "Guna2CirclePictureBox1"
+        Me.Guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.Guna2CirclePictureBox1.Size = New System.Drawing.Size(474, 471)
+        Me.Guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Guna2CirclePictureBox1.TabIndex = 1
+        Me.Guna2CirclePictureBox1.TabStop = False
+        Me.Guna2CirclePictureBox1.UseTransparentBackground = True
         '
         'rightPanel
         '
@@ -153,21 +168,6 @@ Partial Class Form1
         Me.lblTitle.Text = "Welcome!"
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Guna2CirclePictureBox1
-        '
-        Me.Guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2CirclePictureBox1.FillColor = System.Drawing.Color.DarkGray
-        Me.Guna2CirclePictureBox1.Image = Global.ligaya_bims.My.Resources.Resources.brgy_ligaya_logo
-        Me.Guna2CirclePictureBox1.ImageRotate = 0!
-        Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(1, 51)
-        Me.Guna2CirclePictureBox1.Name = "Guna2CirclePictureBox1"
-        Me.Guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.Guna2CirclePictureBox1.Size = New System.Drawing.Size(474, 471)
-        Me.Guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Guna2CirclePictureBox1.TabIndex = 1
-        Me.Guna2CirclePictureBox1.TabStop = False
-        Me.Guna2CirclePictureBox1.UseTransparentBackground = True
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -181,10 +181,10 @@ Partial Class Form1
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.leftPanel.ResumeLayout(False)
+        CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.rightPanel.ResumeLayout(False)
         Me.card.ResumeLayout(False)
         Me.card.PerformLayout()
-        CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
