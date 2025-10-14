@@ -80,7 +80,6 @@ Partial Class CertifcateIndigency
         Me.Guna2Txtfullname.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Guna2Txtfullname.Location = New System.Drawing.Point(134, 183)
         Me.Guna2Txtfullname.Name = "Guna2Txtfullname"
-        Me.Guna2Txtfullname.PlaceholderText = ""
         Me.Guna2Txtfullname.SelectedText = ""
         Me.Guna2Txtfullname.Size = New System.Drawing.Size(71, 15)
         Me.Guna2Txtfullname.TabIndex = 4
@@ -103,7 +102,6 @@ Partial Class CertifcateIndigency
         Me.Guna2Txtissued1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Guna2Txtissued1.Location = New System.Drawing.Point(105, 248)
         Me.Guna2Txtissued1.Name = "Guna2Txtissued1"
-        Me.Guna2Txtissued1.PlaceholderText = ""
         Me.Guna2Txtissued1.SelectedText = ""
         Me.Guna2Txtissued1.Size = New System.Drawing.Size(16, 10)
         Me.Guna2Txtissued1.TabIndex = 5
@@ -126,7 +124,6 @@ Partial Class CertifcateIndigency
         Me.Guna2Txtissued2.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Guna2Txtissued2.Location = New System.Drawing.Point(144, 248)
         Me.Guna2Txtissued2.Name = "Guna2Txtissued2"
-        Me.Guna2Txtissued2.PlaceholderText = ""
         Me.Guna2Txtissued2.SelectedText = ""
         Me.Guna2Txtissued2.Size = New System.Drawing.Size(53, 10)
         Me.Guna2Txtissued2.TabIndex = 6

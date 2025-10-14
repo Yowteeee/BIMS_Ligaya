@@ -1,5 +1,4 @@
 ﻿Imports MySql.Data.MySqlClient
-Imports Guna.UI2.WinForms
 
 Public Class residentform
     Public Event ResidentSaved(resident As ResidentData)

@@ -131,7 +131,6 @@ Partial Class Form1
         Me.txtPassword.Location = New System.Drawing.Point(50, 152)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
-        Me.txtPassword.PlaceholderText = "Password"
         Me.txtPassword.SelectedText = ""
         Me.txtPassword.Size = New System.Drawing.Size(320, 44)
         Me.txtPassword.TabIndex = 2
@@ -152,7 +151,6 @@ Partial Class Form1
         Me.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.txtUsername.Location = New System.Drawing.Point(49, 96)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.PlaceholderText = "Username"
         Me.txtUsername.SelectedText = ""
         Me.txtUsername.Size = New System.Drawing.Size(320, 44)
         Me.txtUsername.TabIndex = 1

@@ -22,21 +22,21 @@ Partial Class reportsform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.panelMain = New System.Windows.Forms.Panel()
-        Me.lblTypeOfIncident = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.txtTypeOfIncident = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.lblInclusive = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.dtpFrom = New Guna.UI2.WinForms.Guna2DateTimePicker()
-        Me.dtpTo = New Guna.UI2.WinForms.Guna2DateTimePicker()
-        Me.lblExactLocation = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.txtExactLocation = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.lblInvolved = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.txtInvolved = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.lblNarrative = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.txtNarrative = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.btnPageSetup = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnPreview = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnPrint = New Guna.UI2.WinForms.Guna2Button()
+		Me.panelMain = New System.Windows.Forms.Panel()
+		Me.lblTypeOfIncident = New System.Windows.Forms.Label()
+		Me.txtTypeOfIncident = New System.Windows.Forms.TextBox()
+		Me.lblInclusive = New System.Windows.Forms.Label()
+		Me.dtpFrom = New System.Windows.Forms.DateTimePicker()
+		Me.dtpTo = New System.Windows.Forms.DateTimePicker()
+		Me.lblExactLocation = New System.Windows.Forms.Label()
+		Me.txtExactLocation = New System.Windows.Forms.TextBox()
+		Me.lblInvolved = New System.Windows.Forms.Label()
+		Me.txtInvolved = New System.Windows.Forms.TextBox()
+		Me.lblNarrative = New System.Windows.Forms.Label()
+		Me.txtNarrative = New System.Windows.Forms.TextBox()
+		Me.btnPageSetup = New System.Windows.Forms.Button()
+		Me.btnPreview = New System.Windows.Forms.Button()
+		Me.btnPrint = New System.Windows.Forms.Button()
         Me.txtBody = New System.Windows.Forms.TextBox()
         Me.lblBody = New System.Windows.Forms.Label()
         Me.txtSubject = New System.Windows.Forms.TextBox()
@@ -53,7 +53,7 @@ Partial Class reportsform
         '
         'panelMain
         '
-        Me.panelMain.BackColor = System.Drawing.Color.White
+		Me.panelMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer))
         ' Template controls removed
         Me.panelMain.Controls.Add(Me.lblTypeOfIncident)
         Me.panelMain.Controls.Add(Me.txtTypeOfIncident)
@@ -76,61 +76,60 @@ Partial Class reportsform
         Me.panelMain.Controls.Add(Me.txtTitle)
         Me.panelMain.Controls.Add(Me.lblTitle)
         '
-        'lblTypeOfIncident
-        '
-        Me.lblTypeOfIncident.BackColor = System.Drawing.Color.Transparent
-        Me.lblTypeOfIncident.Location = New System.Drawing.Point(15, 12)
-        Me.lblTypeOfIncident.Name = "lblTypeOfIncident"
-        Me.lblTypeOfIncident.TabIndex = 0
-        Me.lblTypeOfIncident.Text = "Type of Incident"
+		'lblTypeOfIncident
+		'
+		Me.lblTypeOfIncident.AutoSize = True
+		Me.lblTypeOfIncident.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+		Me.lblTypeOfIncident.ForeColor = System.Drawing.Color.FromArgb(CType(CType(97, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(97, Byte), Integer))
+		Me.lblTypeOfIncident.Location = New System.Drawing.Point(15, 12)
+		Me.lblTypeOfIncident.Name = "lblTypeOfIncident"
+		Me.lblTypeOfIncident.TabIndex = 0
+		Me.lblTypeOfIncident.Text = "Type of Incident"
         '
         'txtTypeOfIncident
         '
-        Me.txtTypeOfIncident.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtTypeOfIncident.BorderRadius = 6
-        Me.txtTypeOfIncident.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtTypeOfIncident.DefaultText = ""
-        Me.txtTypeOfIncident.Location = New System.Drawing.Point(18, 30)
-        Me.txtTypeOfIncident.Name = "txtTypeOfIncident"
-        Me.txtTypeOfIncident.Size = New System.Drawing.Size(648, 36)
-        Me.txtTypeOfIncident.TabIndex = 1
+		Me.txtTypeOfIncident.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.txtTypeOfIncident.Location = New System.Drawing.Point(18, 30)
+		Me.txtTypeOfIncident.Name = "txtTypeOfIncident"
+		Me.txtTypeOfIncident.Size = New System.Drawing.Size(648, 23)
+		Me.txtTypeOfIncident.TabIndex = 1
         '
-        'lblInclusive
-        '
-        Me.lblInclusive.BackColor = System.Drawing.Color.Transparent
-        Me.lblInclusive.Location = New System.Drawing.Point(15, 72)
-        Me.lblInclusive.Name = "lblInclusive"
-        Me.lblInclusive.TabIndex = 0
-        Me.lblInclusive.Text = "Inclusive Date and Time (From-To)"
+		'lblInclusive
+		'
+		Me.lblInclusive.AutoSize = True
+		Me.lblInclusive.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+		Me.lblInclusive.ForeColor = System.Drawing.Color.FromArgb(CType(CType(97, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(97, Byte), Integer))
+		Me.lblInclusive.Location = New System.Drawing.Point(15, 72)
+		Me.lblInclusive.Name = "lblInclusive"
+		Me.lblInclusive.TabIndex = 0
+		Me.lblInclusive.Text = "Inclusive Date and Time (From-To)"
         '
         'dtpFrom
         '
-        Me.dtpFrom.BorderRadius = 6
-        Me.dtpFrom.Checked = True
-        Me.dtpFrom.CustomFormat = "MMMM dd, yyyy  hh:mm tt"
-        Me.dtpFrom.FillColor = System.Drawing.Color.White
-        Me.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFrom.Location = New System.Drawing.Point(18, 90)
+		Me.dtpFrom.Checked = True
+		Me.dtpFrom.CustomFormat = "MMMM dd, yyyy  hh:mm tt"
+		Me.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+		Me.dtpFrom.Location = New System.Drawing.Point(18, 90)
         Me.dtpFrom.Name = "dtpFrom"
-        Me.dtpFrom.Size = New System.Drawing.Size(240, 36)
+		Me.dtpFrom.Size = New System.Drawing.Size(240, 23)
         Me.dtpFrom.TabIndex = 2
         '
         'dtpTo
         '
-        Me.dtpTo.BorderRadius = 6
-        Me.dtpTo.Checked = True
-        Me.dtpTo.CustomFormat = "MMMM dd, yyyy  hh:mm tt"
-        Me.dtpTo.FillColor = System.Drawing.Color.White
-        Me.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpTo.Location = New System.Drawing.Point(264, 90)
+		Me.dtpTo.Checked = True
+		Me.dtpTo.CustomFormat = "MMMM dd, yyyy  hh:mm tt"
+		Me.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+		Me.dtpTo.Location = New System.Drawing.Point(264, 90)
         Me.dtpTo.Name = "dtpTo"
-        Me.dtpTo.Size = New System.Drawing.Size(240, 36)
+		Me.dtpTo.Size = New System.Drawing.Size(240, 23)
         Me.dtpTo.TabIndex = 3
 
         'lblExactLocation
         '
-        Me.lblExactLocation.BackColor = System.Drawing.Color.Transparent
+		Me.lblExactLocation.AutoSize = True
+		Me.lblExactLocation.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+		Me.lblExactLocation.ForeColor = System.Drawing.Color.FromArgb(CType(CType(97, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.lblExactLocation.Location = New System.Drawing.Point(15, 132)
         Me.lblExactLocation.Name = "lblExactLocation"
         Me.lblExactLocation.TabIndex = 0
@@ -138,19 +137,18 @@ Partial Class reportsform
 
         'txtExactLocation
         '
-        Me.txtExactLocation.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtExactLocation.BorderRadius = 6
-        Me.txtExactLocation.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtExactLocation.DefaultText = ""
-        Me.txtExactLocation.Location = New System.Drawing.Point(18, 150)
-        Me.txtExactLocation.Name = "txtExactLocation"
-        Me.txtExactLocation.Size = New System.Drawing.Size(648, 36)
-        Me.txtExactLocation.TabIndex = 3
+		Me.txtExactLocation.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.txtExactLocation.Location = New System.Drawing.Point(18, 150)
+		Me.txtExactLocation.Name = "txtExactLocation"
+		Me.txtExactLocation.Size = New System.Drawing.Size(648, 23)
+		Me.txtExactLocation.TabIndex = 3
         '
         'lblInvolved
         '
-        Me.lblInvolved.BackColor = System.Drawing.Color.Transparent
+		Me.lblInvolved.AutoSize = True
+		Me.lblInvolved.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+		Me.lblInvolved.ForeColor = System.Drawing.Color.FromArgb(CType(CType(97, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.lblInvolved.Location = New System.Drawing.Point(15, 192)
         Me.lblInvolved.Name = "lblInvolved"
         Me.lblInvolved.TabIndex = 0
@@ -158,19 +156,18 @@ Partial Class reportsform
         '
         'txtInvolved
         '
-        Me.txtInvolved.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtInvolved.BorderRadius = 6
-        Me.txtInvolved.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtInvolved.DefaultText = ""
-        Me.txtInvolved.Location = New System.Drawing.Point(18, 210)
-        Me.txtInvolved.Name = "txtInvolved"
-        Me.txtInvolved.Size = New System.Drawing.Size(648, 36)
-        Me.txtInvolved.TabIndex = 4
+		Me.txtInvolved.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.txtInvolved.Location = New System.Drawing.Point(18, 210)
+		Me.txtInvolved.Name = "txtInvolved"
+		Me.txtInvolved.Size = New System.Drawing.Size(648, 23)
+		Me.txtInvolved.TabIndex = 4
         '
         'lblNarrative
         '
-        Me.lblNarrative.BackColor = System.Drawing.Color.Transparent
+		Me.lblNarrative.AutoSize = True
+		Me.lblNarrative.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+		Me.lblNarrative.ForeColor = System.Drawing.Color.FromArgb(CType(CType(97, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.lblNarrative.Location = New System.Drawing.Point(15, 252)
         Me.lblNarrative.Name = "lblNarrative"
         Me.lblNarrative.TabIndex = 0
@@ -178,18 +175,15 @@ Partial Class reportsform
         '
         'txtNarrative
         '
-        Me.txtNarrative.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtNarrative.BorderRadius = 6
-        Me.txtNarrative.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtNarrative.DefaultText = ""
-        Me.txtNarrative.Location = New System.Drawing.Point(18, 270)
-        Me.txtNarrative.Multiline = True
-        Me.txtNarrative.Name = "txtNarrative"
-        Me.txtNarrative.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtNarrative.Size = New System.Drawing.Size(648, 270)
-        Me.txtNarrative.TabIndex = 5
+		Me.txtNarrative.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+			Or System.Windows.Forms.AnchorStyles.Left) _
+			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.txtNarrative.Location = New System.Drawing.Point(18, 270)
+		Me.txtNarrative.Multiline = True
+		Me.txtNarrative.Name = "txtNarrative"
+		Me.txtNarrative.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+		Me.txtNarrative.Size = New System.Drawing.Size(648, 270)
+		Me.txtNarrative.TabIndex = 5
         Me.panelMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panelMain.Location = New System.Drawing.Point(0, 0)
         Me.panelMain.Name = "panelMain"
@@ -199,42 +193,51 @@ Partial Class reportsform
         '
         'btnPageSetup
         '
-        Me.btnPageSetup.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnPageSetup.BorderRadius = 6
-        Me.btnPageSetup.FillColor = System.Drawing.Color.FromArgb(100, 100, 100)
-        Me.btnPageSetup.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnPageSetup.ForeColor = System.Drawing.Color.White
-        Me.btnPageSetup.Location = New System.Drawing.Point(15, 555)
-        Me.btnPageSetup.Name = "btnPageSetup"
-        Me.btnPageSetup.Size = New System.Drawing.Size(100, 30)
-        Me.btnPageSetup.TabIndex = 6
-        Me.btnPageSetup.Text = "Page Setup"
+		Me.btnPageSetup.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+		Me.btnPageSetup.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
+		Me.btnPageSetup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnPageSetup.FlatAppearance.BorderSize = 0
+		Me.btnPageSetup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+		Me.btnPageSetup.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(24, Byte), Integer))
+		Me.btnPageSetup.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+		Me.btnPageSetup.ForeColor = System.Drawing.Color.White
+		Me.btnPageSetup.Location = New System.Drawing.Point(15, 555)
+		Me.btnPageSetup.Name = "btnPageSetup"
+		Me.btnPageSetup.Size = New System.Drawing.Size(100, 30)
+		Me.btnPageSetup.TabIndex = 6
+		Me.btnPageSetup.Text = "Page Setup"
         '
         'btnPreview
         '
-        Me.btnPreview.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnPreview.BorderRadius = 6
-        Me.btnPreview.FillColor = System.Drawing.Color.FromArgb(47, 85, 151)
-        Me.btnPreview.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnPreview.ForeColor = System.Drawing.Color.White
-        Me.btnPreview.Location = New System.Drawing.Point(121, 555)
-        Me.btnPreview.Name = "btnPreview"
-        Me.btnPreview.Size = New System.Drawing.Size(100, 30)
-        Me.btnPreview.TabIndex = 7
-        Me.btnPreview.Text = "Preview"
+		Me.btnPreview.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+		Me.btnPreview.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
+		Me.btnPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnPreview.FlatAppearance.BorderSize = 0
+		Me.btnPreview.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+		Me.btnPreview.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(24, Byte), Integer))
+		Me.btnPreview.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+		Me.btnPreview.ForeColor = System.Drawing.Color.White
+		Me.btnPreview.Location = New System.Drawing.Point(121, 555)
+		Me.btnPreview.Name = "btnPreview"
+		Me.btnPreview.Size = New System.Drawing.Size(100, 30)
+		Me.btnPreview.TabIndex = 7
+		Me.btnPreview.Text = "Preview"
         '
         'btnPrint
         '
-        Me.btnPrint.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnPrint.BorderRadius = 6
-        Me.btnPrint.FillColor = System.Drawing.Color.FromArgb(0, 158, 73)
-        Me.btnPrint.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnPrint.ForeColor = System.Drawing.Color.White
-        Me.btnPrint.Location = New System.Drawing.Point(227, 555)
-        Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(100, 30)
-        Me.btnPrint.TabIndex = 8
-        Me.btnPrint.Text = "Print"
+		Me.btnPrint.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+		Me.btnPrint.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
+		Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnPrint.FlatAppearance.BorderSize = 0
+		Me.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+		Me.btnPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(24, Byte), Integer))
+		Me.btnPrint.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+		Me.btnPrint.ForeColor = System.Drawing.Color.White
+		Me.btnPrint.Location = New System.Drawing.Point(227, 555)
+		Me.btnPrint.Name = "btnPrint"
+		Me.btnPrint.Size = New System.Drawing.Size(100, 30)
+		Me.btnPrint.TabIndex = 8
+		Me.btnPrint.Text = "Print"
         '
 
 
@@ -332,20 +335,20 @@ Partial Class reportsform
     End Sub
 
     Friend WithEvents panelMain As System.Windows.Forms.Panel
-    Friend WithEvents lblTypeOfIncident As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents txtTypeOfIncident As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents lblInclusive As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents dtpFrom As Guna.UI2.WinForms.Guna2DateTimePicker
-    Friend WithEvents dtpTo As Guna.UI2.WinForms.Guna2DateTimePicker
-    Friend WithEvents lblExactLocation As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents txtExactLocation As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents lblInvolved As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents txtInvolved As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents lblNarrative As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents txtNarrative As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents btnPageSetup As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnPreview As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnPrint As Guna.UI2.WinForms.Guna2Button
+	Friend WithEvents lblTypeOfIncident As System.Windows.Forms.Label
+	Friend WithEvents txtTypeOfIncident As System.Windows.Forms.TextBox
+	Friend WithEvents lblInclusive As System.Windows.Forms.Label
+	Friend WithEvents dtpFrom As System.Windows.Forms.DateTimePicker
+	Friend WithEvents dtpTo As System.Windows.Forms.DateTimePicker
+	Friend WithEvents lblExactLocation As System.Windows.Forms.Label
+	Friend WithEvents txtExactLocation As System.Windows.Forms.TextBox
+	Friend WithEvents lblInvolved As System.Windows.Forms.Label
+	Friend WithEvents txtInvolved As System.Windows.Forms.TextBox
+	Friend WithEvents lblNarrative As System.Windows.Forms.Label
+	Friend WithEvents txtNarrative As System.Windows.Forms.TextBox
+	Friend WithEvents btnPageSetup As System.Windows.Forms.Button
+	Friend WithEvents btnPreview As System.Windows.Forms.Button
+	Friend WithEvents btnPrint As System.Windows.Forms.Button
     Friend WithEvents txtBody As System.Windows.Forms.TextBox
     Friend WithEvents lblBody As System.Windows.Forms.Label
     Friend WithEvents txtSubject As System.Windows.Forms.TextBox
