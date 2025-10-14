@@ -22,27 +22,27 @@ Partial Class residentform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.pnlMain = New System.Windows.Forms.Panel()
-        Me.pnlForm = New System.Windows.Forms.Panel()
-        Me.pnlIdPicture = New System.Windows.Forms.Panel()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.picIdPicture = New System.Windows.Forms.PictureBox()
-        Me.btnChoosePicture = New System.Windows.Forms.Button()
-        Me.lblIdPicture = New System.Windows.Forms.Label()
-        Me.pnlFields = New System.Windows.Forms.Panel()
-        Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.txtPhoneNumber = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtMothersName = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtEmail = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtHeight = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtSpouse = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtFathersName = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtWeight = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtCitizenship = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtMiddleName = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtFirstName = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtLastName = New Guna.UI2.WinForms.Guna2TextBox()
+		Me.pnlMain = New System.Windows.Forms.Panel()
+		Me.pnlForm = New System.Windows.Forms.Panel()
+		Me.pnlIdPicture = New System.Windows.Forms.Panel()
+		Me.btnCancel = New System.Windows.Forms.Button()
+		Me.btnSave = New System.Windows.Forms.Button()
+		Me.picIdPicture = New System.Windows.Forms.PictureBox()
+		Me.btnChoosePicture = New System.Windows.Forms.Button()
+		Me.lblIdPicture = New System.Windows.Forms.Label()
+		Me.pnlFields = New System.Windows.Forms.Panel()
+		Me.Guna2HtmlLabel3 = New System.Windows.Forms.Label()
+		Me.txtPhoneNumber = New System.Windows.Forms.TextBox()
+		Me.txtMothersName = New System.Windows.Forms.TextBox()
+		Me.txtEmail = New System.Windows.Forms.TextBox()
+		Me.txtHeight = New System.Windows.Forms.TextBox()
+		Me.txtSpouse = New System.Windows.Forms.TextBox()
+		Me.txtFathersName = New System.Windows.Forms.TextBox()
+		Me.txtWeight = New System.Windows.Forms.TextBox()
+		Me.txtCitizenship = New System.Windows.Forms.TextBox()
+		Me.txtMiddleName = New System.Windows.Forms.TextBox()
+		Me.txtFirstName = New System.Windows.Forms.TextBox()
+		Me.txtLastName = New System.Windows.Forms.TextBox()
         Me.lblMothersName = New System.Windows.Forms.Label()
         Me.lblFathersName = New System.Windows.Forms.Label()
         Me.lblSpouse = New System.Windows.Forms.Label()
@@ -75,7 +75,7 @@ Partial Class residentform
         '
         'pnlMain
         '
-        Me.pnlMain.BackColor = System.Drawing.Color.SeaGreen
+		Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer))
         Me.pnlMain.Controls.Add(Me.pnlForm)
         Me.pnlMain.Controls.Add(Me.pnlButtons)
         Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
@@ -215,214 +215,104 @@ Partial Class residentform
         Me.pnlFields.Size = New System.Drawing.Size(960, 620)
         Me.pnlFields.TabIndex = 0
         '
-        'Guna2HtmlLabel3
+		'Guna2HtmlLabel3 (converted to Label)
+		'
+		Me.Guna2HtmlLabel3.AutoSize = True
+		Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
+		Me.Guna2HtmlLabel3.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold)
+		Me.Guna2HtmlLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+		Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(19, 20)
+		Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
+		Me.Guna2HtmlLabel3.TabIndex = 43
+		Me.Guna2HtmlLabel3.Text = "Profiling:"
         '
-        Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(19, 20)
-        Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
-        Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(149, 41)
-        Me.Guna2HtmlLabel3.TabIndex = 43
-        Me.Guna2HtmlLabel3.Text = "Profiling:"
+		'txtPhoneNumber
+		'
+		Me.txtPhoneNumber.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+		Me.txtPhoneNumber.Location = New System.Drawing.Point(23, 486)
+		Me.txtPhoneNumber.Name = "txtPhoneNumber"
+		Me.txtPhoneNumber.Size = New System.Drawing.Size(157, 23)
+		Me.txtPhoneNumber.TabIndex = 42
         '
-        'txtPhoneNumber
+		'txtMothersName
+		'
+		Me.txtMothersName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+		Me.txtMothersName.Location = New System.Drawing.Point(249, 292)
+		Me.txtMothersName.Name = "txtMothersName"
+		Me.txtMothersName.Size = New System.Drawing.Size(176, 23)
+		Me.txtMothersName.TabIndex = 41
         '
-        Me.txtPhoneNumber.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtPhoneNumber.DefaultText = ""
-        Me.txtPhoneNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtPhoneNumber.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtPhoneNumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPhoneNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPhoneNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPhoneNumber.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtPhoneNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPhoneNumber.Location = New System.Drawing.Point(23, 486)
-        Me.txtPhoneNumber.Name = "txtPhoneNumber"
-        Me.txtPhoneNumber.PlaceholderText = ""
-        Me.txtPhoneNumber.SelectedText = ""
-        Me.txtPhoneNumber.Size = New System.Drawing.Size(157, 26)
-        Me.txtPhoneNumber.TabIndex = 42
+		'txtEmail
+		'
+		Me.txtEmail.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+		Me.txtEmail.Location = New System.Drawing.Point(249, 425)
+		Me.txtEmail.Name = "txtEmail"
+		Me.txtEmail.Size = New System.Drawing.Size(176, 23)
+		Me.txtEmail.TabIndex = 40
         '
-        'txtMothersName
+		'txtHeight
+		'
+		Me.txtHeight.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+		Me.txtHeight.Location = New System.Drawing.Point(487, 174)
+		Me.txtHeight.Name = "txtHeight"
+		Me.txtHeight.Size = New System.Drawing.Size(125, 23)
+		Me.txtHeight.TabIndex = 39
         '
-        Me.txtMothersName.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtMothersName.DefaultText = ""
-        Me.txtMothersName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtMothersName.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtMothersName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtMothersName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtMothersName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtMothersName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtMothersName.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtMothersName.Location = New System.Drawing.Point(249, 292)
-        Me.txtMothersName.Name = "txtMothersName"
-        Me.txtMothersName.PlaceholderText = ""
-        Me.txtMothersName.SelectedText = ""
-        Me.txtMothersName.Size = New System.Drawing.Size(176, 26)
-        Me.txtMothersName.TabIndex = 41
+		'txtSpouse
+		'
+		Me.txtSpouse.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+		Me.txtSpouse.Location = New System.Drawing.Point(249, 355)
+		Me.txtSpouse.Name = "txtSpouse"
+		Me.txtSpouse.Size = New System.Drawing.Size(176, 23)
+		Me.txtSpouse.TabIndex = 38
         '
-        'txtEmail
+		'txtFathersName
+		'
+		Me.txtFathersName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+		Me.txtFathersName.Location = New System.Drawing.Point(249, 232)
+		Me.txtFathersName.Name = "txtFathersName"
+		Me.txtFathersName.Size = New System.Drawing.Size(176, 23)
+		Me.txtFathersName.TabIndex = 37
         '
-        Me.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtEmail.DefaultText = ""
-        Me.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtEmail.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtEmail.Location = New System.Drawing.Point(249, 425)
-        Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.PlaceholderText = ""
-        Me.txtEmail.SelectedText = ""
-        Me.txtEmail.Size = New System.Drawing.Size(176, 26)
-        Me.txtEmail.TabIndex = 40
+		'txtWeight
+		'
+		Me.txtWeight.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+		Me.txtWeight.Location = New System.Drawing.Point(487, 104)
+		Me.txtWeight.Name = "txtWeight"
+		Me.txtWeight.Size = New System.Drawing.Size(125, 23)
+		Me.txtWeight.TabIndex = 36
         '
-        'txtHeight
+		'txtCitizenship
+		'
+		Me.txtCitizenship.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+		Me.txtCitizenship.Location = New System.Drawing.Point(249, 174)
+		Me.txtCitizenship.Name = "txtCitizenship"
+		Me.txtCitizenship.Size = New System.Drawing.Size(176, 23)
+		Me.txtCitizenship.TabIndex = 35
         '
-        Me.txtHeight.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtHeight.DefaultText = ""
-        Me.txtHeight.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtHeight.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtHeight.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtHeight.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtHeight.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtHeight.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtHeight.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtHeight.Location = New System.Drawing.Point(487, 174)
-        Me.txtHeight.Name = "txtHeight"
-        Me.txtHeight.PlaceholderText = ""
-        Me.txtHeight.SelectedText = ""
-        Me.txtHeight.Size = New System.Drawing.Size(125, 26)
-        Me.txtHeight.TabIndex = 39
+		'txtMiddleName
+		'
+		Me.txtMiddleName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+		Me.txtMiddleName.Location = New System.Drawing.Point(23, 239)
+		Me.txtMiddleName.Name = "txtMiddleName"
+		Me.txtMiddleName.Size = New System.Drawing.Size(200, 23)
+		Me.txtMiddleName.TabIndex = 34
         '
-        'txtSpouse
+		'txtFirstName
+		'
+		Me.txtFirstName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+		Me.txtFirstName.Location = New System.Drawing.Point(23, 173)
+		Me.txtFirstName.Name = "txtFirstName"
+		Me.txtFirstName.Size = New System.Drawing.Size(200, 23)
+		Me.txtFirstName.TabIndex = 33
         '
-        Me.txtSpouse.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtSpouse.DefaultText = ""
-        Me.txtSpouse.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtSpouse.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtSpouse.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtSpouse.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtSpouse.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtSpouse.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtSpouse.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtSpouse.Location = New System.Drawing.Point(249, 355)
-        Me.txtSpouse.Name = "txtSpouse"
-        Me.txtSpouse.PlaceholderText = ""
-        Me.txtSpouse.SelectedText = ""
-        Me.txtSpouse.Size = New System.Drawing.Size(176, 26)
-        Me.txtSpouse.TabIndex = 38
-        '
-        'txtFathersName
-        '
-        Me.txtFathersName.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtFathersName.DefaultText = ""
-        Me.txtFathersName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtFathersName.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtFathersName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtFathersName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtFathersName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtFathersName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtFathersName.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtFathersName.Location = New System.Drawing.Point(249, 232)
-        Me.txtFathersName.Name = "txtFathersName"
-        Me.txtFathersName.PlaceholderText = ""
-        Me.txtFathersName.SelectedText = ""
-        Me.txtFathersName.Size = New System.Drawing.Size(176, 26)
-        Me.txtFathersName.TabIndex = 37
-        '
-        'txtWeight
-        '
-        Me.txtWeight.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtWeight.DefaultText = ""
-        Me.txtWeight.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtWeight.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtWeight.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtWeight.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtWeight.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtWeight.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtWeight.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtWeight.Location = New System.Drawing.Point(487, 104)
-        Me.txtWeight.Name = "txtWeight"
-        Me.txtWeight.PlaceholderText = ""
-        Me.txtWeight.SelectedText = ""
-        Me.txtWeight.Size = New System.Drawing.Size(125, 26)
-        Me.txtWeight.TabIndex = 36
-        '
-        'txtCitizenship
-        '
-        Me.txtCitizenship.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtCitizenship.DefaultText = ""
-        Me.txtCitizenship.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtCitizenship.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtCitizenship.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtCitizenship.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtCitizenship.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtCitizenship.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtCitizenship.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtCitizenship.Location = New System.Drawing.Point(249, 174)
-        Me.txtCitizenship.Name = "txtCitizenship"
-        Me.txtCitizenship.PlaceholderText = ""
-        Me.txtCitizenship.SelectedText = ""
-        Me.txtCitizenship.Size = New System.Drawing.Size(176, 26)
-        Me.txtCitizenship.TabIndex = 35
-        '
-        'txtMiddleName
-        '
-        Me.txtMiddleName.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtMiddleName.DefaultText = ""
-        Me.txtMiddleName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtMiddleName.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtMiddleName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtMiddleName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtMiddleName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtMiddleName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtMiddleName.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtMiddleName.Location = New System.Drawing.Point(23, 239)
-        Me.txtMiddleName.Name = "txtMiddleName"
-        Me.txtMiddleName.PlaceholderText = ""
-        Me.txtMiddleName.SelectedText = ""
-        Me.txtMiddleName.Size = New System.Drawing.Size(200, 36)
-        Me.txtMiddleName.TabIndex = 34
-        '
-        'txtFirstName
-        '
-        Me.txtFirstName.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtFirstName.DefaultText = ""
-        Me.txtFirstName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtFirstName.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtFirstName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtFirstName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtFirstName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtFirstName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtFirstName.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtFirstName.Location = New System.Drawing.Point(23, 173)
-        Me.txtFirstName.Name = "txtFirstName"
-        Me.txtFirstName.PlaceholderText = ""
-        Me.txtFirstName.SelectedText = ""
-        Me.txtFirstName.Size = New System.Drawing.Size(200, 36)
-        Me.txtFirstName.TabIndex = 33
-        '
-        'txtLastName
-        '
-        Me.txtLastName.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtLastName.DefaultText = ""
-        Me.txtLastName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtLastName.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtLastName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtLastName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtLastName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtLastName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtLastName.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtLastName.Location = New System.Drawing.Point(23, 104)
-        Me.txtLastName.Name = "txtLastName"
-        Me.txtLastName.PlaceholderText = ""
-        Me.txtLastName.SelectedText = ""
-        Me.txtLastName.Size = New System.Drawing.Size(200, 35)
-        Me.txtLastName.TabIndex = 32
+		'txtLastName
+		'
+		Me.txtLastName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+		Me.txtLastName.Location = New System.Drawing.Point(23, 104)
+		Me.txtLastName.Name = "txtLastName"
+		Me.txtLastName.Size = New System.Drawing.Size(200, 23)
+		Me.txtLastName.TabIndex = 32
         '
         'lblMothersName
         '
@@ -704,16 +594,16 @@ Partial Class residentform
     Friend WithEvents lblMiddleName As Label
     Friend WithEvents lblFirstName As Label
     Friend WithEvents lblLastName As Label
-    Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents txtPhoneNumber As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents txtMothersName As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents txtEmail As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents txtHeight As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents txtSpouse As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents txtFathersName As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents txtWeight As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents txtCitizenship As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents txtMiddleName As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents txtFirstName As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents txtLastName As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2HtmlLabel3 As System.Windows.Forms.Label
+    Friend WithEvents txtPhoneNumber As System.Windows.Forms.TextBox
+    Friend WithEvents txtMothersName As System.Windows.Forms.TextBox
+    Friend WithEvents txtEmail As System.Windows.Forms.TextBox
+    Friend WithEvents txtHeight As System.Windows.Forms.TextBox
+    Friend WithEvents txtSpouse As System.Windows.Forms.TextBox
+    Friend WithEvents txtFathersName As System.Windows.Forms.TextBox
+    Friend WithEvents txtWeight As System.Windows.Forms.TextBox
+    Friend WithEvents txtCitizenship As System.Windows.Forms.TextBox
+    Friend WithEvents txtMiddleName As System.Windows.Forms.TextBox
+    Friend WithEvents txtFirstName As System.Windows.Forms.TextBox
+    Friend WithEvents txtLastName As System.Windows.Forms.TextBox
 End Class

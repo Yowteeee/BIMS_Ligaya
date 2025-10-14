@@ -25,45 +25,45 @@ Partial Class dashboard
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.leftNav = New Guna.UI2.WinForms.Guna2Panel()
-        Me.navLogout = New Guna.UI2.WinForms.Guna2Button()
-        Me.navBackup = New Guna.UI2.WinForms.Guna2Button()
-        Me.navStaffs = New Guna.UI2.WinForms.Guna2Button()
-        Me.navDocs = New Guna.UI2.WinForms.Guna2Button()
-        Me.navCedula = New Guna.UI2.WinForms.Guna2Button()
-        Me.navReports = New Guna.UI2.WinForms.Guna2Button()
-        Me.navResidents = New Guna.UI2.WinForms.Guna2Button()
-        Me.navDashboard = New Guna.UI2.WinForms.Guna2Button()
-        Me.leftHeader = New Guna.UI2.WinForms.Guna2Panel()
+        Me.leftNav = New System.Windows.Forms.Panel()
+        Me.navLogout = New System.Windows.Forms.Button()
+        Me.navBackup = New System.Windows.Forms.Button()
+        Me.navStaffs = New System.Windows.Forms.Button()
+        Me.navDocs = New System.Windows.Forms.Button()
+        Me.navCedula = New System.Windows.Forms.Button()
+        Me.navReports = New System.Windows.Forms.Button()
+        Me.navResidents = New System.Windows.Forms.Button()
+        Me.navDashboard = New System.Windows.Forms.Button()
+        Me.leftHeader = New System.Windows.Forms.Panel()
         Me.lblBrand = New System.Windows.Forms.Label()
-        Me.topBar = New Guna.UI2.WinForms.Guna2Panel()
+        Me.topBar = New System.Windows.Forms.Panel()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.lblAppTitle = New System.Windows.Forms.Label()
         Me.contentHost = New System.Windows.Forms.Panel()
         Me.chartsTable = New System.Windows.Forms.TableLayoutPanel()
-        Me.chartLeft = New Guna.UI2.WinForms.Guna2Panel()
-        Me.dgvDashboardResidents = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.chartLeft = New System.Windows.Forms.Panel()
+        Me.dgvDashboardResidents = New System.Windows.Forms.DataGridView()
         Me.lblResidentsList = New System.Windows.Forms.Label()
-        Me.chartRight = New Guna.UI2.WinForms.Guna2Panel()
+        Me.chartRight = New System.Windows.Forms.Panel()
         Me.chartPurok = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.lblPurokChart = New System.Windows.Forms.Label()
         Me.statsTable = New System.Windows.Forms.TableLayoutPanel()
-        Me.cardHouseholds = New Guna.UI2.WinForms.Guna2Panel()
+        Me.cardHouseholds = New System.Windows.Forms.Panel()
         Me.lblHouseholdsSub = New System.Windows.Forms.Label()
         Me.lblHouseholds = New System.Windows.Forms.Label()
-        Me.cardPopulation = New Guna.UI2.WinForms.Guna2Panel()
+        Me.cardPopulation = New System.Windows.Forms.Panel()
         Me.lblPopulationSub = New System.Windows.Forms.Label()
         Me.lblPopulation = New System.Windows.Forms.Label()
-        Me.cardPending = New Guna.UI2.WinForms.Guna2Panel()
+        Me.cardPending = New System.Windows.Forms.Panel()
         Me.lblPendingSub = New System.Windows.Forms.Label()
         Me.lblPending = New System.Windows.Forms.Label()
-        Me.cardVoters = New Guna.UI2.WinForms.Guna2Panel()
+        Me.cardVoters = New System.Windows.Forms.Panel()
         Me.lblVotersSub = New System.Windows.Forms.Label()
         Me.lblVoters = New System.Windows.Forms.Label()
-        Me.cardCrime = New Guna.UI2.WinForms.Guna2Panel()
+        Me.cardCrime = New System.Windows.Forms.Panel()
         Me.lblCrimeSub = New System.Windows.Forms.Label()
         Me.lblCrime = New System.Windows.Forms.Label()
-        Me.cardIndigent = New Guna.UI2.WinForms.Guna2Panel()
+        Me.cardIndigent = New System.Windows.Forms.Panel()
         Me.lblIndigentSub = New System.Windows.Forms.Label()
         Me.lblIndigent = New System.Windows.Forms.Label()
         Me.leftNav.SuspendLayout()
@@ -96,7 +96,7 @@ Partial Class dashboard
         Me.leftNav.Controls.Add(Me.navDashboard)
         Me.leftNav.Controls.Add(Me.leftHeader)
         Me.leftNav.Dock = System.Windows.Forms.DockStyle.Left
-        Me.leftNav.FillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(95, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.leftNav.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.leftNav.Location = New System.Drawing.Point(0, 0)
         Me.leftNav.Name = "leftNav"
         Me.leftNav.Size = New System.Drawing.Size(200, 861)
@@ -106,130 +106,128 @@ Partial Class dashboard
         '
         Me.navLogout.BackColor = System.Drawing.Color.Transparent
         Me.navLogout.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.navLogout.FillColor = System.Drawing.Color.Transparent
+        Me.navLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.navLogout.FlatAppearance.BorderSize = 0
         Me.navLogout.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.navLogout.ForeColor = System.Drawing.Color.IndianRed
-        Me.navLogout.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.navLogout.Location = New System.Drawing.Point(0, 773)
         Me.navLogout.Name = "navLogout"
         Me.navLogout.Size = New System.Drawing.Size(200, 44)
         Me.navLogout.TabIndex = 8
         Me.navLogout.Text = "  Log Out"
-        Me.navLogout.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.navLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'navBackup
         '
         Me.navBackup.BackColor = System.Drawing.Color.Transparent
         Me.navBackup.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.navBackup.FillColor = System.Drawing.Color.Transparent
+        Me.navBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.navBackup.FlatAppearance.BorderSize = 0
         Me.navBackup.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navBackup.ForeColor = System.Drawing.Color.Gainsboro
-        Me.navBackup.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.navBackup.Location = New System.Drawing.Point(0, 817)
         Me.navBackup.Name = "navBackup"
         Me.navBackup.Size = New System.Drawing.Size(200, 44)
         Me.navBackup.TabIndex = 7
         Me.navBackup.Text = "  Backup and Restore"
-        Me.navBackup.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.navBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'navStaffs
         '
         Me.navStaffs.BackColor = System.Drawing.Color.Transparent
         Me.navStaffs.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navStaffs.FillColor = System.Drawing.Color.Transparent
+        Me.navStaffs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.navStaffs.FlatAppearance.BorderSize = 0
         Me.navStaffs.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navStaffs.ForeColor = System.Drawing.Color.Gainsboro
-        Me.navStaffs.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.navStaffs.Location = New System.Drawing.Point(0, 290)
         Me.navStaffs.Name = "navStaffs"
         Me.navStaffs.Size = New System.Drawing.Size(200, 44)
         Me.navStaffs.TabIndex = 6
         Me.navStaffs.Text = "  Staffs"
-        Me.navStaffs.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.navStaffs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'navDocs
         '
         Me.navDocs.BackColor = System.Drawing.Color.Transparent
         Me.navDocs.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navDocs.FillColor = System.Drawing.Color.Transparent
+        Me.navDocs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.navDocs.FlatAppearance.BorderSize = 0
         Me.navDocs.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navDocs.ForeColor = System.Drawing.Color.Gainsboro
-        Me.navDocs.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.navDocs.Location = New System.Drawing.Point(0, 246)
         Me.navDocs.Name = "navDocs"
         Me.navDocs.Size = New System.Drawing.Size(200, 44)
         Me.navDocs.TabIndex = 5
         Me.navDocs.Text = "Certificate Issuance"
-        Me.navDocs.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.navDocs.TextOffset = New System.Drawing.Point(8, 0)
+        Me.navDocs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'navCedula
         '
         Me.navCedula.BackColor = System.Drawing.Color.Transparent
         Me.navCedula.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navCedula.FillColor = System.Drawing.Color.Transparent
+        Me.navCedula.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.navCedula.FlatAppearance.BorderSize = 0
         Me.navCedula.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navCedula.ForeColor = System.Drawing.Color.Gainsboro
-        Me.navCedula.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.navCedula.Location = New System.Drawing.Point(0, 202)
         Me.navCedula.Name = "navCedula"
         Me.navCedula.Size = New System.Drawing.Size(200, 44)
         Me.navCedula.TabIndex = 4
         Me.navCedula.Text = "  Cedula Tracker"
-        Me.navCedula.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.navCedula.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'navReports
         '
         Me.navReports.BackColor = System.Drawing.Color.Transparent
         Me.navReports.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navReports.FillColor = System.Drawing.Color.Transparent
+        Me.navReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.navReports.FlatAppearance.BorderSize = 0
         Me.navReports.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navReports.ForeColor = System.Drawing.Color.Gainsboro
-        Me.navReports.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.navReports.Location = New System.Drawing.Point(0, 158)
         Me.navReports.Name = "navReports"
         Me.navReports.Size = New System.Drawing.Size(200, 44)
         Me.navReports.TabIndex = 3
         Me.navReports.Text = "  Reports"
-        Me.navReports.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.navReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'navResidents
         '
         Me.navResidents.BackColor = System.Drawing.Color.Transparent
         Me.navResidents.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navResidents.FillColor = System.Drawing.Color.Transparent
+        Me.navResidents.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.navResidents.FlatAppearance.BorderSize = 0
         Me.navResidents.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navResidents.ForeColor = System.Drawing.Color.Gainsboro
-        Me.navResidents.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.navResidents.Location = New System.Drawing.Point(0, 114)
         Me.navResidents.Name = "navResidents"
         Me.navResidents.Size = New System.Drawing.Size(200, 44)
         Me.navResidents.TabIndex = 2
         Me.navResidents.Text = "  Residents"
-        Me.navResidents.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.navResidents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'navDashboard
         '
         Me.navDashboard.BackColor = System.Drawing.Color.Transparent
         Me.navDashboard.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navDashboard.FillColor = System.Drawing.Color.Transparent
+        Me.navDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.navDashboard.FlatAppearance.BorderSize = 0
         Me.navDashboard.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navDashboard.ForeColor = System.Drawing.Color.Gainsboro
-        Me.navDashboard.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.navDashboard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.navDashboard.Location = New System.Drawing.Point(0, 70)
         Me.navDashboard.Name = "navDashboard"
         Me.navDashboard.Size = New System.Drawing.Size(200, 44)
         Me.navDashboard.TabIndex = 1
         Me.navDashboard.Text = "  Dashboard"
-        Me.navDashboard.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.navDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'leftHeader
         '
-        Me.leftHeader.BackColor = System.Drawing.Color.Transparent
+        Me.leftHeader.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.leftHeader.Controls.Add(Me.lblBrand)
         Me.leftHeader.Dock = System.Windows.Forms.DockStyle.Top
-        Me.leftHeader.FillColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.leftHeader.Location = New System.Drawing.Point(0, 0)
         Me.leftHeader.Name = "leftHeader"
         Me.leftHeader.Size = New System.Drawing.Size(200, 70)
@@ -252,7 +250,6 @@ Partial Class dashboard
         Me.topBar.Controls.Add(Me.lblWelcome)
         Me.topBar.Controls.Add(Me.lblAppTitle)
         Me.topBar.Dock = System.Windows.Forms.DockStyle.Top
-        Me.topBar.FillColor = System.Drawing.Color.White
         Me.topBar.Location = New System.Drawing.Point(200, 0)
         Me.topBar.Name = "topBar"
         Me.topBar.Size = New System.Drawing.Size(1224, 48)
@@ -330,12 +327,11 @@ Partial Class dashboard
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
         Me.dgvDashboardResidents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         Me.dgvDashboardResidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
@@ -346,7 +342,14 @@ Partial Class dashboard
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvDashboardResidents.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvDashboardResidents.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvDashboardResidents.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.dgvDashboardResidents.EnableHeadersVisualStyles = False
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvDashboardResidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvDashboardResidents.GridColor = System.Drawing.Color.FromArgb(CType(CType(189, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(189, Byte), Integer))
         Me.dgvDashboardResidents.Location = New System.Drawing.Point(0, 44)
         Me.dgvDashboardResidents.MultiSelect = False
         Me.dgvDashboardResidents.Name = "dgvDashboardResidents"
@@ -360,7 +363,7 @@ Partial Class dashboard
         Me.dgvDashboardResidents.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
         Me.dgvDashboardResidents.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
         Me.dgvDashboardResidents.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.dgvDashboardResidents.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.dgvDashboardResidents.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(189, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(189, Byte), Integer))
         Me.dgvDashboardResidents.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgvDashboardResidents.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.dgvDashboardResidents.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -449,7 +452,7 @@ Partial Class dashboard
         '
         'cardHouseholds
         '
-        Me.cardHouseholds.BackColor = System.Drawing.Color.Transparent
+        Me.cardHouseholds.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.cardHouseholds.BorderRadius = 8
         Me.cardHouseholds.Controls.Add(Me.lblHouseholdsSub)
         Me.cardHouseholds.Controls.Add(Me.lblHouseholds)
@@ -485,7 +488,7 @@ Partial Class dashboard
         '
         'cardPopulation
         '
-        Me.cardPopulation.BackColor = System.Drawing.Color.Transparent
+        Me.cardPopulation.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.cardPopulation.BorderRadius = 8
         Me.cardPopulation.Controls.Add(Me.lblPopulationSub)
         Me.cardPopulation.Controls.Add(Me.lblPopulation)
@@ -521,7 +524,7 @@ Partial Class dashboard
         '
         'cardPending
         '
-        Me.cardPending.BackColor = System.Drawing.Color.Transparent
+        Me.cardPending.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.cardPending.BorderRadius = 8
         Me.cardPending.Controls.Add(Me.lblPendingSub)
         Me.cardPending.Controls.Add(Me.lblPending)
@@ -557,7 +560,7 @@ Partial Class dashboard
         '
         'cardVoters
         '
-        Me.cardVoters.BackColor = System.Drawing.Color.Transparent
+        Me.cardVoters.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.cardVoters.BorderRadius = 8
         Me.cardVoters.Controls.Add(Me.lblVotersSub)
         Me.cardVoters.Controls.Add(Me.lblVoters)
@@ -593,7 +596,7 @@ Partial Class dashboard
         '
         'cardCrime
         '
-        Me.cardCrime.BackColor = System.Drawing.Color.Transparent
+        Me.cardCrime.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.cardCrime.BorderRadius = 8
         Me.cardCrime.Controls.Add(Me.lblCrimeSub)
         Me.cardCrime.Controls.Add(Me.lblCrime)
@@ -629,7 +632,7 @@ Partial Class dashboard
         '
         'cardIndigent
         '
-        Me.cardIndigent.BackColor = System.Drawing.Color.Transparent
+        Me.cardIndigent.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.cardIndigent.BorderRadius = 8
         Me.cardIndigent.Controls.Add(Me.lblIndigentSub)
         Me.cardIndigent.Controls.Add(Me.lblIndigent)
@@ -704,45 +707,45 @@ Partial Class dashboard
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents leftNav As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents leftHeader As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents leftNav As System.Windows.Forms.Panel
+    Friend WithEvents leftHeader As System.Windows.Forms.Panel
     Friend WithEvents lblBrand As System.Windows.Forms.Label
-    Friend WithEvents navDashboard As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents navResidents As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents navReports As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents navCedula As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents navDocs As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents navStaffs As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents navBackup As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents navLogout As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents topBar As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents navDashboard As System.Windows.Forms.Button
+    Friend WithEvents navResidents As System.Windows.Forms.Button
+    Friend WithEvents navReports As System.Windows.Forms.Button
+    Friend WithEvents navCedula As System.Windows.Forms.Button
+    Friend WithEvents navDocs As System.Windows.Forms.Button
+    Friend WithEvents navStaffs As System.Windows.Forms.Button
+    Friend WithEvents navBackup As System.Windows.Forms.Button
+    Friend WithEvents navLogout As System.Windows.Forms.Button
+    Friend WithEvents topBar As System.Windows.Forms.Panel
     Friend WithEvents lblAppTitle As System.Windows.Forms.Label
     Friend WithEvents lblWelcome As System.Windows.Forms.Label
     Friend WithEvents contentHost As System.Windows.Forms.Panel
     Friend WithEvents statsTable As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents cardHouseholds As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents cardHouseholds As System.Windows.Forms.Panel
     Friend WithEvents lblHouseholds As System.Windows.Forms.Label
     Friend WithEvents lblHouseholdsSub As System.Windows.Forms.Label
     Friend WithEvents chartsTable As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents chartLeft As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents chartRight As Guna.UI2.WinForms.Guna2Panel
-		Friend WithEvents dgvDashboardResidents As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents chartLeft As System.Windows.Forms.Panel
+    Friend WithEvents chartRight As System.Windows.Forms.Panel
+		Friend WithEvents dgvDashboardResidents As System.Windows.Forms.DataGridView
 		Friend WithEvents lblResidentsList As System.Windows.Forms.Label
 		Friend WithEvents chartPurok As System.Windows.Forms.DataVisualization.Charting.Chart
 		Friend WithEvents lblPurokChart As System.Windows.Forms.Label
-    Friend WithEvents cardPopulation As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents lblPopulationSub As Label
-    Friend WithEvents lblPopulation As Label
-    Friend WithEvents cardPending As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents lblPendingSub As Label
-    Friend WithEvents lblPending As Label
-    Friend WithEvents cardVoters As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents lblVotersSub As Label
-    Friend WithEvents lblVoters As Label
-    Friend WithEvents cardCrime As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents lblCrimeSub As Label
-    Friend WithEvents lblCrime As Label
-    Friend WithEvents cardIndigent As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents lblIndigentSub As Label
-    Friend WithEvents lblIndigent As Label
+    Friend WithEvents cardPopulation As System.Windows.Forms.Panel
+    Friend WithEvents lblPopulationSub As System.Windows.Forms.Label
+    Friend WithEvents lblPopulation As System.Windows.Forms.Label
+    Friend WithEvents cardPending As System.Windows.Forms.Panel
+    Friend WithEvents lblPendingSub As System.Windows.Forms.Label
+    Friend WithEvents lblPending As System.Windows.Forms.Label
+    Friend WithEvents cardVoters As System.Windows.Forms.Panel
+    Friend WithEvents lblVotersSub As System.Windows.Forms.Label
+    Friend WithEvents lblVoters As System.Windows.Forms.Label
+    Friend WithEvents cardCrime As System.Windows.Forms.Panel
+    Friend WithEvents lblCrimeSub As System.Windows.Forms.Label
+    Friend WithEvents lblCrime As System.Windows.Forms.Label
+    Friend WithEvents cardIndigent As System.Windows.Forms.Panel
+    Friend WithEvents lblIndigentSub As System.Windows.Forms.Label
+    Friend WithEvents lblIndigent As System.Windows.Forms.Label
 End Class

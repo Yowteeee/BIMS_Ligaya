@@ -65,7 +65,6 @@ Partial Class CertBrgyClearance
         Me.Guna2TxtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Guna2TxtAddress.Location = New System.Drawing.Point(60, 144)
         Me.Guna2TxtAddress.Name = "Guna2TxtAddress"
-        Me.Guna2TxtAddress.PlaceholderText = ""
         Me.Guna2TxtAddress.SelectedText = ""
         Me.Guna2TxtAddress.Size = New System.Drawing.Size(57, 11)
         Me.Guna2TxtAddress.TabIndex = 5
@@ -88,7 +87,6 @@ Partial Class CertBrgyClearance
         Me.Guna2Txtpurpose.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Guna2Txtpurpose.Location = New System.Drawing.Point(140, 217)
         Me.Guna2Txtpurpose.Name = "Guna2Txtpurpose"
-        Me.Guna2Txtpurpose.PlaceholderText = ""
         Me.Guna2Txtpurpose.SelectedText = ""
         Me.Guna2Txtpurpose.Size = New System.Drawing.Size(101, 10)
         Me.Guna2Txtpurpose.TabIndex = 4
@@ -111,7 +109,6 @@ Partial Class CertBrgyClearance
         Me.Guna2Txtissued.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Guna2Txtissued.Location = New System.Drawing.Point(115, 260)
         Me.Guna2Txtissued.Name = "Guna2Txtissued"
-        Me.Guna2Txtissued.PlaceholderText = ""
         Me.Guna2Txtissued.SelectedText = ""
         Me.Guna2Txtissued.Size = New System.Drawing.Size(73, 15)
         Me.Guna2Txtissued.TabIndex = 3
@@ -134,7 +131,6 @@ Partial Class CertBrgyClearance
         Me.Guna2TxtFullname.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Guna2TxtFullname.Location = New System.Drawing.Point(148, 132)
         Me.Guna2TxtFullname.Name = "Guna2TxtFullname"
-        Me.Guna2TxtFullname.PlaceholderText = ""
         Me.Guna2TxtFullname.SelectedText = ""
         Me.Guna2TxtFullname.Size = New System.Drawing.Size(54, 10)
         Me.Guna2TxtFullname.TabIndex = 2
@@ -163,7 +159,6 @@ Partial Class CertBrgyClearance
         Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Guna2TextBox1.Location = New System.Drawing.Point(75, 86)
         Me.Guna2TextBox1.Name = "Guna2TextBox1"
-        Me.Guna2TextBox1.PlaceholderText = ""
         Me.Guna2TextBox1.SelectedText = ""
         Me.Guna2TextBox1.Size = New System.Drawing.Size(200, 36)
         Me.Guna2TextBox1.TabIndex = 1

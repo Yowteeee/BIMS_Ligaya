@@ -47,7 +47,6 @@ Partial Class cedulaform
         Me.txtCTC.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtCTC.Location = New System.Drawing.Point(25, 60)
         Me.txtCTC.Name = "txtCTC"
-        Me.txtCTC.PlaceholderText = "CTC Number"
         Me.txtCTC.SelectedText = ""
         Me.txtCTC.Size = New System.Drawing.Size(300, 36)
         Me.txtCTC.TabIndex = 1
@@ -60,7 +59,6 @@ Partial Class cedulaform
         Me.txtLast.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtLast.Location = New System.Drawing.Point(25, 110)
         Me.txtLast.Name = "txtLast"
-        Me.txtLast.PlaceholderText = "Last Name"
         Me.txtLast.SelectedText = ""
         Me.txtLast.Size = New System.Drawing.Size(300, 36)
         Me.txtLast.TabIndex = 2
@@ -73,7 +71,6 @@ Partial Class cedulaform
         Me.txtFirst.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtFirst.Location = New System.Drawing.Point(25, 160)
         Me.txtFirst.Name = "txtFirst"
-        Me.txtFirst.PlaceholderText = "First Name"
         Me.txtFirst.SelectedText = ""
         Me.txtFirst.Size = New System.Drawing.Size(300, 36)
         Me.txtFirst.TabIndex = 3
@@ -86,7 +83,6 @@ Partial Class cedulaform
         Me.txtMiddle.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtMiddle.Location = New System.Drawing.Point(25, 210)
         Me.txtMiddle.Name = "txtMiddle"
-        Me.txtMiddle.PlaceholderText = "Middle Name"
         Me.txtMiddle.SelectedText = ""
         Me.txtMiddle.Size = New System.Drawing.Size(300, 36)
         Me.txtMiddle.TabIndex = 4
@@ -99,7 +95,6 @@ Partial Class cedulaform
         Me.txtAddress.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtAddress.Location = New System.Drawing.Point(25, 260)
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.PlaceholderText = "Address"
         Me.txtAddress.SelectedText = ""
         Me.txtAddress.Size = New System.Drawing.Size(300, 36)
         Me.txtAddress.TabIndex = 5
@@ -112,7 +107,6 @@ Partial Class cedulaform
         Me.txtPlace.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtPlace.Location = New System.Drawing.Point(25, 310)
         Me.txtPlace.Name = "txtPlace"
-        Me.txtPlace.PlaceholderText = "Place of Issue"
         Me.txtPlace.SelectedText = ""
         Me.txtPlace.Size = New System.Drawing.Size(300, 36)
         Me.txtPlace.TabIndex = 6
