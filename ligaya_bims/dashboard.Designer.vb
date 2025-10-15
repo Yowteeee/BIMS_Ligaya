@@ -215,7 +215,7 @@ Partial Class dashboard
         Me.navDashboard.FlatAppearance.BorderSize = 0
         Me.navDashboard.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navDashboard.ForeColor = System.Drawing.Color.Gainsboro
-        Me.navDashboard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.navDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.navDashboard.Location = New System.Drawing.Point(0, 70)
         Me.navDashboard.Name = "navDashboard"
         Me.navDashboard.Size = New System.Drawing.Size(200, 44)
@@ -273,7 +273,7 @@ Partial Class dashboard
         Me.lblAppTitle.AutoSize = True
         Me.lblAppTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblAppTitle.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.lblAppTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(56, Byte), Integer))
+        Me.lblAppTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.lblAppTitle.Location = New System.Drawing.Point(16, 13)
         Me.lblAppTitle.Name = "lblAppTitle"
         Me.lblAppTitle.Size = New System.Drawing.Size(103, 21)
@@ -310,8 +310,6 @@ Partial Class dashboard
         'chartLeft
         '
         Me.chartLeft.BackColor = System.Drawing.Color.White
-        Me.chartLeft.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.chartLeft.BorderThickness = 1
         Me.chartLeft.Controls.Add(Me.dgvDashboardResidents)
         Me.chartLeft.Controls.Add(Me.lblResidentsList)
         Me.chartLeft.Dock = System.Windows.Forms.DockStyle.Fill
@@ -336,9 +334,9 @@ Partial Class dashboard
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(201, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvDashboardResidents.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvDashboardResidents.Dock = System.Windows.Forms.DockStyle.Fill
@@ -357,33 +355,12 @@ Partial Class dashboard
         Me.dgvDashboardResidents.RowHeadersVisible = False
         Me.dgvDashboardResidents.Size = New System.Drawing.Size(594, 617)
         Me.dgvDashboardResidents.TabIndex = 1
-        Me.dgvDashboardResidents.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
-        Me.dgvDashboardResidents.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Me.dgvDashboardResidents.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
-        Me.dgvDashboardResidents.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
-        Me.dgvDashboardResidents.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.dgvDashboardResidents.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.dgvDashboardResidents.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(189, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(189, Byte), Integer))
-        Me.dgvDashboardResidents.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgvDashboardResidents.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.dgvDashboardResidents.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.dgvDashboardResidents.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
-        Me.dgvDashboardResidents.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgvDashboardResidents.ThemeStyle.HeaderStyle.Height = 23
-        Me.dgvDashboardResidents.ThemeStyle.ReadOnly = True
-        Me.dgvDashboardResidents.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
-        Me.dgvDashboardResidents.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.dgvDashboardResidents.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.dgvDashboardResidents.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dgvDashboardResidents.ThemeStyle.RowsStyle.Height = 22
-        Me.dgvDashboardResidents.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgvDashboardResidents.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
         'lblResidentsList
         '
         Me.lblResidentsList.Dock = System.Windows.Forms.DockStyle.Top
         Me.lblResidentsList.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.lblResidentsList.ForeColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(56, Byte), Integer))
+        Me.lblResidentsList.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.lblResidentsList.Location = New System.Drawing.Point(0, 0)
         Me.lblResidentsList.Name = "lblResidentsList"
         Me.lblResidentsList.Padding = New System.Windows.Forms.Padding(12, 12, 12, 6)
@@ -394,8 +371,6 @@ Partial Class dashboard
         'chartRight
         '
         Me.chartRight.BackColor = System.Drawing.Color.White
-        Me.chartRight.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.chartRight.BorderThickness = 1
         Me.chartRight.Controls.Add(Me.chartPurok)
         Me.chartRight.Controls.Add(Me.lblPurokChart)
         Me.chartRight.Dock = System.Windows.Forms.DockStyle.Fill
@@ -417,7 +392,7 @@ Partial Class dashboard
         '
         Me.lblPurokChart.Dock = System.Windows.Forms.DockStyle.Top
         Me.lblPurokChart.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.lblPurokChart.ForeColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(56, Byte), Integer))
+        Me.lblPurokChart.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.lblPurokChart.Location = New System.Drawing.Point(0, 0)
         Me.lblPurokChart.Name = "lblPurokChart"
         Me.lblPurokChart.Padding = New System.Windows.Forms.Padding(12, 12, 12, 6)
@@ -452,15 +427,12 @@ Partial Class dashboard
         '
         'cardHouseholds
         '
-        Me.cardHouseholds.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.cardHouseholds.BorderRadius = 8
+        Me.cardHouseholds.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(253, Byte), Integer))
         Me.cardHouseholds.Controls.Add(Me.lblHouseholdsSub)
         Me.cardHouseholds.Controls.Add(Me.lblHouseholds)
-        Me.cardHouseholds.FillColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(253, Byte), Integer))
         Me.cardHouseholds.Location = New System.Drawing.Point(0, 0)
         Me.cardHouseholds.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.cardHouseholds.Name = "cardHouseholds"
-        Me.cardHouseholds.ShadowDecoration.Enabled = True
         Me.cardHouseholds.Size = New System.Drawing.Size(0, 98)
         Me.cardHouseholds.TabIndex = 0
         '
@@ -488,15 +460,12 @@ Partial Class dashboard
         '
         'cardPopulation
         '
-        Me.cardPopulation.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.cardPopulation.BorderRadius = 8
+        Me.cardPopulation.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(81, Byte), Integer))
         Me.cardPopulation.Controls.Add(Me.lblPopulationSub)
         Me.cardPopulation.Controls.Add(Me.lblPopulation)
-        Me.cardPopulation.FillColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(81, Byte), Integer))
         Me.cardPopulation.Location = New System.Drawing.Point(213, 0)
         Me.cardPopulation.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.cardPopulation.Name = "cardPopulation"
-        Me.cardPopulation.ShadowDecoration.Enabled = True
         Me.cardPopulation.Size = New System.Drawing.Size(0, 98)
         Me.cardPopulation.TabIndex = 1
         '
@@ -525,14 +494,14 @@ Partial Class dashboard
         'cardPending
         '
         Me.cardPending.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.cardPending.BorderRadius = 8
+
         Me.cardPending.Controls.Add(Me.lblPendingSub)
         Me.cardPending.Controls.Add(Me.lblPending)
-        Me.cardPending.FillColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(0, Byte), Integer))
+
         Me.cardPending.Location = New System.Drawing.Point(398, 0)
         Me.cardPending.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.cardPending.Name = "cardPending"
-        Me.cardPending.ShadowDecoration.Enabled = True
+
         Me.cardPending.Size = New System.Drawing.Size(0, 98)
         Me.cardPending.TabIndex = 2
         '
@@ -560,15 +529,12 @@ Partial Class dashboard
         '
         'cardVoters
         '
-        Me.cardVoters.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.cardVoters.BorderRadius = 8
+        Me.cardVoters.BackColor = System.Drawing.Color.FromArgb(CType(CType(2, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(209, Byte), Integer))
         Me.cardVoters.Controls.Add(Me.lblVotersSub)
         Me.cardVoters.Controls.Add(Me.lblVoters)
-        Me.cardVoters.FillColor = System.Drawing.Color.FromArgb(CType(CType(2, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(209, Byte), Integer))
         Me.cardVoters.Location = New System.Drawing.Point(598, 0)
         Me.cardVoters.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.cardVoters.Name = "cardVoters"
-        Me.cardVoters.ShadowDecoration.Enabled = True
         Me.cardVoters.Size = New System.Drawing.Size(0, 98)
         Me.cardVoters.TabIndex = 3
         '
@@ -596,15 +562,12 @@ Partial Class dashboard
         '
         'cardCrime
         '
-        Me.cardCrime.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.cardCrime.BorderRadius = 8
+        Me.cardCrime.BackColor = System.Drawing.Color.FromArgb(CType(CType(156, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(176, Byte), Integer))
         Me.cardCrime.Controls.Add(Me.lblCrimeSub)
         Me.cardCrime.Controls.Add(Me.lblCrime)
-        Me.cardCrime.FillColor = System.Drawing.Color.FromArgb(CType(CType(156, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(176, Byte), Integer))
         Me.cardCrime.Location = New System.Drawing.Point(798, 0)
         Me.cardCrime.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.cardCrime.Name = "cardCrime"
-        Me.cardCrime.ShadowDecoration.Enabled = True
         Me.cardCrime.Size = New System.Drawing.Size(0, 98)
         Me.cardCrime.TabIndex = 4
         '
@@ -632,15 +595,12 @@ Partial Class dashboard
         '
         'cardIndigent
         '
-        Me.cardIndigent.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.cardIndigent.BorderRadius = 8
+        Me.cardIndigent.BackColor = System.Drawing.Color.FromArgb(CType(CType(233, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(99, Byte), Integer))
         Me.cardIndigent.Controls.Add(Me.lblIndigentSub)
         Me.cardIndigent.Controls.Add(Me.lblIndigent)
-        Me.cardIndigent.FillColor = System.Drawing.Color.FromArgb(CType(CType(233, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(99, Byte), Integer))
         Me.cardIndigent.Location = New System.Drawing.Point(998, 0)
         Me.cardIndigent.Margin = New System.Windows.Forms.Padding(0)
         Me.cardIndigent.Name = "cardIndigent"
-        Me.cardIndigent.ShadowDecoration.Enabled = True
         Me.cardIndigent.Size = New System.Drawing.Size(0, 110)
         Me.cardIndigent.TabIndex = 5
         '

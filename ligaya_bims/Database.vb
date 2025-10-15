@@ -1,7 +1,7 @@
 Imports MySql.Data.MySqlClient
 
 Public Module Database
-    Private ReadOnly connectionString As String = "Server=127.0.0.1;Port=3306;Database=capstone;Uid=root;Pwd=password;SslMode=Required;AllowPublicKeyRetrieval=True;"
+    Private ReadOnly connectionString As String = "Server=127.0.0.1;Port=3306;Database=capstone;Uid=root;Pwd=johnarbenanguring;SslMode=Required;AllowPublicKeyRetrieval=True;"
 
     Public Function CreateConnection() As MySqlConnection
         Return New MySqlConnection(connectionString)
