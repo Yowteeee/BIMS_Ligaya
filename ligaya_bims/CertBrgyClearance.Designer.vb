@@ -24,13 +24,13 @@ Partial Class CertBrgyClearance
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CertBrgyClearance))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Guna2TxtAddress = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2Txtpurpose = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2Txtissued = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2TxtFullname = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2TxtAddress = New System.Windows.Forms.TextBox()
+        Me.Guna2Txtpurpose = New System.Windows.Forms.TextBox()
+        Me.Guna2Txtissued = New System.Windows.Forms.TextBox()
+        Me.Guna2TxtFullname = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
+        Me.Guna2TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Guna2ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -50,89 +50,37 @@ Partial Class CertBrgyClearance
         '
         'Guna2TxtAddress
         '
-        Me.Guna2TxtAddress.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2TxtAddress.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Guna2TxtAddress.BorderColor = System.Drawing.Color.Transparent
-        Me.Guna2TxtAddress.BorderThickness = 0
-        Me.Guna2TxtAddress.Cursor = System.Windows.Forms.Cursors.AppStarting
-        Me.Guna2TxtAddress.DefaultText = ""
-        Me.Guna2TxtAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TxtAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TxtAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TxtAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TxtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TxtAddress.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2TxtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TxtAddress.BackColor = System.Drawing.Color.White
         Me.Guna2TxtAddress.Location = New System.Drawing.Point(60, 144)
         Me.Guna2TxtAddress.Name = "Guna2TxtAddress"
-        Me.Guna2TxtAddress.SelectedText = ""
-        Me.Guna2TxtAddress.Size = New System.Drawing.Size(57, 11)
+        Me.Guna2TxtAddress.Size = New System.Drawing.Size(57, 20)
         Me.Guna2TxtAddress.TabIndex = 5
         Me.Guna2TxtAddress.Visible = False
         '
         'Guna2Txtpurpose
         '
-        Me.Guna2Txtpurpose.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Txtpurpose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Guna2Txtpurpose.BorderColor = System.Drawing.Color.Transparent
-        Me.Guna2Txtpurpose.BorderThickness = 0
-        Me.Guna2Txtpurpose.Cursor = System.Windows.Forms.Cursors.AppStarting
-        Me.Guna2Txtpurpose.DefaultText = ""
-        Me.Guna2Txtpurpose.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2Txtpurpose.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2Txtpurpose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2Txtpurpose.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2Txtpurpose.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2Txtpurpose.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2Txtpurpose.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2Txtpurpose.BackColor = System.Drawing.Color.White
         Me.Guna2Txtpurpose.Location = New System.Drawing.Point(140, 217)
         Me.Guna2Txtpurpose.Name = "Guna2Txtpurpose"
-        Me.Guna2Txtpurpose.SelectedText = ""
-        Me.Guna2Txtpurpose.Size = New System.Drawing.Size(101, 10)
+        Me.Guna2Txtpurpose.Size = New System.Drawing.Size(101, 20)
         Me.Guna2Txtpurpose.TabIndex = 4
         Me.Guna2Txtpurpose.Visible = False
         '
         'Guna2Txtissued
         '
-        Me.Guna2Txtissued.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Txtissued.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Guna2Txtissued.BorderColor = System.Drawing.Color.Transparent
-        Me.Guna2Txtissued.BorderThickness = 0
-        Me.Guna2Txtissued.Cursor = System.Windows.Forms.Cursors.AppStarting
-        Me.Guna2Txtissued.DefaultText = ""
-        Me.Guna2Txtissued.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2Txtissued.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2Txtissued.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2Txtissued.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2Txtissued.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2Txtissued.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2Txtissued.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2Txtissued.BackColor = System.Drawing.Color.White
         Me.Guna2Txtissued.Location = New System.Drawing.Point(115, 260)
         Me.Guna2Txtissued.Name = "Guna2Txtissued"
-        Me.Guna2Txtissued.SelectedText = ""
-        Me.Guna2Txtissued.Size = New System.Drawing.Size(73, 15)
+        Me.Guna2Txtissued.Size = New System.Drawing.Size(73, 20)
         Me.Guna2Txtissued.TabIndex = 3
         Me.Guna2Txtissued.Visible = False
         '
         'Guna2TxtFullname
         '
-        Me.Guna2TxtFullname.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2TxtFullname.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Guna2TxtFullname.BorderColor = System.Drawing.Color.Transparent
-        Me.Guna2TxtFullname.BorderThickness = 0
-        Me.Guna2TxtFullname.Cursor = System.Windows.Forms.Cursors.AppStarting
-        Me.Guna2TxtFullname.DefaultText = ""
-        Me.Guna2TxtFullname.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TxtFullname.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TxtFullname.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TxtFullname.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TxtFullname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TxtFullname.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2TxtFullname.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TxtFullname.BackColor = System.Drawing.Color.White
         Me.Guna2TxtFullname.Location = New System.Drawing.Point(148, 132)
         Me.Guna2TxtFullname.Name = "Guna2TxtFullname"
-        Me.Guna2TxtFullname.SelectedText = ""
-        Me.Guna2TxtFullname.Size = New System.Drawing.Size(54, 10)
+        Me.Guna2TxtFullname.Size = New System.Drawing.Size(54, 20)
         Me.Guna2TxtFullname.TabIndex = 2
         Me.Guna2TxtFullname.Visible = False
         '
@@ -148,33 +96,14 @@ Partial Class CertBrgyClearance
         '
         'Guna2TextBox1
         '
-        Me.Guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox1.DefaultText = ""
-        Me.Guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Guna2TextBox1.Location = New System.Drawing.Point(75, 86)
         Me.Guna2TextBox1.Name = "Guna2TextBox1"
-        Me.Guna2TextBox1.SelectedText = ""
-        Me.Guna2TextBox1.Size = New System.Drawing.Size(200, 36)
+        Me.Guna2TextBox1.Size = New System.Drawing.Size(200, 20)
         Me.Guna2TextBox1.TabIndex = 1
         '
         'Guna2ContextMenuStrip1
         '
         Me.Guna2ContextMenuStrip1.Name = "Guna2ContextMenuStrip1"
-        Me.Guna2ContextMenuStrip1.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(CType(CType(151, Byte), Integer), CType(CType(143, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2ContextMenuStrip1.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro
-        Me.Guna2ContextMenuStrip1.RenderStyle.ColorTable = Nothing
-        Me.Guna2ContextMenuStrip1.RenderStyle.RoundedEdges = True
-        Me.Guna2ContextMenuStrip1.RenderStyle.SelectionArrowColor = System.Drawing.Color.White
-        Me.Guna2ContextMenuStrip1.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White
-        Me.Guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro
-        Me.Guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
         Me.Guna2ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
         'CertBrgyClearance
@@ -193,10 +122,10 @@ Partial Class CertBrgyClearance
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2ContextMenuStrip1 As Guna.UI2.WinForms.Guna2ContextMenuStrip
-    Friend WithEvents Guna2TxtFullname As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2Txtissued As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2TxtAddress As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2Txtpurpose As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Guna2ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents Guna2TxtFullname As System.Windows.Forms.TextBox
+    Friend WithEvents Guna2Txtissued As System.Windows.Forms.TextBox
+    Friend WithEvents Guna2TxtAddress As System.Windows.Forms.TextBox
+    Friend WithEvents Guna2Txtpurpose As System.Windows.Forms.TextBox
 End Class

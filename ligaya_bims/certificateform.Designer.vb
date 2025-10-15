@@ -36,7 +36,7 @@ Partial Class certificateform
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.cmbCertificateType = New System.Windows.Forms.ComboBox()
         Me.panelLeftHeader = New System.Windows.Forms.Panel()
-        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2Panel2 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.panelRight = New System.Windows.Forms.Panel()
         Me.pnlPic = New System.Windows.Forms.Panel()
@@ -45,7 +45,7 @@ Partial Class certificateform
         Me.btnPreview = New System.Windows.Forms.Button()
         Me.btnPageSetup = New System.Windows.Forms.Button()
         Me.panelRightHeader = New System.Windows.Forms.Panel()
-        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2Panel1 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
@@ -372,7 +372,7 @@ Partial Class certificateform
     Friend WithEvents txtName As TextBox
     Friend WithEvents cmbCertificateType As ComboBox
     Friend WithEvents panelLeftHeader As Panel
-    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents Guna2Panel2 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents panelRight As Panel
     Friend WithEvents panelButtons As Panel
@@ -380,7 +380,7 @@ Partial Class certificateform
     Friend WithEvents btnPreview As Button
     Friend WithEvents btnPageSetup As Button
     Friend WithEvents panelRightHeader As Panel
-    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents Guna2Panel1 As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents pnlPic As Panel
     Friend WithEvents GroupBoxStatus As GroupBox

@@ -22,51 +22,47 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.leftPanel = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2CirclePictureBox1 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.rightPanel = New Guna.UI2.WinForms.Guna2Panel()
-        Me.card = New Guna.UI2.WinForms.Guna2Panel()
-        Me.btnLogin = New Guna.UI2.WinForms.Guna2Button()
+        Me.leftPanel = New System.Windows.Forms.Panel()
+        Me.picLogo = New System.Windows.Forms.PictureBox()
+        Me.rightPanel = New System.Windows.Forms.Panel()
+        Me.card = New System.Windows.Forms.Panel()
+        Me.btnLogin = New System.Windows.Forms.Button()
         Me.lnkForgot = New System.Windows.Forms.LinkLabel()
-        Me.txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtUsername = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.txtPassword = New System.Windows.Forms.TextBox()
+        Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.leftPanel.SuspendLayout()
-        CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.rightPanel.SuspendLayout()
         Me.card.SuspendLayout()
         Me.SuspendLayout()
         '
         'leftPanel
         '
-        Me.leftPanel.Controls.Add(Me.Guna2CirclePictureBox1)
+        Me.leftPanel.Controls.Add(Me.picLogo)
         Me.leftPanel.Dock = System.Windows.Forms.DockStyle.Left
-        Me.leftPanel.FillColor = System.Drawing.Color.SeaGreen
+        Me.leftPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.leftPanel.Location = New System.Drawing.Point(0, 0)
         Me.leftPanel.Name = "leftPanel"
         Me.leftPanel.Size = New System.Drawing.Size(480, 600)
         Me.leftPanel.TabIndex = 0
         '
-        'Guna2CirclePictureBox1
+        'picLogo
         '
-        Me.Guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2CirclePictureBox1.FillColor = System.Drawing.Color.DarkGray
-        Me.Guna2CirclePictureBox1.Image = Global.ligaya_bims.My.Resources.Resources.brgy_ligaya_logo
-        Me.Guna2CirclePictureBox1.ImageRotate = 0!
-        Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(1, 51)
-        Me.Guna2CirclePictureBox1.Name = "Guna2CirclePictureBox1"
-        Me.Guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.Guna2CirclePictureBox1.Size = New System.Drawing.Size(474, 471)
-        Me.Guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Guna2CirclePictureBox1.TabIndex = 1
-        Me.Guna2CirclePictureBox1.TabStop = False
-        Me.Guna2CirclePictureBox1.UseTransparentBackground = True
+        Me.picLogo.BackColor = System.Drawing.Color.Transparent
+        Me.picLogo.Image = Global.ligaya_bims.My.Resources.Resources.brgy_ligaya_logo
+        Me.picLogo.Location = New System.Drawing.Point(1, 51)
+        Me.picLogo.Name = "picLogo"
+        Me.picLogo.Size = New System.Drawing.Size(474, 471)
+        Me.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picLogo.TabIndex = 1
+        Me.picLogo.TabStop = False
         '
         'rightPanel
         '
         Me.rightPanel.Controls.Add(Me.card)
         Me.rightPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.rightPanel.FillColor = System.Drawing.Color.Beige
+        Me.rightPanel.BackColor = System.Drawing.Color.White
         Me.rightPanel.Location = New System.Drawing.Point(480, 0)
         Me.rightPanel.Name = "rightPanel"
         Me.rightPanel.Size = New System.Drawing.Size(480, 600)
@@ -74,25 +70,21 @@ Partial Class Form1
         '
         'card
         '
-        Me.card.BackColor = System.Drawing.Color.Transparent
-        Me.card.BorderRadius = 18
+        Me.card.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.card.Controls.Add(Me.btnLogin)
         Me.card.Controls.Add(Me.lnkForgot)
         Me.card.Controls.Add(Me.txtPassword)
         Me.card.Controls.Add(Me.txtUsername)
         Me.card.Controls.Add(Me.lblTitle)
-        Me.card.FillColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(96, Byte), Integer))
         Me.card.Location = New System.Drawing.Point(31, 123)
         Me.card.Name = "card"
-        Me.card.ShadowDecoration.Depth = 8
-        Me.card.ShadowDecoration.Enabled = True
         Me.card.Size = New System.Drawing.Size(420, 360)
         Me.card.TabIndex = 0
         '
         'btnLogin
         '
-        Me.btnLogin.BorderRadius = 10
-        Me.btnLogin.FillColor = System.Drawing.Color.RoyalBlue
+        Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.btnLogin.Font = New System.Drawing.Font("Segoe UI Semibold", 10.5!, System.Drawing.FontStyle.Bold)
         Me.btnLogin.ForeColor = System.Drawing.Color.White
         Me.btnLogin.Location = New System.Drawing.Point(120, 232)
@@ -116,43 +108,21 @@ Partial Class Form1
         '
         'txtPassword
         '
-        Me.txtPassword.BorderColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(235, Byte), Integer))
-        Me.txtPassword.BorderRadius = 10
-        Me.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtPassword.DefaultText = ""
-        Me.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPassword.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.txtPassword.ForeColor = System.Drawing.Color.Black
-        Me.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.txtPassword.Location = New System.Drawing.Point(50, 152)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
-        Me.txtPassword.SelectedText = ""
-        Me.txtPassword.Size = New System.Drawing.Size(320, 44)
+        Me.txtPassword.Size = New System.Drawing.Size(320, 25)
         Me.txtPassword.TabIndex = 2
         '
         'txtUsername
         '
-        Me.txtUsername.BorderColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(235, Byte), Integer))
-        Me.txtUsername.BorderRadius = 10
-        Me.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtUsername.DefaultText = ""
-        Me.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtUsername.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.txtUsername.ForeColor = System.Drawing.Color.Black
-        Me.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.txtUsername.Location = New System.Drawing.Point(49, 96)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.SelectedText = ""
-        Me.txtUsername.Size = New System.Drawing.Size(320, 44)
+        Me.txtUsername.Size = New System.Drawing.Size(320, 25)
         Me.txtUsername.TabIndex = 1
         '
         'lblTitle
@@ -179,7 +149,7 @@ Partial Class Form1
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.leftPanel.ResumeLayout(False)
-        CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.rightPanel.ResumeLayout(False)
         Me.card.ResumeLayout(False)
         Me.card.PerformLayout()
@@ -187,13 +157,13 @@ Partial Class Form1
 
     End Sub
 
-    Friend WithEvents leftPanel As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents rightPanel As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents card As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents leftPanel As System.Windows.Forms.Panel
+    Friend WithEvents rightPanel As System.Windows.Forms.Panel
+    Friend WithEvents card As System.Windows.Forms.Panel
     Friend WithEvents lblTitle As System.Windows.Forms.Label
-    Friend WithEvents txtUsername As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents txtPassword As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txtUsername As System.Windows.Forms.TextBox
+    Friend WithEvents txtPassword As System.Windows.Forms.TextBox
     Friend WithEvents lnkForgot As System.Windows.Forms.LinkLabel
-    Friend WithEvents btnLogin As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Guna2CirclePictureBox1 As Guna.UI2.WinForms.Guna2CirclePictureBox
+    Friend WithEvents btnLogin As System.Windows.Forms.Button
+    Friend WithEvents picLogo As System.Windows.Forms.PictureBox
 End Class
