@@ -22,9 +22,9 @@ Partial Class dashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.leftNav = New System.Windows.Forms.Panel()
         Me.navLogout = New System.Windows.Forms.Button()
         Me.navBackup = New System.Windows.Forms.Button()
@@ -86,6 +86,7 @@ Partial Class dashboard
         '
         'leftNav
         '
+        Me.leftNav.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.leftNav.Controls.Add(Me.navLogout)
         Me.leftNav.Controls.Add(Me.navBackup)
         Me.leftNav.Controls.Add(Me.navStaffs)
@@ -96,7 +97,6 @@ Partial Class dashboard
         Me.leftNav.Controls.Add(Me.navDashboard)
         Me.leftNav.Controls.Add(Me.leftHeader)
         Me.leftNav.Dock = System.Windows.Forms.DockStyle.Left
-        Me.leftNav.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.leftNav.Location = New System.Drawing.Point(0, 0)
         Me.leftNav.Name = "leftNav"
         Me.leftNav.Size = New System.Drawing.Size(200, 861)
@@ -106,8 +106,8 @@ Partial Class dashboard
         '
         Me.navLogout.BackColor = System.Drawing.Color.Transparent
         Me.navLogout.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.navLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navLogout.FlatAppearance.BorderSize = 0
+        Me.navLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navLogout.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.navLogout.ForeColor = System.Drawing.Color.IndianRed
         Me.navLogout.Location = New System.Drawing.Point(0, 773)
@@ -116,13 +116,14 @@ Partial Class dashboard
         Me.navLogout.TabIndex = 8
         Me.navLogout.Text = "  Log Out"
         Me.navLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navLogout.UseVisualStyleBackColor = False
         '
         'navBackup
         '
         Me.navBackup.BackColor = System.Drawing.Color.Transparent
         Me.navBackup.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.navBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navBackup.FlatAppearance.BorderSize = 0
+        Me.navBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navBackup.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navBackup.ForeColor = System.Drawing.Color.Gainsboro
         Me.navBackup.Location = New System.Drawing.Point(0, 817)
@@ -131,13 +132,14 @@ Partial Class dashboard
         Me.navBackup.TabIndex = 7
         Me.navBackup.Text = "  Backup and Restore"
         Me.navBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navBackup.UseVisualStyleBackColor = False
         '
         'navStaffs
         '
         Me.navStaffs.BackColor = System.Drawing.Color.Transparent
         Me.navStaffs.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navStaffs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navStaffs.FlatAppearance.BorderSize = 0
+        Me.navStaffs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navStaffs.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navStaffs.ForeColor = System.Drawing.Color.Gainsboro
         Me.navStaffs.Location = New System.Drawing.Point(0, 290)
@@ -146,13 +148,14 @@ Partial Class dashboard
         Me.navStaffs.TabIndex = 6
         Me.navStaffs.Text = "  Staffs"
         Me.navStaffs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navStaffs.UseVisualStyleBackColor = False
         '
         'navDocs
         '
         Me.navDocs.BackColor = System.Drawing.Color.Transparent
         Me.navDocs.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navDocs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navDocs.FlatAppearance.BorderSize = 0
+        Me.navDocs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navDocs.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navDocs.ForeColor = System.Drawing.Color.Gainsboro
         Me.navDocs.Location = New System.Drawing.Point(0, 246)
@@ -161,13 +164,14 @@ Partial Class dashboard
         Me.navDocs.TabIndex = 5
         Me.navDocs.Text = "Certificate Issuance"
         Me.navDocs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navDocs.UseVisualStyleBackColor = False
         '
         'navCedula
         '
         Me.navCedula.BackColor = System.Drawing.Color.Transparent
         Me.navCedula.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navCedula.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navCedula.FlatAppearance.BorderSize = 0
+        Me.navCedula.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navCedula.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navCedula.ForeColor = System.Drawing.Color.Gainsboro
         Me.navCedula.Location = New System.Drawing.Point(0, 202)
@@ -176,13 +180,14 @@ Partial Class dashboard
         Me.navCedula.TabIndex = 4
         Me.navCedula.Text = "  Cedula Tracker"
         Me.navCedula.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navCedula.UseVisualStyleBackColor = False
         '
         'navReports
         '
         Me.navReports.BackColor = System.Drawing.Color.Transparent
         Me.navReports.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navReports.FlatAppearance.BorderSize = 0
+        Me.navReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navReports.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navReports.ForeColor = System.Drawing.Color.Gainsboro
         Me.navReports.Location = New System.Drawing.Point(0, 158)
@@ -191,13 +196,14 @@ Partial Class dashboard
         Me.navReports.TabIndex = 3
         Me.navReports.Text = "  Reports"
         Me.navReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navReports.UseVisualStyleBackColor = False
         '
         'navResidents
         '
         Me.navResidents.BackColor = System.Drawing.Color.Transparent
         Me.navResidents.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navResidents.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navResidents.FlatAppearance.BorderSize = 0
+        Me.navResidents.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navResidents.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navResidents.ForeColor = System.Drawing.Color.Gainsboro
         Me.navResidents.Location = New System.Drawing.Point(0, 114)
@@ -206,13 +212,14 @@ Partial Class dashboard
         Me.navResidents.TabIndex = 2
         Me.navResidents.Text = "  Residents"
         Me.navResidents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navResidents.UseVisualStyleBackColor = False
         '
         'navDashboard
         '
         Me.navDashboard.BackColor = System.Drawing.Color.Transparent
         Me.navDashboard.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navDashboard.FlatAppearance.BorderSize = 0
+        Me.navDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navDashboard.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navDashboard.ForeColor = System.Drawing.Color.Gainsboro
         Me.navDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -222,6 +229,7 @@ Partial Class dashboard
         Me.navDashboard.TabIndex = 1
         Me.navDashboard.Text = "  Dashboard"
         Me.navDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navDashboard.UseVisualStyleBackColor = False
         '
         'leftHeader
         '
@@ -322,31 +330,25 @@ Partial Class dashboard
         '
         Me.dgvDashboardResidents.AllowUserToAddRows = False
         Me.dgvDashboardResidents.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.dgvDashboardResidents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvDashboardResidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(201, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvDashboardResidents.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.dgvDashboardResidents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvDashboardResidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(201, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvDashboardResidents.DefaultCellStyle = DataGridViewCellStyle6
         Me.dgvDashboardResidents.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvDashboardResidents.EnableHeadersVisualStyles = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvDashboardResidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvDashboardResidents.GridColor = System.Drawing.Color.FromArgb(CType(CType(189, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(189, Byte), Integer))
         Me.dgvDashboardResidents.Location = New System.Drawing.Point(0, 44)
         Me.dgvDashboardResidents.MultiSelect = False
@@ -494,14 +496,11 @@ Partial Class dashboard
         'cardPending
         '
         Me.cardPending.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
-
         Me.cardPending.Controls.Add(Me.lblPendingSub)
         Me.cardPending.Controls.Add(Me.lblPending)
-
         Me.cardPending.Location = New System.Drawing.Point(398, 0)
         Me.cardPending.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
         Me.cardPending.Name = "cardPending"
-
         Me.cardPending.Size = New System.Drawing.Size(0, 98)
         Me.cardPending.TabIndex = 2
         '
