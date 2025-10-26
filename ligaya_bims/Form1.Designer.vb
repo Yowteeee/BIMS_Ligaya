@@ -39,9 +39,9 @@ Partial Class Form1
         '
         'leftPanel
         '
+        Me.leftPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.leftPanel.Controls.Add(Me.picLogo)
         Me.leftPanel.Dock = System.Windows.Forms.DockStyle.Left
-        Me.leftPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.leftPanel.Location = New System.Drawing.Point(0, 0)
         Me.leftPanel.Name = "leftPanel"
         Me.leftPanel.Size = New System.Drawing.Size(480, 600)
@@ -60,9 +60,9 @@ Partial Class Form1
         '
         'rightPanel
         '
+        Me.rightPanel.BackColor = System.Drawing.Color.White
         Me.rightPanel.Controls.Add(Me.card)
         Me.rightPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.rightPanel.BackColor = System.Drawing.Color.White
         Me.rightPanel.Location = New System.Drawing.Point(480, 0)
         Me.rightPanel.Name = "rightPanel"
         Me.rightPanel.Size = New System.Drawing.Size(480, 600)
@@ -83,8 +83,8 @@ Partial Class Form1
         '
         'btnLogin
         '
-        Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogin.Font = New System.Drawing.Font("Segoe UI Semibold", 10.5!, System.Drawing.FontStyle.Bold)
         Me.btnLogin.ForeColor = System.Drawing.Color.White
         Me.btnLogin.Location = New System.Drawing.Point(120, 232)
@@ -92,14 +92,15 @@ Partial Class Form1
         Me.btnLogin.Size = New System.Drawing.Size(180, 44)
         Me.btnLogin.TabIndex = 4
         Me.btnLogin.Text = "Log in"
+        Me.btnLogin.UseVisualStyleBackColor = False
         '
         'lnkForgot
         '
         Me.lnkForgot.ActiveLinkColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer))
         Me.lnkForgot.AutoSize = True
         Me.lnkForgot.DisabledLinkColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.lnkForgot.LinkColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer))
-        Me.lnkForgot.Location = New System.Drawing.Point(59, 199)
+        Me.lnkForgot.LinkColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lnkForgot.Location = New System.Drawing.Point(47, 190)
         Me.lnkForgot.Name = "lnkForgot"
         Me.lnkForgot.Size = New System.Drawing.Size(144, 17)
         Me.lnkForgot.TabIndex = 3
@@ -110,7 +111,7 @@ Partial Class Form1
         '
         Me.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPassword.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.txtPassword.Location = New System.Drawing.Point(50, 152)
+        Me.txtPassword.Location = New System.Drawing.Point(49, 146)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.txtPassword.Size = New System.Drawing.Size(320, 25)

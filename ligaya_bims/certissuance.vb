@@ -1,4 +1,12 @@
 Public Class certissuance
+    ' Method to handle when form is displayed as child form in dashboard
+    Public Sub SetAsChildForm()
+        ' Ensure the form is properly configured for child display
+        Me.FormBorderStyle = FormBorderStyle.None
+        Me.Dock = DockStyle.Fill
+        Me.TopLevel = False
+    End Sub
+
     Private Sub btnCreateCertificate_Click(sender As Object, e As EventArgs) Handles btnCreateCertificate.Click
         certificateform.Show()
 

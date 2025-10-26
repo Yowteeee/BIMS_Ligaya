@@ -3,6 +3,14 @@ Imports System.Text
 Imports System.Diagnostics
 
 Partial Class reportsform
+    ' Method to handle when form is displayed as child form in dashboard
+    Public Sub SetAsChildForm()
+        ' Ensure the form is properly configured for child display
+        Me.FormBorderStyle = FormBorderStyle.None
+        Me.Dock = DockStyle.Fill
+        Me.TopLevel = False
+    End Sub
+
     Private Sub reportsform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Set default date/time values
         dtpFrom.Value = DateTime.Now.AddHours(-1)
@@ -206,5 +214,8 @@ Partial Class reportsform
         MyBase.Finalize()
     End Sub
 
+    Private Sub txtTypeOfIncident_TextChanged(sender As Object, e As EventArgs) Handles txtTypeOfIncident.TextChanged
+
+    End Sub
 End Class
 

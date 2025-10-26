@@ -1,9 +1,9 @@
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class dashboard
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,11 +20,14 @@ Partial Class dashboard
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Me.leftNav = New System.Windows.Forms.Panel()
         Me.navLogout = New System.Windows.Forms.Button()
         Me.navBackup = New System.Windows.Forms.Button()
@@ -35,57 +38,97 @@ Partial Class dashboard
         Me.navResidents = New System.Windows.Forms.Button()
         Me.navDashboard = New System.Windows.Forms.Button()
         Me.leftHeader = New System.Windows.Forms.Panel()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
         Me.lblBrand = New System.Windows.Forms.Label()
         Me.topBar = New System.Windows.Forms.Panel()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.lblAppTitle = New System.Windows.Forms.Label()
         Me.contentHost = New System.Windows.Forms.Panel()
-        Me.chartsTable = New System.Windows.Forms.TableLayoutPanel()
-        Me.chartLeft = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.panelResidents = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lblResidentsMore = New System.Windows.Forms.Label()
+        Me.lblResidentsTitle = New System.Windows.Forms.Label()
+        Me.lblResidentsCount = New System.Windows.Forms.Label()
+        Me.panelBlotter = New System.Windows.Forms.Panel()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.lblBlotterMore = New System.Windows.Forms.Label()
+        Me.lblBlotterTitle = New System.Windows.Forms.Label()
+        Me.lblBlotterCount = New System.Windows.Forms.Label()
+        Me.panelCertificates = New System.Windows.Forms.Panel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.lblCertificatesMore = New System.Windows.Forms.Label()
+        Me.lblCertificatesTitle = New System.Windows.Forms.Label()
+        Me.lblCertificatesCount = New System.Windows.Forms.Label()
+        Me.panelOfficials = New System.Windows.Forms.Panel()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.lblOfficialsMore = New System.Windows.Forms.Label()
+        Me.lblOfficialsTitle = New System.Windows.Forms.Label()
+        Me.lblOfficialsCount = New System.Windows.Forms.Label()
+        Me.panelLeft = New System.Windows.Forms.Panel()
         Me.dgvDashboardResidents = New System.Windows.Forms.DataGridView()
-        Me.lblResidentsList = New System.Windows.Forms.Label()
-        Me.chartRight = New System.Windows.Forms.Panel()
-        Me.chartPurok = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.lblPurokChart = New System.Windows.Forms.Label()
-        Me.statsTable = New System.Windows.Forms.TableLayoutPanel()
-        Me.cardHouseholds = New System.Windows.Forms.Panel()
-        Me.lblHouseholdsSub = New System.Windows.Forms.Label()
-        Me.lblHouseholds = New System.Windows.Forms.Label()
-        Me.cardPopulation = New System.Windows.Forms.Panel()
-        Me.lblPopulationSub = New System.Windows.Forms.Label()
-        Me.lblPopulation = New System.Windows.Forms.Label()
-        Me.cardPending = New System.Windows.Forms.Panel()
-        Me.lblPendingSub = New System.Windows.Forms.Label()
-        Me.lblPending = New System.Windows.Forms.Label()
-        Me.cardVoters = New System.Windows.Forms.Panel()
-        Me.lblVotersSub = New System.Windows.Forms.Label()
-        Me.lblVoters = New System.Windows.Forms.Label()
-        Me.cardCrime = New System.Windows.Forms.Panel()
-        Me.lblCrimeSub = New System.Windows.Forms.Label()
-        Me.lblCrime = New System.Windows.Forms.Label()
-        Me.cardIndigent = New System.Windows.Forms.Panel()
-        Me.lblIndigentSub = New System.Windows.Forms.Label()
-        Me.lblIndigent = New System.Windows.Forms.Label()
+        Me.chkSelectAllDashboard = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.colLastNameDashboard = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colFirstNameDashboard = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colMiddleNameDashboard = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colMobileNoDashboard = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colGenderDashboard = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lblDashboardResidentsTitle = New System.Windows.Forms.Label()
+        Me.panelRight = New System.Windows.Forms.Panel()
+        Me.chartPurokPopulation = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.chartDemographics = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.lblChartsTitle = New System.Windows.Forms.Label()
         Me.leftNav.SuspendLayout()
         Me.leftHeader.SuspendLayout()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.topBar.SuspendLayout()
         Me.contentHost.SuspendLayout()
-        Me.chartsTable.SuspendLayout()
-        Me.chartLeft.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelResidents.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelBlotter.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelCertificates.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelOfficials.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelLeft.SuspendLayout()
         CType(Me.dgvDashboardResidents, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.chartRight.SuspendLayout()
-        CType(Me.chartPurok, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.statsTable.SuspendLayout()
-        Me.cardHouseholds.SuspendLayout()
-        Me.cardPopulation.SuspendLayout()
-        Me.cardPending.SuspendLayout()
-        Me.cardVoters.SuspendLayout()
-        Me.cardCrime.SuspendLayout()
-        Me.cardIndigent.SuspendLayout()
+        Me.panelRight.SuspendLayout()
+        CType(Me.chartPurokPopulation, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chartDemographics, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'leftNav
         '
+        Me.leftNav.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.leftNav.Controls.Add(Me.navLogout)
         Me.leftNav.Controls.Add(Me.navBackup)
         Me.leftNav.Controls.Add(Me.navStaffs)
@@ -96,149 +139,180 @@ Partial Class dashboard
         Me.leftNav.Controls.Add(Me.navDashboard)
         Me.leftNav.Controls.Add(Me.leftHeader)
         Me.leftNav.Dock = System.Windows.Forms.DockStyle.Left
-        Me.leftNav.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.leftNav.Location = New System.Drawing.Point(0, 0)
         Me.leftNav.Name = "leftNav"
-        Me.leftNav.Size = New System.Drawing.Size(200, 861)
+        Me.leftNav.Size = New System.Drawing.Size(202, 861)
         Me.leftNav.TabIndex = 0
         '
         'navLogout
         '
         Me.navLogout.BackColor = System.Drawing.Color.Transparent
         Me.navLogout.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.navLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navLogout.FlatAppearance.BorderSize = 0
+        Me.navLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navLogout.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.navLogout.ForeColor = System.Drawing.Color.IndianRed
         Me.navLogout.Location = New System.Drawing.Point(0, 773)
         Me.navLogout.Name = "navLogout"
-        Me.navLogout.Size = New System.Drawing.Size(200, 44)
+        Me.navLogout.Size = New System.Drawing.Size(202, 44)
         Me.navLogout.TabIndex = 8
         Me.navLogout.Text = "  Log Out"
         Me.navLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navLogout.UseVisualStyleBackColor = False
         '
         'navBackup
         '
         Me.navBackup.BackColor = System.Drawing.Color.Transparent
         Me.navBackup.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.navBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navBackup.FlatAppearance.BorderSize = 0
+        Me.navBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navBackup.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navBackup.ForeColor = System.Drawing.Color.Gainsboro
         Me.navBackup.Location = New System.Drawing.Point(0, 817)
         Me.navBackup.Name = "navBackup"
-        Me.navBackup.Size = New System.Drawing.Size(200, 44)
+        Me.navBackup.Size = New System.Drawing.Size(202, 44)
         Me.navBackup.TabIndex = 7
         Me.navBackup.Text = "  Backup and Restore"
         Me.navBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navBackup.UseVisualStyleBackColor = False
         '
         'navStaffs
         '
         Me.navStaffs.BackColor = System.Drawing.Color.Transparent
         Me.navStaffs.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navStaffs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navStaffs.FlatAppearance.BorderSize = 0
+        Me.navStaffs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navStaffs.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navStaffs.ForeColor = System.Drawing.Color.Gainsboro
-        Me.navStaffs.Location = New System.Drawing.Point(0, 290)
+        Me.navStaffs.Location = New System.Drawing.Point(0, 426)
         Me.navStaffs.Name = "navStaffs"
-        Me.navStaffs.Size = New System.Drawing.Size(200, 44)
+        Me.navStaffs.Size = New System.Drawing.Size(202, 52)
         Me.navStaffs.TabIndex = 6
         Me.navStaffs.Text = "  Staffs"
         Me.navStaffs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navStaffs.UseVisualStyleBackColor = False
         '
         'navDocs
         '
         Me.navDocs.BackColor = System.Drawing.Color.Transparent
         Me.navDocs.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navDocs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navDocs.FlatAppearance.BorderSize = 0
+        Me.navDocs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navDocs.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navDocs.ForeColor = System.Drawing.Color.Gainsboro
-        Me.navDocs.Location = New System.Drawing.Point(0, 246)
+        Me.navDocs.Location = New System.Drawing.Point(0, 382)
         Me.navDocs.Name = "navDocs"
-        Me.navDocs.Size = New System.Drawing.Size(200, 44)
+        Me.navDocs.Size = New System.Drawing.Size(202, 44)
         Me.navDocs.TabIndex = 5
-        Me.navDocs.Text = "Certificate Issuance"
+        Me.navDocs.Text = "  Certificate Issuance"
         Me.navDocs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navDocs.UseVisualStyleBackColor = False
         '
         'navCedula
         '
         Me.navCedula.BackColor = System.Drawing.Color.Transparent
         Me.navCedula.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navCedula.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navCedula.FlatAppearance.BorderSize = 0
+        Me.navCedula.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navCedula.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navCedula.ForeColor = System.Drawing.Color.Gainsboro
-        Me.navCedula.Location = New System.Drawing.Point(0, 202)
+        Me.navCedula.Location = New System.Drawing.Point(0, 338)
         Me.navCedula.Name = "navCedula"
-        Me.navCedula.Size = New System.Drawing.Size(200, 44)
+        Me.navCedula.Size = New System.Drawing.Size(202, 44)
         Me.navCedula.TabIndex = 4
         Me.navCedula.Text = "  Cedula Tracker"
         Me.navCedula.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navCedula.UseVisualStyleBackColor = False
         '
         'navReports
         '
         Me.navReports.BackColor = System.Drawing.Color.Transparent
         Me.navReports.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navReports.FlatAppearance.BorderSize = 0
+        Me.navReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navReports.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navReports.ForeColor = System.Drawing.Color.Gainsboro
-        Me.navReports.Location = New System.Drawing.Point(0, 158)
+        Me.navReports.Location = New System.Drawing.Point(0, 294)
         Me.navReports.Name = "navReports"
-        Me.navReports.Size = New System.Drawing.Size(200, 44)
+        Me.navReports.Size = New System.Drawing.Size(202, 44)
         Me.navReports.TabIndex = 3
-        Me.navReports.Text = "  Reports"
+        Me.navReports.Text = "  Blotter"
         Me.navReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navReports.UseVisualStyleBackColor = False
         '
         'navResidents
         '
         Me.navResidents.BackColor = System.Drawing.Color.Transparent
         Me.navResidents.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navResidents.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navResidents.FlatAppearance.BorderSize = 0
+        Me.navResidents.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navResidents.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navResidents.ForeColor = System.Drawing.Color.Gainsboro
-        Me.navResidents.Location = New System.Drawing.Point(0, 114)
+        Me.navResidents.Location = New System.Drawing.Point(0, 250)
         Me.navResidents.Name = "navResidents"
-        Me.navResidents.Size = New System.Drawing.Size(200, 44)
+        Me.navResidents.Size = New System.Drawing.Size(202, 44)
         Me.navResidents.TabIndex = 2
         Me.navResidents.Text = "  Residents"
         Me.navResidents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navResidents.UseVisualStyleBackColor = False
         '
         'navDashboard
         '
         Me.navDashboard.BackColor = System.Drawing.Color.Transparent
         Me.navDashboard.Dock = System.Windows.Forms.DockStyle.Top
-        Me.navDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navDashboard.FlatAppearance.BorderSize = 0
+        Me.navDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.navDashboard.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.navDashboard.ForeColor = System.Drawing.Color.Gainsboro
         Me.navDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.navDashboard.Location = New System.Drawing.Point(0, 70)
+        Me.navDashboard.Location = New System.Drawing.Point(0, 206)
         Me.navDashboard.Name = "navDashboard"
-        Me.navDashboard.Size = New System.Drawing.Size(200, 44)
+        Me.navDashboard.Size = New System.Drawing.Size(202, 44)
         Me.navDashboard.TabIndex = 1
         Me.navDashboard.Text = "  Dashboard"
         Me.navDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.navDashboard.UseVisualStyleBackColor = False
         '
         'leftHeader
         '
         Me.leftHeader.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.leftHeader.Controls.Add(Me.Label13)
+        Me.leftHeader.Controls.Add(Me.PictureBox9)
         Me.leftHeader.Controls.Add(Me.lblBrand)
         Me.leftHeader.Dock = System.Windows.Forms.DockStyle.Top
         Me.leftHeader.Location = New System.Drawing.Point(0, 0)
         Me.leftHeader.Name = "leftHeader"
-        Me.leftHeader.Size = New System.Drawing.Size(200, 70)
+        Me.leftHeader.Size = New System.Drawing.Size(202, 206)
         Me.leftHeader.TabIndex = 0
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label13.ForeColor = System.Drawing.Color.White
+        Me.Label13.Location = New System.Drawing.Point(7, 170)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(189, 21)
+        Me.Label13.TabIndex = 2
+        Me.Label13.Text = "Welcome Administrator!"
+        '
+        'PictureBox9
+        '
+        Me.PictureBox9.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox9.Image = Global.ligaya_bims.My.Resources.Resources.brgy_ligaya_logo_removebg_preview_removebg_preview
+        Me.PictureBox9.Location = New System.Drawing.Point(44, 48)
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.Size = New System.Drawing.Size(111, 110)
+        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox9.TabIndex = 1
+        Me.PictureBox9.TabStop = False
         '
         'lblBrand
         '
         Me.lblBrand.AutoSize = True
         Me.lblBrand.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold)
         Me.lblBrand.ForeColor = System.Drawing.Color.White
-        Me.lblBrand.Location = New System.Drawing.Point(12, 24)
+        Me.lblBrand.Location = New System.Drawing.Point(40, 17)
         Me.lblBrand.Name = "lblBrand"
         Me.lblBrand.Size = New System.Drawing.Size(115, 21)
         Me.lblBrand.TabIndex = 0
@@ -250,22 +324,23 @@ Partial Class dashboard
         Me.topBar.Controls.Add(Me.lblWelcome)
         Me.topBar.Controls.Add(Me.lblAppTitle)
         Me.topBar.Dock = System.Windows.Forms.DockStyle.Top
-        Me.topBar.Location = New System.Drawing.Point(200, 0)
+        Me.topBar.Location = New System.Drawing.Point(202, 0)
         Me.topBar.Name = "topBar"
-        Me.topBar.Size = New System.Drawing.Size(1224, 48)
+        Me.topBar.Size = New System.Drawing.Size(1222, 57)
         Me.topBar.TabIndex = 1
         '
         'lblWelcome
         '
         Me.lblWelcome.BackColor = System.Drawing.Color.Transparent
         Me.lblWelcome.Dock = System.Windows.Forms.DockStyle.Right
-        Me.lblWelcome.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.lblWelcome.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblWelcome.ForeColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(56, Byte), Integer))
-        Me.lblWelcome.Location = New System.Drawing.Point(1024, 0)
+        Me.lblWelcome.Location = New System.Drawing.Point(1022, 0)
+        Me.lblWelcome.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
         Me.lblWelcome.Name = "lblWelcome"
-        Me.lblWelcome.Size = New System.Drawing.Size(200, 48)
+        Me.lblWelcome.Size = New System.Drawing.Size(200, 57)
         Me.lblWelcome.TabIndex = 1
-        Me.lblWelcome.Text = "Welcome, John!"
+        Me.lblWelcome.Text = "Administrator   "
         Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblAppTitle
@@ -283,348 +358,652 @@ Partial Class dashboard
         'contentHost
         '
         Me.contentHost.BackColor = System.Drawing.Color.White
-        Me.contentHost.Controls.Add(Me.chartsTable)
-        Me.contentHost.Controls.Add(Me.statsTable)
+        Me.contentHost.Controls.Add(Me.Panel4)
+        Me.contentHost.Controls.Add(Me.Panel3)
+        Me.contentHost.Controls.Add(Me.Panel2)
+        Me.contentHost.Controls.Add(Me.Panel1)
+        Me.contentHost.Controls.Add(Me.panelResidents)
+        Me.contentHost.Controls.Add(Me.panelBlotter)
+        Me.contentHost.Controls.Add(Me.panelCertificates)
+        Me.contentHost.Controls.Add(Me.panelOfficials)
+        Me.contentHost.Controls.Add(Me.panelLeft)
+        Me.contentHost.Controls.Add(Me.panelRight)
         Me.contentHost.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.contentHost.Location = New System.Drawing.Point(200, 48)
+        Me.contentHost.Location = New System.Drawing.Point(202, 57)
         Me.contentHost.Name = "contentHost"
         Me.contentHost.Padding = New System.Windows.Forms.Padding(12)
-        Me.contentHost.Size = New System.Drawing.Size(1224, 813)
+        Me.contentHost.Size = New System.Drawing.Size(1222, 804)
         Me.contentHost.TabIndex = 2
         '
-        'chartsTable
+        'Panel4
         '
-        Me.chartsTable.ColumnCount = 2
-        Me.chartsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.chartsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.chartsTable.Controls.Add(Me.chartLeft, 0, 0)
-        Me.chartsTable.Controls.Add(Me.chartRight, 1, 0)
-        Me.chartsTable.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.chartsTable.Location = New System.Drawing.Point(12, 134)
-        Me.chartsTable.Name = "chartsTable"
-        Me.chartsTable.RowCount = 1
-        Me.chartsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.chartsTable.Size = New System.Drawing.Size(1200, 667)
-        Me.chartsTable.TabIndex = 1
+        Me.Panel4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(76, Byte), Integer), CType(CType(175, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Panel4.Controls.Add(Me.PictureBox5)
+        Me.Panel4.Controls.Add(Me.Label10)
+        Me.Panel4.Controls.Add(Me.Label11)
+        Me.Panel4.Controls.Add(Me.Label12)
+        Me.Panel4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Panel4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Panel4.Location = New System.Drawing.Point(927, 144)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(277, 110)
+        Me.Panel4.TabIndex = 3
         '
-        'chartLeft
+        'PictureBox5
         '
-        Me.chartLeft.BackColor = System.Drawing.Color.White
-        Me.chartLeft.Controls.Add(Me.dgvDashboardResidents)
-        Me.chartLeft.Controls.Add(Me.lblResidentsList)
-        Me.chartLeft.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.chartLeft.Location = New System.Drawing.Point(3, 3)
-        Me.chartLeft.Name = "chartLeft"
-        Me.chartLeft.Size = New System.Drawing.Size(594, 661)
-        Me.chartLeft.TabIndex = 0
+        Me.PictureBox5.Image = Global.ligaya_bims.My.Resources.Resources.old
+        Me.PictureBox5.Location = New System.Drawing.Point(201, 15)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(60, 60)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox5.TabIndex = 7
+        Me.PictureBox5.TabStop = False
+        '
+        'Label10
+        '
+        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Label10.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(0, 90)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(280, 20)
+        Me.Label10.TabIndex = 2
+        Me.Label10.Text = "More info →"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.White
+        Me.Label11.Location = New System.Drawing.Point(15, 65)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(99, 17)
+        Me.Label11.TabIndex = 1
+        Me.Label11.Text = "Senior Citizens"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
+        Me.Label12.ForeColor = System.Drawing.Color.White
+        Me.Label12.Location = New System.Drawing.Point(15, 15)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(56, 45)
+        Me.Label12.TabIndex = 0
+        Me.Label12.Text = "11"
+        '
+        'Panel3
+        '
+        Me.Panel3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.PictureBox6)
+        Me.Panel3.Controls.Add(Me.Label7)
+        Me.Panel3.Controls.Add(Me.Label8)
+        Me.Panel3.Controls.Add(Me.Label9)
+        Me.Panel3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Panel3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Panel3.Location = New System.Drawing.Point(624, 144)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(277, 110)
+        Me.Panel3.TabIndex = 3
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.Image = Global.ligaya_bims.My.Resources.Resources.wheelchair
+        Me.PictureBox6.Location = New System.Drawing.Point(199, 15)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(60, 60)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox6.TabIndex = 8
+        Me.PictureBox6.TabStop = False
+        '
+        'Label7
+        '
+        Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(80, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.Label7.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(0, 90)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(280, 20)
+        Me.Label7.TabIndex = 2
+        Me.Label7.Text = "More info →"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(15, 65)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(80, 17)
+        Me.Label8.TabIndex = 1
+        Me.Label8.Text = "Total PWDs"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(15, 15)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(56, 45)
+        Me.Label9.TabIndex = 0
+        Me.Label9.Text = "11"
+        '
+        'Panel2
+        '
+        Me.Panel2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(212, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.PictureBox7)
+        Me.Panel2.Controls.Add(Me.Label4)
+        Me.Panel2.Controls.Add(Me.Label5)
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Panel2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Panel2.Location = New System.Drawing.Point(318, 144)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(277, 110)
+        Me.Panel2.TabIndex = 3
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.Image = Global.ligaya_bims.My.Resources.Resources.check
+        Me.PictureBox7.Location = New System.Drawing.Point(198, 15)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(60, 60)
+        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox7.TabIndex = 9
+        Me.PictureBox7.TabStop = False
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(170, Byte), Integer))
+        Me.Label4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(0, 90)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(280, 20)
+        Me.Label4.TabIndex = 2
+        Me.Label4.Text = "More info →"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(15, 65)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(89, 17)
+        Me.Label5.TabIndex = 1
+        Me.Label5.Text = "Active Voters"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(15, 15)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(56, 45)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "11"
+        '
+        'Panel1
+        '
+        Me.Panel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(7, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.PictureBox8)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Panel1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Panel1.Location = New System.Drawing.Point(15, 144)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(277, 110)
+        Me.Panel1.TabIndex = 3
+        '
+        'PictureBox8
+        '
+        Me.PictureBox8.Image = Global.ligaya_bims.My.Resources.Resources.house__1_
+        Me.PictureBox8.Location = New System.Drawing.Point(201, 15)
+        Me.PictureBox8.Name = "PictureBox8"
+        Me.PictureBox8.Size = New System.Drawing.Size(60, 60)
+        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox8.TabIndex = 10
+        Me.PictureBox8.TabStop = False
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(23, Byte), Integer))
+        Me.Label1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(0, 90)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(280, 20)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "More info →"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(15, 65)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(116, 17)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Total Households"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(15, 15)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(56, 45)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "11"
+        '
+        'panelResidents
+        '
+        Me.panelResidents.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.panelResidents.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(212, Byte), Integer))
+        Me.panelResidents.Controls.Add(Me.PictureBox1)
+        Me.panelResidents.Controls.Add(Me.lblResidentsMore)
+        Me.panelResidents.Controls.Add(Me.lblResidentsTitle)
+        Me.panelResidents.Controls.Add(Me.lblResidentsCount)
+        Me.panelResidents.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.panelResidents.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.panelResidents.Location = New System.Drawing.Point(15, 15)
+        Me.panelResidents.Name = "panelResidents"
+        Me.panelResidents.Size = New System.Drawing.Size(277, 110)
+        Me.panelResidents.TabIndex = 0
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ligaya_bims.My.Resources.Resources.multiple_users_silhouette
+        Me.PictureBox1.Location = New System.Drawing.Point(201, 15)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(60, 60)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 3
+        Me.PictureBox1.TabStop = False
+        '
+        'lblResidentsMore
+        '
+        Me.lblResidentsMore.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblResidentsMore.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(170, Byte), Integer))
+        Me.lblResidentsMore.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblResidentsMore.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResidentsMore.ForeColor = System.Drawing.Color.White
+        Me.lblResidentsMore.Location = New System.Drawing.Point(0, 90)
+        Me.lblResidentsMore.Name = "lblResidentsMore"
+        Me.lblResidentsMore.Size = New System.Drawing.Size(280, 20)
+        Me.lblResidentsMore.TabIndex = 2
+        Me.lblResidentsMore.Text = "More info →"
+        Me.lblResidentsMore.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblResidentsTitle
+        '
+        Me.lblResidentsTitle.AutoSize = True
+        Me.lblResidentsTitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResidentsTitle.ForeColor = System.Drawing.Color.White
+        Me.lblResidentsTitle.Location = New System.Drawing.Point(15, 65)
+        Me.lblResidentsTitle.Name = "lblResidentsTitle"
+        Me.lblResidentsTitle.Size = New System.Drawing.Size(102, 17)
+        Me.lblResidentsTitle.TabIndex = 1
+        Me.lblResidentsTitle.Text = "Total Residents"
+        '
+        'lblResidentsCount
+        '
+        Me.lblResidentsCount.AutoSize = True
+        Me.lblResidentsCount.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
+        Me.lblResidentsCount.ForeColor = System.Drawing.Color.White
+        Me.lblResidentsCount.Location = New System.Drawing.Point(15, 15)
+        Me.lblResidentsCount.Name = "lblResidentsCount"
+        Me.lblResidentsCount.Size = New System.Drawing.Size(56, 45)
+        Me.lblResidentsCount.TabIndex = 0
+        Me.lblResidentsCount.Text = "11"
+        '
+        'panelBlotter
+        '
+        Me.panelBlotter.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.panelBlotter.BackColor = System.Drawing.Color.FromArgb(CType(CType(76, Byte), Integer), CType(CType(175, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.panelBlotter.Controls.Add(Me.PictureBox2)
+        Me.panelBlotter.Controls.Add(Me.lblBlotterMore)
+        Me.panelBlotter.Controls.Add(Me.lblBlotterTitle)
+        Me.panelBlotter.Controls.Add(Me.lblBlotterCount)
+        Me.panelBlotter.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.panelBlotter.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.panelBlotter.Location = New System.Drawing.Point(318, 15)
+        Me.panelBlotter.Name = "panelBlotter"
+        Me.panelBlotter.Size = New System.Drawing.Size(277, 110)
+        Me.panelBlotter.TabIndex = 1
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.ligaya_bims.My.Resources.Resources.report
+        Me.PictureBox2.Location = New System.Drawing.Point(198, 15)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(60, 60)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 4
+        Me.PictureBox2.TabStop = False
+        '
+        'lblBlotterMore
+        '
+        Me.lblBlotterMore.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblBlotterMore.BackColor = System.Drawing.Color.FromArgb(CType(CType(56, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.lblBlotterMore.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblBlotterMore.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBlotterMore.ForeColor = System.Drawing.Color.White
+        Me.lblBlotterMore.Location = New System.Drawing.Point(0, 90)
+        Me.lblBlotterMore.Name = "lblBlotterMore"
+        Me.lblBlotterMore.Size = New System.Drawing.Size(280, 20)
+        Me.lblBlotterMore.TabIndex = 2
+        Me.lblBlotterMore.Text = "More info →"
+        Me.lblBlotterMore.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblBlotterTitle
+        '
+        Me.lblBlotterTitle.AutoSize = True
+        Me.lblBlotterTitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBlotterTitle.ForeColor = System.Drawing.Color.White
+        Me.lblBlotterTitle.Location = New System.Drawing.Point(15, 65)
+        Me.lblBlotterTitle.Name = "lblBlotterTitle"
+        Me.lblBlotterTitle.Size = New System.Drawing.Size(91, 17)
+        Me.lblBlotterTitle.TabIndex = 1
+        Me.lblBlotterTitle.Text = "Total Blotters"
+        '
+        'lblBlotterCount
+        '
+        Me.lblBlotterCount.AutoSize = True
+        Me.lblBlotterCount.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
+        Me.lblBlotterCount.ForeColor = System.Drawing.Color.White
+        Me.lblBlotterCount.Location = New System.Drawing.Point(15, 15)
+        Me.lblBlotterCount.Name = "lblBlotterCount"
+        Me.lblBlotterCount.Size = New System.Drawing.Size(38, 45)
+        Me.lblBlotterCount.TabIndex = 0
+        Me.lblBlotterCount.Text = "2"
+        '
+        'panelCertificates
+        '
+        Me.panelCertificates.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.panelCertificates.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(7, Byte), Integer))
+        Me.panelCertificates.Controls.Add(Me.PictureBox3)
+        Me.panelCertificates.Controls.Add(Me.lblCertificatesMore)
+        Me.panelCertificates.Controls.Add(Me.lblCertificatesTitle)
+        Me.panelCertificates.Controls.Add(Me.lblCertificatesCount)
+        Me.panelCertificates.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.panelCertificates.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.panelCertificates.Location = New System.Drawing.Point(624, 15)
+        Me.panelCertificates.Name = "panelCertificates"
+        Me.panelCertificates.Size = New System.Drawing.Size(277, 110)
+        Me.panelCertificates.TabIndex = 2
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.ligaya_bims.My.Resources.Resources.certificate
+        Me.PictureBox3.Location = New System.Drawing.Point(199, 15)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(60, 60)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 5
+        Me.PictureBox3.TabStop = False
+        '
+        'lblCertificatesMore
+        '
+        Me.lblCertificatesMore.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblCertificatesMore.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(23, Byte), Integer))
+        Me.lblCertificatesMore.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblCertificatesMore.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCertificatesMore.ForeColor = System.Drawing.Color.White
+        Me.lblCertificatesMore.Location = New System.Drawing.Point(0, 90)
+        Me.lblCertificatesMore.Name = "lblCertificatesMore"
+        Me.lblCertificatesMore.Size = New System.Drawing.Size(280, 20)
+        Me.lblCertificatesMore.TabIndex = 2
+        Me.lblCertificatesMore.Text = "More info →"
+        Me.lblCertificatesMore.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblCertificatesTitle
+        '
+        Me.lblCertificatesTitle.AutoSize = True
+        Me.lblCertificatesTitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCertificatesTitle.ForeColor = System.Drawing.Color.White
+        Me.lblCertificatesTitle.Location = New System.Drawing.Point(15, 65)
+        Me.lblCertificatesTitle.Name = "lblCertificatesTitle"
+        Me.lblCertificatesTitle.Size = New System.Drawing.Size(77, 17)
+        Me.lblCertificatesTitle.TabIndex = 1
+        Me.lblCertificatesTitle.Text = "Certificates"
+        '
+        'lblCertificatesCount
+        '
+        Me.lblCertificatesCount.AutoSize = True
+        Me.lblCertificatesCount.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
+        Me.lblCertificatesCount.ForeColor = System.Drawing.Color.White
+        Me.lblCertificatesCount.Location = New System.Drawing.Point(15, 15)
+        Me.lblCertificatesCount.Name = "lblCertificatesCount"
+        Me.lblCertificatesCount.Size = New System.Drawing.Size(38, 45)
+        Me.lblCertificatesCount.TabIndex = 0
+        Me.lblCertificatesCount.Text = "7"
+        '
+        'panelOfficials
+        '
+        Me.panelOfficials.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.panelOfficials.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.panelOfficials.Controls.Add(Me.PictureBox4)
+        Me.panelOfficials.Controls.Add(Me.lblOfficialsMore)
+        Me.panelOfficials.Controls.Add(Me.lblOfficialsTitle)
+        Me.panelOfficials.Controls.Add(Me.lblOfficialsCount)
+        Me.panelOfficials.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.panelOfficials.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.panelOfficials.Location = New System.Drawing.Point(927, 15)
+        Me.panelOfficials.Name = "panelOfficials"
+        Me.panelOfficials.Size = New System.Drawing.Size(277, 110)
+        Me.panelOfficials.TabIndex = 3
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.ligaya_bims.My.Resources.Resources.multiple_users_silhouette
+        Me.PictureBox4.Location = New System.Drawing.Point(201, 15)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(60, 60)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 6
+        Me.PictureBox4.TabStop = False
+        '
+        'lblOfficialsMore
+        '
+        Me.lblOfficialsMore.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblOfficialsMore.BackColor = System.Drawing.Color.FromArgb(CType(CType(198, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.lblOfficialsMore.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblOfficialsMore.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOfficialsMore.ForeColor = System.Drawing.Color.White
+        Me.lblOfficialsMore.Location = New System.Drawing.Point(0, 90)
+        Me.lblOfficialsMore.Name = "lblOfficialsMore"
+        Me.lblOfficialsMore.Size = New System.Drawing.Size(280, 20)
+        Me.lblOfficialsMore.TabIndex = 2
+        Me.lblOfficialsMore.Text = "More info →"
+        Me.lblOfficialsMore.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblOfficialsTitle
+        '
+        Me.lblOfficialsTitle.AutoSize = True
+        Me.lblOfficialsTitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOfficialsTitle.ForeColor = System.Drawing.Color.White
+        Me.lblOfficialsTitle.Location = New System.Drawing.Point(15, 65)
+        Me.lblOfficialsTitle.Name = "lblOfficialsTitle"
+        Me.lblOfficialsTitle.Size = New System.Drawing.Size(131, 17)
+        Me.lblOfficialsTitle.TabIndex = 1
+        Me.lblOfficialsTitle.Text = "Cedula Transactions"
+        '
+        'lblOfficialsCount
+        '
+        Me.lblOfficialsCount.AutoSize = True
+        Me.lblOfficialsCount.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
+        Me.lblOfficialsCount.ForeColor = System.Drawing.Color.White
+        Me.lblOfficialsCount.Location = New System.Drawing.Point(15, 15)
+        Me.lblOfficialsCount.Name = "lblOfficialsCount"
+        Me.lblOfficialsCount.Size = New System.Drawing.Size(38, 45)
+        Me.lblOfficialsCount.TabIndex = 0
+        Me.lblOfficialsCount.Text = "6"
+        '
+        'panelLeft
+        '
+        Me.panelLeft.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.panelLeft.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.panelLeft.Controls.Add(Me.dgvDashboardResidents)
+        Me.panelLeft.Controls.Add(Me.lblDashboardResidentsTitle)
+        Me.panelLeft.Location = New System.Drawing.Point(12, 269)
+        Me.panelLeft.Name = "panelLeft"
+        Me.panelLeft.Size = New System.Drawing.Size(590, 519)
+        Me.panelLeft.TabIndex = 4
         '
         'dgvDashboardResidents
         '
         Me.dgvDashboardResidents.AllowUserToAddRows = False
         Me.dgvDashboardResidents.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.dgvDashboardResidents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvDashboardResidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(201, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvDashboardResidents.DefaultCellStyle = DataGridViewCellStyle3
-        Me.dgvDashboardResidents.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvDashboardResidents.AllowUserToResizeRows = False
+        Me.dgvDashboardResidents.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgvDashboardResidents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvDashboardResidents.BackgroundColor = System.Drawing.Color.White
+        Me.dgvDashboardResidents.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvDashboardResidents.ColumnHeadersHeight = 45
+        Me.dgvDashboardResidents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvDashboardResidents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.chkSelectAllDashboard, Me.colLastNameDashboard, Me.colFirstNameDashboard, Me.colMiddleNameDashboard, Me.colMobileNoDashboard, Me.colGenderDashboard})
         Me.dgvDashboardResidents.EnableHeadersVisualStyles = False
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvDashboardResidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvDashboardResidents.GridColor = System.Drawing.Color.FromArgb(CType(CType(189, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(189, Byte), Integer))
-        Me.dgvDashboardResidents.Location = New System.Drawing.Point(0, 44)
+        Me.dgvDashboardResidents.Location = New System.Drawing.Point(15, 50)
         Me.dgvDashboardResidents.MultiSelect = False
         Me.dgvDashboardResidents.Name = "dgvDashboardResidents"
         Me.dgvDashboardResidents.ReadOnly = True
         Me.dgvDashboardResidents.RowHeadersVisible = False
-        Me.dgvDashboardResidents.Size = New System.Drawing.Size(594, 617)
+        Me.dgvDashboardResidents.RowHeadersWidth = 51
+        Me.dgvDashboardResidents.RowTemplate.Height = 40
+        Me.dgvDashboardResidents.Size = New System.Drawing.Size(560, 449)
         Me.dgvDashboardResidents.TabIndex = 1
         '
-        'lblResidentsList
+        'chkSelectAllDashboard
         '
-        Me.lblResidentsList.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblResidentsList.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.lblResidentsList.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.lblResidentsList.Location = New System.Drawing.Point(0, 0)
-        Me.lblResidentsList.Name = "lblResidentsList"
-        Me.lblResidentsList.Padding = New System.Windows.Forms.Padding(12, 12, 12, 6)
-        Me.lblResidentsList.Size = New System.Drawing.Size(594, 44)
-        Me.lblResidentsList.TabIndex = 0
-        Me.lblResidentsList.Text = "Residents"
+        Me.chkSelectAllDashboard.HeaderText = ""
+        Me.chkSelectAllDashboard.MinimumWidth = 6
+        Me.chkSelectAllDashboard.Name = "chkSelectAllDashboard"
+        Me.chkSelectAllDashboard.ReadOnly = True
         '
-        'chartRight
+        'colLastNameDashboard
         '
-        Me.chartRight.BackColor = System.Drawing.Color.White
-        Me.chartRight.Controls.Add(Me.chartPurok)
-        Me.chartRight.Controls.Add(Me.lblPurokChart)
-        Me.chartRight.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.chartRight.Location = New System.Drawing.Point(603, 3)
-        Me.chartRight.Name = "chartRight"
-        Me.chartRight.Size = New System.Drawing.Size(594, 661)
-        Me.chartRight.TabIndex = 1
+        Me.colLastNameDashboard.HeaderText = "Last Name"
+        Me.colLastNameDashboard.MinimumWidth = 6
+        Me.colLastNameDashboard.Name = "colLastNameDashboard"
+        Me.colLastNameDashboard.ReadOnly = True
         '
-        'chartPurok
+        'colFirstNameDashboard
         '
-        Me.chartPurok.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.chartPurok.Location = New System.Drawing.Point(0, 44)
-        Me.chartPurok.Name = "chartPurok"
-        Me.chartPurok.Size = New System.Drawing.Size(594, 617)
-        Me.chartPurok.TabIndex = 1
-        Me.chartPurok.Text = "chartPurok"
+        Me.colFirstNameDashboard.HeaderText = "First Name"
+        Me.colFirstNameDashboard.MinimumWidth = 6
+        Me.colFirstNameDashboard.Name = "colFirstNameDashboard"
+        Me.colFirstNameDashboard.ReadOnly = True
         '
-        'lblPurokChart
+        'colMiddleNameDashboard
         '
-        Me.lblPurokChart.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblPurokChart.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.lblPurokChart.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.lblPurokChart.Location = New System.Drawing.Point(0, 0)
-        Me.lblPurokChart.Name = "lblPurokChart"
-        Me.lblPurokChart.Padding = New System.Windows.Forms.Padding(12, 12, 12, 6)
-        Me.lblPurokChart.Size = New System.Drawing.Size(594, 44)
-        Me.lblPurokChart.TabIndex = 0
-        Me.lblPurokChart.Text = "Residents by Purok"
+        Me.colMiddleNameDashboard.HeaderText = "Middle Name"
+        Me.colMiddleNameDashboard.MinimumWidth = 6
+        Me.colMiddleNameDashboard.Name = "colMiddleNameDashboard"
+        Me.colMiddleNameDashboard.ReadOnly = True
         '
-        'statsTable
+        'colMobileNoDashboard
         '
-        Me.statsTable.ColumnCount = 6
-        Me.statsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.75!))
-        Me.statsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.41667!))
-        Me.statsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.statsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.statsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.statsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.statsTable.Controls.Add(Me.cardHouseholds, 0, 0)
-        Me.statsTable.Controls.Add(Me.cardPopulation, 1, 0)
-        Me.statsTable.Controls.Add(Me.cardPending, 2, 0)
-        Me.statsTable.Controls.Add(Me.cardVoters, 3, 0)
-        Me.statsTable.Controls.Add(Me.cardCrime, 4, 0)
-        Me.statsTable.Controls.Add(Me.cardIndigent, 5, 0)
-        Me.statsTable.Dock = System.Windows.Forms.DockStyle.Top
-        Me.statsTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize
-        Me.statsTable.Location = New System.Drawing.Point(12, 12)
-        Me.statsTable.Name = "statsTable"
-        Me.statsTable.Padding = New System.Windows.Forms.Padding(0, 0, 0, 12)
-        Me.statsTable.RowCount = 1
-        Me.statsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110.0!))
-        Me.statsTable.Size = New System.Drawing.Size(1200, 122)
-        Me.statsTable.TabIndex = 0
+        Me.colMobileNoDashboard.HeaderText = "Mobile No."
+        Me.colMobileNoDashboard.MinimumWidth = 6
+        Me.colMobileNoDashboard.Name = "colMobileNoDashboard"
+        Me.colMobileNoDashboard.ReadOnly = True
         '
-        'cardHouseholds
+        'colGenderDashboard
         '
-        Me.cardHouseholds.BackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(253, Byte), Integer))
-        Me.cardHouseholds.Controls.Add(Me.lblHouseholdsSub)
-        Me.cardHouseholds.Controls.Add(Me.lblHouseholds)
-        Me.cardHouseholds.Location = New System.Drawing.Point(0, 0)
-        Me.cardHouseholds.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
-        Me.cardHouseholds.Name = "cardHouseholds"
-        Me.cardHouseholds.Size = New System.Drawing.Size(0, 98)
-        Me.cardHouseholds.TabIndex = 0
+        Me.colGenderDashboard.HeaderText = "Gender"
+        Me.colGenderDashboard.MinimumWidth = 6
+        Me.colGenderDashboard.Name = "colGenderDashboard"
+        Me.colGenderDashboard.ReadOnly = True
         '
-        'lblHouseholdsSub
+        'lblDashboardResidentsTitle
         '
-        Me.lblHouseholdsSub.AutoSize = True
-        Me.lblHouseholdsSub.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.lblHouseholdsSub.ForeColor = System.Drawing.Color.White
-        Me.lblHouseholdsSub.Location = New System.Drawing.Point(15, 50)
-        Me.lblHouseholdsSub.Name = "lblHouseholdsSub"
-        Me.lblHouseholdsSub.Size = New System.Drawing.Size(77, 17)
-        Me.lblHouseholdsSub.TabIndex = 1
-        Me.lblHouseholdsSub.Text = "Households"
+        Me.lblDashboardResidentsTitle.AutoSize = True
+        Me.lblDashboardResidentsTitle.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.lblDashboardResidentsTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.lblDashboardResidentsTitle.Location = New System.Drawing.Point(15, 15)
+        Me.lblDashboardResidentsTitle.Name = "lblDashboardResidentsTitle"
+        Me.lblDashboardResidentsTitle.Size = New System.Drawing.Size(188, 30)
+        Me.lblDashboardResidentsTitle.TabIndex = 0
+        Me.lblDashboardResidentsTitle.Text = "Recent Residents"
         '
-        'lblHouseholds
+        'panelRight
         '
-        Me.lblHouseholds.AutoSize = True
-        Me.lblHouseholds.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.lblHouseholds.ForeColor = System.Drawing.Color.White
-        Me.lblHouseholds.Location = New System.Drawing.Point(12, 10)
-        Me.lblHouseholds.Name = "lblHouseholds"
-        Me.lblHouseholds.Size = New System.Drawing.Size(66, 32)
-        Me.lblHouseholds.TabIndex = 0
-        Me.lblHouseholds.Text = "1,310"
+        Me.panelRight.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.panelRight.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.panelRight.Controls.Add(Me.chartPurokPopulation)
+        Me.panelRight.Controls.Add(Me.chartDemographics)
+        Me.panelRight.Controls.Add(Me.lblChartsTitle)
+        Me.panelRight.Location = New System.Drawing.Point(612, 269)
+        Me.panelRight.Name = "panelRight"
+        Me.panelRight.Size = New System.Drawing.Size(598, 519)
+        Me.panelRight.TabIndex = 5
         '
-        'cardPopulation
+        'chartPurokPopulation
         '
-        Me.cardPopulation.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(81, Byte), Integer))
-        Me.cardPopulation.Controls.Add(Me.lblPopulationSub)
-        Me.cardPopulation.Controls.Add(Me.lblPopulation)
-        Me.cardPopulation.Location = New System.Drawing.Point(213, 0)
-        Me.cardPopulation.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
-        Me.cardPopulation.Name = "cardPopulation"
-        Me.cardPopulation.Size = New System.Drawing.Size(0, 98)
-        Me.cardPopulation.TabIndex = 1
+        Me.chartPurokPopulation.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.chartPurokPopulation.Location = New System.Drawing.Point(15, 60)
+        Me.chartPurokPopulation.Name = "chartPurokPopulation"
+        Series1.Name = "Purok 1"
+        Series2.Name = "Purok 2"
+        Series3.Name = "Purok 3"
+        Series4.Name = "Purok 4"
+        Series5.Name = "Purok 5"
+        Me.chartPurokPopulation.Series.Add(Series1)
+        Me.chartPurokPopulation.Series.Add(Series2)
+        Me.chartPurokPopulation.Series.Add(Series3)
+        Me.chartPurokPopulation.Series.Add(Series4)
+        Me.chartPurokPopulation.Series.Add(Series5)
+        Me.chartPurokPopulation.Size = New System.Drawing.Size(568, 197)
+        Me.chartPurokPopulation.TabIndex = 2
+        Me.chartPurokPopulation.Text = "Purok Population"
+        Me.chartPurokPopulation.Visible = True
         '
-        'lblPopulationSub
+        'chartDemographics
         '
-        Me.lblPopulationSub.AutoSize = True
-        Me.lblPopulationSub.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.lblPopulationSub.ForeColor = System.Drawing.Color.White
-        Me.lblPopulationSub.Location = New System.Drawing.Point(15, 50)
-        Me.lblPopulationSub.Name = "lblPopulationSub"
-        Me.lblPopulationSub.Size = New System.Drawing.Size(70, 17)
-        Me.lblPopulationSub.TabIndex = 1
-        Me.lblPopulationSub.Text = "Population"
+        Me.chartDemographics.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        ChartArea1.Name = "Senior"
+        Me.chartDemographics.ChartAreas.Add(ChartArea1)
+        Me.chartDemographics.Location = New System.Drawing.Point(15, 263)
+        Me.chartDemographics.Name = "chartDemographics"
+        Me.chartDemographics.Size = New System.Drawing.Size(568, 236)
+        Me.chartDemographics.TabIndex = 1
+        Me.chartDemographics.Text = "Demographics"
         '
-        'lblPopulation
+        'lblChartsTitle
         '
-        Me.lblPopulation.AutoSize = True
-        Me.lblPopulation.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.lblPopulation.ForeColor = System.Drawing.Color.White
-        Me.lblPopulation.Location = New System.Drawing.Point(12, 10)
-        Me.lblPopulation.Name = "lblPopulation"
-        Me.lblPopulation.Size = New System.Drawing.Size(70, 32)
-        Me.lblPopulation.TabIndex = 0
-        Me.lblPopulation.Text = "1,640"
-        '
-        'cardPending
-        '
-        Me.cardPending.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(233, Byte), Integer))
-
-        Me.cardPending.Controls.Add(Me.lblPendingSub)
-        Me.cardPending.Controls.Add(Me.lblPending)
-
-        Me.cardPending.Location = New System.Drawing.Point(398, 0)
-        Me.cardPending.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
-        Me.cardPending.Name = "cardPending"
-
-        Me.cardPending.Size = New System.Drawing.Size(0, 98)
-        Me.cardPending.TabIndex = 2
-        '
-        'lblPendingSub
-        '
-        Me.lblPendingSub.AutoSize = True
-        Me.lblPendingSub.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.lblPendingSub.ForeColor = System.Drawing.Color.White
-        Me.lblPendingSub.Location = New System.Drawing.Point(15, 50)
-        Me.lblPendingSub.Name = "lblPendingSub"
-        Me.lblPendingSub.Size = New System.Drawing.Size(135, 17)
-        Me.lblPendingSub.TabIndex = 1
-        Me.lblPendingSub.Text = "Total Pending Blotters"
-        '
-        'lblPending
-        '
-        Me.lblPending.AutoSize = True
-        Me.lblPending.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.lblPending.ForeColor = System.Drawing.Color.White
-        Me.lblPending.Location = New System.Drawing.Point(12, 10)
-        Me.lblPending.Name = "lblPending"
-        Me.lblPending.Size = New System.Drawing.Size(51, 32)
-        Me.lblPending.TabIndex = 0
-        Me.lblPending.Text = "514"
-        '
-        'cardVoters
-        '
-        Me.cardVoters.BackColor = System.Drawing.Color.FromArgb(CType(CType(2, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(209, Byte), Integer))
-        Me.cardVoters.Controls.Add(Me.lblVotersSub)
-        Me.cardVoters.Controls.Add(Me.lblVoters)
-        Me.cardVoters.Location = New System.Drawing.Point(598, 0)
-        Me.cardVoters.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
-        Me.cardVoters.Name = "cardVoters"
-        Me.cardVoters.Size = New System.Drawing.Size(0, 98)
-        Me.cardVoters.TabIndex = 3
-        '
-        'lblVotersSub
-        '
-        Me.lblVotersSub.AutoSize = True
-        Me.lblVotersSub.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.lblVotersSub.ForeColor = System.Drawing.Color.White
-        Me.lblVotersSub.Location = New System.Drawing.Point(15, 50)
-        Me.lblVotersSub.Name = "lblVotersSub"
-        Me.lblVotersSub.Size = New System.Drawing.Size(112, 17)
-        Me.lblVotersSub.TabIndex = 1
-        Me.lblVotersSub.Text = "Registered Voters"
-        '
-        'lblVoters
-        '
-        Me.lblVoters.AutoSize = True
-        Me.lblVoters.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.lblVoters.ForeColor = System.Drawing.Color.White
-        Me.lblVoters.Location = New System.Drawing.Point(12, 10)
-        Me.lblVoters.Name = "lblVoters"
-        Me.lblVoters.Size = New System.Drawing.Size(63, 32)
-        Me.lblVoters.TabIndex = 0
-        Me.lblVoters.Text = "1,311"
-        '
-        'cardCrime
-        '
-        Me.cardCrime.BackColor = System.Drawing.Color.FromArgb(CType(CType(156, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(176, Byte), Integer))
-        Me.cardCrime.Controls.Add(Me.lblCrimeSub)
-        Me.cardCrime.Controls.Add(Me.lblCrime)
-        Me.cardCrime.Location = New System.Drawing.Point(798, 0)
-        Me.cardCrime.Margin = New System.Windows.Forms.Padding(0, 0, 12, 12)
-        Me.cardCrime.Name = "cardCrime"
-        Me.cardCrime.Size = New System.Drawing.Size(0, 98)
-        Me.cardCrime.TabIndex = 4
-        '
-        'lblCrimeSub
-        '
-        Me.lblCrimeSub.AutoSize = True
-        Me.lblCrimeSub.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.lblCrimeSub.ForeColor = System.Drawing.Color.White
-        Me.lblCrimeSub.Location = New System.Drawing.Point(15, 50)
-        Me.lblCrimeSub.Name = "lblCrimeSub"
-        Me.lblCrimeSub.Size = New System.Drawing.Size(92, 17)
-        Me.lblCrimeSub.TabIndex = 1
-        Me.lblCrimeSub.Text = "Crime Reports"
-        '
-        'lblCrime
-        '
-        Me.lblCrime.AutoSize = True
-        Me.lblCrime.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.lblCrime.ForeColor = System.Drawing.Color.White
-        Me.lblCrime.Location = New System.Drawing.Point(12, 10)
-        Me.lblCrime.Name = "lblCrime"
-        Me.lblCrime.Size = New System.Drawing.Size(40, 32)
-        Me.lblCrime.TabIndex = 0
-        Me.lblCrime.Text = "27"
-        '
-        'cardIndigent
-        '
-        Me.cardIndigent.BackColor = System.Drawing.Color.FromArgb(CType(CType(233, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(99, Byte), Integer))
-        Me.cardIndigent.Controls.Add(Me.lblIndigentSub)
-        Me.cardIndigent.Controls.Add(Me.lblIndigent)
-        Me.cardIndigent.Location = New System.Drawing.Point(998, 0)
-        Me.cardIndigent.Margin = New System.Windows.Forms.Padding(0)
-        Me.cardIndigent.Name = "cardIndigent"
-        Me.cardIndigent.Size = New System.Drawing.Size(0, 110)
-        Me.cardIndigent.TabIndex = 5
-        '
-        'lblIndigentSub
-        '
-        Me.lblIndigentSub.AutoSize = True
-        Me.lblIndigentSub.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.lblIndigentSub.ForeColor = System.Drawing.Color.White
-        Me.lblIndigentSub.Location = New System.Drawing.Point(15, 50)
-        Me.lblIndigentSub.Name = "lblIndigentSub"
-        Me.lblIndigentSub.Size = New System.Drawing.Size(105, 17)
-        Me.lblIndigentSub.TabIndex = 1
-        Me.lblIndigentSub.Text = "Indigent Families"
-        '
-        'lblIndigent
-        '
-        Me.lblIndigent.AutoSize = True
-        Me.lblIndigent.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.lblIndigent.ForeColor = System.Drawing.Color.White
-        Me.lblIndigent.Location = New System.Drawing.Point(12, 10)
-        Me.lblIndigent.Name = "lblIndigent"
-        Me.lblIndigent.Size = New System.Drawing.Size(51, 32)
-        Me.lblIndigent.TabIndex = 0
-        Me.lblIndigent.Text = "341"
+        Me.lblChartsTitle.AutoSize = True
+        Me.lblChartsTitle.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.lblChartsTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.lblChartsTitle.Location = New System.Drawing.Point(15, 15)
+        Me.lblChartsTitle.Name = "lblChartsTitle"
+        Me.lblChartsTitle.Size = New System.Drawing.Size(199, 30)
+        Me.lblChartsTitle.TabIndex = 0
+        Me.lblChartsTitle.Text = "Population Charts"
         '
         'dashboard
         '
@@ -643,27 +1022,41 @@ Partial Class dashboard
         Me.leftNav.ResumeLayout(False)
         Me.leftHeader.ResumeLayout(False)
         Me.leftHeader.PerformLayout()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.topBar.ResumeLayout(False)
         Me.topBar.PerformLayout()
         Me.contentHost.ResumeLayout(False)
-        Me.chartsTable.ResumeLayout(False)
-        Me.chartLeft.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panelResidents.ResumeLayout(False)
+        Me.panelResidents.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panelBlotter.ResumeLayout(False)
+        Me.panelBlotter.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panelCertificates.ResumeLayout(False)
+        Me.panelCertificates.PerformLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panelOfficials.ResumeLayout(False)
+        Me.panelOfficials.PerformLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panelLeft.ResumeLayout(False)
+        Me.panelLeft.PerformLayout()
         CType(Me.dgvDashboardResidents, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.chartRight.ResumeLayout(False)
-        CType(Me.chartPurok, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.statsTable.ResumeLayout(False)
-        Me.cardHouseholds.ResumeLayout(False)
-        Me.cardHouseholds.PerformLayout()
-        Me.cardPopulation.ResumeLayout(False)
-        Me.cardPopulation.PerformLayout()
-        Me.cardPending.ResumeLayout(False)
-        Me.cardPending.PerformLayout()
-        Me.cardVoters.ResumeLayout(False)
-        Me.cardVoters.PerformLayout()
-        Me.cardCrime.ResumeLayout(False)
-        Me.cardCrime.PerformLayout()
-        Me.cardIndigent.ResumeLayout(False)
-        Me.cardIndigent.PerformLayout()
+        Me.panelRight.ResumeLayout(False)
+        Me.panelRight.PerformLayout()
+        CType(Me.chartPurokPopulation, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chartDemographics, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -682,30 +1075,60 @@ Partial Class dashboard
     Friend WithEvents lblAppTitle As System.Windows.Forms.Label
     Friend WithEvents lblWelcome As System.Windows.Forms.Label
     Friend WithEvents contentHost As System.Windows.Forms.Panel
-    Friend WithEvents statsTable As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents cardHouseholds As System.Windows.Forms.Panel
-    Friend WithEvents lblHouseholds As System.Windows.Forms.Label
-    Friend WithEvents lblHouseholdsSub As System.Windows.Forms.Label
-    Friend WithEvents chartsTable As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents chartLeft As System.Windows.Forms.Panel
-    Friend WithEvents chartRight As System.Windows.Forms.Panel
-		Friend WithEvents dgvDashboardResidents As System.Windows.Forms.DataGridView
-		Friend WithEvents lblResidentsList As System.Windows.Forms.Label
-		Friend WithEvents chartPurok As System.Windows.Forms.DataVisualization.Charting.Chart
-		Friend WithEvents lblPurokChart As System.Windows.Forms.Label
-    Friend WithEvents cardPopulation As System.Windows.Forms.Panel
-    Friend WithEvents lblPopulationSub As System.Windows.Forms.Label
-    Friend WithEvents lblPopulation As System.Windows.Forms.Label
-    Friend WithEvents cardPending As System.Windows.Forms.Panel
-    Friend WithEvents lblPendingSub As System.Windows.Forms.Label
-    Friend WithEvents lblPending As System.Windows.Forms.Label
-    Friend WithEvents cardVoters As System.Windows.Forms.Panel
-    Friend WithEvents lblVotersSub As System.Windows.Forms.Label
-    Friend WithEvents lblVoters As System.Windows.Forms.Label
-    Friend WithEvents cardCrime As System.Windows.Forms.Panel
-    Friend WithEvents lblCrimeSub As System.Windows.Forms.Label
-    Friend WithEvents lblCrime As System.Windows.Forms.Label
-    Friend WithEvents cardIndigent As System.Windows.Forms.Panel
-    Friend WithEvents lblIndigentSub As System.Windows.Forms.Label
-    Friend WithEvents lblIndigent As System.Windows.Forms.Label
+    Friend WithEvents panelResidents As Panel
+    Friend WithEvents lblResidentsCount As Label
+    Friend WithEvents lblResidentsTitle As Label
+    Friend WithEvents lblResidentsMore As Label
+    Friend WithEvents panelBlotter As Panel
+    Friend WithEvents lblBlotterCount As Label
+    Friend WithEvents lblBlotterTitle As Label
+    Friend WithEvents lblBlotterMore As Label
+    Friend WithEvents panelCertificates As Panel
+    Friend WithEvents lblCertificatesCount As Label
+    Friend WithEvents lblCertificatesTitle As Label
+    Friend WithEvents lblCertificatesMore As Label
+    Friend WithEvents panelOfficials As Panel
+    Friend WithEvents lblOfficialsCount As Label
+    Friend WithEvents lblOfficialsTitle As Label
+    Friend WithEvents lblOfficialsMore As Label
+    Friend WithEvents panelLeft As Panel
+    Friend WithEvents dgvDashboardResidents As DataGridView
+    Friend WithEvents chkSelectAllDashboard As DataGridViewCheckBoxColumn
+    Friend WithEvents colActionDashboard As DataGridViewTextBoxColumn
+    Friend WithEvents colLastNameDashboard As DataGridViewTextBoxColumn
+    Friend WithEvents colFirstNameDashboard As DataGridViewTextBoxColumn
+    Friend WithEvents colMiddleNameDashboard As DataGridViewTextBoxColumn
+    Friend WithEvents colMobileNoDashboard As DataGridViewTextBoxColumn
+    Friend WithEvents colGenderDashboard As DataGridViewTextBoxColumn
+    Friend WithEvents lblDashboardResidentsTitle As Label
+    Friend WithEvents panelRight As Panel
+    Friend WithEvents chartPurokPopulation As DataVisualization.Charting.Chart
+    Friend WithEvents chartDemographics As DataVisualization.Charting.Chart
+    Friend WithEvents lblChartsTitle As Label
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents PictureBox6 As PictureBox
+    Friend WithEvents PictureBox7 As PictureBox
+    Friend WithEvents PictureBox8 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents PictureBox9 As PictureBox
+    Friend WithEvents Label13 As Label
 End Class

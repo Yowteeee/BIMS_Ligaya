@@ -1,78 +1,136 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Drawing.Drawing2D
 
 Public Class residentform
     Public Event ResidentSaved(resident As ResidentData)
     Private idPicturePath As String = ""
+    Private editingResidentId As Integer = -1 ' -1 means new resident, otherwise it's an edit
+    Private originalPicturePath As String = "" ' Store original picture path when editing
+    Private age As Integer
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
+            ' Validate that all required controls are not null
+            If txtLastName Is Nothing OrElse txtFirstName Is Nothing OrElse txtMiddleName Is Nothing Then
+                MessageBox.Show("Form controls are not properly initialized. Please restart the application.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
             Using conn = Database.CreateConnection()
                 conn.Open()
-                Dim sql As String = "INSERT INTO tbl_residentinfo (lastname, firstname, middlename, gender, birthdate, age, phoneno, civilstatus, citizenship, fathersname, mothersname, spouse, email, voterstatus, weight, height, idpic) VALUES (@ln,@fn,@mn,@gender,@bd,@age,@phone,@cstat,@cit,@father,@mother,@spouse,@mail,@vstat,@weight,@height,@idpic)"
+                
+                ' Calculate age from birth date
+                Dim age As Integer = CalculateAge(If(dtpBirthDate IsNot Nothing, dtpBirthDate.Value, DateTime.Now))
+                If txtAge IsNot Nothing Then
+                    txtAge.Text = age.ToString()
+                End If
+                
+                ' Determine if this is an INSERT or UPDATE
+                Dim sql As String
+                If editingResidentId > 0 Then
+                    ' UPDATE existing resident
+                    ' Only update idpic if a new picture was selected (different from original)
+                    Dim pictureChanged As Boolean = Not String.IsNullOrWhiteSpace(idPicturePath) AndAlso idPicturePath <> originalPicturePath
+                    If pictureChanged Then
+                        ' Update with new picture
+                        sql = "UPDATE tbl_residentinfo SET lastname=@ln, firstname=@fn, middlename=@mn, gender=@gender, birthdate=@bd, age=@age, phoneno=@phone, civilstatus=@cstat, citizenship=@cit, fathersname=@father, mothersname=@mother, spouse=@spouse, email=@mail, voterstatus=@vstat, weight=@weight, height=@height, address=@address, religion=@religion, idpic=@idpic WHERE id=@id"
+                    Else
+                        ' Keep existing picture - don't update idpic field
+                        sql = "UPDATE tbl_residentinfo SET lastname=@ln, firstname=@fn, middlename=@mn, gender=@gender, birthdate=@bd, age=@age, phoneno=@phone, civilstatus=@cstat, citizenship=@cit, fathersname=@father, mothersname=@mother, spouse=@spouse, email=@mail, voterstatus=@vstat, weight=@weight, height=@height, address=@address, religion=@religion WHERE id=@id"
+                    End If
+                Else
+                    ' INSERT new resident
+                    sql = "INSERT INTO tbl_residentinfo (id, lastname, firstname, middlename, gender, birthdate, age, phoneno, civilstatus, citizenship, fathersname, mothersname, spouse, email, voterstatus, weight, height, address, religion, idpic) VALUES (@id,@ln,@fn,@mn,@gender,@bd,@age,@phone,@cstat,@cit,@father,@mother,@spouse,@mail,@vstat,@weight,@height,@address,@religion,@idpic)"
+                End If
+                
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
-                    cmd.Parameters.AddWithValue("@ln", txtLastName.Text.Trim())
-                    cmd.Parameters.AddWithValue("@fn", txtFirstName.Text.Trim())
-                    cmd.Parameters.AddWithValue("@mn", txtMiddleName.Text.Trim())
-                    cmd.Parameters.AddWithValue("@gender", If(TryCast(cmbGender.SelectedItem, String), ""))
-                    cmd.Parameters.AddWithValue("@bd", dtpBirthDate.Value)
-                    cmd.Parameters.AddWithValue("@age", If(String.IsNullOrWhiteSpace(txtAge.Text), DBNull.Value, CType(txtAge.Text, Object)))
-                    cmd.Parameters.AddWithValue("@phone", txtPhoneNumber.Text.Trim())
-                    cmd.Parameters.AddWithValue("@cstat", If(TryCast(cmbCivilStatus.SelectedItem, String), ""))
-                    cmd.Parameters.AddWithValue("@cit", txtCitizenship.Text.Trim())
-                    cmd.Parameters.AddWithValue("@father", txtFathersName.Text.Trim())
-                    cmd.Parameters.AddWithValue("@mother", txtMothersName.Text.Trim())
-                    cmd.Parameters.AddWithValue("@spouse", txtSpouse.Text.Trim())
-                    cmd.Parameters.AddWithValue("@mail", txtEmail.Text.Trim())
-                    cmd.Parameters.AddWithValue("@vstat", If(TryCast(cmbVotersStatus.SelectedItem, String), ""))
-                    cmd.Parameters.AddWithValue("@weight", txtWeight.Text.Trim())
-                    cmd.Parameters.AddWithValue("@height", txtHeight.Text.Trim())
+                    ' Safe parameter assignments with null checks
+                    If editingResidentId > 0 Then
+                        cmd.Parameters.AddWithValue("@id", editingResidentId)
+                    Else
+                        cmd.Parameters.AddWithValue("@id", DBNull.Value)
+                    End If
+                    cmd.Parameters.AddWithValue("@ln", If(txtLastName IsNot Nothing, txtLastName.Text.Trim(), ""))
+                    cmd.Parameters.AddWithValue("@fn", If(txtFirstName IsNot Nothing, txtFirstName.Text.Trim(), ""))
+                    cmd.Parameters.AddWithValue("@mn", If(txtMiddleName IsNot Nothing, txtMiddleName.Text.Trim(), ""))
+                    cmd.Parameters.AddWithValue("@gender", If(cmbGender IsNot Nothing AndAlso cmbGender.SelectedItem IsNot Nothing, cmbGender.SelectedItem.ToString(), ""))
+                    cmd.Parameters.AddWithValue("@bd", If(dtpBirthDate IsNot Nothing, dtpBirthDate.Value, DateTime.Now))
+                    cmd.Parameters.AddWithValue("@age", If(txtAge IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(txtAge.Text), CType(age, Object), DBNull.Value))
+                    cmd.Parameters.AddWithValue("@phone", If(txtPhoneNumber IsNot Nothing, txtPhoneNumber.Text.Trim(), ""))
+                    cmd.Parameters.AddWithValue("@cstat", If(cmbCivilStatus IsNot Nothing AndAlso cmbCivilStatus.SelectedItem IsNot Nothing, cmbCivilStatus.SelectedItem.ToString(), ""))
+                    cmd.Parameters.AddWithValue("@cit", If(txtCitizenship IsNot Nothing, txtCitizenship.Text.Trim(), ""))
+                    cmd.Parameters.AddWithValue("@father", If(txtFathersName IsNot Nothing, txtFathersName.Text.Trim(), ""))
+                    cmd.Parameters.AddWithValue("@mother", If(txtMothersName IsNot Nothing, txtMothersName.Text.Trim(), ""))
+                    cmd.Parameters.AddWithValue("@spouse", If(txtSpouse IsNot Nothing, txtSpouse.Text.Trim(), ""))
+                    cmd.Parameters.AddWithValue("@mail", If(txtEmail IsNot Nothing, txtEmail.Text.Trim(), ""))
+                    cmd.Parameters.AddWithValue("@vstat", If(cmbVotersStatus IsNot Nothing AndAlso cmbVotersStatus.SelectedItem IsNot Nothing, cmbVotersStatus.SelectedItem.ToString(), ""))
+                    cmd.Parameters.AddWithValue("@weight", If(txtWeight IsNot Nothing, txtWeight.Text.Trim(), ""))
+                    cmd.Parameters.AddWithValue("@height", If(txtHeight IsNot Nothing, txtHeight.Text.Trim(), ""))
+                    cmd.Parameters.AddWithValue("@address", If(txtAddress IsNot Nothing, txtAddress.Text.Trim(), ""))
+                    cmd.Parameters.AddWithValue("@religion", If(txtReligion IsNot Nothing, txtReligion.Text.Trim(), ""))
                     ' Add the idpic parameter - saves the file path or NULL if no picture
-                    cmd.Parameters.AddWithValue("@idpic", If(String.IsNullOrWhiteSpace(idPicturePath), DBNull.Value, CType(idPicturePath, Object)))
+                    ' Only add idpic parameter if we're inserting or updating with a new picture
+                    Dim pictureChanged As Boolean = editingResidentId <= 0 OrElse (Not String.IsNullOrWhiteSpace(idPicturePath) AndAlso idPicturePath <> originalPicturePath)
+                    If pictureChanged Then
+                        cmd.Parameters.AddWithValue("@idpic", If(String.IsNullOrWhiteSpace(idPicturePath), DBNull.Value, CType(idPicturePath, Object)))
+                    End If
                     cmd.ExecuteNonQuery()
                 End Using
             End Using
 
-            ' Calculate age from birth date
-            Dim age As Integer = CalculateAge(dtpBirthDate.Value)
-            txtAge.Text = age.ToString()
-
-            ' Create new resident data
+            ' Create new resident data with safe property assignments
             Dim newResident As New ResidentData With {
-            .FirstName = txtFirstName.Text.Trim(),
-            .LastName = txtLastName.Text.Trim(),
-            .MiddleName = txtMiddleName.Text.Trim(),
-            .BirthDate = dtpBirthDate.Value,
+            .FirstName = If(txtFirstName IsNot Nothing, txtFirstName.Text.Trim(), ""),
+            .LastName = If(txtLastName IsNot Nothing, txtLastName.Text.Trim(), ""),
+            .MiddleName = If(txtMiddleName IsNot Nothing, txtMiddleName.Text.Trim(), ""),
+            .BirthDate = If(dtpBirthDate IsNot Nothing, dtpBirthDate.Value, DateTime.Now),
             .Age = age,
-            .Gender = If(cmbGender.SelectedItem IsNot Nothing, cmbGender.SelectedItem.ToString().ToLower(), ""),
-            .VotersStatus = If(cmbVotersStatus.SelectedItem IsNot Nothing, cmbVotersStatus.SelectedItem.ToString(), ""),
-            .CivilStatus = If(cmbCivilStatus.SelectedItem IsNot Nothing, cmbCivilStatus.SelectedItem.ToString(), ""),
-            .Citizenship = txtCitizenship.Text.Trim(),
-            .PhoneNumber = txtPhoneNumber.Text.Trim(),
-            .Height = txtHeight.Text.Trim(),
-            .Weight = txtWeight.Text.Trim(),
-            .Email = txtEmail.Text.Trim(),
-            .Spouse = txtSpouse.Text.Trim(),
-            .FathersName = txtFathersName.Text.Trim(),
-            .MothersName = txtMothersName.Text.Trim(),
+            .Gender = If(cmbGender IsNot Nothing AndAlso cmbGender.SelectedItem IsNot Nothing, cmbGender.SelectedItem.ToString().ToLower(), ""),
+            .VotersStatus = If(cmbVotersStatus IsNot Nothing AndAlso cmbVotersStatus.SelectedItem IsNot Nothing, cmbVotersStatus.SelectedItem.ToString(), ""),
+            .CivilStatus = If(cmbCivilStatus IsNot Nothing AndAlso cmbCivilStatus.SelectedItem IsNot Nothing, cmbCivilStatus.SelectedItem.ToString(), ""),
+            .Citizenship = If(txtCitizenship IsNot Nothing, txtCitizenship.Text.Trim(), ""),
+            .PhoneNumber = If(txtPhoneNumber IsNot Nothing, txtPhoneNumber.Text.Trim(), ""),
+            .Height = If(txtHeight IsNot Nothing, txtHeight.Text.Trim(), ""),
+            .Weight = If(txtWeight IsNot Nothing, txtWeight.Text.Trim(), ""),
+            .Email = If(txtEmail IsNot Nothing, txtEmail.Text.Trim(), ""),
+            .Spouse = If(txtSpouse IsNot Nothing, txtSpouse.Text.Trim(), ""),
+            .FathersName = If(txtFathersName IsNot Nothing, txtFathersName.Text.Trim(), ""),
+            .MothersName = If(txtMothersName IsNot Nothing, txtMothersName.Text.Trim(), ""),
+            .Address = If(txtAddress IsNot Nothing, txtAddress.Text.Trim(), ""),
+            .Religion = If(txtReligion IsNot Nothing, txtReligion.Text.Trim(), ""),
             .IdPicture = idPicturePath,
-            .MobileNo = txtPhoneNumber.Text.Trim()
+            .MobileNo = If(txtPhoneNumber IsNot Nothing, txtPhoneNumber.Text.Trim(), "")
         }
 
             ' Raise the event to notify parent form
             RaiseEvent ResidentSaved(newResident)
 
             ' Show success message
-            MessageBox.Show("Resident information saved successfully!", "Success",
-                      MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Dim message As String = If(editingResidentId > 0, "Resident information updated successfully!", "Resident information saved successfully!")
+            MessageBox.Show(message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            ' Clear form
+            ' Clear form and reset editing ID
             ClearForm()
+            editingResidentId = -1
 
             ' Close the form
             Me.Close()
         Catch ex As Exception
             MessageBox.Show("Database error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+    
+    ' Public method to set the resident ID for editing
+    Public Sub SetEditingResidentId(residentId As Integer)
+        editingResidentId = residentId
+    End Sub
+    
+    ' Public method to set the original picture path when editing
+    Public Sub SetOriginalPicturePath(picturePath As String)
+        originalPicturePath = picturePath
+        If Not String.IsNullOrWhiteSpace(picturePath) Then
+            idPicturePath = picturePath
+        End If
     End Sub
 
     Private Function CalculateAge(birthDate As DateTime) As Integer
@@ -83,23 +141,24 @@ Public Class residentform
     End Function
 
     Private Sub ClearForm()
-        txtLastName.Clear()
-        txtFirstName.Clear()
-        txtMiddleName.Clear()
-        txtPhoneNumber.Clear()
-        txtCitizenship.Clear()
-        txtHeight.Clear()
-        txtWeight.Clear()
-        txtEmail.Clear()
-        txtSpouse.Clear()
-        txtFathersName.Clear()
-        txtMothersName.Clear()
-        cmbGender.SelectedIndex = -1
-        cmbVotersStatus.SelectedIndex = -1
-        cmbCivilStatus.SelectedIndex = -1
-        dtpBirthDate.Value = DateTime.Now
-        txtAge.Clear()
-        picIdPicture.Image = Nothing
+        ' Clear all form fields with null checks
+        If txtLastName IsNot Nothing Then txtLastName.Clear()
+        If txtFirstName IsNot Nothing Then txtFirstName.Clear()
+        If txtMiddleName IsNot Nothing Then txtMiddleName.Clear()
+        If txtPhoneNumber IsNot Nothing Then txtPhoneNumber.Clear()
+        If txtCitizenship IsNot Nothing Then txtCitizenship.Clear()
+        If txtHeight IsNot Nothing Then txtHeight.Clear()
+        If txtWeight IsNot Nothing Then txtWeight.Clear()
+        If txtEmail IsNot Nothing Then txtEmail.Clear()
+        If txtSpouse IsNot Nothing Then txtSpouse.Clear()
+        If txtFathersName IsNot Nothing Then txtFathersName.Clear()
+        If txtMothersName IsNot Nothing Then txtMothersName.Clear()
+        If cmbGender IsNot Nothing Then cmbGender.SelectedIndex = -1
+        If cmbVotersStatus IsNot Nothing Then cmbVotersStatus.SelectedIndex = -1
+        If cmbCivilStatus IsNot Nothing Then cmbCivilStatus.SelectedIndex = -1
+        If dtpBirthDate IsNot Nothing Then dtpBirthDate.Value = DateTime.Now
+        If txtAge IsNot Nothing Then txtAge.Clear()
+        If picIdPicture IsNot Nothing Then picIdPicture.Image = Nothing
         idPicturePath = ""
     End Sub
 
@@ -141,8 +200,10 @@ Public Class residentform
 
     Private Sub dtpBirthDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpBirthDate.ValueChanged
         ' Auto-calculate age when birth date changes
-        Dim age As Integer = CalculateAge(dtpBirthDate.Value)
-        txtAge.Text = age.ToString()
+        If dtpBirthDate IsNot Nothing AndAlso txtAge IsNot Nothing Then
+            Dim age As Integer = CalculateAge(dtpBirthDate.Value)
+            txtAge.Text = age.ToString()
+        End If
     End Sub
 
     Private Sub pnlFields_Paint(sender As Object, e As PaintEventArgs) Handles pnlFields.Paint
@@ -155,15 +216,92 @@ Public Class residentform
 
     End Sub
 
-    Private Sub residentform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
     Private Sub cmbCivilStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCivilStatus.SelectedIndexChanged
 
     End Sub
 
     Private Sub pnlMain_Paint(sender As Object, e As PaintEventArgs) Handles pnlMain.Paint
+
+    End Sub
+
+    Private Sub ApplyRoundedCorners()
+        ' Apply rounded corners to all textboxes using FlatStyle
+        SetRoundedStyle(txtLastName)
+        SetRoundedStyle(txtFirstName)
+        SetRoundedStyle(txtMiddleName)
+        SetRoundedStyle(txtCitizenship)
+        SetRoundedStyle(txtPhoneNumber)
+        SetRoundedStyle(txtEmail)
+        SetRoundedStyle(txtFathersName)
+        SetRoundedStyle(txtMothersName)
+        SetRoundedStyle(txtSpouse)
+        SetRoundedStyle(txtHeight)
+        SetRoundedStyle(txtWeight)
+        SetRoundedStyle(txtAddress)
+        SetRoundedStyle(txtReligion)
+
+        ' Apply rounded corners to all comboboxes
+        SetRoundedStyle(cmbGender)
+        SetRoundedStyle(cmbCivilStatus)
+        SetRoundedStyle(cmbVotersStatus)
+
+        ' Apply rounded corners to all buttons
+        SetRoundedStyle(btnSave)
+        SetRoundedStyle(btnCancel)
+        SetRoundedStyle(btnChoosePicture)
+    End Sub
+
+    Private Sub SetRoundedStyle(ctrl As Control)
+        If ctrl Is Nothing Then Return
+
+        ' Set flat style for modern appearance
+        If TypeOf ctrl Is Button Then
+            Dim btn As Button = DirectCast(ctrl, Button)
+            btn.FlatStyle = FlatStyle.Flat
+            btn.FlatAppearance.BorderSize = 0
+
+        ElseIf TypeOf ctrl Is TextBox Then
+            Dim txt As TextBox = DirectCast(ctrl, TextBox)
+            txt.BorderStyle = BorderStyle.FixedSingle
+
+        ElseIf TypeOf ctrl Is ComboBox Then
+            Dim cmb As ComboBox = DirectCast(ctrl, ComboBox)
+            cmb.FlatStyle = FlatStyle.Flat
+        End If
+    End Sub
+
+    Private Sub residentform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        InitializeComboBoxes()
+        ApplyRoundedCorners()
+    End Sub
+
+    Private Sub InitializeComboBoxes()
+        ' Initialize Gender ComboBox
+        cmbGender.Items.Clear()
+        cmbGender.Items.Add("Male")
+        cmbGender.Items.Add("Female")
+        
+        ' Initialize Civil Status ComboBox
+        cmbCivilStatus.Items.Clear()
+        cmbCivilStatus.Items.Add("Single")
+        cmbCivilStatus.Items.Add("Married")
+        cmbCivilStatus.Items.Add("Widowed")
+        cmbCivilStatus.Items.Add("Divorced")
+        cmbCivilStatus.Items.Add("Separated")
+        
+        ' Initialize Voters Status ComboBox
+        cmbVotersStatus.Items.Clear()
+        cmbVotersStatus.Items.Add("Registered")
+        cmbVotersStatus.Items.Add("Not Registered")
+        cmbVotersStatus.Items.Add("Active")
+        cmbVotersStatus.Items.Add("Inactive")
+    End Sub
+
+    Private Sub lblBirthDate_Click(sender As Object, e As EventArgs) Handles lblBirthDate.Click
+
+    End Sub
+
+    Private Sub pnlButtons_Paint(sender As Object, e As PaintEventArgs)
 
     End Sub
 End Class

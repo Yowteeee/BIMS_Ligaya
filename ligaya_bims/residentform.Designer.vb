@@ -22,27 +22,32 @@ Partial Class residentform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-		Me.pnlMain = New System.Windows.Forms.Panel()
-		Me.pnlForm = New System.Windows.Forms.Panel()
-		Me.pnlIdPicture = New System.Windows.Forms.Panel()
-		Me.btnCancel = New System.Windows.Forms.Button()
-		Me.btnSave = New System.Windows.Forms.Button()
-		Me.picIdPicture = New System.Windows.Forms.PictureBox()
-		Me.btnChoosePicture = New System.Windows.Forms.Button()
-		Me.lblIdPicture = New System.Windows.Forms.Label()
-		Me.pnlFields = New System.Windows.Forms.Panel()
-		Me.Guna2HtmlLabel3 = New System.Windows.Forms.Label()
-		Me.txtPhoneNumber = New System.Windows.Forms.TextBox()
-		Me.txtMothersName = New System.Windows.Forms.TextBox()
-		Me.txtEmail = New System.Windows.Forms.TextBox()
-		Me.txtHeight = New System.Windows.Forms.TextBox()
-		Me.txtSpouse = New System.Windows.Forms.TextBox()
-		Me.txtFathersName = New System.Windows.Forms.TextBox()
-		Me.txtWeight = New System.Windows.Forms.TextBox()
-		Me.txtCitizenship = New System.Windows.Forms.TextBox()
-		Me.txtMiddleName = New System.Windows.Forms.TextBox()
-		Me.txtFirstName = New System.Windows.Forms.TextBox()
-		Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.pnlMain = New System.Windows.Forms.Panel()
+        Me.pnlForm = New System.Windows.Forms.Panel()
+        Me.pnlIdPicture = New System.Windows.Forms.Panel()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.picIdPicture = New System.Windows.Forms.PictureBox()
+        Me.btnChoosePicture = New System.Windows.Forms.Button()
+        Me.lblIdPicture = New System.Windows.Forms.Label()
+        Me.pnlFields = New System.Windows.Forms.Panel()
+        Me.Guna2HtmlLabel3 = New System.Windows.Forms.Label()
+        Me.lblId = New System.Windows.Forms.Label()
+        Me.txtPhoneNumber = New System.Windows.Forms.TextBox()
+        Me.txtMothersName = New System.Windows.Forms.TextBox()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.txtHeight = New System.Windows.Forms.TextBox()
+        Me.txtSpouse = New System.Windows.Forms.TextBox()
+        Me.txtFathersName = New System.Windows.Forms.TextBox()
+        Me.txtWeight = New System.Windows.Forms.TextBox()
+        Me.txtCitizenship = New System.Windows.Forms.TextBox()
+        Me.txtMiddleName = New System.Windows.Forms.TextBox()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
+        Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.txtAddress = New System.Windows.Forms.TextBox()
+        Me.txtReligion = New System.Windows.Forms.TextBox()
+        Me.lblAddress = New System.Windows.Forms.Label()
+        Me.lblReligion = New System.Windows.Forms.Label()
         Me.lblMothersName = New System.Windows.Forms.Label()
         Me.lblFathersName = New System.Windows.Forms.Label()
         Me.lblSpouse = New System.Windows.Forms.Label()
@@ -64,7 +69,6 @@ Partial Class residentform
         Me.lblMiddleName = New System.Windows.Forms.Label()
         Me.lblFirstName = New System.Windows.Forms.Label()
         Me.lblLastName = New System.Windows.Forms.Label()
-        Me.pnlButtons = New System.Windows.Forms.Panel()
         Me.ofdIdPicture = New System.Windows.Forms.OpenFileDialog()
         Me.pnlMain.SuspendLayout()
         Me.pnlForm.SuspendLayout()
@@ -75,21 +79,19 @@ Partial Class residentform
         '
         'pnlMain
         '
-		Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer))
         Me.pnlMain.Controls.Add(Me.pnlForm)
-        Me.pnlMain.Controls.Add(Me.pnlButtons)
         Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlMain.Location = New System.Drawing.Point(0, 0)
         Me.pnlMain.Name = "pnlMain"
         Me.pnlMain.Padding = New System.Windows.Forms.Padding(20)
-        Me.pnlMain.Size = New System.Drawing.Size(1000, 700)
+        Me.pnlMain.Size = New System.Drawing.Size(1006, 669)
         Me.pnlMain.TabIndex = 0
         '
         'pnlForm
         '
         Me.pnlForm.Controls.Add(Me.pnlIdPicture)
         Me.pnlForm.Controls.Add(Me.pnlFields)
-        Me.pnlForm.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlForm.Location = New System.Drawing.Point(20, 20)
         Me.pnlForm.Name = "pnlForm"
         Me.pnlForm.Size = New System.Drawing.Size(960, 620)
@@ -103,36 +105,35 @@ Partial Class residentform
         Me.pnlIdPicture.Controls.Add(Me.picIdPicture)
         Me.pnlIdPicture.Controls.Add(Me.btnChoosePicture)
         Me.pnlIdPicture.Controls.Add(Me.lblIdPicture)
-        Me.pnlIdPicture.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnlIdPicture.Location = New System.Drawing.Point(660, 0)
+        Me.pnlIdPicture.Location = New System.Drawing.Point(654, 0)
         Me.pnlIdPicture.Name = "pnlIdPicture"
-        Me.pnlIdPicture.Size = New System.Drawing.Size(300, 620)
+        Me.pnlIdPicture.Size = New System.Drawing.Size(306, 620)
         Me.pnlIdPicture.TabIndex = 1
         '
         'btnCancel
         '
-        Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(69, Byte), Integer))
+        Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.btnCancel.FlatAppearance.BorderSize = 0
-        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnCancel.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.btnCancel.ForeColor = System.Drawing.Color.White
-        Me.btnCancel.Location = New System.Drawing.Point(102, 537)
+        Me.btnCancel.Location = New System.Drawing.Point(6, 553)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(112, 40)
+        Me.btnCancel.Size = New System.Drawing.Size(141, 56)
         Me.btnCancel.TabIndex = 0
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = False
         '
         'btnSave
         '
-        Me.btnSave.BackColor = System.Drawing.Color.Lime
+        Me.btnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(95, Byte), Integer))
         Me.btnSave.FlatAppearance.BorderSize = 0
-        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnSave.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.Location = New System.Drawing.Point(83, 466)
+        Me.btnSave.Location = New System.Drawing.Point(152, 553)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(150, 56)
+        Me.btnSave.Size = New System.Drawing.Size(141, 56)
         Me.btnSave.TabIndex = 1
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = False
@@ -150,9 +151,9 @@ Partial Class residentform
         '
         'btnChoosePicture
         '
-        Me.btnChoosePicture.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.btnChoosePicture.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(164, Byte), Integer), CType(CType(251, Byte), Integer))
         Me.btnChoosePicture.FlatAppearance.BorderSize = 0
-        Me.btnChoosePicture.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnChoosePicture.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnChoosePicture.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnChoosePicture.ForeColor = System.Drawing.Color.White
         Me.btnChoosePicture.Location = New System.Drawing.Point(52, 270)
@@ -176,6 +177,7 @@ Partial Class residentform
         '
         Me.pnlFields.BackColor = System.Drawing.Color.White
         Me.pnlFields.Controls.Add(Me.Guna2HtmlLabel3)
+        Me.pnlFields.Controls.Add(Me.lblId)
         Me.pnlFields.Controls.Add(Me.txtPhoneNumber)
         Me.pnlFields.Controls.Add(Me.txtMothersName)
         Me.pnlFields.Controls.Add(Me.txtEmail)
@@ -187,6 +189,10 @@ Partial Class residentform
         Me.pnlFields.Controls.Add(Me.txtMiddleName)
         Me.pnlFields.Controls.Add(Me.txtFirstName)
         Me.pnlFields.Controls.Add(Me.txtLastName)
+        Me.pnlFields.Controls.Add(Me.txtAddress)
+        Me.pnlFields.Controls.Add(Me.txtReligion)
+        Me.pnlFields.Controls.Add(Me.lblAddress)
+        Me.pnlFields.Controls.Add(Me.lblReligion)
         Me.pnlFields.Controls.Add(Me.lblMothersName)
         Me.pnlFields.Controls.Add(Me.lblFathersName)
         Me.pnlFields.Controls.Add(Me.lblSpouse)
@@ -208,117 +214,163 @@ Partial Class residentform
         Me.pnlFields.Controls.Add(Me.lblMiddleName)
         Me.pnlFields.Controls.Add(Me.lblFirstName)
         Me.pnlFields.Controls.Add(Me.lblLastName)
-        Me.pnlFields.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlFields.Location = New System.Drawing.Point(0, 0)
         Me.pnlFields.Name = "pnlFields"
         Me.pnlFields.Padding = New System.Windows.Forms.Padding(20)
         Me.pnlFields.Size = New System.Drawing.Size(960, 620)
         Me.pnlFields.TabIndex = 0
         '
-		'Guna2HtmlLabel3 (converted to Label)
-		'
-		Me.Guna2HtmlLabel3.AutoSize = True
-		Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
-		Me.Guna2HtmlLabel3.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold)
-		Me.Guna2HtmlLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
-		Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(19, 20)
-		Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
-		Me.Guna2HtmlLabel3.TabIndex = 43
-		Me.Guna2HtmlLabel3.Text = "Profiling:"
+        'Guna2HtmlLabel3
         '
-		'txtPhoneNumber
-		'
-		Me.txtPhoneNumber.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-		Me.txtPhoneNumber.Location = New System.Drawing.Point(23, 486)
-		Me.txtPhoneNumber.Name = "txtPhoneNumber"
-		Me.txtPhoneNumber.Size = New System.Drawing.Size(157, 23)
-		Me.txtPhoneNumber.TabIndex = 42
+        Me.Guna2HtmlLabel3.AutoSize = True
+        Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel3.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold)
+        Me.Guna2HtmlLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(19, 20)
+        Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
+        Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(136, 37)
+        Me.Guna2HtmlLabel3.TabIndex = 43
+        Me.Guna2HtmlLabel3.Text = "Profiling:"
         '
-		'txtMothersName
-		'
-		Me.txtMothersName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-		Me.txtMothersName.Location = New System.Drawing.Point(249, 292)
-		Me.txtMothersName.Name = "txtMothersName"
-		Me.txtMothersName.Size = New System.Drawing.Size(176, 23)
-		Me.txtMothersName.TabIndex = 41
+        'lblId
         '
-		'txtEmail
-		'
-		Me.txtEmail.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-		Me.txtEmail.Location = New System.Drawing.Point(249, 425)
-		Me.txtEmail.Name = "txtEmail"
-		Me.txtEmail.Size = New System.Drawing.Size(176, 23)
-		Me.txtEmail.TabIndex = 40
+        Me.lblId.AutoSize = True
+        Me.lblId.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.lblId.Location = New System.Drawing.Point(19, 40)
+        Me.lblId.Name = "lblId"
+        Me.lblId.Size = New System.Drawing.Size(23, 19)
+        Me.lblId.TabIndex = 45
+        Me.lblId.Text = "ID"
         '
-		'txtHeight
-		'
-		Me.txtHeight.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-		Me.txtHeight.Location = New System.Drawing.Point(487, 174)
-		Me.txtHeight.Name = "txtHeight"
-		Me.txtHeight.Size = New System.Drawing.Size(125, 23)
-		Me.txtHeight.TabIndex = 39
+        'txtPhoneNumber
         '
-		'txtSpouse
-		'
-		Me.txtSpouse.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-		Me.txtSpouse.Location = New System.Drawing.Point(249, 355)
-		Me.txtSpouse.Name = "txtSpouse"
-		Me.txtSpouse.Size = New System.Drawing.Size(176, 23)
-		Me.txtSpouse.TabIndex = 38
+        Me.txtPhoneNumber.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtPhoneNumber.Location = New System.Drawing.Point(40, 466)
+        Me.txtPhoneNumber.Name = "txtPhoneNumber"
+        Me.txtPhoneNumber.Size = New System.Drawing.Size(273, 23)
+        Me.txtPhoneNumber.TabIndex = 42
         '
-		'txtFathersName
-		'
-		Me.txtFathersName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-		Me.txtFathersName.Location = New System.Drawing.Point(249, 232)
-		Me.txtFathersName.Name = "txtFathersName"
-		Me.txtFathersName.Size = New System.Drawing.Size(176, 23)
-		Me.txtFathersName.TabIndex = 37
+        'txtMothersName
         '
-		'txtWeight
-		'
-		Me.txtWeight.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-		Me.txtWeight.Location = New System.Drawing.Point(487, 104)
-		Me.txtWeight.Name = "txtWeight"
-		Me.txtWeight.Size = New System.Drawing.Size(125, 23)
-		Me.txtWeight.TabIndex = 36
+        Me.txtMothersName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtMothersName.Location = New System.Drawing.Point(344, 165)
+        Me.txtMothersName.Name = "txtMothersName"
+        Me.txtMothersName.Size = New System.Drawing.Size(265, 23)
+        Me.txtMothersName.TabIndex = 41
         '
-		'txtCitizenship
-		'
-		Me.txtCitizenship.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-		Me.txtCitizenship.Location = New System.Drawing.Point(249, 174)
-		Me.txtCitizenship.Name = "txtCitizenship"
-		Me.txtCitizenship.Size = New System.Drawing.Size(176, 23)
-		Me.txtCitizenship.TabIndex = 35
+        'txtEmail
         '
-		'txtMiddleName
-		'
-		Me.txtMiddleName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-		Me.txtMiddleName.Location = New System.Drawing.Point(23, 239)
-		Me.txtMiddleName.Name = "txtMiddleName"
-		Me.txtMiddleName.Size = New System.Drawing.Size(200, 23)
-		Me.txtMiddleName.TabIndex = 34
+        Me.txtEmail.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtEmail.Location = New System.Drawing.Point(40, 526)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(273, 23)
+        Me.txtEmail.TabIndex = 40
         '
-		'txtFirstName
-		'
-		Me.txtFirstName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-		Me.txtFirstName.Location = New System.Drawing.Point(23, 173)
-		Me.txtFirstName.Name = "txtFirstName"
-		Me.txtFirstName.Size = New System.Drawing.Size(200, 23)
-		Me.txtFirstName.TabIndex = 33
+        'txtHeight
         '
-		'txtLastName
-		'
-		Me.txtLastName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-		Me.txtLastName.Location = New System.Drawing.Point(23, 104)
-		Me.txtLastName.Name = "txtLastName"
-		Me.txtLastName.Size = New System.Drawing.Size(200, 23)
-		Me.txtLastName.TabIndex = 32
+        Me.txtHeight.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtHeight.Location = New System.Drawing.Point(344, 345)
+        Me.txtHeight.Name = "txtHeight"
+        Me.txtHeight.Size = New System.Drawing.Size(134, 23)
+        Me.txtHeight.TabIndex = 39
+        '
+        'txtSpouse
+        '
+        Me.txtSpouse.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtSpouse.Location = New System.Drawing.Point(344, 225)
+        Me.txtSpouse.Name = "txtSpouse"
+        Me.txtSpouse.Size = New System.Drawing.Size(265, 23)
+        Me.txtSpouse.TabIndex = 38
+        '
+        'txtFathersName
+        '
+        Me.txtFathersName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtFathersName.Location = New System.Drawing.Point(344, 105)
+        Me.txtFathersName.Name = "txtFathersName"
+        Me.txtFathersName.Size = New System.Drawing.Size(265, 23)
+        Me.txtFathersName.TabIndex = 37
+        '
+        'txtWeight
+        '
+        Me.txtWeight.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtWeight.Location = New System.Drawing.Point(484, 345)
+        Me.txtWeight.Name = "txtWeight"
+        Me.txtWeight.Size = New System.Drawing.Size(125, 23)
+        Me.txtWeight.TabIndex = 36
+        '
+        'txtCitizenship
+        '
+        Me.txtCitizenship.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtCitizenship.Location = New System.Drawing.Point(40, 408)
+        Me.txtCitizenship.Name = "txtCitizenship"
+        Me.txtCitizenship.Size = New System.Drawing.Size(273, 23)
+        Me.txtCitizenship.TabIndex = 35
+        '
+        'txtMiddleName
+        '
+        Me.txtMiddleName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtMiddleName.Location = New System.Drawing.Point(40, 225)
+        Me.txtMiddleName.Name = "txtMiddleName"
+        Me.txtMiddleName.Size = New System.Drawing.Size(273, 23)
+        Me.txtMiddleName.TabIndex = 34
+        '
+        'txtFirstName
+        '
+        Me.txtFirstName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtFirstName.Location = New System.Drawing.Point(40, 165)
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.Size = New System.Drawing.Size(273, 23)
+        Me.txtFirstName.TabIndex = 33
+        '
+        'txtLastName
+        '
+        Me.txtLastName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtLastName.Location = New System.Drawing.Point(40, 105)
+        Me.txtLastName.Name = "txtLastName"
+        Me.txtLastName.Size = New System.Drawing.Size(273, 23)
+        Me.txtLastName.TabIndex = 32
+        '
+        'txtAddress
+        '
+        Me.txtAddress.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtAddress.Location = New System.Drawing.Point(344, 408)
+        Me.txtAddress.Name = "txtAddress"
+        Me.txtAddress.Size = New System.Drawing.Size(265, 23)
+        Me.txtAddress.TabIndex = 46
+        '
+        'txtReligion
+        '
+        Me.txtReligion.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtReligion.Location = New System.Drawing.Point(475, 285)
+        Me.txtReligion.Name = "txtReligion"
+        Me.txtReligion.Size = New System.Drawing.Size(134, 23)
+        Me.txtReligion.TabIndex = 47
+        '
+        'lblAddress
+        '
+        Me.lblAddress.AutoSize = True
+        Me.lblAddress.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.lblAddress.Location = New System.Drawing.Point(344, 386)
+        Me.lblAddress.Name = "lblAddress"
+        Me.lblAddress.Size = New System.Drawing.Size(58, 19)
+        Me.lblAddress.TabIndex = 48
+        Me.lblAddress.Text = "Address"
+        '
+        'lblReligion
+        '
+        Me.lblReligion.AutoSize = True
+        Me.lblReligion.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.lblReligion.Location = New System.Drawing.Point(480, 260)
+        Me.lblReligion.Name = "lblReligion"
+        Me.lblReligion.Size = New System.Drawing.Size(57, 19)
+        Me.lblReligion.TabIndex = 49
+        Me.lblReligion.Text = "Religion"
         '
         'lblMothersName
         '
         Me.lblMothersName.AutoSize = True
         Me.lblMothersName.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblMothersName.Location = New System.Drawing.Point(249, 270)
+        Me.lblMothersName.Location = New System.Drawing.Point(344, 140)
         Me.lblMothersName.Name = "lblMothersName"
         Me.lblMothersName.Size = New System.Drawing.Size(104, 19)
         Me.lblMothersName.TabIndex = 30
@@ -328,7 +380,7 @@ Partial Class residentform
         '
         Me.lblFathersName.AutoSize = True
         Me.lblFathersName.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblFathersName.Location = New System.Drawing.Point(245, 210)
+        Me.lblFathersName.Location = New System.Drawing.Point(344, 80)
         Me.lblFathersName.Name = "lblFathersName"
         Me.lblFathersName.Size = New System.Drawing.Size(97, 19)
         Me.lblFathersName.TabIndex = 28
@@ -338,7 +390,7 @@ Partial Class residentform
         '
         Me.lblSpouse.AutoSize = True
         Me.lblSpouse.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblSpouse.Location = New System.Drawing.Point(249, 333)
+        Me.lblSpouse.Location = New System.Drawing.Point(344, 200)
         Me.lblSpouse.Name = "lblSpouse"
         Me.lblSpouse.Size = New System.Drawing.Size(53, 19)
         Me.lblSpouse.TabIndex = 26
@@ -348,7 +400,7 @@ Partial Class residentform
         '
         Me.lblEmail.AutoSize = True
         Me.lblEmail.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblEmail.Location = New System.Drawing.Point(249, 403)
+        Me.lblEmail.Location = New System.Drawing.Point(41, 504)
         Me.lblEmail.Name = "lblEmail"
         Me.lblEmail.Size = New System.Drawing.Size(41, 19)
         Me.lblEmail.TabIndex = 24
@@ -358,7 +410,7 @@ Partial Class residentform
         '
         Me.lblWeight.AutoSize = True
         Me.lblWeight.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblWeight.Location = New System.Drawing.Point(487, 82)
+        Me.lblWeight.Location = New System.Drawing.Point(487, 320)
         Me.lblWeight.Name = "lblWeight"
         Me.lblWeight.Size = New System.Drawing.Size(52, 19)
         Me.lblWeight.TabIndex = 22
@@ -368,7 +420,7 @@ Partial Class residentform
         '
         Me.lblHeight.AutoSize = True
         Me.lblHeight.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblHeight.Location = New System.Drawing.Point(487, 152)
+        Me.lblHeight.Location = New System.Drawing.Point(344, 320)
         Me.lblHeight.Name = "lblHeight"
         Me.lblHeight.Size = New System.Drawing.Size(50, 19)
         Me.lblHeight.TabIndex = 20
@@ -378,7 +430,7 @@ Partial Class residentform
         '
         Me.lblPhoneNumber.AutoSize = True
         Me.lblPhoneNumber.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblPhoneNumber.Location = New System.Drawing.Point(23, 458)
+        Me.lblPhoneNumber.Location = New System.Drawing.Point(40, 444)
         Me.lblPhoneNumber.Name = "lblPhoneNumber"
         Me.lblPhoneNumber.Size = New System.Drawing.Size(102, 19)
         Me.lblPhoneNumber.TabIndex = 18
@@ -388,7 +440,7 @@ Partial Class residentform
         '
         Me.lblCitizenship.AutoSize = True
         Me.lblCitizenship.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblCitizenship.Location = New System.Drawing.Point(245, 152)
+        Me.lblCitizenship.Location = New System.Drawing.Point(40, 386)
         Me.lblCitizenship.Name = "lblCitizenship"
         Me.lblCitizenship.Size = New System.Drawing.Size(75, 19)
         Me.lblCitizenship.TabIndex = 16
@@ -400,16 +452,16 @@ Partial Class residentform
         Me.cmbCivilStatus.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.cmbCivilStatus.FormattingEnabled = True
         Me.cmbCivilStatus.Items.AddRange(New Object() {"Single", "Married"})
-        Me.cmbCivilStatus.Location = New System.Drawing.Point(249, 105)
+        Me.cmbCivilStatus.Location = New System.Drawing.Point(163, 345)
         Me.cmbCivilStatus.Name = "cmbCivilStatus"
-        Me.cmbCivilStatus.Size = New System.Drawing.Size(180, 25)
+        Me.cmbCivilStatus.Size = New System.Drawing.Size(150, 25)
         Me.cmbCivilStatus.TabIndex = 15
         '
         'lblCivilStatus
         '
         Me.lblCivilStatus.AutoSize = True
         Me.lblCivilStatus.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblCivilStatus.Location = New System.Drawing.Point(249, 85)
+        Me.lblCivilStatus.Location = New System.Drawing.Point(162, 320)
         Me.lblCivilStatus.Name = "lblCivilStatus"
         Me.lblCivilStatus.Size = New System.Drawing.Size(76, 19)
         Me.lblCivilStatus.TabIndex = 14
@@ -421,16 +473,16 @@ Partial Class residentform
         Me.cmbVotersStatus.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.cmbVotersStatus.FormattingEnabled = True
         Me.cmbVotersStatus.Items.AddRange(New Object() {"Active", "Inactive"})
-        Me.cmbVotersStatus.Location = New System.Drawing.Point(249, 486)
+        Me.cmbVotersStatus.Location = New System.Drawing.Point(344, 285)
         Me.cmbVotersStatus.Name = "cmbVotersStatus"
-        Me.cmbVotersStatus.Size = New System.Drawing.Size(180, 25)
+        Me.cmbVotersStatus.Size = New System.Drawing.Size(125, 25)
         Me.cmbVotersStatus.TabIndex = 13
         '
         'lblVotersStatus
         '
         Me.lblVotersStatus.AutoSize = True
         Me.lblVotersStatus.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblVotersStatus.Location = New System.Drawing.Point(249, 466)
+        Me.lblVotersStatus.Location = New System.Drawing.Point(344, 260)
         Me.lblVotersStatus.Name = "lblVotersStatus"
         Me.lblVotersStatus.Size = New System.Drawing.Size(90, 19)
         Me.lblVotersStatus.TabIndex = 12
@@ -442,16 +494,16 @@ Partial Class residentform
         Me.cmbGender.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.cmbGender.FormattingEnabled = True
         Me.cmbGender.Items.AddRange(New Object() {"Male", "Female"})
-        Me.cmbGender.Location = New System.Drawing.Point(23, 306)
+        Me.cmbGender.Location = New System.Drawing.Point(40, 285)
         Me.cmbGender.Name = "cmbGender"
-        Me.cmbGender.Size = New System.Drawing.Size(145, 25)
+        Me.cmbGender.Size = New System.Drawing.Size(136, 25)
         Me.cmbGender.TabIndex = 11
         '
         'lblGender
         '
         Me.lblGender.AutoSize = True
         Me.lblGender.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblGender.Location = New System.Drawing.Point(23, 286)
+        Me.lblGender.Location = New System.Drawing.Point(40, 260)
         Me.lblGender.Name = "lblGender"
         Me.lblGender.Size = New System.Drawing.Size(54, 19)
         Me.lblGender.TabIndex = 10
@@ -460,17 +512,17 @@ Partial Class residentform
         'txtAge
         '
         Me.txtAge.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.txtAge.Location = New System.Drawing.Point(23, 426)
+        Me.txtAge.Location = New System.Drawing.Point(40, 345)
         Me.txtAge.Name = "txtAge"
         Me.txtAge.ReadOnly = True
-        Me.txtAge.Size = New System.Drawing.Size(145, 25)
+        Me.txtAge.Size = New System.Drawing.Size(117, 25)
         Me.txtAge.TabIndex = 9
         '
         'lblAge
         '
         Me.lblAge.AutoSize = True
         Me.lblAge.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblAge.Location = New System.Drawing.Point(23, 406)
+        Me.lblAge.Location = New System.Drawing.Point(41, 320)
         Me.lblAge.Name = "lblAge"
         Me.lblAge.Size = New System.Drawing.Size(33, 19)
         Me.lblAge.TabIndex = 8
@@ -480,26 +532,26 @@ Partial Class residentform
         '
         Me.dtpBirthDate.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpBirthDate.Location = New System.Drawing.Point(23, 369)
+        Me.dtpBirthDate.Location = New System.Drawing.Point(182, 285)
         Me.dtpBirthDate.Name = "dtpBirthDate"
-        Me.dtpBirthDate.Size = New System.Drawing.Size(145, 25)
+        Me.dtpBirthDate.Size = New System.Drawing.Size(131, 25)
         Me.dtpBirthDate.TabIndex = 7
         '
         'lblBirthDate
         '
         Me.lblBirthDate.AutoSize = True
         Me.lblBirthDate.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblBirthDate.Location = New System.Drawing.Point(23, 349)
+        Me.lblBirthDate.Location = New System.Drawing.Point(184, 260)
         Me.lblBirthDate.Name = "lblBirthDate"
-        Me.lblBirthDate.Size = New System.Drawing.Size(71, 19)
+        Me.lblBirthDate.Size = New System.Drawing.Size(65, 19)
         Me.lblBirthDate.TabIndex = 6
-        Me.lblBirthDate.Text = "Birth Date"
+        Me.lblBirthDate.Text = "Birthdate"
         '
         'lblMiddleName
         '
         Me.lblMiddleName.AutoSize = True
         Me.lblMiddleName.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblMiddleName.Location = New System.Drawing.Point(19, 220)
+        Me.lblMiddleName.Location = New System.Drawing.Point(40, 203)
         Me.lblMiddleName.Name = "lblMiddleName"
         Me.lblMiddleName.Size = New System.Drawing.Size(91, 19)
         Me.lblMiddleName.TabIndex = 4
@@ -509,7 +561,7 @@ Partial Class residentform
         '
         Me.lblFirstName.AutoSize = True
         Me.lblFirstName.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblFirstName.Location = New System.Drawing.Point(19, 151)
+        Me.lblFirstName.Location = New System.Drawing.Point(41, 143)
         Me.lblFirstName.Name = "lblFirstName"
         Me.lblFirstName.Size = New System.Drawing.Size(75, 19)
         Me.lblFirstName.TabIndex = 2
@@ -519,19 +571,11 @@ Partial Class residentform
         '
         Me.lblLastName.AutoSize = True
         Me.lblLastName.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblLastName.Location = New System.Drawing.Point(19, 82)
+        Me.lblLastName.Location = New System.Drawing.Point(40, 83)
         Me.lblLastName.Name = "lblLastName"
         Me.lblLastName.Size = New System.Drawing.Size(74, 19)
         Me.lblLastName.TabIndex = 0
         Me.lblLastName.Text = "Last Name"
-        '
-        'pnlButtons
-        '
-        Me.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlButtons.Location = New System.Drawing.Point(20, 640)
-        Me.pnlButtons.Name = "pnlButtons"
-        Me.pnlButtons.Size = New System.Drawing.Size(960, 40)
-        Me.pnlButtons.TabIndex = 1
         '
         'ofdIdPicture
         '
@@ -543,11 +587,8 @@ Partial Class residentform
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1000, 700)
+        Me.ClientSize = New System.Drawing.Size(1006, 669)
         Me.Controls.Add(Me.pnlMain)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
         Me.Name = "residentform"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Resident Information Form"
@@ -569,7 +610,6 @@ Partial Class residentform
     Friend WithEvents btnChoosePicture As Button
     Friend WithEvents lblIdPicture As Label
     Friend WithEvents pnlFields As Panel
-    Friend WithEvents pnlButtons As Panel
     Friend WithEvents btnSave As Button
     Friend WithEvents btnCancel As Button
     Friend WithEvents ofdIdPicture As OpenFileDialog
@@ -606,4 +646,9 @@ Partial Class residentform
     Friend WithEvents txtMiddleName As System.Windows.Forms.TextBox
     Friend WithEvents txtFirstName As System.Windows.Forms.TextBox
     Friend WithEvents txtLastName As System.Windows.Forms.TextBox
+    Friend WithEvents txtAddress As System.Windows.Forms.TextBox
+    Friend WithEvents txtReligion As System.Windows.Forms.TextBox
+    Friend WithEvents lblAddress As System.Windows.Forms.Label
+    Friend WithEvents lblReligion As System.Windows.Forms.Label
+    Friend WithEvents lblId As System.Windows.Forms.Label
 End Class
