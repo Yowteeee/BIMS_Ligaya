@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Imports ligaya_bims
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class reportsform
     Inherits System.Windows.Forms.Form
 
@@ -35,9 +37,9 @@ Partial Class reportsform
         Me.txtInvolved = New System.Windows.Forms.TextBox()
         Me.lblNarrative = New System.Windows.Forms.Label()
         Me.txtNarrative = New System.Windows.Forms.TextBox()
-        Me.btnPageSetup = New System.Windows.Forms.Button()
-        Me.btnPreview = New System.Windows.Forms.Button()
-        Me.btnPrint = New System.Windows.Forms.Button()
+        Me.btnPageSetup = New ligaya_bims.RoundedButton()
+        Me.btnPreview = New ligaya_bims.RoundedButton()
+        Me.btnPrint = New ligaya_bims.RoundedButton()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
@@ -285,9 +287,9 @@ Partial Class reportsform
 	Friend WithEvents txtInvolved As System.Windows.Forms.TextBox
 	Friend WithEvents lblNarrative As System.Windows.Forms.Label
 	Friend WithEvents txtNarrative As System.Windows.Forms.TextBox
-	Friend WithEvents btnPageSetup As System.Windows.Forms.Button
-	Friend WithEvents btnPreview As System.Windows.Forms.Button
-	Friend WithEvents btnPrint As System.Windows.Forms.Button
+	Friend WithEvents btnPageSetup As ligaya_bims.RoundedButton
+	Friend WithEvents btnPreview As ligaya_bims.RoundedButton
+	Friend WithEvents btnPrint As ligaya_bims.RoundedButton
     Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
     Friend WithEvents PrintPreviewDialog1 As System.Windows.Forms.PrintPreviewDialog
     Friend WithEvents PrintDialog1 As System.Windows.Forms.PrintDialog

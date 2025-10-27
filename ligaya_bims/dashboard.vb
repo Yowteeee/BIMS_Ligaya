@@ -419,4 +419,8 @@ Public Class dashboard
     Private Sub chartPurokPopulation_Click(sender As Object, e As EventArgs) Handles chartPurokPopulation.Click
 
     End Sub
+
+    Private Sub navLogout_Click(sender As Object, e As EventArgs) Handles navLogout.Click
+
+    End Sub
 End Class

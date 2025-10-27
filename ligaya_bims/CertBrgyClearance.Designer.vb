@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Imports ligaya_bims
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class CertBrgyClearance
     Inherits System.Windows.Forms.Form
 
@@ -120,7 +122,7 @@ Partial Class CertBrgyClearance
 
     End Sub
 
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Guna2TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Guna2ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip

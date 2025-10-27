@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Imports ligaya_bims
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
@@ -26,7 +28,7 @@ Partial Class Form1
         Me.picLogo = New System.Windows.Forms.PictureBox()
         Me.rightPanel = New System.Windows.Forms.Panel()
         Me.card = New System.Windows.Forms.Panel()
-        Me.btnLogin = New System.Windows.Forms.Button()
+        Me.btnLogin = New ligaya_bims.RoundedButton()
         Me.lnkForgot = New System.Windows.Forms.LinkLabel()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.txtUsername = New System.Windows.Forms.TextBox()
@@ -51,9 +53,9 @@ Partial Class Form1
         '
         Me.picLogo.BackColor = System.Drawing.Color.Transparent
         Me.picLogo.Image = Global.ligaya_bims.My.Resources.Resources.brgy_ligaya_logo
-        Me.picLogo.Location = New System.Drawing.Point(1, 51)
+        Me.picLogo.Location = New System.Drawing.Point(1, 55)
         Me.picLogo.Name = "picLogo"
-        Me.picLogo.Size = New System.Drawing.Size(474, 471)
+        Me.picLogo.Size = New System.Drawing.Size(476, 467)
         Me.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picLogo.TabIndex = 1
         Me.picLogo.TabStop = False
@@ -83,10 +85,11 @@ Partial Class Form1
         '
         'btnLogin
         '
-        Me.btnLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.btnLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnLogin.BorderRadius = 15
         Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogin.Font = New System.Drawing.Font("Segoe UI Semibold", 10.5!, System.Drawing.FontStyle.Bold)
-        Me.btnLogin.ForeColor = System.Drawing.Color.White
+        Me.btnLogin.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.btnLogin.Location = New System.Drawing.Point(120, 232)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(180, 44)
@@ -165,6 +168,6 @@ Partial Class Form1
     Friend WithEvents txtUsername As System.Windows.Forms.TextBox
     Friend WithEvents txtPassword As System.Windows.Forms.TextBox
     Friend WithEvents lnkForgot As System.Windows.Forms.LinkLabel
-    Friend WithEvents btnLogin As System.Windows.Forms.Button
+    Friend WithEvents btnLogin As ligaya_bims.RoundedButton
     Friend WithEvents picLogo As System.Windows.Forms.PictureBox
 End Class

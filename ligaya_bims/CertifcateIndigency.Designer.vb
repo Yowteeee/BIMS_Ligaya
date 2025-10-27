@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Imports ligaya_bims
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class CertifcateIndigency
     Inherits System.Windows.Forms.Form
 
@@ -105,7 +107,7 @@ Partial Class CertifcateIndigency
 
     End Sub
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Guna2Txtissued1 As System.Windows.Forms.TextBox
     Friend WithEvents Guna2Txtfullname As System.Windows.Forms.TextBox

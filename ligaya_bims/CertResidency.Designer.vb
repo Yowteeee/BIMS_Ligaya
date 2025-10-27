@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Imports ligaya_bims
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class CertResidency
     Inherits System.Windows.Forms.Form
 
@@ -24,17 +26,18 @@ Partial Class CertResidency
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CertResidency))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Guna2Txtfullname = New System.Windows.Forms.TextBox()
-        Me.Guna2Txtpurpose = New System.Windows.Forms.TextBox()
-        Me.Guna2Txtissued1 = New System.Windows.Forms.TextBox()
         Me.Guna2Txtissued2 = New System.Windows.Forms.TextBox()
+        Me.Guna2Txtissued1 = New System.Windows.Forms.TextBox()
+        Me.Guna2Txtpurpose = New System.Windows.Forms.TextBox()
+        Me.Guna2Txtfullname = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Controls.Add(Me.Guna2Txtissued2)
         Me.Panel1.Controls.Add(Me.Guna2Txtissued1)
         Me.Panel1.Controls.Add(Me.Guna2Txtpurpose)
@@ -44,6 +47,42 @@ Partial Class CertResidency
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(378, 467)
         Me.Panel1.TabIndex = 1
+        '
+        'Guna2Txtissued2
+        '
+        Me.Guna2Txtissued2.BackColor = System.Drawing.Color.White
+        Me.Guna2Txtissued2.Location = New System.Drawing.Point(153, 329)
+        Me.Guna2Txtissued2.Name = "Guna2Txtissued2"
+        Me.Guna2Txtissued2.Size = New System.Drawing.Size(73, 20)
+        Me.Guna2Txtissued2.TabIndex = 8
+        Me.Guna2Txtissued2.Visible = False
+        '
+        'Guna2Txtissued1
+        '
+        Me.Guna2Txtissued1.BackColor = System.Drawing.Color.White
+        Me.Guna2Txtissued1.Location = New System.Drawing.Point(104, 329)
+        Me.Guna2Txtissued1.Name = "Guna2Txtissued1"
+        Me.Guna2Txtissued1.Size = New System.Drawing.Size(19, 20)
+        Me.Guna2Txtissued1.TabIndex = 7
+        Me.Guna2Txtissued1.Visible = False
+        '
+        'Guna2Txtpurpose
+        '
+        Me.Guna2Txtpurpose.BackColor = System.Drawing.Color.White
+        Me.Guna2Txtpurpose.Location = New System.Drawing.Point(169, 288)
+        Me.Guna2Txtpurpose.Name = "Guna2Txtpurpose"
+        Me.Guna2Txtpurpose.Size = New System.Drawing.Size(115, 20)
+        Me.Guna2Txtpurpose.TabIndex = 6
+        Me.Guna2Txtpurpose.Visible = False
+        '
+        'Guna2Txtfullname
+        '
+        Me.Guna2Txtfullname.BackColor = System.Drawing.Color.White
+        Me.Guna2Txtfullname.Location = New System.Drawing.Point(201, 185)
+        Me.Guna2Txtfullname.Name = "Guna2Txtfullname"
+        Me.Guna2Txtfullname.Size = New System.Drawing.Size(83, 20)
+        Me.Guna2Txtfullname.TabIndex = 5
+        Me.Guna2Txtfullname.Visible = False
         '
         'PictureBox1
         '
@@ -55,42 +94,6 @@ Partial Class CertResidency
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'Guna2Txtfullname
-        '
-        Me.Guna2Txtfullname.BackColor = System.Drawing.Color.White
-        Me.Guna2Txtfullname.Location = New System.Drawing.Point(201, 185)
-        Me.Guna2Txtfullname.Name = "Guna2Txtfullname"
-        Me.Guna2Txtfullname.Size = New System.Drawing.Size(87, 20)
-        Me.Guna2Txtfullname.TabIndex = 5
-        Me.Guna2Txtfullname.Visible = False
-        '
-        'Guna2Txtpurpose
-        '
-        Me.Guna2Txtpurpose.BackColor = System.Drawing.Color.White
-        Me.Guna2Txtpurpose.Location = New System.Drawing.Point(172, 296)
-        Me.Guna2Txtpurpose.Name = "Guna2Txtpurpose"
-        Me.Guna2Txtpurpose.Size = New System.Drawing.Size(104, 20)
-        Me.Guna2Txtpurpose.TabIndex = 6
-        Me.Guna2Txtpurpose.Visible = False
-        '
-        'Guna2Txtissued1
-        '
-        Me.Guna2Txtissued1.BackColor = System.Drawing.Color.White
-        Me.Guna2Txtissued1.Location = New System.Drawing.Point(105, 339)
-        Me.Guna2Txtissued1.Name = "Guna2Txtissued1"
-        Me.Guna2Txtissued1.Size = New System.Drawing.Size(80, 20)
-        Me.Guna2Txtissued1.TabIndex = 7
-        Me.Guna2Txtissued1.Visible = False
-        '
-        'Guna2Txtissued2
-        '
-        Me.Guna2Txtissued2.BackColor = System.Drawing.Color.White
-        Me.Guna2Txtissued2.Location = New System.Drawing.Point(153, 337)
-        Me.Guna2Txtissued2.Name = "Guna2Txtissued2"
-        Me.Guna2Txtissued2.Size = New System.Drawing.Size(80, 20)
-        Me.Guna2Txtissued2.TabIndex = 8
-        Me.Guna2Txtissued2.Visible = False
-        '
         'CertResidency
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -100,12 +103,13 @@ Partial Class CertResidency
         Me.Name = "CertResidency"
         Me.Text = "CertResidency"
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Guna2Txtfullname As System.Windows.Forms.TextBox
     Friend WithEvents Guna2Txtpurpose As System.Windows.Forms.TextBox

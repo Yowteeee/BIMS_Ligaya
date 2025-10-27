@@ -8,7 +8,8 @@ Public Class residentform
     Private originalPicturePath As String = "" ' Store original picture path when editing
     Private age As Integer
 
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+
         Try
             ' Validate that all required controls are not null
             If txtLastName Is Nothing OrElse txtFirstName Is Nothing OrElse txtMiddleName Is Nothing Then
@@ -18,13 +19,35 @@ Public Class residentform
 
             Using conn = Database.CreateConnection()
                 conn.Open()
-                
+
                 ' Calculate age from birth date
                 Dim age As Integer = CalculateAge(If(dtpBirthDate IsNot Nothing, dtpBirthDate.Value, DateTime.Now))
                 If txtAge IsNot Nothing Then
                     txtAge.Text = age.ToString()
                 End If
-                
+
+                ' Check for duplicate resident (same first name, last name, and birthdate)
+                Dim checkSql As String = "SELECT COUNT(*) FROM tbl_residentinfo WHERE lastname=@ln AND firstname=@fn AND birthdate=@bd"
+                If editingResidentId > 0 Then
+                    ' Exclude current resident when updating
+                    checkSql &= " AND id<>@id"
+                End If
+
+                Using checkCmd As New Global.MySql.Data.MySqlClient.MySqlCommand(checkSql, conn)
+                    checkCmd.Parameters.AddWithValue("@ln", If(txtLastName IsNot Nothing, txtLastName.Text.Trim(), ""))
+                    checkCmd.Parameters.AddWithValue("@fn", If(txtFirstName IsNot Nothing, txtFirstName.Text.Trim(), ""))
+                    checkCmd.Parameters.AddWithValue("@bd", If(dtpBirthDate IsNot Nothing, dtpBirthDate.Value, DateTime.Now))
+                    If editingResidentId > 0 Then
+                        checkCmd.Parameters.AddWithValue("@id", editingResidentId)
+                    End If
+
+                    Dim count As Integer = Convert.ToInt32(checkCmd.ExecuteScalar())
+                    If count > 0 Then
+                        MessageBox.Show("A resident with the same name and birthdate already exists in the database. Please verify the information.", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return
+                    End If
+                End Using
+
                 ' Determine if this is an INSERT or UPDATE
                 Dim sql As String
                 If editingResidentId > 0 Then
@@ -42,7 +65,7 @@ Public Class residentform
                     ' INSERT new resident
                     sql = "INSERT INTO tbl_residentinfo (id, lastname, firstname, middlename, gender, birthdate, age, phoneno, civilstatus, citizenship, fathersname, mothersname, spouse, email, voterstatus, weight, height, address, religion, idpic) VALUES (@id,@ln,@fn,@mn,@gender,@bd,@age,@phone,@cstat,@cit,@father,@mother,@spouse,@mail,@vstat,@weight,@height,@address,@religion,@idpic)"
                 End If
-                
+
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
                     ' Safe parameter assignments with null checks
                     If editingResidentId > 0 Then
@@ -80,27 +103,27 @@ Public Class residentform
 
             ' Create new resident data with safe property assignments
             Dim newResident As New ResidentData With {
-            .FirstName = If(txtFirstName IsNot Nothing, txtFirstName.Text.Trim(), ""),
-            .LastName = If(txtLastName IsNot Nothing, txtLastName.Text.Trim(), ""),
-            .MiddleName = If(txtMiddleName IsNot Nothing, txtMiddleName.Text.Trim(), ""),
-            .BirthDate = If(dtpBirthDate IsNot Nothing, dtpBirthDate.Value, DateTime.Now),
-            .Age = age,
-            .Gender = If(cmbGender IsNot Nothing AndAlso cmbGender.SelectedItem IsNot Nothing, cmbGender.SelectedItem.ToString().ToLower(), ""),
-            .VotersStatus = If(cmbVotersStatus IsNot Nothing AndAlso cmbVotersStatus.SelectedItem IsNot Nothing, cmbVotersStatus.SelectedItem.ToString(), ""),
-            .CivilStatus = If(cmbCivilStatus IsNot Nothing AndAlso cmbCivilStatus.SelectedItem IsNot Nothing, cmbCivilStatus.SelectedItem.ToString(), ""),
-            .Citizenship = If(txtCitizenship IsNot Nothing, txtCitizenship.Text.Trim(), ""),
-            .PhoneNumber = If(txtPhoneNumber IsNot Nothing, txtPhoneNumber.Text.Trim(), ""),
-            .Height = If(txtHeight IsNot Nothing, txtHeight.Text.Trim(), ""),
-            .Weight = If(txtWeight IsNot Nothing, txtWeight.Text.Trim(), ""),
-            .Email = If(txtEmail IsNot Nothing, txtEmail.Text.Trim(), ""),
-            .Spouse = If(txtSpouse IsNot Nothing, txtSpouse.Text.Trim(), ""),
-            .FathersName = If(txtFathersName IsNot Nothing, txtFathersName.Text.Trim(), ""),
-            .MothersName = If(txtMothersName IsNot Nothing, txtMothersName.Text.Trim(), ""),
-            .Address = If(txtAddress IsNot Nothing, txtAddress.Text.Trim(), ""),
-            .Religion = If(txtReligion IsNot Nothing, txtReligion.Text.Trim(), ""),
-            .IdPicture = idPicturePath,
-            .MobileNo = If(txtPhoneNumber IsNot Nothing, txtPhoneNumber.Text.Trim(), "")
-        }
+        .FirstName = If(txtFirstName IsNot Nothing, txtFirstName.Text.Trim(), ""),
+        .LastName = If(txtLastName IsNot Nothing, txtLastName.Text.Trim(), ""),
+        .MiddleName = If(txtMiddleName IsNot Nothing, txtMiddleName.Text.Trim(), ""),
+        .BirthDate = If(dtpBirthDate IsNot Nothing, dtpBirthDate.Value, DateTime.Now),
+        .Age = age,
+        .Gender = If(cmbGender IsNot Nothing AndAlso cmbGender.SelectedItem IsNot Nothing, cmbGender.SelectedItem.ToString().ToLower(), ""),
+        .VotersStatus = If(cmbVotersStatus IsNot Nothing AndAlso cmbVotersStatus.SelectedItem IsNot Nothing, cmbVotersStatus.SelectedItem.ToString(), ""),
+        .CivilStatus = If(cmbCivilStatus IsNot Nothing AndAlso cmbCivilStatus.SelectedItem IsNot Nothing, cmbCivilStatus.SelectedItem.ToString(), ""),
+        .Citizenship = If(txtCitizenship IsNot Nothing, txtCitizenship.Text.Trim(), ""),
+        .PhoneNumber = If(txtPhoneNumber IsNot Nothing, txtPhoneNumber.Text.Trim(), ""),
+        .Height = If(txtHeight IsNot Nothing, txtHeight.Text.Trim(), ""),
+        .Weight = If(txtWeight IsNot Nothing, txtWeight.Text.Trim(), ""),
+        .Email = If(txtEmail IsNot Nothing, txtEmail.Text.Trim(), ""),
+        .Spouse = If(txtSpouse IsNot Nothing, txtSpouse.Text.Trim(), ""),
+        .FathersName = If(txtFathersName IsNot Nothing, txtFathersName.Text.Trim(), ""),
+        .MothersName = If(txtMothersName IsNot Nothing, txtMothersName.Text.Trim(), ""),
+        .Address = If(txtAddress IsNot Nothing, txtAddress.Text.Trim(), ""),
+        .Religion = If(txtReligion IsNot Nothing, txtReligion.Text.Trim(), ""),
+        .IdPicture = idPicturePath,
+        .MobileNo = If(txtPhoneNumber IsNot Nothing, txtPhoneNumber.Text.Trim(), "")
+    }
 
             ' Raise the event to notify parent form
             RaiseEvent ResidentSaved(newResident)
@@ -246,7 +269,7 @@ Public Class residentform
         SetRoundedStyle(cmbVotersStatus)
 
         ' Apply rounded corners to all buttons
-        SetRoundedStyle(btnSave)
+        SetRoundedStyle(btnSubmit)
         SetRoundedStyle(btnCancel)
         SetRoundedStyle(btnChoosePicture)
     End Sub
