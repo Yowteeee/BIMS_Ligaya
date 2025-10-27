@@ -225,6 +225,7 @@ Partial Class residentinfo
         Me.colLastName.MinimumWidth = 6
         Me.colLastName.Name = "colLastName"
         Me.colLastName.ReadOnly = True
+        Me.colLastName.Width = 200
         '
         'colFirstName
         '
@@ -232,6 +233,7 @@ Partial Class residentinfo
         Me.colFirstName.MinimumWidth = 6
         Me.colFirstName.Name = "colFirstName"
         Me.colFirstName.ReadOnly = True
+        Me.colFirstName.Width = 200
         '
         'colMiddleName
         '
@@ -239,6 +241,7 @@ Partial Class residentinfo
         Me.colMiddleName.MinimumWidth = 6
         Me.colMiddleName.Name = "colMiddleName"
         Me.colMiddleName.ReadOnly = True
+        Me.colMiddleName.Width = 200
         '
         'colMobileNo
         '
@@ -246,6 +249,7 @@ Partial Class residentinfo
         Me.colMobileNo.MinimumWidth = 6
         Me.colMobileNo.Name = "colMobileNo"
         Me.colMobileNo.ReadOnly = True
+        Me.colMobileNo.Width = 210
         '
         'colGender
         '
@@ -253,6 +257,18 @@ Partial Class residentinfo
         Me.colGender.MinimumWidth = 6
         Me.colGender.Name = "colGender"
         Me.colGender.ReadOnly = True
+        Me.colGender.Width = 141
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(97, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(891, 99)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(54, 15)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "SEARCH:"
         '
         'colAction
         '
@@ -702,6 +718,11 @@ Partial Class residentinfo
         Me.ResumeLayout(False)
 
     End Sub
+
+    Private Function Label1() As Object
+        Throw New NotImplementedException()
+    End Function
+
     Friend WithEvents panelLeft As System.Windows.Forms.Panel
     Friend WithEvents panelRight As System.Windows.Forms.Panel
     Friend WithEvents lblInfoTitle As System.Windows.Forms.Label

@@ -27,10 +27,10 @@ Partial Class CertifcateIndigency
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CertifcateIndigency))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Guna2Txtfullname = New System.Windows.Forms.TextBox()
-        Me.Guna2Txtissued1 = New System.Windows.Forms.TextBox()
         Me.Guna2Txtissued2 = New System.Windows.Forms.TextBox()
+        Me.Guna2Txtissued1 = New System.Windows.Forms.TextBox()
+        Me.Guna2Txtfullname = New System.Windows.Forms.TextBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,56 +52,57 @@ Partial Class CertifcateIndigency
         Me.Panel1.Controls.Add(Me.PictureBox2)
         Me.Panel1.Location = New System.Drawing.Point(23, 47)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(378, 467)
+        Me.Panel1.Size = New System.Drawing.Size(535, 704)
         Me.Panel1.TabIndex = 1
+        '
+        'Guna2Txtissued2
+        '
+        Me.Guna2Txtissued2.BackColor = System.Drawing.Color.White
+        Me.Guna2Txtissued2.Location = New System.Drawing.Point(221, 327)
+        Me.Guna2Txtissued2.Name = "Guna2Txtissued2"
+        Me.Guna2Txtissued2.Size = New System.Drawing.Size(80, 20)
+        Me.Guna2Txtissued2.TabIndex = 6
+        Me.Guna2Txtissued2.Visible = False
+        '
+        'Guna2Txtissued1
+        '
+        Me.Guna2Txtissued1.BackColor = System.Drawing.Color.White
+        Me.Guna2Txtissued1.Location = New System.Drawing.Point(160, 327)
+        Me.Guna2Txtissued1.Name = "Guna2Txtissued1"
+        Me.Guna2Txtissued1.Size = New System.Drawing.Size(22, 20)
+        Me.Guna2Txtissued1.TabIndex = 5
+        Me.Guna2Txtissued1.Visible = False
+        '
+        'Guna2Txtfullname
+        '
+        Me.Guna2Txtfullname.BackColor = System.Drawing.Color.White
+        Me.Guna2Txtfullname.Location = New System.Drawing.Point(207, 245)
+        Me.Guna2Txtfullname.Name = "Guna2Txtfullname"
+        Me.Guna2Txtfullname.Size = New System.Drawing.Size(102, 20)
+        Me.Guna2Txtfullname.TabIndex = 4
+        Me.Guna2Txtfullname.Visible = False
         '
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
         Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(378, 551)
+        Me.PictureBox2.Size = New System.Drawing.Size(578, 735)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 0
         Me.PictureBox2.TabStop = False
-        '
-        'Guna2Txtfullname
-        '
-        Me.Guna2Txtfullname.BackColor = System.Drawing.Color.White
-        Me.Guna2Txtfullname.Location = New System.Drawing.Point(134, 183)
-        Me.Guna2Txtfullname.Name = "Guna2Txtfullname"
-        Me.Guna2Txtfullname.Size = New System.Drawing.Size(120, 20)
-        Me.Guna2Txtfullname.TabIndex = 4
-        Me.Guna2Txtfullname.Visible = False
-        '
-        'Guna2Txtissued1
-        '
-        Me.Guna2Txtissued1.BackColor = System.Drawing.Color.White
-        Me.Guna2Txtissued1.Location = New System.Drawing.Point(105, 248)
-        Me.Guna2Txtissued1.Name = "Guna2Txtissued1"
-        Me.Guna2Txtissued1.Size = New System.Drawing.Size(80, 20)
-        Me.Guna2Txtissued1.TabIndex = 5
-        Me.Guna2Txtissued1.Visible = False
-        '
-        'Guna2Txtissued2
-        '
-        Me.Guna2Txtissued2.BackColor = System.Drawing.Color.White
-        Me.Guna2Txtissued2.Location = New System.Drawing.Point(144, 248)
-        Me.Guna2Txtissued2.Name = "Guna2Txtissued2"
-        Me.Guna2Txtissued2.Size = New System.Drawing.Size(80, 20)
-        Me.Guna2Txtissued2.TabIndex = 6
-        Me.Guna2Txtissued2.Visible = False
         '
         'CertifcateIndigency
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(424, 560)
+        Me.ClientSize = New System.Drawing.Size(582, 763)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "CertifcateIndigency"
         Me.Text = "CertifcateIndigency"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

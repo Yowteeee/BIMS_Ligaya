@@ -1,3 +1,5 @@
+Imports MySql.Data.MySqlClient
+
 Public Class dashboard
     Private currentChildForm As Form
     Private residentsList As New List(Of ResidentData)
@@ -83,7 +85,7 @@ Public Class dashboard
         ' Add bottom panels (Recent Residents and Population Charts)
         contentHost.Controls.Add(panelLeft)
         contentHost.Controls.Add(panelRight)
-        
+
         ' Reload dashboard data
         LoadDashboardData()
     End Sub
@@ -98,33 +100,33 @@ Public Class dashboard
         LoadPurokPopulationChart()
         LoadDemographicsChart()
     End Sub
-    
+
     Private Sub LoadStatistics()
         Try
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
-                
+
                 ' Get Total Residents count
                 Dim sqlTotalResidents As String = "SELECT COUNT(*) FROM tbl_residentinfo"
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sqlTotalResidents, conn)
                     Dim totalResidents = CInt(cmd.ExecuteScalar())
                     lblResidentsCount.Text = totalResidents.ToString()
                 End Using
-                
+
                 ' Get Active Voters count (voterstatus = 'Active')
                 Dim sqlActiveVoters As String = "SELECT COUNT(*) FROM tbl_residentinfo WHERE voterstatus = 'Active'"
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sqlActiveVoters, conn)
                     Dim activeVoters = Convert.ToInt32(cmd.ExecuteScalar())
                     Label6.Text = activeVoters.ToString()
                 End Using
-                
+
                 ' Get Senior Citizens count (age >= 60)
                 Dim sqlSeniorCitizens As String = "SELECT COUNT(*) FROM tbl_residentinfo WHERE age >= 60"
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sqlSeniorCitizens, conn)
                     Dim seniorCitizens = CInt(cmd.ExecuteScalar())
                     Label12.Text = seniorCitizens.ToString()
                 End Using
-                
+
                 ' Get PWDs count - try to find them in the database
                 Dim sqlPWDs As String = "SELECT COUNT(*) FROM tbl_residentinfo WHERE pwdstatus = 'Yes' OR pwd = 'Yes' OR disability = 'Yes'"
                 Dim pwdCount As Integer = 0
@@ -139,12 +141,12 @@ Public Class dashboard
                     ' If PWD query fails, set to 0
                     pwdCount = 0
                 End Try
-                
+
                 ' Update PWDs panel label (Label9)
                 If Label9 IsNot Nothing Then
                     Label9.Text = pwdCount.ToString()
                 End If
-                
+
             End Using
         Catch ex As Exception
             System.Windows.Forms.MessageBox.Show("Failed to load statistics: " & ex.Message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
@@ -211,7 +213,7 @@ Public Class dashboard
             ' Query database for purok population
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
-                
+
                 ' Count residents by purok from address field
                 For purokNum As Integer = 1 To 8
                     Dim purokName As String = "Purok " & purokNum.ToString()
@@ -263,7 +265,7 @@ Public Class dashboard
             ' Query database for statistics
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
-                
+
                 ' Get senior citizens (age >= 60)
                 Dim sqlSeniors As String = "SELECT COUNT(*) FROM tbl_residentinfo WHERE age >= 60"
                 Dim seniorCount As Integer = 0
@@ -273,7 +275,7 @@ Public Class dashboard
                         seniorCount = Convert.ToInt32(seniorResult)
                     End If
                 End Using
-                
+
                 ' Get PWDs - try to find them in the database
                 ' Note: This is a placeholder. You may need to adjust the query based on your actual database structure
                 Dim sqlPWDs As String = "SELECT COUNT(*) FROM tbl_residentinfo WHERE pwdstatus = 'Yes' OR pwd = 'Yes' OR disability = 'Yes'"
@@ -289,7 +291,7 @@ Public Class dashboard
                     ' If PWD query fails, set to 0
                     pwdCount = 0
                 End Try
-                
+
                 ' Add data points for pie chart
                 If seniorCount > 0 Then
                     Dim seniorPoint As New DataVisualization.Charting.DataPoint()
@@ -297,14 +299,14 @@ Public Class dashboard
                     seniorPoint.Color = Color.FromArgb(76, 175, 80) ' Green color
                     seniorsSeries.Points.Add(seniorPoint)
                 End If
-                
+
                 If pwdCount > 0 Then
                     Dim pwdPoint As New DataVisualization.Charting.DataPoint()
                     pwdPoint.SetValueXY("PWDs", pwdCount)
                     pwdPoint.Color = Color.FromArgb(100, 102, 204) ' Purple color
                     seniorsSeries.Points.Add(pwdPoint)
                 End If
-                
+
                 ' If no data, show placeholder
                 If seniorCount = 0 AndAlso pwdCount = 0 Then
                     Dim placeholderPoint As New DataVisualization.Charting.DataPoint()
