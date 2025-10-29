@@ -1,3 +1,5 @@
+Imports ligaya_bims
+
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class residentform
     Inherits System.Windows.Forms.Form
@@ -25,10 +27,10 @@ Partial Class residentform
         Me.pnlMain = New System.Windows.Forms.Panel()
         Me.pnlForm = New System.Windows.Forms.Panel()
         Me.pnlIdPicture = New System.Windows.Forms.Panel()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnCancel = New ligaya_bims.RoundedButton()
+        Me.btnSubmit = New ligaya_bims.RoundedButton()
         Me.picIdPicture = New System.Windows.Forms.PictureBox()
-        Me.btnChoosePicture = New System.Windows.Forms.Button()
+        Me.btnChoosePicture = New ligaya_bims.RoundedButton()
         Me.lblIdPicture = New System.Windows.Forms.Label()
         Me.pnlFields = New System.Windows.Forms.Panel()
         Me.Guna2HtmlLabel3 = New System.Windows.Forms.Label()
@@ -101,7 +103,7 @@ Partial Class residentform
         '
         Me.pnlIdPicture.BackColor = System.Drawing.Color.White
         Me.pnlIdPicture.Controls.Add(Me.btnCancel)
-        Me.pnlIdPicture.Controls.Add(Me.btnSave)
+        Me.pnlIdPicture.Controls.Add(Me.btnSubmit)
         Me.pnlIdPicture.Controls.Add(Me.picIdPicture)
         Me.pnlIdPicture.Controls.Add(Me.btnChoosePicture)
         Me.pnlIdPicture.Controls.Add(Me.lblIdPicture)
@@ -113,6 +115,7 @@ Partial Class residentform
         'btnCancel
         '
         Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btnCancel.BorderRadius = 15
         Me.btnCancel.FlatAppearance.BorderSize = 0
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnCancel.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
@@ -124,19 +127,20 @@ Partial Class residentform
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = False
         '
-        'btnSave
+        'btnSubmit
         '
-        Me.btnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(95, Byte), Integer))
-        Me.btnSave.FlatAppearance.BorderSize = 0
-        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnSave.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.Location = New System.Drawing.Point(152, 553)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(141, 56)
-        Me.btnSave.TabIndex = 1
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = False
+        Me.btnSubmit.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(95, Byte), Integer))
+        Me.btnSubmit.BorderRadius = 15
+        Me.btnSubmit.FlatAppearance.BorderSize = 0
+        Me.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnSubmit.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSubmit.ForeColor = System.Drawing.Color.White
+        Me.btnSubmit.Location = New System.Drawing.Point(152, 553)
+        Me.btnSubmit.Name = "btnSubmit"
+        Me.btnSubmit.Size = New System.Drawing.Size(141, 56)
+        Me.btnSubmit.TabIndex = 1
+        Me.btnSubmit.Text = "Submit"
+        Me.btnSubmit.UseVisualStyleBackColor = False
         '
         'picIdPicture
         '
@@ -152,6 +156,7 @@ Partial Class residentform
         'btnChoosePicture
         '
         Me.btnChoosePicture.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(164, Byte), Integer), CType(CType(251, Byte), Integer))
+        Me.btnChoosePicture.BorderRadius = 15
         Me.btnChoosePicture.FlatAppearance.BorderSize = 0
         Me.btnChoosePicture.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnChoosePicture.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -603,15 +608,15 @@ Partial Class residentform
 
     End Sub
 
-    Friend WithEvents pnlMain As Panel
-    Friend WithEvents pnlForm As Panel
-    Friend WithEvents pnlIdPicture As Panel
+    Friend WithEvents pnlMain As System.Windows.Forms.Panel
+    Friend WithEvents pnlForm As System.Windows.Forms.Panel
+    Friend WithEvents pnlIdPicture As System.Windows.Forms.Panel
     Friend WithEvents picIdPicture As PictureBox
-    Friend WithEvents btnChoosePicture As Button
+    Friend WithEvents btnChoosePicture As ligaya_bims.RoundedButton
     Friend WithEvents lblIdPicture As Label
-    Friend WithEvents pnlFields As Panel
-    Friend WithEvents btnSave As Button
-    Friend WithEvents btnCancel As Button
+    Friend WithEvents pnlFields As System.Windows.Forms.Panel
+    Friend WithEvents btnSubmit As ligaya_bims.RoundedButton
+    Friend WithEvents btnCancel As ligaya_bims.RoundedButton
     Friend WithEvents ofdIdPicture As OpenFileDialog
     Friend WithEvents lblMothersName As Label
     Friend WithEvents lblFathersName As Label

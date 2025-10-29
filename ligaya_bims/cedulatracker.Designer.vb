@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Imports ligaya_bims
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class cedulatracker
     Inherits System.Windows.Forms.Form
 
@@ -27,15 +29,16 @@ Partial Class cedulatracker
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.panelMain = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
-        Me.btnTransaction = New System.Windows.Forms.Button()
+        Me.btnTransaction = New ligaya_bims.RoundedButton()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.cmbFilter = New System.Windows.Forms.ComboBox()
         Me.dgvCedula = New System.Windows.Forms.DataGridView()
+        Me.lblShowingEntries = New System.Windows.Forms.Label()
         Me.colAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colCTCNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFullName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colDateIssued = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lblShowingEntries = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.panelMain.SuspendLayout()
         CType(Me.dgvCedula, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -43,6 +46,7 @@ Partial Class cedulatracker
         'panelMain
         '
         Me.panelMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.panelMain.Controls.Add(Me.Label1)
         Me.panelMain.Controls.Add(Me.lblTitle)
         Me.panelMain.Controls.Add(Me.btnTransaction)
         Me.panelMain.Controls.Add(Me.txtSearch)
@@ -70,10 +74,11 @@ Partial Class cedulatracker
         'btnTransaction
         '
         Me.btnTransaction.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.btnTransaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnTransaction.BorderRadius = 15
         Me.btnTransaction.FlatAppearance.BorderSize = 0
-        Me.btnTransaction.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.btnTransaction.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(24, Byte), Integer))
+        Me.btnTransaction.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.btnTransaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnTransaction.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.btnTransaction.ForeColor = System.Drawing.Color.White
         Me.btnTransaction.Location = New System.Drawing.Point(23, 85)
@@ -81,6 +86,7 @@ Partial Class cedulatracker
         Me.btnTransaction.Size = New System.Drawing.Size(150, 40)
         Me.btnTransaction.TabIndex = 1
         Me.btnTransaction.Text = "Transaction"
+        Me.btnTransaction.UseVisualStyleBackColor = False
         '
         'txtSearch
         '
@@ -96,9 +102,9 @@ Partial Class cedulatracker
         Me.cmbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbFilter.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.cmbFilter.Items.AddRange(New Object() {"CTC Number", "Full Name", "Date Issued"})
-        Me.cmbFilter.Location = New System.Drawing.Point(185, 85)
+        Me.cmbFilter.Location = New System.Drawing.Point(190, 96)
         Me.cmbFilter.Name = "cmbFilter"
-        Me.cmbFilter.Size = New System.Drawing.Size(200, 23)
+        Me.cmbFilter.Size = New System.Drawing.Size(130, 23)
         Me.cmbFilter.TabIndex = 3
         '
         'dgvCedula
@@ -124,7 +130,6 @@ Partial Class cedulatracker
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvCedula.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvCedula.ColumnHeadersHeight = 40
-        Me.dgvCedula.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         Me.dgvCedula.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colAction, Me.colCTCNumber, Me.colFullName, Me.colDateIssued})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
@@ -144,35 +149,6 @@ Partial Class cedulatracker
         Me.dgvCedula.RowTemplate.Height = 40
         Me.dgvCedula.Size = New System.Drawing.Size(1154, 350)
         Me.dgvCedula.TabIndex = 4
-        ' ThemeStyle properties removed (Guna-specific)
-        '
-        'colAction
-        '
-        Me.colAction.HeaderText = "Action"
-        Me.colAction.MinimumWidth = 6
-        Me.colAction.Name = "colAction"
-        Me.colAction.ReadOnly = True
-        '
-        'colCTCNumber
-        '
-        Me.colCTCNumber.HeaderText = "CTC Number"
-        Me.colCTCNumber.MinimumWidth = 6
-        Me.colCTCNumber.Name = "colCTCNumber"
-        Me.colCTCNumber.ReadOnly = True
-        '
-        'colFullName
-        '
-        Me.colFullName.HeaderText = "Full Name"
-        Me.colFullName.MinimumWidth = 6
-        Me.colFullName.Name = "colFullName"
-        Me.colFullName.ReadOnly = True
-        '
-        'colDateIssued
-        '
-        Me.colDateIssued.HeaderText = "Date Issued"
-        Me.colDateIssued.MinimumWidth = 6
-        Me.colDateIssued.Name = "colDateIssued"
-        Me.colDateIssued.ReadOnly = True
         '
         'lblShowingEntries
         '
@@ -184,6 +160,48 @@ Partial Class cedulatracker
         Me.lblShowingEntries.Size = New System.Drawing.Size(146, 15)
         Me.lblShowingEntries.TabIndex = 5
         Me.lblShowingEntries.Text = "Showing 1 to 0 of 0 entries"
+        '
+        'colAction
+        '
+        Me.colAction.HeaderText = "Action"
+        Me.colAction.MinimumWidth = 6
+        Me.colAction.Name = "colAction"
+        Me.colAction.ReadOnly = True
+        Me.colAction.Width = 200
+        '
+        'colCTCNumber
+        '
+        Me.colCTCNumber.HeaderText = "CTC Number"
+        Me.colCTCNumber.MinimumWidth = 6
+        Me.colCTCNumber.Name = "colCTCNumber"
+        Me.colCTCNumber.ReadOnly = True
+        Me.colCTCNumber.Width = 300
+        '
+        'colFullName
+        '
+        Me.colFullName.HeaderText = "Full Name"
+        Me.colFullName.MinimumWidth = 6
+        Me.colFullName.Name = "colFullName"
+        Me.colFullName.ReadOnly = True
+        Me.colFullName.Width = 405
+        '
+        'colDateIssued
+        '
+        Me.colDateIssued.HeaderText = "Date Issued"
+        Me.colDateIssued.MinimumWidth = 6
+        Me.colDateIssued.Name = "colDateIssued"
+        Me.colDateIssued.ReadOnly = True
+        Me.colDateIssued.Width = 242
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(880, 97)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(66, 18)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "Search:"
         '
         'cedulatracker
         '
@@ -204,13 +222,14 @@ Partial Class cedulatracker
     End Sub
     Friend WithEvents panelMain As System.Windows.Forms.Panel
     Friend WithEvents lblTitle As System.Windows.Forms.Label
-    Friend WithEvents btnTransaction As System.Windows.Forms.Button
+    Friend WithEvents btnTransaction As ligaya_bims.RoundedButton
     Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents cmbFilter As System.Windows.Forms.ComboBox
     Friend WithEvents dgvCedula As System.Windows.Forms.DataGridView
-    Friend WithEvents colAction As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colCTCNumber As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colFullName As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colDateIssued As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents lblShowingEntries As System.Windows.Forms.Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents colAction As DataGridViewTextBoxColumn
+    Friend WithEvents colCTCNumber As DataGridViewTextBoxColumn
+    Friend WithEvents colFullName As DataGridViewTextBoxColumn
+    Friend WithEvents colDateIssued As DataGridViewTextBoxColumn
 End Class

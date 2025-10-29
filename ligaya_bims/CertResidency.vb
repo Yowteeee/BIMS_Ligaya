@@ -18,4 +18,8 @@
     Private Sub PictureBox1_Click_1(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
+
+    Private Sub Guna2Txtissued2_TextChanged(sender As Object, e As EventArgs) Handles Guna2Txtissued2.TextChanged
+
+    End Sub
 End Class

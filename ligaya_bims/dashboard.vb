@@ -1,3 +1,5 @@
+Imports MySql.Data.MySqlClient
+
 Public Class dashboard
     Private currentChildForm As Form
     Private residentsList As New List(Of ResidentData)
@@ -83,13 +85,21 @@ Public Class dashboard
         ' Add bottom panels (Recent Residents and Population Charts)
         contentHost.Controls.Add(panelLeft)
         contentHost.Controls.Add(panelRight)
-        
+
         ' Reload dashboard data
         LoadDashboardData()
     End Sub
 
     Private Sub dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDashboardData()
+        ' Remove or hide selection checkbox column from dashboard grid
+        Try
+            If dgvDashboardResidents IsNot Nothing AndAlso dgvDashboardResidents.Columns.Contains("chkSelectAllDashboard") Then
+                dgvDashboardResidents.Columns("chkSelectAllDashboard").Visible = False
+            End If
+        Catch ex As Exception
+            ' Ignore if grid not yet initialized
+        End Try
     End Sub
 
     Private Sub LoadDashboardData()
@@ -98,33 +108,33 @@ Public Class dashboard
         LoadPurokPopulationChart()
         LoadDemographicsChart()
     End Sub
-    
+
     Private Sub LoadStatistics()
         Try
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
-                
+
                 ' Get Total Residents count
                 Dim sqlTotalResidents As String = "SELECT COUNT(*) FROM tbl_residentinfo"
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sqlTotalResidents, conn)
                     Dim totalResidents = CInt(cmd.ExecuteScalar())
                     lblResidentsCount.Text = totalResidents.ToString()
                 End Using
-                
+
                 ' Get Active Voters count (voterstatus = 'Active')
                 Dim sqlActiveVoters As String = "SELECT COUNT(*) FROM tbl_residentinfo WHERE voterstatus = 'Active'"
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sqlActiveVoters, conn)
                     Dim activeVoters = Convert.ToInt32(cmd.ExecuteScalar())
                     Label6.Text = activeVoters.ToString()
                 End Using
-                
+
                 ' Get Senior Citizens count (age >= 60)
                 Dim sqlSeniorCitizens As String = "SELECT COUNT(*) FROM tbl_residentinfo WHERE age >= 60"
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sqlSeniorCitizens, conn)
                     Dim seniorCitizens = CInt(cmd.ExecuteScalar())
                     Label12.Text = seniorCitizens.ToString()
                 End Using
-                
+
                 ' Get PWDs count - try to find them in the database
                 Dim sqlPWDs As String = "SELECT COUNT(*) FROM tbl_residentinfo WHERE pwdstatus = 'Yes' OR pwd = 'Yes' OR disability = 'Yes'"
                 Dim pwdCount As Integer = 0
@@ -139,12 +149,12 @@ Public Class dashboard
                     ' If PWD query fails, set to 0
                     pwdCount = 0
                 End Try
-                
+
                 ' Update PWDs panel label (Label9)
                 If Label9 IsNot Nothing Then
                     Label9.Text = pwdCount.ToString()
                 End If
-                
+
             End Using
         Catch ex As Exception
             System.Windows.Forms.MessageBox.Show("Failed to load statistics: " & ex.Message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
@@ -211,7 +221,7 @@ Public Class dashboard
             ' Query database for purok population
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
-                
+
                 ' Count residents by purok from address field
                 For purokNum As Integer = 1 To 8
                     Dim purokName As String = "Purok " & purokNum.ToString()
@@ -263,7 +273,7 @@ Public Class dashboard
             ' Query database for statistics
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
-                
+
                 ' Get senior citizens (age >= 60)
                 Dim sqlSeniors As String = "SELECT COUNT(*) FROM tbl_residentinfo WHERE age >= 60"
                 Dim seniorCount As Integer = 0
@@ -273,7 +283,7 @@ Public Class dashboard
                         seniorCount = Convert.ToInt32(seniorResult)
                     End If
                 End Using
-                
+
                 ' Get PWDs - try to find them in the database
                 ' Note: This is a placeholder. You may need to adjust the query based on your actual database structure
                 Dim sqlPWDs As String = "SELECT COUNT(*) FROM tbl_residentinfo WHERE pwdstatus = 'Yes' OR pwd = 'Yes' OR disability = 'Yes'"
@@ -289,7 +299,7 @@ Public Class dashboard
                     ' If PWD query fails, set to 0
                     pwdCount = 0
                 End Try
-                
+
                 ' Add data points for pie chart
                 If seniorCount > 0 Then
                     Dim seniorPoint As New DataVisualization.Charting.DataPoint()
@@ -297,14 +307,14 @@ Public Class dashboard
                     seniorPoint.Color = Color.FromArgb(76, 175, 80) ' Green color
                     seniorsSeries.Points.Add(seniorPoint)
                 End If
-                
+
                 If pwdCount > 0 Then
                     Dim pwdPoint As New DataVisualization.Charting.DataPoint()
                     pwdPoint.SetValueXY("PWDs", pwdCount)
                     pwdPoint.Color = Color.FromArgb(100, 102, 204) ' Purple color
                     seniorsSeries.Points.Add(pwdPoint)
                 End If
-                
+
                 ' If no data, show placeholder
                 If seniorCount = 0 AndAlso pwdCount = 0 Then
                     Dim placeholderPoint As New DataVisualization.Charting.DataPoint()
@@ -390,8 +400,172 @@ Public Class dashboard
     End Sub
 
     Private Sub navBackup_Click(sender As Object, e As EventArgs) Handles navBackup.Click
+        ' Simple backup/restore utility for MySQL tables used by the app
+        Dim choice As DialogResult = MessageBox.Show("Do you want to perform a BACKUP? Click No for RESTORE.", "Backup and Restore", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
+        If choice = DialogResult.Cancel Then Return
 
+        If choice = DialogResult.Yes Then
+            PerformBackup()
+        Else
+            PerformRestore()
+        End If
     End Sub
+
+    Private Sub PerformBackup()
+        Using folderDlg As New FolderBrowserDialog()
+            folderDlg.Description = "Select a folder to save CSV backups"
+            If folderDlg.ShowDialog() <> DialogResult.OK Then Return
+
+            Dim backupDir As String = System.IO.Path.Combine(folderDlg.SelectedPath, "BIMS_Backup_" & DateTime.Now.ToString("yyyyMMdd_HHmmss"))
+            System.IO.Directory.CreateDirectory(backupDir)
+
+            Try
+                ExportTableToCsv("tbl_residentinfo", System.IO.Path.Combine(backupDir, "tbl_residentinfo.csv"))
+                ExportTableToCsv("tbl_cedulatracker", System.IO.Path.Combine(backupDir, "tbl_cedulatracker.csv"))
+                ExportTableToCsv("tbl_certificate", System.IO.Path.Combine(backupDir, "tbl_certificate.csv"))
+
+                MessageBox.Show($"Backup completed to: {backupDir}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Try
+                    System.Diagnostics.Process.Start("explorer.exe", backupDir)
+                Catch
+                End Try
+            Catch ex As Exception
+                MessageBox.Show("Backup failed: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End Using
+    End Sub
+
+    Private Sub PerformRestore()
+        Using folderDlg As New FolderBrowserDialog()
+            folderDlg.Description = "Select a backup folder created by this app"
+            If folderDlg.ShowDialog() <> DialogResult.OK Then Return
+
+            Dim dir As String = folderDlg.SelectedPath
+            Try
+                ImportTableFromCsv("tbl_residentinfo", System.IO.Path.Combine(dir, "tbl_residentinfo.csv"))
+                ImportTableFromCsv("tbl_cedulatracker", System.IO.Path.Combine(dir, "tbl_cedulatracker.csv"))
+                ImportTableFromCsv("tbl_certificate", System.IO.Path.Combine(dir, "tbl_certificate.csv"))
+
+                MessageBox.Show("Restore completed.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadDashboardData()
+            Catch ex As Exception
+                MessageBox.Show("Restore failed: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End Using
+    End Sub
+
+    Private Sub ExportTableToCsv(tableName As String, outputPath As String)
+        Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
+            conn.Open()
+            Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM " & tableName, conn)
+                Using reader As Global.MySql.Data.MySqlClient.MySqlDataReader = cmd.ExecuteReader()
+                    Using writer As New System.IO.StreamWriter(outputPath, False, System.Text.Encoding.UTF8)
+                        ' Write header
+                        Dim headers As New List(Of String)()
+                        For i As Integer = 0 To reader.FieldCount - 1
+                            headers.Add(EscapeCsv(reader.GetName(i)))
+                        Next
+                        writer.WriteLine(String.Join(",", headers))
+
+                        ' Write rows
+                        While reader.Read()
+                            Dim fields As New List(Of String)()
+                            For i As Integer = 0 To reader.FieldCount - 1
+                                Dim val As Object = reader.GetValue(i)
+                                fields.Add(EscapeCsv(If(val Is Nothing OrElse val Is DBNull.Value, "", val.ToString())))
+                            Next
+                            writer.WriteLine(String.Join(",", fields))
+                        End While
+                    End Using
+                End Using
+            End Using
+        End Using
+    End Sub
+
+    Private Function EscapeCsv(value As String) As String
+        If value Is Nothing Then Return ""
+        Dim mustQuote As Boolean = value.Contains(",") OrElse value.Contains("""") OrElse value.Contains(Chr(10)) OrElse value.Contains(Chr(13))
+        value = value.Replace("""", """""")
+        If mustQuote Then
+            Return """" & value & """"
+        End If
+        Return value
+    End Function
+
+    Private Sub ImportTableFromCsv(tableName As String, inputPath As String)
+        If Not System.IO.File.Exists(inputPath) Then Return
+        Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
+            conn.Open()
+            Using tran = conn.BeginTransaction()
+                Try
+                    ' Simple strategy: clear table then reinsert
+                    Using clearCmd As New Global.MySql.Data.MySqlClient.MySqlCommand("DELETE FROM " & tableName, conn, tran)
+                        clearCmd.ExecuteNonQuery()
+                    End Using
+
+                    Dim lines = System.IO.File.ReadAllLines(inputPath)
+                    If lines.Length <= 1 Then
+                        tran.Commit()
+                        Return
+                    End If
+
+                    ' Parse header
+                    Dim headers = ParseCsvLine(lines(0))
+                    For i As Integer = 1 To lines.Length - 1
+                        Dim row = ParseCsvLine(lines(i))
+                        If row.Count = 0 Then Continue For
+
+                        Dim columns As String = String.Join(",", headers)
+                        Dim paramNames As New List(Of String)()
+                        For j As Integer = 0 To headers.Count - 1
+                            paramNames.Add("@p" & j.ToString())
+                        Next
+                        Dim sql As String = "INSERT INTO " & tableName & " (" & columns & ") VALUES (" & String.Join(",", paramNames) & ")"
+                        Using insertCmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn, tran)
+                            For j As Integer = 0 To headers.Count - 1
+                                Dim val As Object = If(j < row.Count AndAlso row(j) IsNot Nothing, CType(row(j), Object), DBNull.Value)
+                                insertCmd.Parameters.AddWithValue("@p" & j.ToString(), val)
+                            Next
+                            insertCmd.ExecuteNonQuery()
+                        End Using
+                    Next
+
+                    tran.Commit()
+                Catch
+                    tran.Rollback()
+                    Throw
+                End Try
+            End Using
+        End Using
+    End Sub
+
+    Private Function ParseCsvLine(line As String) As List(Of String)
+        Dim result As New List(Of String)()
+        If String.IsNullOrEmpty(line) Then Return result
+
+        Dim sb As New System.Text.StringBuilder()
+        Dim inQuotes As Boolean = False
+        Dim i As Integer = 0
+        While i < line.Length
+            Dim c As Char = line(i)
+            If c = """"c Then
+                If inQuotes AndAlso i + 1 < line.Length AndAlso line(i + 1) = """"c Then
+                    sb.Append(""""c)
+                    i += 1
+                Else
+                    inQuotes = Not inQuotes
+                End If
+            ElseIf c = ","c AndAlso Not inQuotes Then
+                result.Add(sb.ToString())
+                sb.Clear()
+            Else
+                sb.Append(c)
+            End If
+            i += 1
+        End While
+        result.Add(sb.ToString())
+        Return result
+    End Function
 
     ' Clean up resources when form closes
     Protected Overrides Sub OnFormClosed(e As FormClosedEventArgs)
@@ -417,6 +591,10 @@ Public Class dashboard
     End Sub
 
     Private Sub chartPurokPopulation_Click(sender As Object, e As EventArgs) Handles chartPurokPopulation.Click
+
+    End Sub
+
+    Private Sub navLogout_Click(sender As Object, e As EventArgs) Handles navLogout.Click
 
     End Sub
 End Class

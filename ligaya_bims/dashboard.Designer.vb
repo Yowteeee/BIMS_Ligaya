@@ -1,3 +1,5 @@
+Imports ligaya_bims
+
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class dashboard
     Inherits System.Windows.Forms.Form
@@ -22,21 +24,27 @@ Partial Class dashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+
         Me.leftNav = New System.Windows.Forms.Panel()
-        Me.navLogout = New System.Windows.Forms.Button()
-        Me.navBackup = New System.Windows.Forms.Button()
-        Me.navStaffs = New System.Windows.Forms.Button()
-        Me.navDocs = New System.Windows.Forms.Button()
-        Me.navCedula = New System.Windows.Forms.Button()
-        Me.navReports = New System.Windows.Forms.Button()
-        Me.navResidents = New System.Windows.Forms.Button()
-        Me.navDashboard = New System.Windows.Forms.Button()
+        Me.navLogout = New ligaya_bims.RoundedButton()
+        Me.navBackup = New ligaya_bims.RoundedButton()
+        Me.navStaffs = New ligaya_bims.RoundedButton()
+        Me.navDocs = New ligaya_bims.RoundedButton()
+        Me.navCedula = New ligaya_bims.RoundedButton()
+        Me.navReports = New ligaya_bims.RoundedButton()
+        Me.navResidents = New ligaya_bims.RoundedButton()
+        Me.navDashboard = New ligaya_bims.RoundedButton()
         Me.leftHeader = New System.Windows.Forms.Panel()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.PictureBox9 = New System.Windows.Forms.PictureBox()
@@ -45,42 +53,42 @@ Partial Class dashboard
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.lblAppTitle = New System.Windows.Forms.Label()
         Me.contentHost = New System.Windows.Forms.Panel()
-        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New ligaya_bims.RoundedPanel()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New ligaya_bims.RoundedPanel()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New ligaya_bims.RoundedPanel()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel1 = New ligaya_bims.RoundedPanel()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.panelResidents = New System.Windows.Forms.Panel()
+        Me.panelResidents = New ligaya_bims.RoundedPanel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblResidentsMore = New System.Windows.Forms.Label()
         Me.lblResidentsTitle = New System.Windows.Forms.Label()
         Me.lblResidentsCount = New System.Windows.Forms.Label()
-        Me.panelBlotter = New System.Windows.Forms.Panel()
+        Me.panelBlotter = New ligaya_bims.RoundedPanel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.lblBlotterMore = New System.Windows.Forms.Label()
         Me.lblBlotterTitle = New System.Windows.Forms.Label()
         Me.lblBlotterCount = New System.Windows.Forms.Label()
-        Me.panelCertificates = New System.Windows.Forms.Panel()
+        Me.panelCertificates = New ligaya_bims.RoundedPanel()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.lblCertificatesMore = New System.Windows.Forms.Label()
         Me.lblCertificatesTitle = New System.Windows.Forms.Label()
         Me.lblCertificatesCount = New System.Windows.Forms.Label()
-        Me.panelOfficials = New System.Windows.Forms.Panel()
+        Me.panelOfficials = New ligaya_bims.RoundedPanel()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.lblOfficialsMore = New System.Windows.Forms.Label()
         Me.lblOfficialsTitle = New System.Windows.Forms.Label()
@@ -147,6 +155,7 @@ Partial Class dashboard
         'navLogout
         '
         Me.navLogout.BackColor = System.Drawing.Color.Transparent
+        Me.navLogout.BorderRadius = 15
         Me.navLogout.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.navLogout.FlatAppearance.BorderSize = 0
         Me.navLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -163,6 +172,7 @@ Partial Class dashboard
         'navBackup
         '
         Me.navBackup.BackColor = System.Drawing.Color.Transparent
+        Me.navBackup.BorderRadius = 15
         Me.navBackup.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.navBackup.FlatAppearance.BorderSize = 0
         Me.navBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -179,6 +189,7 @@ Partial Class dashboard
         'navStaffs
         '
         Me.navStaffs.BackColor = System.Drawing.Color.Transparent
+        Me.navStaffs.BorderRadius = 15
         Me.navStaffs.Dock = System.Windows.Forms.DockStyle.Top
         Me.navStaffs.FlatAppearance.BorderSize = 0
         Me.navStaffs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -195,6 +206,7 @@ Partial Class dashboard
         'navDocs
         '
         Me.navDocs.BackColor = System.Drawing.Color.Transparent
+        Me.navDocs.BorderRadius = 15
         Me.navDocs.Dock = System.Windows.Forms.DockStyle.Top
         Me.navDocs.FlatAppearance.BorderSize = 0
         Me.navDocs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -211,6 +223,7 @@ Partial Class dashboard
         'navCedula
         '
         Me.navCedula.BackColor = System.Drawing.Color.Transparent
+        Me.navCedula.BorderRadius = 15
         Me.navCedula.Dock = System.Windows.Forms.DockStyle.Top
         Me.navCedula.FlatAppearance.BorderSize = 0
         Me.navCedula.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -227,6 +240,7 @@ Partial Class dashboard
         'navReports
         '
         Me.navReports.BackColor = System.Drawing.Color.Transparent
+        Me.navReports.BorderRadius = 15
         Me.navReports.Dock = System.Windows.Forms.DockStyle.Top
         Me.navReports.FlatAppearance.BorderSize = 0
         Me.navReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -243,6 +257,7 @@ Partial Class dashboard
         'navResidents
         '
         Me.navResidents.BackColor = System.Drawing.Color.Transparent
+        Me.navResidents.BorderRadius = 15
         Me.navResidents.Dock = System.Windows.Forms.DockStyle.Top
         Me.navResidents.FlatAppearance.BorderSize = 0
         Me.navResidents.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -259,6 +274,7 @@ Partial Class dashboard
         'navDashboard
         '
         Me.navDashboard.BackColor = System.Drawing.Color.Transparent
+        Me.navDashboard.BorderRadius = 15
         Me.navDashboard.Dock = System.Windows.Forms.DockStyle.Top
         Me.navDashboard.FlatAppearance.BorderSize = 0
         Me.navDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -377,7 +393,6 @@ Partial Class dashboard
         '
         'Panel4
         '
-        Me.Panel4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(76, Byte), Integer), CType(CType(175, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.Panel4.Controls.Add(Me.PictureBox5)
         Me.Panel4.Controls.Add(Me.Label10)
@@ -438,7 +453,6 @@ Partial Class dashboard
         '
         'Panel3
         '
-        Me.Panel3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.Panel3.Controls.Add(Me.PictureBox6)
         Me.Panel3.Controls.Add(Me.Label7)
@@ -499,7 +513,6 @@ Partial Class dashboard
         '
         'Panel2
         '
-        Me.Panel2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(212, Byte), Integer))
         Me.Panel2.Controls.Add(Me.PictureBox7)
         Me.Panel2.Controls.Add(Me.Label4)
@@ -560,7 +573,6 @@ Partial Class dashboard
         '
         'Panel1
         '
-        Me.Panel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(7, Byte), Integer))
         Me.Panel1.Controls.Add(Me.PictureBox8)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -621,8 +633,8 @@ Partial Class dashboard
         '
         'panelResidents
         '
-        Me.panelResidents.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.panelResidents.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(212, Byte), Integer))
+        Me.panelResidents.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.panelResidents.Controls.Add(Me.PictureBox1)
         Me.panelResidents.Controls.Add(Me.lblResidentsMore)
         Me.panelResidents.Controls.Add(Me.lblResidentsTitle)
@@ -651,7 +663,7 @@ Partial Class dashboard
         Me.lblResidentsMore.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblResidentsMore.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblResidentsMore.ForeColor = System.Drawing.Color.White
-        Me.lblResidentsMore.Location = New System.Drawing.Point(0, 90)
+        Me.lblResidentsMore.Location = New System.Drawing.Point(-4, 86)
         Me.lblResidentsMore.Name = "lblResidentsMore"
         Me.lblResidentsMore.Size = New System.Drawing.Size(280, 20)
         Me.lblResidentsMore.TabIndex = 2
@@ -682,7 +694,6 @@ Partial Class dashboard
         '
         'panelBlotter
         '
-        Me.panelBlotter.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.panelBlotter.BackColor = System.Drawing.Color.FromArgb(CType(CType(76, Byte), Integer), CType(CType(175, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.panelBlotter.Controls.Add(Me.PictureBox2)
         Me.panelBlotter.Controls.Add(Me.lblBlotterMore)
@@ -743,7 +754,6 @@ Partial Class dashboard
         '
         'panelCertificates
         '
-        Me.panelCertificates.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.panelCertificates.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(7, Byte), Integer))
         Me.panelCertificates.Controls.Add(Me.PictureBox3)
         Me.panelCertificates.Controls.Add(Me.lblCertificatesMore)
@@ -804,7 +814,6 @@ Partial Class dashboard
         '
         'panelOfficials
         '
-        Me.panelOfficials.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.panelOfficials.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.panelOfficials.Controls.Add(Me.PictureBox4)
         Me.panelOfficials.Controls.Add(Me.lblOfficialsMore)
@@ -865,7 +874,6 @@ Partial Class dashboard
         '
         'panelLeft
         '
-        Me.panelLeft.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.panelLeft.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer))
         Me.panelLeft.Controls.Add(Me.dgvDashboardResidents)
         Me.panelLeft.Controls.Add(Me.lblDashboardResidentsTitle)
@@ -879,7 +887,6 @@ Partial Class dashboard
         Me.dgvDashboardResidents.AllowUserToAddRows = False
         Me.dgvDashboardResidents.AllowUserToDeleteRows = False
         Me.dgvDashboardResidents.AllowUserToResizeRows = False
-        Me.dgvDashboardResidents.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgvDashboardResidents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvDashboardResidents.BackgroundColor = System.Drawing.Color.White
         Me.dgvDashboardResidents.BorderStyle = System.Windows.Forms.BorderStyle.None
@@ -953,7 +960,6 @@ Partial Class dashboard
         '
         'panelRight
         '
-        Me.panelRight.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.panelRight.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer))
         Me.panelRight.Controls.Add(Me.chartPurokPopulation)
         Me.panelRight.Controls.Add(Me.chartDemographics)
@@ -965,7 +971,6 @@ Partial Class dashboard
         '
         'chartPurokPopulation
         '
-        Me.chartPurokPopulation.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.chartPurokPopulation.Location = New System.Drawing.Point(15, 60)
         Me.chartPurokPopulation.Name = "chartPurokPopulation"
         Series1.Name = "Purok 1"
@@ -981,11 +986,9 @@ Partial Class dashboard
         Me.chartPurokPopulation.Size = New System.Drawing.Size(568, 197)
         Me.chartPurokPopulation.TabIndex = 2
         Me.chartPurokPopulation.Text = "Purok Population"
-        Me.chartPurokPopulation.Visible = True
         '
         'chartDemographics
         '
-        Me.chartDemographics.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         ChartArea1.Name = "Senior"
         Me.chartDemographics.ChartAreas.Add(ChartArea1)
         Me.chartDemographics.Location = New System.Drawing.Point(15, 263)
@@ -1063,35 +1066,35 @@ Partial Class dashboard
     Friend WithEvents leftNav As System.Windows.Forms.Panel
     Friend WithEvents leftHeader As System.Windows.Forms.Panel
     Friend WithEvents lblBrand As System.Windows.Forms.Label
-    Friend WithEvents navDashboard As System.Windows.Forms.Button
-    Friend WithEvents navResidents As System.Windows.Forms.Button
-    Friend WithEvents navReports As System.Windows.Forms.Button
-    Friend WithEvents navCedula As System.Windows.Forms.Button
-    Friend WithEvents navDocs As System.Windows.Forms.Button
-    Friend WithEvents navStaffs As System.Windows.Forms.Button
-    Friend WithEvents navBackup As System.Windows.Forms.Button
-    Friend WithEvents navLogout As System.Windows.Forms.Button
+    Friend WithEvents navDashboard As ligaya_bims.RoundedButton
+    Friend WithEvents navResidents As ligaya_bims.RoundedButton
+    Friend WithEvents navReports As ligaya_bims.RoundedButton
+    Friend WithEvents navCedula As ligaya_bims.RoundedButton
+    Friend WithEvents navDocs As ligaya_bims.RoundedButton
+    Friend WithEvents navStaffs As ligaya_bims.RoundedButton
+    Friend WithEvents navBackup As ligaya_bims.RoundedButton
+    Friend WithEvents navLogout As ligaya_bims.RoundedButton
     Friend WithEvents topBar As System.Windows.Forms.Panel
     Friend WithEvents lblAppTitle As System.Windows.Forms.Label
     Friend WithEvents lblWelcome As System.Windows.Forms.Label
     Friend WithEvents contentHost As System.Windows.Forms.Panel
-    Friend WithEvents panelResidents As Panel
+    Friend WithEvents panelResidents As ligaya_bims.RoundedPanel
     Friend WithEvents lblResidentsCount As Label
     Friend WithEvents lblResidentsTitle As Label
     Friend WithEvents lblResidentsMore As Label
-    Friend WithEvents panelBlotter As Panel
+    Friend WithEvents panelBlotter As ligaya_bims.RoundedPanel
     Friend WithEvents lblBlotterCount As Label
     Friend WithEvents lblBlotterTitle As Label
     Friend WithEvents lblBlotterMore As Label
-    Friend WithEvents panelCertificates As Panel
+    Friend WithEvents panelCertificates As ligaya_bims.RoundedPanel
     Friend WithEvents lblCertificatesCount As Label
     Friend WithEvents lblCertificatesTitle As Label
     Friend WithEvents lblCertificatesMore As Label
-    Friend WithEvents panelOfficials As Panel
+    Friend WithEvents panelOfficials As ligaya_bims.RoundedPanel
     Friend WithEvents lblOfficialsCount As Label
     Friend WithEvents lblOfficialsTitle As Label
     Friend WithEvents lblOfficialsMore As Label
-    Friend WithEvents panelLeft As Panel
+    Friend WithEvents panelLeft As System.Windows.Forms.Panel
     Friend WithEvents dgvDashboardResidents As DataGridView
     Friend WithEvents chkSelectAllDashboard As DataGridViewCheckBoxColumn
     Friend WithEvents colActionDashboard As DataGridViewTextBoxColumn
@@ -1101,23 +1104,23 @@ Partial Class dashboard
     Friend WithEvents colMobileNoDashboard As DataGridViewTextBoxColumn
     Friend WithEvents colGenderDashboard As DataGridViewTextBoxColumn
     Friend WithEvents lblDashboardResidentsTitle As Label
-    Friend WithEvents panelRight As Panel
+    Friend WithEvents panelRight As System.Windows.Forms.Panel
     Friend WithEvents chartPurokPopulation As DataVisualization.Charting.Chart
     Friend WithEvents chartDemographics As DataVisualization.Charting.Chart
     Friend WithEvents lblChartsTitle As Label
-    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Panel4 As ligaya_bims.RoundedPanel
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Panel3 As ligaya_bims.RoundedPanel
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel2 As ligaya_bims.RoundedPanel
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel1 As ligaya_bims.RoundedPanel
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label

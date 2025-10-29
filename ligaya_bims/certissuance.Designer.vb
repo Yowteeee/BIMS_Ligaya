@@ -1,3 +1,5 @@
+Imports ligaya_bims
+
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class certissuance
     Inherits System.Windows.Forms.Form
@@ -25,9 +27,8 @@ Partial Class certissuance
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.btnCreateCertificate = New System.Windows.Forms.Button()
+        Me.btnCreateCertificate = New ligaya_bims.RoundedButton()
         Me.dgvResidents = New System.Windows.Forms.DataGridView()
-        Me.chkSelectAll = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.colAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colLastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFirstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -40,10 +41,11 @@ Partial Class certissuance
         'btnCreateCertificate
         '
         Me.btnCreateCertificate.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.btnCreateCertificate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCreateCertificate.BorderRadius = 15
         Me.btnCreateCertificate.FlatAppearance.BorderSize = 0
-        Me.btnCreateCertificate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.btnCreateCertificate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(24, Byte), Integer))
+        Me.btnCreateCertificate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.btnCreateCertificate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCreateCertificate.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btnCreateCertificate.ForeColor = System.Drawing.Color.White
         Me.btnCreateCertificate.Location = New System.Drawing.Point(10, 10)
@@ -51,6 +53,7 @@ Partial Class certissuance
         Me.btnCreateCertificate.Size = New System.Drawing.Size(154, 39)
         Me.btnCreateCertificate.TabIndex = 0
         Me.btnCreateCertificate.Text = "Create Certificate"
+        Me.btnCreateCertificate.UseVisualStyleBackColor = False
         '
         'dgvResidents
         '
@@ -75,8 +78,7 @@ Partial Class certissuance
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvResidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvResidents.ColumnHeadersHeight = 40
-        Me.dgvResidents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        Me.dgvResidents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.chkSelectAll, Me.colAction, Me.colLastName, Me.colFirstName, Me.colMiddleName, Me.colMobileNo, Me.colGender})
+        Me.dgvResidents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colAction, Me.colLastName, Me.colFirstName, Me.colMiddleName, Me.colMobileNo, Me.colGender})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -96,14 +98,6 @@ Partial Class certissuance
         Me.dgvResidents.RowTemplate.Height = 40
         Me.dgvResidents.Size = New System.Drawing.Size(763, 350)
         Me.dgvResidents.TabIndex = 8
-        ' ThemeStyle properties removed (Guna-specific)
-        '
-        'chkSelectAll
-        '
-        Me.chkSelectAll.HeaderText = ""
-        Me.chkSelectAll.MinimumWidth = 6
-        Me.chkSelectAll.Name = "chkSelectAll"
-        Me.chkSelectAll.ReadOnly = True
         '
         'colAction
         '
@@ -111,6 +105,7 @@ Partial Class certissuance
         Me.colAction.MinimumWidth = 6
         Me.colAction.Name = "colAction"
         Me.colAction.ReadOnly = True
+        Me.colAction.Width = 70
         '
         'colLastName
         '
@@ -118,6 +113,7 @@ Partial Class certissuance
         Me.colLastName.MinimumWidth = 6
         Me.colLastName.Name = "colLastName"
         Me.colLastName.ReadOnly = True
+        Me.colLastName.Width = 150
         '
         'colFirstName
         '
@@ -125,6 +121,7 @@ Partial Class certissuance
         Me.colFirstName.MinimumWidth = 6
         Me.colFirstName.Name = "colFirstName"
         Me.colFirstName.ReadOnly = True
+        Me.colFirstName.Width = 150
         '
         'colMiddleName
         '
@@ -132,6 +129,7 @@ Partial Class certissuance
         Me.colMiddleName.MinimumWidth = 6
         Me.colMiddleName.Name = "colMiddleName"
         Me.colMiddleName.ReadOnly = True
+        Me.colMiddleName.Width = 150
         '
         'colMobileNo
         '
@@ -139,6 +137,7 @@ Partial Class certissuance
         Me.colMobileNo.MinimumWidth = 6
         Me.colMobileNo.Name = "colMobileNo"
         Me.colMobileNo.ReadOnly = True
+        Me.colMobileNo.Width = 140
         '
         'colGender
         '
@@ -161,9 +160,8 @@ Partial Class certissuance
 
     End Sub
 
-    Friend WithEvents btnCreateCertificate As System.Windows.Forms.Button
+    Friend WithEvents btnCreateCertificate As ligaya_bims.RoundedButton
     Friend WithEvents dgvResidents As System.Windows.Forms.DataGridView
-    Friend WithEvents chkSelectAll As DataGridViewCheckBoxColumn
     Friend WithEvents colAction As DataGridViewTextBoxColumn
     Friend WithEvents colLastName As DataGridViewTextBoxColumn
     Friend WithEvents colFirstName As DataGridViewTextBoxColumn

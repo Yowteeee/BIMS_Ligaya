@@ -1,9 +1,11 @@
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Imports ligaya_bims
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class certificateform
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +22,7 @@ Partial Class certificateform
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(certificateform))
         Me.panelMain = New System.Windows.Forms.Panel()
@@ -41,9 +43,8 @@ Partial Class certificateform
         Me.panelRight = New System.Windows.Forms.Panel()
         Me.pnlPic = New System.Windows.Forms.Panel()
         Me.panelButtons = New System.Windows.Forms.Panel()
-        Me.btnPrint = New System.Windows.Forms.Button()
-        Me.btnPreview = New System.Windows.Forms.Button()
-        Me.btnPageSetup = New System.Windows.Forms.Button()
+        Me.btnCancel = New ligaya_bims.RoundedButton()
+        Me.btnPrint = New ligaya_bims.RoundedButton()
         Me.panelRightHeader = New System.Windows.Forms.Panel()
         Me.Guna2Panel1 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -63,6 +64,7 @@ Partial Class certificateform
         '
         'panelMain
         '
+        Me.panelMain.BackColor = System.Drawing.Color.White
         Me.panelMain.Controls.Add(Me.panelLeft)
         Me.panelMain.Controls.Add(Me.panelRight)
         Me.panelMain.Dock = System.Windows.Forms.DockStyle.Fill
@@ -86,6 +88,7 @@ Partial Class certificateform
         '
         'panelFormFields
         '
+        Me.panelFormFields.BackColor = System.Drawing.Color.White
         Me.panelFormFields.Controls.Add(Me.GroupBoxStatus)
         Me.panelFormFields.Controls.Add(Me.dtpIssuedDate)
         Me.panelFormFields.Controls.Add(Me.txtPurpose)
@@ -237,6 +240,7 @@ Partial Class certificateform
         '
         'pnlPic
         '
+        Me.pnlPic.BackColor = System.Drawing.Color.White
         Me.pnlPic.Location = New System.Drawing.Point(4, 41)
         Me.pnlPic.Name = "pnlPic"
         Me.pnlPic.Size = New System.Drawing.Size(370, 532)
@@ -244,9 +248,9 @@ Partial Class certificateform
         '
         'panelButtons
         '
+        Me.panelButtons.BackColor = System.Drawing.Color.White
+        Me.panelButtons.Controls.Add(Me.btnCancel)
         Me.panelButtons.Controls.Add(Me.btnPrint)
-        Me.panelButtons.Controls.Add(Me.btnPreview)
-        Me.panelButtons.Controls.Add(Me.btnPageSetup)
         Me.panelButtons.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.panelButtons.Location = New System.Drawing.Point(0, 570)
         Me.panelButtons.Margin = New System.Windows.Forms.Padding(2)
@@ -254,35 +258,31 @@ Partial Class certificateform
         Me.panelButtons.Size = New System.Drawing.Size(375, 41)
         Me.panelButtons.TabIndex = 2
         '
+        'btnCancel
+        '
+        Me.btnCancel.BackColor = System.Drawing.Color.Red
+        Me.btnCancel.BorderRadius = 15
+        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCancel.Location = New System.Drawing.Point(31, 8)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(118, 24)
+        Me.btnCancel.TabIndex = 1
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = False
+        '
         'btnPrint
         '
-        Me.btnPrint.Location = New System.Drawing.Point(262, 8)
+        Me.btnPrint.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnPrint.BorderRadius = 15
+        Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPrint.Location = New System.Drawing.Point(221, 8)
         Me.btnPrint.Margin = New System.Windows.Forms.Padding(2)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(75, 24)
+        Me.btnPrint.Size = New System.Drawing.Size(118, 24)
         Me.btnPrint.TabIndex = 0
         Me.btnPrint.Text = "Print"
-        Me.btnPrint.UseVisualStyleBackColor = True
-        '
-        'btnPreview
-        '
-        Me.btnPreview.Location = New System.Drawing.Point(150, 8)
-        Me.btnPreview.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnPreview.Name = "btnPreview"
-        Me.btnPreview.Size = New System.Drawing.Size(75, 24)
-        Me.btnPreview.TabIndex = 2
-        Me.btnPreview.Text = "Preview"
-        Me.btnPreview.UseVisualStyleBackColor = True
-        '
-        'btnPageSetup
-        '
-        Me.btnPageSetup.Location = New System.Drawing.Point(38, 8)
-        Me.btnPageSetup.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnPageSetup.Name = "btnPageSetup"
-        Me.btnPageSetup.Size = New System.Drawing.Size(75, 24)
-        Me.btnPageSetup.TabIndex = 1
-        Me.btnPageSetup.Text = "Page Setup"
-        Me.btnPageSetup.UseVisualStyleBackColor = True
+        Me.btnPrint.UseVisualStyleBackColor = False
         '
         'panelRightHeader
         '
@@ -361,8 +361,8 @@ Partial Class certificateform
     Friend WithEvents PrintPreviewDialog1 As System.Windows.Forms.PrintPreviewDialog
     Friend WithEvents PrintDialog1 As System.Windows.Forms.PrintDialog
     Friend WithEvents PageSetupDialog1 As System.Windows.Forms.PageSetupDialog
-    Friend WithEvents panelLeft As Panel
-    Friend WithEvents panelFormFields As Panel
+    Friend WithEvents panelLeft As System.Windows.Forms.Panel
+    Friend WithEvents panelFormFields As System.Windows.Forms.Panel
     Friend WithEvents dtpIssuedDate As DateTimePicker
     Friend WithEvents txtPurpose As TextBox
     Friend WithEvents txtAddress As TextBox
@@ -371,17 +371,16 @@ Partial Class certificateform
     Friend WithEvents txtAge As TextBox
     Friend WithEvents txtName As TextBox
     Friend WithEvents cmbCertificateType As ComboBox
-    Friend WithEvents panelLeftHeader As Panel
+    Friend WithEvents panelLeftHeader As System.Windows.Forms.Panel
     Friend WithEvents Guna2Panel2 As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents panelRight As Panel
-    Friend WithEvents panelButtons As Panel
-    Friend WithEvents btnPrint As Button
-    Friend WithEvents btnPreview As Button
-    Friend WithEvents btnPageSetup As Button
-    Friend WithEvents panelRightHeader As Panel
+    Friend WithEvents panelRight As System.Windows.Forms.Panel
+    Friend WithEvents panelButtons As System.Windows.Forms.Panel
+    Friend WithEvents btnPrint As ligaya_bims.RoundedButton
+    Friend WithEvents panelRightHeader As System.Windows.Forms.Panel
     Friend WithEvents Guna2Panel1 As Panel
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents pnlPic As Panel
+    Friend WithEvents pnlPic As System.Windows.Forms.Panel
     Friend WithEvents GroupBoxStatus As GroupBox
+    Friend WithEvents btnCancel As RoundedButton
 End Class

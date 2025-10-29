@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Imports ligaya_bims
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class cedulaform
     Inherits System.Windows.Forms.Form
 
@@ -24,7 +26,7 @@ Partial Class cedulaform
         Me.txtMiddle = New System.Windows.Forms.TextBox()
         Me.txtAddress = New System.Windows.Forms.TextBox()
         Me.txtPlace = New System.Windows.Forms.TextBox()
-        Me.btnSubmit = New System.Windows.Forms.Button()
+        Me.btnSubmit = New ligaya_bims.RoundedButton()
         Me.dtpIssued = New System.Windows.Forms.DateTimePicker()
         Me.lblIssued = New System.Windows.Forms.Label()
         Me.SuspendLayout()
@@ -156,7 +158,7 @@ Partial Class cedulaform
     Friend WithEvents txtMiddle As System.Windows.Forms.TextBox
     Friend WithEvents txtAddress As System.Windows.Forms.TextBox
     Friend WithEvents txtPlace As System.Windows.Forms.TextBox
-    Friend WithEvents btnSubmit As System.Windows.Forms.Button
+    Friend WithEvents btnSubmit As ligaya_bims.RoundedButton
     Friend WithEvents dtpIssued As System.Windows.Forms.DateTimePicker
     Friend WithEvents lblIssued As System.Windows.Forms.Label
 End Class

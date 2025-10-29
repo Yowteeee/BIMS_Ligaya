@@ -1,8 +1,20 @@
 ﻿'Imports MySql.Data.MySqlClient
 
 Public Class Form1
-    Private Sub txtUsername_TextChanged(sender As Object, e As EventArgs) Handles txtUsername.TextChanged
 
+
+
+    Private Sub txtUsername_Enter(sender As Object, e As EventArgs) Handles txtUsername.Enter
+        If txtUsername.Text = "Enter your username" And txtUsername.ForeColor = Color.Gray Then
+            txtUsername.Text = ""
+            txtUsername.ForeColor = Color.Black
+        End If
+    End Sub
+
+    Private Sub txtUsername_Leave(sender As Object, e As EventArgs) Handles txtUsername.Leave
+        If String.IsNullOrWhiteSpace(txtUsername.Text) Then
+            SetPlaceholder(txtUsername, "Enter your username")
+        End If
     End Sub
 
     Private Sub leftPanel_Paint(sender As Object, e As PaintEventArgs) Handles leftPanel.Paint
@@ -90,10 +102,37 @@ Public Class Form1
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Username placeholder
+        txtUsername.Text = "Enter your username"
+        txtUsername.ForeColor = Color.Gray
 
+        ' Password placeholder - NO PasswordChar initially
+        txtPassword.Text = "Enter your password"
+        txtPassword.ForeColor = Color.Gray
+        txtPassword.PasswordChar = "" ' Keep empty initially!
     End Sub
+    Private Sub SetPlaceholder(txt As TextBox, placeholder As String)
+        txt.Text = placeholder
+        txt.ForeColor = Color.Gray
+    End Sub
+
 
     Private Sub rightPanel_Paint(sender As Object, e As PaintEventArgs) Handles rightPanel.Paint
 
+    End Sub
+
+    Private Sub txtPassword_Enter(sender As Object, e As EventArgs) Handles txtPassword.Enter
+        If txtPassword.Text = "Enter your password" And txtPassword.ForeColor = Color.Gray Then
+            txtPassword.Text = ""
+            txtPassword.ForeColor = Color.Black
+            txtPassword.PasswordChar = "•"
+        End If
+    End Sub
+
+    Private Sub txtPassword_Leave(sender As Object, e As EventArgs) Handles txtPassword.Leave
+        If String.IsNullOrWhiteSpace(txtPassword.Text) Then
+            txtPassword.PasswordChar = ""
+            SetPlaceholder(txtPassword, "Enter your password")
+        End If
     End Sub
 End Class
