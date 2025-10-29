@@ -55,7 +55,7 @@ Partial Class Form1
         Me.picLogo.Image = Global.ligaya_bims.My.Resources.Resources.brgy_ligaya_logo
         Me.picLogo.Location = New System.Drawing.Point(1, 55)
         Me.picLogo.Name = "picLogo"
-        Me.picLogo.Size = New System.Drawing.Size(476, 467)
+        Me.picLogo.Size = New System.Drawing.Size(476, 465)
         Me.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picLogo.TabIndex = 1
         Me.picLogo.TabStop = False
@@ -113,7 +113,7 @@ Partial Class Form1
         'txtPassword
         '
         Me.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtPassword.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtPassword.Font = New System.Drawing.Font("Segoe UI", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPassword.Location = New System.Drawing.Point(49, 146)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
@@ -123,7 +123,7 @@ Partial Class Form1
         'txtUsername
         '
         Me.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtUsername.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtUsername.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsername.Location = New System.Drawing.Point(49, 96)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(320, 25)

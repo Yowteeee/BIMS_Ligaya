@@ -15,6 +15,12 @@ Partial Class reportsform
         ' Set default date/time values
         dtpFrom.Value = DateTime.Now.AddHours(-1)
         dtpTo.Value = DateTime.Now
+        ' Hide extra buttons to merge preview and print
+        Try
+            If btnPreview IsNot Nothing Then btnPreview.Visible = False
+            If btnPageSetup IsNot Nothing Then btnPageSetup.Visible = False
+        Catch
+        End Try
     End Sub
 
     Private Sub PrintDocument1_BeginPrint(sender As Object, e As System.Drawing.Printing.PrintEventArgs) Handles PrintDocument1.BeginPrint
@@ -191,16 +197,14 @@ Partial Class reportsform
     End Sub
 
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        ' Merged flow: show preview dialog which has built-in print button
         Try
-            ' Configure the print dialog
-            PrintDialog1.Document = PrintDocument1
-
-            ' Show the print dialog
-            If PrintDialog1.ShowDialog() = DialogResult.OK Then
-                PrintDocument1.Print()
-            End If
+            PrintPreviewDialog1.Document = PrintDocument1
+            PrintPreviewDialog1.WindowState = FormWindowState.Maximized
+            PrintPreviewDialog1.StartPosition = FormStartPosition.CenterScreen
+            PrintPreviewDialog1.ShowDialog()
         Catch ex As Exception
-            MessageBox.Show("Error printing document: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Error showing print preview: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 

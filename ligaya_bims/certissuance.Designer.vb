@@ -29,7 +29,6 @@ Partial Class certissuance
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnCreateCertificate = New ligaya_bims.RoundedButton()
         Me.dgvResidents = New System.Windows.Forms.DataGridView()
-        Me.chkSelectAll = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.colAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colLastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFirstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -79,7 +78,7 @@ Partial Class certissuance
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvResidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvResidents.ColumnHeadersHeight = 40
-        Me.dgvResidents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.chkSelectAll, Me.colAction, Me.colLastName, Me.colFirstName, Me.colMiddleName, Me.colMobileNo, Me.colGender})
+        Me.dgvResidents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colAction, Me.colLastName, Me.colFirstName, Me.colMiddleName, Me.colMobileNo, Me.colGender})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -100,13 +99,6 @@ Partial Class certissuance
         Me.dgvResidents.Size = New System.Drawing.Size(763, 350)
         Me.dgvResidents.TabIndex = 8
         '
-        'chkSelectAll
-        '
-        Me.chkSelectAll.HeaderText = ""
-        Me.chkSelectAll.MinimumWidth = 6
-        Me.chkSelectAll.Name = "chkSelectAll"
-        Me.chkSelectAll.ReadOnly = True
-        '
         'colAction
         '
         Me.colAction.HeaderText = "Action"
@@ -121,7 +113,7 @@ Partial Class certissuance
         Me.colLastName.MinimumWidth = 6
         Me.colLastName.Name = "colLastName"
         Me.colLastName.ReadOnly = True
-        Me.colLastName.Width = 130
+        Me.colLastName.Width = 150
         '
         'colFirstName
         '
@@ -129,7 +121,7 @@ Partial Class certissuance
         Me.colFirstName.MinimumWidth = 6
         Me.colFirstName.Name = "colFirstName"
         Me.colFirstName.ReadOnly = True
-        Me.colFirstName.Width = 130
+        Me.colFirstName.Width = 150
         '
         'colMiddleName
         '
@@ -137,7 +129,7 @@ Partial Class certissuance
         Me.colMiddleName.MinimumWidth = 6
         Me.colMiddleName.Name = "colMiddleName"
         Me.colMiddleName.ReadOnly = True
-        Me.colMiddleName.Width = 130
+        Me.colMiddleName.Width = 150
         '
         'colMobileNo
         '
@@ -145,6 +137,7 @@ Partial Class certissuance
         Me.colMobileNo.MinimumWidth = 6
         Me.colMobileNo.Name = "colMobileNo"
         Me.colMobileNo.ReadOnly = True
+        Me.colMobileNo.Width = 140
         '
         'colGender
         '
@@ -169,7 +162,6 @@ Partial Class certissuance
 
     Friend WithEvents btnCreateCertificate As ligaya_bims.RoundedButton
     Friend WithEvents dgvResidents As System.Windows.Forms.DataGridView
-    Friend WithEvents chkSelectAll As DataGridViewCheckBoxColumn
     Friend WithEvents colAction As DataGridViewTextBoxColumn
     Friend WithEvents colLastName As DataGridViewTextBoxColumn
     Friend WithEvents colFirstName As DataGridViewTextBoxColumn

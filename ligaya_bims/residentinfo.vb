@@ -6,6 +6,7 @@
         InitializeComponent()
         InitializeComboBoxes()
         LoadResidents()
+        InitializeSelectAllCheckbox()
     End Sub
 
     ' Method to handle when form is displayed as child form in dashboard
@@ -73,6 +74,7 @@
 
         For Each resident In residentsList
             Dim rowIndex = dgvResidents.Rows.Add()
+            ' Ensure checkbox starts unchecked for accuracy
             dgvResidents.Rows(rowIndex).Cells("chkSelectAll").Value = False
             dgvResidents.Rows(rowIndex).Cells("colID").Value = resident.Id
             dgvResidents.Rows(rowIndex).Cells("colLastName").Value = resident.LastName
@@ -114,7 +116,8 @@
 
         For Each resident In filteredResidents
             Dim rowIndex = dgvResidents.Rows.Add()
-            dgvResidents.Rows(rowIndex).Cells("chkSelectAll").Value = True
+            ' Keep checkbox accurate: do not auto-check on filter
+            dgvResidents.Rows(rowIndex).Cells("chkSelectAll").Value = False
             dgvResidents.Rows(rowIndex).Cells("colID").Value = resident.Id
             dgvResidents.Rows(rowIndex).Cells("colLastName").Value = resident.LastName
             dgvResidents.Rows(rowIndex).Cells("colFirstName").Value = resident.FirstName
@@ -363,13 +366,18 @@
                             ' Load profile picture if available
                             Try
                                 If Not String.IsNullOrEmpty(resident.IdPicture) AndAlso System.IO.File.Exists(resident.IdPicture) Then
-                                    picProfile.Image = System.Drawing.Image.FromFile(resident.IdPicture)
+                                    Using img As System.Drawing.Image = System.Drawing.Image.FromFile(resident.IdPicture)
+                                        ' Create a copy so the file isn't locked
+                                        picProfile.Image = New Bitmap(img)
+                                    End Using
                                     picProfile.SizeMode = PictureBoxSizeMode.StretchImage
                                 Else
                                     picProfile.Image = Nothing
+                                    picProfile.SizeMode = PictureBoxSizeMode.StretchImage
                                 End If
                             Catch ex As Exception
                                 picProfile.Image = Nothing
+                                picProfile.SizeMode = PictureBoxSizeMode.StretchImage
                             End Try
                         End If
                     End Using
@@ -378,6 +386,50 @@
         Catch ex As Exception
             MessageBox.Show("Error loading resident details: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    ' ===== Select-All Checkbox in DataGridView Header =====
+    Private headerCheckBox As CheckBox
+
+    Private Sub InitializeSelectAllCheckbox()
+        If dgvResidents Is Nothing OrElse dgvResidents.Columns("chkSelectAll") Is Nothing Then Return
+        headerCheckBox = New CheckBox()
+        headerCheckBox.Size = New Size(15, 15)
+        headerCheckBox.BackColor = Color.Transparent
+        AddHandler headerCheckBox.CheckedChanged, AddressOf HeaderCheckBox_CheckedChanged
+        dgvResidents.Controls.Add(headerCheckBox)
+        PositionHeaderCheckBox()
+    End Sub
+
+    Private Sub PositionHeaderCheckBox()
+        Try
+            If dgvResidents Is Nothing OrElse headerCheckBox Is Nothing Then Return
+            Dim col As DataGridViewColumn = Nothing
+            Try
+                col = dgvResidents.Columns("chkSelectAll")
+            Catch
+                col = Nothing
+            End Try
+            If col Is Nothing Then Return
+            Dim rect = dgvResidents.GetCellDisplayRectangle(col.Index, -1, True)
+            If rect.Width <= 0 OrElse rect.Height <= 0 Then Return
+            headerCheckBox.Location = New Point(rect.X + (rect.Width - headerCheckBox.Width) \ 2, rect.Y + (rect.Height - headerCheckBox.Height) \ 2)
+        Catch
+        End Try
+    End Sub
+
+    Private Sub HeaderCheckBox_CheckedChanged(sender As Object, e As EventArgs)
+        For Each row As DataGridViewRow In dgvResidents.Rows
+            row.Cells("chkSelectAll").Value = headerCheckBox.Checked
+        Next
+    End Sub
+
+    Private Sub dgvResidents_ColumnWidthChanged(sender As Object, e As DataGridViewColumnEventArgs) Handles dgvResidents.ColumnWidthChanged
+        PositionHeaderCheckBox()
+    End Sub
+
+    Private Sub dgvResidents_Scroll(sender As Object, e As ScrollEventArgs) Handles dgvResidents.Scroll
+        PositionHeaderCheckBox()
     End Sub
 
     Private Sub dgvResidents_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvResidents.CellContentClick

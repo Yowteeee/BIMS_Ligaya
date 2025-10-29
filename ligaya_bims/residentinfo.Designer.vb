@@ -24,10 +24,10 @@ Partial Class residentinfo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.panelLeft = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblShowEntries = New System.Windows.Forms.Label()
@@ -35,14 +35,6 @@ Partial Class residentinfo
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.cmbShowEntries = New System.Windows.Forms.ComboBox()
         Me.dgvResidents = New System.Windows.Forms.DataGridView()
-        Me.chkSelectAll = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.colID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colLastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colFirstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colMiddleName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colMobileNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colGender = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.panelRight = New System.Windows.Forms.Panel()
         Me.txtAddress = New System.Windows.Forms.TextBox()
         Me.lblAddress = New System.Windows.Forms.Label()
@@ -78,8 +70,17 @@ Partial Class residentinfo
         Me.lblFirstName = New System.Windows.Forms.Label()
         Me.txtLastName = New System.Windows.Forms.TextBox()
         Me.lblLastName = New System.Windows.Forms.Label()
-        Me.picProfile = New System.Windows.Forms.PictureBox()
         Me.lblInfoTitle = New System.Windows.Forms.Label()
+        Me.picProfile = New System.Windows.Forms.PictureBox()
+        Me.colAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colGender = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colMobileNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colMiddleName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colFirstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colLastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.chkSelectAll = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.panelLeft.SuspendLayout()
         CType(Me.dgvResidents, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelRight.SuspendLayout()
@@ -92,6 +93,7 @@ Partial Class residentinfo
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.panelLeft.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.panelLeft.Controls.Add(Me.Label1)
         Me.panelLeft.Controls.Add(Me.lblTitle)
         Me.panelLeft.Controls.Add(Me.lblShowEntries)
         Me.panelLeft.Controls.Add(Me.btnNewResident)
@@ -129,6 +131,7 @@ Partial Class residentinfo
         'btnNewResident
         '
         Me.btnNewResident.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.btnNewResident.BorderRadius = 15
         Me.btnNewResident.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNewResident.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.btnNewResident.ForeColor = System.Drawing.Color.White
@@ -162,34 +165,34 @@ Partial Class residentinfo
         Me.dgvResidents.AllowUserToAddRows = False
         Me.dgvResidents.AllowUserToDeleteRows = False
         Me.dgvResidents.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(246, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(201, Byte), Integer))
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.dgvResidents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(246, Byte), Integer))
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(201, Byte), Integer))
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.dgvResidents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
         Me.dgvResidents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvResidents.BackgroundColor = System.Drawing.Color.White
         Me.dgvResidents.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(26, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(26, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvResidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(26, Byte), Integer))
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(26, Byte), Integer))
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvResidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.dgvResidents.ColumnHeadersHeight = 45
         Me.dgvResidents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvResidents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.chkSelectAll, Me.colID, Me.colLastName, Me.colFirstName, Me.colMiddleName, Me.colMobileNo, Me.colGender, Me.colAction})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(201, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvResidents.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(201, Byte), Integer))
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvResidents.DefaultCellStyle = DataGridViewCellStyle11
         Me.dgvResidents.EnableHeadersVisualStyles = False
         Me.dgvResidents.GridColor = System.Drawing.Color.FromArgb(CType(CType(189, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(189, Byte), Integer))
         Me.dgvResidents.Location = New System.Drawing.Point(23, 203)
@@ -198,84 +201,11 @@ Partial Class residentinfo
         Me.dgvResidents.ReadOnly = True
         Me.dgvResidents.RowHeadersVisible = False
         Me.dgvResidents.RowHeadersWidth = 51
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        Me.dgvResidents.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
+        Me.dgvResidents.RowsDefaultCellStyle = DataGridViewCellStyle12
         Me.dgvResidents.RowTemplate.Height = 40
         Me.dgvResidents.Size = New System.Drawing.Size(532, 438)
         Me.dgvResidents.TabIndex = 7
-        '
-        'chkSelectAll
-        '
-        Me.chkSelectAll.HeaderText = ""
-        Me.chkSelectAll.MinimumWidth = 6
-        Me.chkSelectAll.Name = "chkSelectAll"
-        Me.chkSelectAll.ReadOnly = True
-        '
-        'colID
-        '
-        Me.colID.HeaderText = "ID"
-        Me.colID.MinimumWidth = 6
-        Me.colID.Name = "colID"
-        Me.colID.ReadOnly = True
-        Me.colID.Visible = False
-        '
-        'colLastName
-        '
-        Me.colLastName.HeaderText = "Last Name"
-        Me.colLastName.MinimumWidth = 6
-        Me.colLastName.Name = "colLastName"
-        Me.colLastName.ReadOnly = True
-        Me.colLastName.Width = 200
-        '
-        'colFirstName
-        '
-        Me.colFirstName.HeaderText = "First Name"
-        Me.colFirstName.MinimumWidth = 6
-        Me.colFirstName.Name = "colFirstName"
-        Me.colFirstName.ReadOnly = True
-        Me.colFirstName.Width = 200
-        '
-        'colMiddleName
-        '
-        Me.colMiddleName.HeaderText = "Middle Name"
-        Me.colMiddleName.MinimumWidth = 6
-        Me.colMiddleName.Name = "colMiddleName"
-        Me.colMiddleName.ReadOnly = True
-        Me.colMiddleName.Width = 200
-        '
-        'colMobileNo
-        '
-        Me.colMobileNo.HeaderText = "Mobile No."
-        Me.colMobileNo.MinimumWidth = 6
-        Me.colMobileNo.Name = "colMobileNo"
-        Me.colMobileNo.ReadOnly = True
-        Me.colMobileNo.Width = 210
-        '
-        'colGender
-        '
-        Me.colGender.HeaderText = "Gender"
-        Me.colGender.MinimumWidth = 6
-        Me.colGender.Name = "colGender"
-        Me.colGender.ReadOnly = True
-        Me.colGender.Width = 141
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(97, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(891, 99)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(54, 15)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Text = "SEARCH:"
-        '
-        'colAction
-        '
-        Me.colAction.HeaderText = "Action"
-        Me.colAction.MinimumWidth = 6
-        Me.colAction.Name = "colAction"
-        Me.colAction.ReadOnly = True
         '
         'panelRight
         '
@@ -675,17 +605,6 @@ Partial Class residentinfo
         Me.lblLastName.TabIndex = 2
         Me.lblLastName.Text = "Last Name:"
         '
-        'picProfile
-        '
-        Me.picProfile.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.picProfile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.picProfile.Location = New System.Drawing.Point(20, 60)
-        Me.picProfile.Name = "picProfile"
-        Me.picProfile.Size = New System.Drawing.Size(120, 120)
-        Me.picProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picProfile.TabIndex = 1
-        Me.picProfile.TabStop = False
-        '
         'lblInfoTitle
         '
         Me.lblInfoTitle.AutoSize = True
@@ -696,6 +615,84 @@ Partial Class residentinfo
         Me.lblInfoTitle.Size = New System.Drawing.Size(159, 32)
         Me.lblInfoTitle.TabIndex = 0
         Me.lblInfoTitle.Text = "Information:"
+        '
+        'picProfile
+        '
+        Me.picProfile.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.picProfile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.picProfile.Location = New System.Drawing.Point(20, 60)
+        Me.picProfile.Name = "picProfile"
+        Me.picProfile.Size = New System.Drawing.Size(120, 120)
+        Me.picProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picProfile.TabIndex = 1
+        Me.picProfile.TabStop = False
+        '
+        'colAction
+        '
+        Me.colAction.HeaderText = "Action"
+        Me.colAction.MinimumWidth = 6
+        Me.colAction.Name = "colAction"
+        Me.colAction.ReadOnly = True
+        '
+        'colGender
+        '
+        Me.colGender.HeaderText = "Gender"
+        Me.colGender.MinimumWidth = 6
+        Me.colGender.Name = "colGender"
+        Me.colGender.ReadOnly = True
+        '
+        'colMobileNo
+        '
+        Me.colMobileNo.HeaderText = "Mobile No."
+        Me.colMobileNo.MinimumWidth = 6
+        Me.colMobileNo.Name = "colMobileNo"
+        Me.colMobileNo.ReadOnly = True
+        '
+        'colMiddleName
+        '
+        Me.colMiddleName.HeaderText = "Middle Name"
+        Me.colMiddleName.MinimumWidth = 6
+        Me.colMiddleName.Name = "colMiddleName"
+        Me.colMiddleName.ReadOnly = True
+        '
+        'colFirstName
+        '
+        Me.colFirstName.HeaderText = "First Name"
+        Me.colFirstName.MinimumWidth = 6
+        Me.colFirstName.Name = "colFirstName"
+        Me.colFirstName.ReadOnly = True
+        '
+        'colLastName
+        '
+        Me.colLastName.HeaderText = "Last Name"
+        Me.colLastName.MinimumWidth = 6
+        Me.colLastName.Name = "colLastName"
+        Me.colLastName.ReadOnly = True
+        '
+        'colID
+        '
+        Me.colID.HeaderText = "ID"
+        Me.colID.MinimumWidth = 6
+        Me.colID.Name = "colID"
+        Me.colID.ReadOnly = True
+        Me.colID.Visible = False
+        '
+        'chkSelectAll
+        '
+        Me.chkSelectAll.HeaderText = ""
+        Me.chkSelectAll.MinimumWidth = 6
+        Me.chkSelectAll.Name = "chkSelectAll"
+        Me.chkSelectAll.ReadOnly = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(286, 105)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(66, 18)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "Search:"
         '
         'residentinfo
         '
@@ -719,9 +716,7 @@ Partial Class residentinfo
 
     End Sub
 
-    Private Function Label1() As Object
-        Throw New NotImplementedException()
-    End Function
+    ' Removed accidental method named Label1 that conflicted with controls
 
     Friend WithEvents panelLeft As System.Windows.Forms.Panel
     Friend WithEvents panelRight As System.Windows.Forms.Panel
@@ -732,14 +727,6 @@ Partial Class residentinfo
     Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents cmbShowEntries As System.Windows.Forms.ComboBox
     Friend WithEvents dgvResidents As System.Windows.Forms.DataGridView
-    Friend WithEvents chkSelectAll As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents colID As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colAction As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colLastName As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colFirstName As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colMiddleName As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colMobileNo As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colGender As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents picProfile As System.Windows.Forms.PictureBox
     Friend WithEvents lblLastName As System.Windows.Forms.Label
     Friend WithEvents txtLastName As System.Windows.Forms.TextBox
@@ -775,4 +762,13 @@ Partial Class residentinfo
     Friend WithEvents txtWeight As System.Windows.Forms.TextBox
     Friend WithEvents lblAddress As System.Windows.Forms.Label
     Friend WithEvents txtAddress As System.Windows.Forms.TextBox
+    Friend WithEvents chkSelectAll As DataGridViewCheckBoxColumn
+    Friend WithEvents colID As DataGridViewTextBoxColumn
+    Friend WithEvents colLastName As DataGridViewTextBoxColumn
+    Friend WithEvents colFirstName As DataGridViewTextBoxColumn
+    Friend WithEvents colMiddleName As DataGridViewTextBoxColumn
+    Friend WithEvents colMobileNo As DataGridViewTextBoxColumn
+    Friend WithEvents colGender As DataGridViewTextBoxColumn
+    Friend WithEvents colAction As DataGridViewTextBoxColumn
+    Friend WithEvents Label1 As Label
 End Class

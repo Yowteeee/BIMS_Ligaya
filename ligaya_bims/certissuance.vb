@@ -8,7 +8,13 @@ Public Class certissuance
     End Sub
 
     Private Sub btnCreateCertificate_Click(sender As Object, e As EventArgs) Handles btnCreateCertificate.Click
-        certificateform.Show()
+        Dim f As New certificateform()
+        AddHandler f.CertificateSaved, Sub()
+                                            ' Hook for refreshing lists after save if needed
+                                            ' Currently left empty as grid shows residents
+                                        End Sub
+        f.StartPosition = FormStartPosition.CenterParent
+        f.Show(Me)
 
     End Sub
 

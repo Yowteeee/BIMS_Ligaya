@@ -1,12 +1,8 @@
 Public Class certificateform
-    Private Sub certificateform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Initialize the form
-        cmbCertificateType.SelectedIndex = 0
-        
-        ' Test data synchronization (you can remove this after testing)
-        ' Uncomment the line below to test if real-time sync is working
-        ' SharedCertificateData.TestDataSync()
-    End Sub
+    Private btnPageSetup As Object
+    Private btnPreview As Object
+    Public Event CertificateSaved()
+
 
     Private Sub certificateform_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         ' Clean up persistent forms when main form is closed
@@ -78,6 +74,7 @@ Public Class certificateform
                     Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
 
                     If rowsAffected > 0 Then
+                        RaiseEvent CertificateSaved()
                         Return True
                     Else
                         Return False
@@ -110,48 +107,63 @@ Public Class certificateform
 
         ' Clear the picture panel
         pnlPic.Controls.Clear()
-        
+
         ' Clear shared data
         SharedCertificateData.ClearData()
     End Sub
 
-    Private Sub btnPageSetup_Click(sender As Object, e As EventArgs) Handles btnPageSetup.Click
-        ' Show page setup dialog
-        PageSetupDialog1.ShowDialog()
-    End Sub
 
-    Private Sub btnPreview_Click(sender As Object, e As EventArgs) Handles btnPreview.Click
-        ' Show print preview dialog
-        PrintPreviewDialog1.ShowDialog()
-    End Sub
+
+
 
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
         ' Validate form data first
-        If Not ValidateFormData() Then
+        If Not ValidateFormData() Then Return
+
+        ' Save then show preview with built-in print controls (merged experience)
+        If Not SaveCertificateToDatabase() Then
+            MessageBox.Show("Failed to save certificate data. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
 
-        ' Save data to database
-        If SaveCertificateToDatabase() Then
-            MessageBox.Show("Certificate data saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        ' Configure preview similar to provided sample: maximized, antialiasing, zoom controls
+        PrintPreviewDialog1.Document = PrintDocument1
+        PrintPreviewDialog1.StartPosition = FormStartPosition.CenterScreen
+        PrintPreviewDialog1.WindowState = FormWindowState.Maximized
+        Try
+            With PrintPreviewDialog1.PrintPreviewControl
+                .AutoZoom = True
+                .UseAntiAlias = True
+                .Zoom = 1.0R
+            End With
+        Catch
+        End Try
+        PrintPreviewDialog1.ShowDialog()
 
-            ' Show print dialog and print
-            If PrintDialog1.ShowDialog() = DialogResult.OK Then
-                PrintDocument1.Print()
-
-                ' Ask if user wants to clear the form for next entry
-                Dim result As DialogResult = MessageBox.Show("Certificate printed successfully! Would you like to clear the form for the next entry?",
-                                                           "Print Complete", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                If result = DialogResult.Yes Then
-                    ClearForm()
-                End If
-            End If
-        Else
-            MessageBox.Show("Failed to save certificate data. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
+        ' Optional: clear after preview closes
+        Dim result As DialogResult = MessageBox.Show("Finished printing? Clear the form for the next entry?", "Done", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then ClearForm()
     End Sub
+
+
     Private Sub PrintPreviewControl1_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub certificateform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Hide separate page setup and preview controls if present on the form
+        Try
+            Dim ctrl = Me.Controls.Find("btnPageSetup", True)
+            If ctrl IsNot Nothing AndAlso ctrl.Length > 0 Then ctrl(0).Visible = False
+        Catch
+        End Try
+        Try
+            Dim ctrl = Me.Controls.Find("btnPreview", True)
+            If ctrl IsNot Nothing AndAlso ctrl.Length > 0 Then ctrl(0).Visible = False
+        Catch
+        End Try
+
+        ' No runtime Save/Cancel injection; rely on existing designer buttons
     End Sub
 
     Private Sub panelRight_Paint(sender As Object, e As PaintEventArgs) Handles panelRight.Paint
@@ -301,5 +313,33 @@ Public Class certificateform
         SharedCertificateData.IssuedDate = dtpIssuedDate.Value.ToString("MMM dd, yyyy")
     End Sub
 
+    Private Sub panelButtons_Paint(sender As Object, e As PaintEventArgs) Handles panelButtons.Paint
 
+    End Sub
+
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        Try
+            ClearForm()
+        Catch
+        End Try
+        Me.Close()
+        Try
+            Dim existing As certissuance = Nothing
+            For Each f As Form In Application.OpenForms
+                If TypeOf f Is certissuance Then
+                    existing = DirectCast(f, certissuance)
+                    Exit For
+                End If
+            Next
+            If existing IsNot Nothing Then
+                existing.Show()
+                existing.BringToFront()
+            Else
+                Dim c As New certissuance()
+                c.StartPosition = FormStartPosition.CenterScreen
+                c.Show()
+            End If
+        Catch
+        End Try
+    End Sub
 End Class
