@@ -1,4 +1,4 @@
-Imports MySql.Data.MySqlClient
+' Removed Imports MySql.Data.MySqlClient - using fully qualified names to avoid conflicts
 
 Public Class dashboard
     Private currentChildForm As Form
@@ -67,24 +67,13 @@ Public Class dashboard
     End Sub
 
     Private Sub RestoreDashboardControls()
-        ' Ensure the dashboard panels are added back in proper order
+        ' Clear any child forms
         contentHost.Controls.Clear()
 
-        ' Add statistics panels first (top row)
-        contentHost.Controls.Add(panelResidents)
-        contentHost.Controls.Add(panelBlotter)
-        contentHost.Controls.Add(panelCertificates)
-        contentHost.Controls.Add(panelOfficials)
-
-        ' Add second row statistics panels
-        contentHost.Controls.Add(Panel1)
-        contentHost.Controls.Add(Panel2)
-        contentHost.Controls.Add(Panel3)
-        contentHost.Controls.Add(Panel4)
-
-        ' Add bottom panels (Recent Residents and Population Charts)
-        contentHost.Controls.Add(panelLeft)
-        contentHost.Controls.Add(panelRight)
+        ' Add the TableLayoutPanel back which contains all dashboard panels
+        contentHost.Controls.Add(TableLayoutPanel1)
+        TableLayoutPanel1.Dock = DockStyle.Fill
+        TableLayoutPanel1.BringToFront()
 
         ' Reload dashboard data
         LoadDashboardData()
@@ -350,52 +339,52 @@ Public Class dashboard
 
 
     ' New panel click event handlers
-    Private Sub panelResidents_Click(sender As Object, e As EventArgs) Handles panelResidents.Click, lblResidentsCount.Click, lblResidentsTitle.Click, lblResidentsMore.Click
+    Private Sub panelResidents_Click(sender As Object, e As EventArgs)
         OpenChildForm(New residentinfo())
     End Sub
 
-    Private Sub panelBlotter_Click(sender As Object, e As EventArgs) Handles panelBlotter.Click, lblBlotterCount.Click, lblBlotterTitle.Click, lblBlotterMore.Click
+    Private Sub panelBlotter_Click(sender As Object, e As EventArgs)
         OpenChildForm(New reportsform())
     End Sub
 
-    Private Sub panelCertificates_Click(sender As Object, e As EventArgs) Handles panelCertificates.Click, lblCertificatesCount.Click, lblCertificatesTitle.Click, lblCertificatesMore.Click
+    Private Sub panelCertificates_Click(sender As Object, e As EventArgs)
         OpenChildForm(New certissuance())
     End Sub
 
-    Private Sub panelOfficials_Click(sender As Object, e As EventArgs) Handles panelOfficials.Click, lblOfficialsCount.Click, lblOfficialsTitle.Click, lblOfficialsMore.Click
+    Private Sub panelOfficials_Click(sender As Object, e As EventArgs)
         OpenChildForm(New reportsform())
     End Sub
 
     ' Mouse hover effects for better UX
-    Private Sub panelResidents_MouseEnter(sender As Object, e As EventArgs) Handles panelResidents.MouseEnter
+    Private Sub panelResidents_MouseEnter(sender As Object, e As EventArgs)
         panelResidents.BackColor = Color.FromArgb(0, 150, 170) ' Darker teal
     End Sub
 
-    Private Sub panelResidents_MouseLeave(sender As Object, e As EventArgs) Handles panelResidents.MouseLeave
+    Private Sub panelResidents_MouseLeave(sender As Object, e As EventArgs)
         panelResidents.BackColor = Color.FromArgb(0, 188, 212) ' Original teal
     End Sub
 
-    Private Sub panelBlotter_MouseEnter(sender As Object, e As EventArgs) Handles panelBlotter.MouseEnter
+    Private Sub panelBlotter_MouseEnter(sender As Object, e As EventArgs)
         panelBlotter.BackColor = Color.FromArgb(56, 142, 60) ' Darker green
     End Sub
 
-    Private Sub panelBlotter_MouseLeave(sender As Object, e As EventArgs) Handles panelBlotter.MouseLeave
+    Private Sub panelBlotter_MouseLeave(sender As Object, e As EventArgs)
         panelBlotter.BackColor = Color.FromArgb(76, 175, 80) ' Original green
     End Sub
 
-    Private Sub panelCertificates_MouseEnter(sender As Object, e As EventArgs) Handles panelCertificates.MouseEnter
+    Private Sub panelCertificates_MouseEnter(sender As Object, e As EventArgs)
         panelCertificates.BackColor = Color.FromArgb(245, 127, 23) ' Darker yellow
     End Sub
 
-    Private Sub panelCertificates_MouseLeave(sender As Object, e As EventArgs) Handles panelCertificates.MouseLeave
+    Private Sub panelCertificates_MouseLeave(sender As Object, e As EventArgs)
         panelCertificates.BackColor = Color.FromArgb(255, 193, 7) ' Original yellow
     End Sub
 
-    Private Sub panelOfficials_MouseEnter(sender As Object, e As EventArgs) Handles panelOfficials.MouseEnter
+    Private Sub panelOfficials_MouseEnter(sender As Object, e As EventArgs)
         panelOfficials.BackColor = Color.FromArgb(198, 40, 40) ' Darker red
     End Sub
 
-    Private Sub panelOfficials_MouseLeave(sender As Object, e As EventArgs) Handles panelOfficials.MouseLeave
+    Private Sub panelOfficials_MouseLeave(sender As Object, e As EventArgs)
         panelOfficials.BackColor = Color.FromArgb(244, 67, 54) ' Original red
     End Sub
 
@@ -590,7 +579,7 @@ Public Class dashboard
 
     End Sub
 
-    Private Sub chartPurokPopulation_Click(sender As Object, e As EventArgs) Handles chartPurokPopulation.Click
+    Private Sub chartPurokPopulation_Click(sender As Object, e As EventArgs)
 
     End Sub
 

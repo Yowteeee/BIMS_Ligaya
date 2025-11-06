@@ -99,7 +99,7 @@
         LoadResidents()
     End Sub
 
-    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim searchText = txtSearch.Text.ToLower()
 
         If String.IsNullOrEmpty(searchText) Then
@@ -139,7 +139,7 @@
     End Sub
 
 
-    Private Sub dgvResidents_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvResidents.CellClick
+    Private Sub dgvResidents_CellClick(sender As Object, e As DataGridViewCellEventArgs)
         If e.RowIndex >= 0 Then
             ' Check if the Edit button in the Action column was clicked
             If e.ColumnIndex = dgvResidents.Columns("colAction").Index Then
@@ -424,19 +424,23 @@
         Next
     End Sub
 
-    Private Sub dgvResidents_ColumnWidthChanged(sender As Object, e As DataGridViewColumnEventArgs) Handles dgvResidents.ColumnWidthChanged
+    Private Sub dgvResidents_ColumnWidthChanged(sender As Object, e As DataGridViewColumnEventArgs)
         PositionHeaderCheckBox()
     End Sub
 
-    Private Sub dgvResidents_Scroll(sender As Object, e As ScrollEventArgs) Handles dgvResidents.Scroll
+    Private Sub dgvResidents_Scroll(sender As Object, e As ScrollEventArgs)
         PositionHeaderCheckBox()
     End Sub
 
-    Private Sub dgvResidents_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvResidents.CellContentClick
+    Private Sub dgvResidents_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub
 
-    Private Sub lblShowEntries_Click(sender As Object, e As EventArgs) Handles lblShowEntries.Click
+    Private Sub lblShowEntries_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
     End Sub
 End Class

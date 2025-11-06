@@ -1,4 +1,4 @@
-﻿Imports MySql.Data.MySqlClient
+﻿' Removed Imports MySql.Data.MySqlClient - using fully qualified names to avoid conflicts
 Imports System.Drawing.Drawing2D
 
 Public Class residentform
@@ -325,6 +325,10 @@ Public Class residentform
     End Sub
 
     Private Sub pnlButtons_Paint(sender As Object, e As PaintEventArgs)
+
+    End Sub
+
+    Private Sub txtLastName_TextChanged(sender As Object, e As EventArgs) Handles txtLastName.TextChanged
 
     End Sub
 End Class

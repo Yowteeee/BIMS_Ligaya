@@ -90,8 +90,8 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=10.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.10.0.0-rc.2.25502.107\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=9.5.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.9.5.0\lib\net462\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=9.4.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.9.4.0\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -134,6 +134,15 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="Xceed.Document.NET, Version=5.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.5.0.0\lib\net40\Xceed.Document.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Drawing.NET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.5.0.0\lib\net40\Xceed.Drawing.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Words.NET, Version=5.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.5.0.0\lib\net40\Xceed.Words.NET.dll</HintPath>
+    </Reference>
     <Reference Include="ZstdSharp, Version=0.8.6.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
       <HintPath>..\packages\ZstdSharp.Port.0.8.6\lib\net462\ZstdSharp.dll</HintPath>
     </Reference>
@@ -152,6 +161,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="blotterform.Designer.vb">
+      <DependentUpon>blotterform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="blotterform.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="cedulaform.Designer.vb">
       <DependentUpon>cedulaform.vb</DependentUpon>
     </Compile>
@@ -164,10 +179,22 @@
     <Compile Include="cedulatracker.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="certAnnual.Designer.vb">
+      <DependentUpon>certAnnual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="certAnnual.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CertBrgyClearance.Designer.vb">
       <DependentUpon>CertBrgyClearance.vb</DependentUpon>
     </Compile>
     <Compile Include="CertBrgyClearance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="certCC.Designer.vb">
+      <DependentUpon>certCC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="certCC.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CertifcateIndigency.Designer.vb">
@@ -194,6 +221,12 @@
     <Compile Include="CertResidency.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="certSC.Designer.vb">
+      <DependentUpon>certSC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="certSC.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="dashboard.Designer.vb">
       <DependentUpon>dashboard.vb</DependentUpon>
     </Compile>
@@ -205,6 +238,12 @@
     </Compile>
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -248,14 +287,23 @@
     <Compile Include="ResidentData.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="blotterform.resx">
+      <DependentUpon>blotterform.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="cedulaform.resx">
       <DependentUpon>cedulaform.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="cedulatracker.resx">
       <DependentUpon>cedulatracker.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="certAnnual.resx">
+      <DependentUpon>certAnnual.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CertBrgyClearance.resx">
       <DependentUpon>CertBrgyClearance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="certCC.resx">
+      <DependentUpon>certCC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CertifcateIndigency.resx">
       <DependentUpon>CertifcateIndigency.vb</DependentUpon>
@@ -269,11 +317,17 @@
     <EmbeddedResource Include="CertResidency.resx">
       <DependentUpon>CertResidency.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="certSC.resx">
+      <DependentUpon>certSC.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -350,6 +404,36 @@
     <Compile Include="RoundedButton.vb">
       <SubType>Component</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CAI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CSC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CSC_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CC_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CC_21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CAI_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CR_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CR_21.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

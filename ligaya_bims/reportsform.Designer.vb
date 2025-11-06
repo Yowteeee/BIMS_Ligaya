@@ -68,8 +68,8 @@ Partial Class reportsform
         Me.panelMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panelMain.Location = New System.Drawing.Point(0, 0)
         Me.panelMain.Name = "panelMain"
-        Me.panelMain.Padding = New System.Windows.Forms.Padding(10, 10, 10, 10)
-        Me.panelMain.Size = New System.Drawing.Size(771, 520)
+        Me.panelMain.Padding = New System.Windows.Forms.Padding(10)
+        Me.panelMain.Size = New System.Drawing.Size(1378, 727)
         Me.panelMain.TabIndex = 0
         '
         'lblTypeOfIncident
@@ -89,7 +89,7 @@ Partial Class reportsform
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtTypeOfIncident.Location = New System.Drawing.Point(15, 32)
         Me.txtTypeOfIncident.Name = "txtTypeOfIncident"
-        Me.txtTypeOfIncident.Size = New System.Drawing.Size(556, 20)
+        Me.txtTypeOfIncident.Size = New System.Drawing.Size(1163, 20)
         Me.txtTypeOfIncident.TabIndex = 1
         '
         'lblInclusive
@@ -138,7 +138,7 @@ Partial Class reportsform
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtExactLocation.Location = New System.Drawing.Point(15, 130)
         Me.txtExactLocation.Name = "txtExactLocation"
-        Me.txtExactLocation.Size = New System.Drawing.Size(556, 20)
+        Me.txtExactLocation.Size = New System.Drawing.Size(1163, 20)
         Me.txtExactLocation.TabIndex = 3
         '
         'lblInvolved
@@ -158,7 +158,7 @@ Partial Class reportsform
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtInvolved.Location = New System.Drawing.Point(15, 182)
         Me.txtInvolved.Name = "txtInvolved"
-        Me.txtInvolved.Size = New System.Drawing.Size(556, 20)
+        Me.txtInvolved.Size = New System.Drawing.Size(1163, 20)
         Me.txtInvolved.TabIndex = 4
         '
         'lblNarrative
@@ -181,20 +181,21 @@ Partial Class reportsform
         Me.txtNarrative.Multiline = True
         Me.txtNarrative.Name = "txtNarrative"
         Me.txtNarrative.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtNarrative.Size = New System.Drawing.Size(556, 235)
+        Me.txtNarrative.Size = New System.Drawing.Size(1163, 442)
         Me.txtNarrative.TabIndex = 5
         '
         'btnPageSetup
         '
         Me.btnPageSetup.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnPageSetup.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.btnPageSetup.BorderRadius = 15
         Me.btnPageSetup.FlatAppearance.BorderSize = 0
         Me.btnPageSetup.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(24, Byte), Integer))
         Me.btnPageSetup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.btnPageSetup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPageSetup.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btnPageSetup.ForeColor = System.Drawing.Color.White
-        Me.btnPageSetup.Location = New System.Drawing.Point(13, 481)
+        Me.btnPageSetup.Location = New System.Drawing.Point(13, 688)
         Me.btnPageSetup.Name = "btnPageSetup"
         Me.btnPageSetup.Size = New System.Drawing.Size(86, 26)
         Me.btnPageSetup.TabIndex = 6
@@ -205,13 +206,14 @@ Partial Class reportsform
         '
         Me.btnPreview.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnPreview.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.btnPreview.BorderRadius = 15
         Me.btnPreview.FlatAppearance.BorderSize = 0
         Me.btnPreview.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(24, Byte), Integer))
         Me.btnPreview.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.btnPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPreview.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btnPreview.ForeColor = System.Drawing.Color.White
-        Me.btnPreview.Location = New System.Drawing.Point(104, 481)
+        Me.btnPreview.Location = New System.Drawing.Point(104, 688)
         Me.btnPreview.Name = "btnPreview"
         Me.btnPreview.Size = New System.Drawing.Size(86, 26)
         Me.btnPreview.TabIndex = 7
@@ -222,13 +224,14 @@ Partial Class reportsform
         '
         Me.btnPrint.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnPrint.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.btnPrint.BorderRadius = 15
         Me.btnPrint.FlatAppearance.BorderSize = 0
         Me.btnPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(13, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(24, Byte), Integer))
         Me.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPrint.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btnPrint.ForeColor = System.Drawing.Color.White
-        Me.btnPrint.Location = New System.Drawing.Point(195, 481)
+        Me.btnPrint.Location = New System.Drawing.Point(195, 688)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(86, 26)
         Me.btnPrint.TabIndex = 8
@@ -265,7 +268,7 @@ Partial Class reportsform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(771, 520)
+        Me.ClientSize = New System.Drawing.Size(1378, 727)
         Me.Controls.Add(Me.panelMain)
         Me.Name = "reportsform"
         Me.Text = "Reports"

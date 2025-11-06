@@ -1,4 +1,4 @@
-﻿Imports MySql.Data.MySqlClient
+﻿' Removed Imports to avoid conflict - using fully qualified names instead
 
 Friend Class MySqlCommand
     Private sql As String
@@ -17,7 +17,7 @@ Friend Class MySqlCommand
         Throw New NotImplementedException()
     End Sub
 
-    Friend Function ExecuteReader() As MySqlDataReader
+    Friend Function ExecuteReader() As Global.MySql.Data.MySqlClient.MySqlDataReader
         Throw New NotImplementedException()
     End Function
 End Class

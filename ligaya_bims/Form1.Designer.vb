@@ -89,7 +89,7 @@ Partial Class Form1
         Me.btnLogin.BorderRadius = 15
         Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogin.Font = New System.Drawing.Font("Segoe UI Semibold", 10.5!, System.Drawing.FontStyle.Bold)
-        Me.btnLogin.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnLogin.ForeColor = System.Drawing.Color.Transparent
         Me.btnLogin.Location = New System.Drawing.Point(120, 232)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(180, 44)
