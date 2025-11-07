@@ -4,7 +4,9 @@ Imports System.Drawing.Drawing2D
 Public Class residentform
     Public Event ResidentSaved(resident As ResidentData)
     Private idPicturePath As String = ""
-    Private editingResidentId As Integer = -1 ' -1 means new resident, otherwise it's an edit
+    Private editingResidentLastName As String = "" ' Empty means new resident, otherwise it's an edit
+    Private editingResidentFirstName As String = ""
+    Private editingResidentBirthDate As DateTime = DateTime.MinValue
     Private originalPicturePath As String = "" ' Store original picture path when editing
     Private age As Integer
 
@@ -28,17 +30,19 @@ Public Class residentform
 
                 ' Check for duplicate resident (same first name, last name, and birthdate)
                 Dim checkSql As String = "SELECT COUNT(*) FROM tbl_residentinfo WHERE lastname=@ln AND firstname=@fn AND birthdate=@bd"
-                If editingResidentId > 0 Then
-                    ' Exclude current resident when updating
-                    checkSql &= " AND id<>@id"
+                If Not String.IsNullOrEmpty(editingResidentLastName) Then
+                    ' Exclude current resident when updating using composite key
+                    checkSql &= " AND NOT (lastname=@oldln AND firstname=@oldfn AND birthdate=@oldbd)"
                 End If
 
                 Using checkCmd As New Global.MySql.Data.MySqlClient.MySqlCommand(checkSql, conn)
                     checkCmd.Parameters.AddWithValue("@ln", If(txtLastName IsNot Nothing, txtLastName.Text.Trim(), ""))
                     checkCmd.Parameters.AddWithValue("@fn", If(txtFirstName IsNot Nothing, txtFirstName.Text.Trim(), ""))
                     checkCmd.Parameters.AddWithValue("@bd", If(dtpBirthDate IsNot Nothing, dtpBirthDate.Value, DateTime.Now))
-                    If editingResidentId > 0 Then
-                        checkCmd.Parameters.AddWithValue("@id", editingResidentId)
+                    If Not String.IsNullOrEmpty(editingResidentLastName) Then
+                        checkCmd.Parameters.AddWithValue("@oldln", editingResidentLastName)
+                        checkCmd.Parameters.AddWithValue("@oldfn", editingResidentFirstName)
+                        checkCmd.Parameters.AddWithValue("@oldbd", editingResidentBirthDate)
                     End If
 
                     Dim count As Integer = Convert.ToInt32(checkCmd.ExecuteScalar())
@@ -50,28 +54,28 @@ Public Class residentform
 
                 ' Determine if this is an INSERT or UPDATE
                 Dim sql As String
-                If editingResidentId > 0 Then
-                    ' UPDATE existing resident
+                If Not String.IsNullOrEmpty(editingResidentLastName) Then
+                    ' UPDATE existing resident using composite key
                     ' Only update idpic if a new picture was selected (different from original)
                     Dim pictureChanged As Boolean = Not String.IsNullOrWhiteSpace(idPicturePath) AndAlso idPicturePath <> originalPicturePath
                     If pictureChanged Then
                         ' Update with new picture
-                        sql = "UPDATE tbl_residentinfo SET lastname=@ln, firstname=@fn, middlename=@mn, gender=@gender, birthdate=@bd, age=@age, phoneno=@phone, civilstatus=@cstat, citizenship=@cit, fathersname=@father, mothersname=@mother, spouse=@spouse, email=@mail, voterstatus=@vstat, weight=@weight, height=@height, address=@address, religion=@religion, idpic=@idpic WHERE id=@id"
+                        sql = "UPDATE tbl_residentinfo SET lastname=@ln, firstname=@fn, middlename=@mn, gender=@gender, birthdate=@bd, age=@age, phoneno=@phone, civilstatus=@cstat, citizenship=@cit, fathersname=@father, mothersname=@mother, spouse=@spouse, email=@mail, voterstatus=@vstat, weight=@weight, height=@height, address=@address, religion=@religion, idpic=@idpic WHERE lastname=@oldln AND firstname=@oldfn AND birthdate=@oldbd"
                     Else
                         ' Keep existing picture - don't update idpic field
-                        sql = "UPDATE tbl_residentinfo SET lastname=@ln, firstname=@fn, middlename=@mn, gender=@gender, birthdate=@bd, age=@age, phoneno=@phone, civilstatus=@cstat, citizenship=@cit, fathersname=@father, mothersname=@mother, spouse=@spouse, email=@mail, voterstatus=@vstat, weight=@weight, height=@height, address=@address, religion=@religion WHERE id=@id"
+                        sql = "UPDATE tbl_residentinfo SET lastname=@ln, firstname=@fn, middlename=@mn, gender=@gender, birthdate=@bd, age=@age, phoneno=@phone, civilstatus=@cstat, citizenship=@cit, fathersname=@father, mothersname=@mother, spouse=@spouse, email=@mail, voterstatus=@vstat, weight=@weight, height=@height, address=@address, religion=@religion WHERE lastname=@oldln AND firstname=@oldfn AND birthdate=@oldbd"
                     End If
                 Else
                     ' INSERT new resident
-                    sql = "INSERT INTO tbl_residentinfo (id, lastname, firstname, middlename, gender, birthdate, age, phoneno, civilstatus, citizenship, fathersname, mothersname, spouse, email, voterstatus, weight, height, address, religion, idpic) VALUES (@id,@ln,@fn,@mn,@gender,@bd,@age,@phone,@cstat,@cit,@father,@mother,@spouse,@mail,@vstat,@weight,@height,@address,@religion,@idpic)"
+                    sql = "INSERT INTO tbl_residentinfo (lastname, firstname, middlename, gender, birthdate, age, phoneno, civilstatus, citizenship, fathersname, mothersname, spouse, email, voterstatus, weight, height, address, religion, idpic) VALUES (@ln,@fn,@mn,@gender,@bd,@age,@phone,@cstat,@cit,@father,@mother,@spouse,@mail,@vstat,@weight,@height,@address,@religion,@idpic)"
                 End If
 
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
                     ' Safe parameter assignments with null checks
-                    If editingResidentId > 0 Then
-                        cmd.Parameters.AddWithValue("@id", editingResidentId)
-                    Else
-                        cmd.Parameters.AddWithValue("@id", DBNull.Value)
+                    If Not String.IsNullOrEmpty(editingResidentLastName) Then
+                        cmd.Parameters.AddWithValue("@oldln", editingResidentLastName)
+                        cmd.Parameters.AddWithValue("@oldfn", editingResidentFirstName)
+                        cmd.Parameters.AddWithValue("@oldbd", editingResidentBirthDate)
                     End If
                     cmd.Parameters.AddWithValue("@ln", If(txtLastName IsNot Nothing, txtLastName.Text.Trim(), ""))
                     cmd.Parameters.AddWithValue("@fn", If(txtFirstName IsNot Nothing, txtFirstName.Text.Trim(), ""))
@@ -93,7 +97,7 @@ Public Class residentform
                     cmd.Parameters.AddWithValue("@religion", If(txtReligion IsNot Nothing, txtReligion.Text.Trim(), ""))
                     ' Add the idpic parameter - saves the file path or NULL if no picture
                     ' Only add idpic parameter if we're inserting or updating with a new picture
-                    Dim pictureChanged As Boolean = editingResidentId <= 0 OrElse (Not String.IsNullOrWhiteSpace(idPicturePath) AndAlso idPicturePath <> originalPicturePath)
+                    Dim pictureChanged As Boolean = String.IsNullOrEmpty(editingResidentLastName) OrElse (Not String.IsNullOrWhiteSpace(idPicturePath) AndAlso idPicturePath <> originalPicturePath)
                     If pictureChanged Then
                         cmd.Parameters.AddWithValue("@idpic", If(String.IsNullOrWhiteSpace(idPicturePath), DBNull.Value, CType(idPicturePath, Object)))
                     End If
@@ -129,12 +133,14 @@ Public Class residentform
             RaiseEvent ResidentSaved(newResident)
 
             ' Show success message
-            Dim message As String = If(editingResidentId > 0, "Resident information updated successfully!", "Resident information saved successfully!")
+            Dim message As String = If(Not String.IsNullOrEmpty(editingResidentLastName), "Resident information updated successfully!", "Resident information saved successfully!")
             MessageBox.Show(message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            ' Clear form and reset editing ID
+            ' Clear form and reset editing composite key
             ClearForm()
-            editingResidentId = -1
+            editingResidentLastName = ""
+            editingResidentFirstName = ""
+            editingResidentBirthDate = DateTime.MinValue
 
             ' Close the form
             Me.Close()
@@ -143,9 +149,11 @@ Public Class residentform
         End Try
     End Sub
     
-    ' Public method to set the resident ID for editing
-    Public Sub SetEditingResidentId(residentId As Integer)
-        editingResidentId = residentId
+    ' Public method to set the resident composite key for editing
+    Public Sub SetEditingResident(lastName As String, firstName As String, birthDate As DateTime)
+        editingResidentLastName = lastName
+        editingResidentFirstName = firstName
+        editingResidentBirthDate = birthDate
     End Sub
     
     ' Public method to set the original picture path when editing
@@ -203,20 +211,35 @@ Public Class residentform
         ' Show dialog and check if user selected a file
         If openFileDialog.ShowDialog() = DialogResult.OK Then
             Try
+                ' Dispose previous image if exists to prevent memory leaks
+                If picIdPicture.Image IsNot Nothing Then
+                    picIdPicture.Image.Dispose()
+                    picIdPicture.Image = Nothing
+                End If
+
                 ' Load the selected image
                 Dim selectedImage As Image = Image.FromFile(openFileDialog.FileName)
 
-                ' Set the image to the picturebox
+                ' Set the image to the picturebox on the right side panel
                 picIdPicture.Image = selectedImage
 
-                ' Set the SizeMode to StretchImage to fill all gaps in the picturebox
-                picIdPicture.SizeMode = PictureBoxSizeMode.StretchImage
+                ' Set the SizeMode to Zoom to maintain aspect ratio and fill the picturebox nicely
+                picIdPicture.SizeMode = PictureBoxSizeMode.Zoom
 
                 ' Store the file path for saving to database
                 idPicturePath = openFileDialog.FileName
 
+                ' Refresh the picturebox to ensure image displays immediately
+                picIdPicture.Refresh()
+
             Catch ex As Exception
                 MessageBox.Show("Error loading image: " & ex.Message, "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                ' Clear image if loading failed
+                If picIdPicture.Image IsNot Nothing Then
+                    picIdPicture.Image.Dispose()
+                    picIdPicture.Image = Nothing
+                End If
+                idPicturePath = ""
             End Try
         End If
     End Sub

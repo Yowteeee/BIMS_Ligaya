@@ -157,7 +157,7 @@ Public Class dashboard
         Try
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
-                Dim sql As String = "SELECT lastname, firstname, middlename, phoneno, gender FROM tbl_residentinfo ORDER BY id DESC LIMIT 10"
+                Dim sql As String = "SELECT lastname, firstname, middlename, phoneno, gender FROM tbl_residentinfo ORDER BY lastname, firstname DESC LIMIT 10"
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
                     Using reader As Global.MySql.Data.MySqlClient.MySqlDataReader = cmd.ExecuteReader()
                         While reader.Read()
@@ -211,17 +211,28 @@ Public Class dashboard
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
 
-                ' Count residents by purok from address field
-                For purokNum As Integer = 1 To 8
-                    Dim purokName As String = "Purok " & purokNum.ToString()
-                    Dim sql As String = "SELECT COUNT(*) FROM tbl_residentinfo WHERE address LIKE @purok"
+                ' Build category list: Purok 1-7 + Agan Ligaya
+                Dim categories As New List(Of String)()
+                For i As Integer = 1 To 7
+                    categories.Add("Purok " & i.ToString())
+                Next
+                categories.Add("Agan Ligaya")
+
+
+                ' Count residents per category by matching the address field
+                For Each category As String In categories
+                    Dim sql As String = "SELECT COUNT(*) FROM tbl_residentinfo WHERE address LIKE @category"
                     Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
-                        cmd.Parameters.AddWithValue("@purok", "%" & purokName & "%")
+                        cmd.Parameters.AddWithValue("@category", "%" & category & "%")
                         Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
-                        series.Points.AddXY(purokName, count)
+                        series.Points.AddXY(category, count)
                     End Using
                 Next
             End Using
+
+            ' Update chart labels
+            chartPurokPopulation.ChartAreas(0).AxisX.Title = "Purok / Areas"
+            chartPurokPopulation.Series(0).Name = "PopulationByArea"
 
             ' Configure chart appearance
             chartPurokPopulation.BackColor = Color.White
@@ -584,6 +595,10 @@ Public Class dashboard
     End Sub
 
     Private Sub navLogout_Click(sender As Object, e As EventArgs) Handles navLogout.Click
+
+    End Sub
+
+    Private Sub chartPurokPopulation_Click_1(sender As Object, e As EventArgs) Handles chartPurokPopulation.Click
 
     End Sub
 End Class

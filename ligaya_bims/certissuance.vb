@@ -25,23 +25,22 @@ Public Class certissuance
     End Sub
 
     Private Sub LoadResidents()
-        ' Load residents from database: id, lastname, firstname, middlename, phoneno, gender
+        ' Load residents from database: lastname, firstname, middlename, phoneno, gender
         residentsList.Clear()
 
         Try
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
-                Dim sql As String = "SELECT id, lastname, firstname, middlename, phoneno, gender FROM tbl_residentinfo"
+                Dim sql As String = "SELECT lastname, firstname, middlename, phoneno, gender FROM tbl_residentinfo"
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
                     Using reader As Global.MySql.Data.MySqlClient.MySqlDataReader = cmd.ExecuteReader()
                         While reader.Read()
                             Dim data As New ResidentData()
-                            data.Id = If(Not reader.IsDBNull(0), reader.GetInt32(0), 0)
-                            data.LastName = If(Not reader.IsDBNull(1), reader.GetString(1), String.Empty)
-                            data.FirstName = If(Not reader.IsDBNull(2), reader.GetString(2), String.Empty)
-                            data.MiddleName = If(Not reader.IsDBNull(3), reader.GetString(3), String.Empty)
-                            data.MobileNo = If(Not reader.IsDBNull(4), reader.GetString(4), String.Empty)
-                            data.Gender = If(Not reader.IsDBNull(5), reader.GetString(5), String.Empty)
+                            data.LastName = If(Not reader.IsDBNull(0), reader.GetString(0), String.Empty)
+                            data.FirstName = If(Not reader.IsDBNull(1), reader.GetString(1), String.Empty)
+                            data.MiddleName = If(Not reader.IsDBNull(2), reader.GetString(2), String.Empty)
+                            data.MobileNo = If(Not reader.IsDBNull(3), reader.GetString(3), String.Empty)
+                            data.Gender = If(Not reader.IsDBNull(4), reader.GetString(4), String.Empty)
                             residentsList.Add(data)
                         End While
                     End Using
