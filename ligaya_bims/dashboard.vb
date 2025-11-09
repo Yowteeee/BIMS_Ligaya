@@ -400,172 +400,10 @@ Public Class dashboard
     End Sub
 
     Private Sub navBackup_Click(sender As Object, e As EventArgs) Handles navBackup.Click
-        ' Simple backup/restore utility for MySQL tables used by the app
-        Dim choice As DialogResult = MessageBox.Show("Do you want to perform a BACKUP? Click No for RESTORE.", "Backup and Restore", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
-        If choice = DialogResult.Cancel Then Return
-
-        If choice = DialogResult.Yes Then
-            PerformBackup()
-        Else
-            PerformRestore()
-        End If
+        Dim backupForm As New BackupRestore()
+        backupForm.SetAsChildForm()
+        OpenChildForm(backupForm)
     End Sub
-
-    Private Sub PerformBackup()
-        Using folderDlg As New FolderBrowserDialog()
-            folderDlg.Description = "Select a folder to save CSV backups"
-            If folderDlg.ShowDialog() <> DialogResult.OK Then Return
-
-            Dim backupDir As String = System.IO.Path.Combine(folderDlg.SelectedPath, "BIMS_Backup_" & DateTime.Now.ToString("yyyyMMdd_HHmmss"))
-            System.IO.Directory.CreateDirectory(backupDir)
-
-            Try
-                ExportTableToCsv("tbl_residentinfo", System.IO.Path.Combine(backupDir, "tbl_residentinfo.csv"))
-                ExportTableToCsv("tbl_cedulatracker", System.IO.Path.Combine(backupDir, "tbl_cedulatracker.csv"))
-                ExportTableToCsv("tbl_certificate", System.IO.Path.Combine(backupDir, "tbl_certificate.csv"))
-
-                MessageBox.Show($"Backup completed to: {backupDir}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Try
-                    System.Diagnostics.Process.Start("explorer.exe", backupDir)
-                Catch
-                End Try
-            Catch ex As Exception
-                MessageBox.Show("Backup failed: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        End Using
-    End Sub
-
-    Private Sub PerformRestore()
-        Using folderDlg As New FolderBrowserDialog()
-            folderDlg.Description = "Select a backup folder created by this app"
-            If folderDlg.ShowDialog() <> DialogResult.OK Then Return
-
-            Dim dir As String = folderDlg.SelectedPath
-            Try
-                ImportTableFromCsv("tbl_residentinfo", System.IO.Path.Combine(dir, "tbl_residentinfo.csv"))
-                ImportTableFromCsv("tbl_cedulatracker", System.IO.Path.Combine(dir, "tbl_cedulatracker.csv"))
-                ImportTableFromCsv("tbl_certificate", System.IO.Path.Combine(dir, "tbl_certificate.csv"))
-
-                MessageBox.Show("Restore completed.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                LoadDashboardData()
-            Catch ex As Exception
-                MessageBox.Show("Restore failed: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        End Using
-    End Sub
-
-    Private Sub ExportTableToCsv(tableName As String, outputPath As String)
-        Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
-            conn.Open()
-            Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM " & tableName, conn)
-                Using reader As Global.MySql.Data.MySqlClient.MySqlDataReader = cmd.ExecuteReader()
-                    Using writer As New System.IO.StreamWriter(outputPath, False, System.Text.Encoding.UTF8)
-                        ' Write header
-                        Dim headers As New List(Of String)()
-                        For i As Integer = 0 To reader.FieldCount - 1
-                            headers.Add(EscapeCsv(reader.GetName(i)))
-                        Next
-                        writer.WriteLine(String.Join(",", headers))
-
-                        ' Write rows
-                        While reader.Read()
-                            Dim fields As New List(Of String)()
-                            For i As Integer = 0 To reader.FieldCount - 1
-                                Dim val As Object = reader.GetValue(i)
-                                fields.Add(EscapeCsv(If(val Is Nothing OrElse val Is DBNull.Value, "", val.ToString())))
-                            Next
-                            writer.WriteLine(String.Join(",", fields))
-                        End While
-                    End Using
-                End Using
-            End Using
-        End Using
-    End Sub
-
-    Private Function EscapeCsv(value As String) As String
-        If value Is Nothing Then Return ""
-        Dim mustQuote As Boolean = value.Contains(",") OrElse value.Contains("""") OrElse value.Contains(Chr(10)) OrElse value.Contains(Chr(13))
-        value = value.Replace("""", """""")
-        If mustQuote Then
-            Return """" & value & """"
-        End If
-        Return value
-    End Function
-
-    Private Sub ImportTableFromCsv(tableName As String, inputPath As String)
-        If Not System.IO.File.Exists(inputPath) Then Return
-        Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
-            conn.Open()
-            Using tran = conn.BeginTransaction()
-                Try
-                    ' Simple strategy: clear table then reinsert
-                    Using clearCmd As New Global.MySql.Data.MySqlClient.MySqlCommand("DELETE FROM " & tableName, conn, tran)
-                        clearCmd.ExecuteNonQuery()
-                    End Using
-
-                    Dim lines = System.IO.File.ReadAllLines(inputPath)
-                    If lines.Length <= 1 Then
-                        tran.Commit()
-                        Return
-                    End If
-
-                    ' Parse header
-                    Dim headers = ParseCsvLine(lines(0))
-                    For i As Integer = 1 To lines.Length - 1
-                        Dim row = ParseCsvLine(lines(i))
-                        If row.Count = 0 Then Continue For
-
-                        Dim columns As String = String.Join(",", headers)
-                        Dim paramNames As New List(Of String)()
-                        For j As Integer = 0 To headers.Count - 1
-                            paramNames.Add("@p" & j.ToString())
-                        Next
-                        Dim sql As String = "INSERT INTO " & tableName & " (" & columns & ") VALUES (" & String.Join(",", paramNames) & ")"
-                        Using insertCmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn, tran)
-                            For j As Integer = 0 To headers.Count - 1
-                                Dim val As Object = If(j < row.Count AndAlso row(j) IsNot Nothing, CType(row(j), Object), DBNull.Value)
-                                insertCmd.Parameters.AddWithValue("@p" & j.ToString(), val)
-                            Next
-                            insertCmd.ExecuteNonQuery()
-                        End Using
-                    Next
-
-                    tran.Commit()
-                Catch
-                    tran.Rollback()
-                    Throw
-                End Try
-            End Using
-        End Using
-    End Sub
-
-    Private Function ParseCsvLine(line As String) As List(Of String)
-        Dim result As New List(Of String)()
-        If String.IsNullOrEmpty(line) Then Return result
-
-        Dim sb As New System.Text.StringBuilder()
-        Dim inQuotes As Boolean = False
-        Dim i As Integer = 0
-        While i < line.Length
-            Dim c As Char = line(i)
-            If c = """"c Then
-                If inQuotes AndAlso i + 1 < line.Length AndAlso line(i + 1) = """"c Then
-                    sb.Append(""""c)
-                    i += 1
-                Else
-                    inQuotes = Not inQuotes
-                End If
-            ElseIf c = ","c AndAlso Not inQuotes Then
-                result.Add(sb.ToString())
-                sb.Clear()
-            Else
-                sb.Append(c)
-            End If
-            i += 1
-        End While
-        result.Add(sb.ToString())
-        Return result
-    End Function
 
     ' Clean up resources when form closes
     Protected Overrides Sub OnFormClosed(e As FormClosedEventArgs)
@@ -595,7 +433,24 @@ Public Class dashboard
     End Sub
 
     Private Sub navLogout_Click(sender As Object, e As EventArgs) Handles navLogout.Click
+        Dim confirm As DialogResult = MessageBox.Show("Are you sure you want to log out?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
+        If confirm = DialogResult.Yes Then
+            ' Close any child forms
+            If currentChildForm IsNot Nothing Then
+                currentChildForm.Close()
+                currentChildForm.Dispose()
+                currentChildForm = Nothing
+            End If
+
+            ' Show login form (Form1)
+            Dim loginForm As New Form1()
+            loginForm.Show()
+
+            ' Close and dispose the dashboard
+            Me.Close()
+            Me.Dispose()
+        End If
     End Sub
 
     Private Sub chartPurokPopulation_Click_1(sender As Object, e As EventArgs) Handles chartPurokPopulation.Click

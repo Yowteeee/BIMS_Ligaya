@@ -73,15 +73,16 @@
 
         For Each resident In residentsList
             Dim rowIndex = dgvResidents.Rows.Add()
-            ' Ensure checkbox starts unchecked for accuracy
-            dgvResidents.Rows(rowIndex).Cells("chkSelectAll").Value = False
+            ' Ensure checkbox starts unchecked for accuracy (only if column exists)
+            If dgvResidents.Columns.Contains("chkSelectAll") Then
+                dgvResidents.Rows(rowIndex).Cells("chkSelectAll").Value = False
+            End If
             dgvResidents.Rows(rowIndex).Cells("colID").Value = "" ' ID column removed - using composite key instead
             dgvResidents.Rows(rowIndex).Cells("colLastName").Value = resident.LastName
             dgvResidents.Rows(rowIndex).Cells("colFirstName").Value = resident.FirstName
             dgvResidents.Rows(rowIndex).Cells("colMiddleName").Value = resident.MiddleName
             dgvResidents.Rows(rowIndex).Cells("colMobileNo").Value = resident.MobileNo
             dgvResidents.Rows(rowIndex).Cells("colGender").Value = resident.Gender
-            dgvResidents.Rows(rowIndex).Cells("colAction").Value = "Edit"
         Next
 
         lblShowEntries.Text = $"Showing 1 to {residentsList.Count} of {residentsList.Count} entries"
@@ -115,15 +116,16 @@
 
         For Each resident In filteredResidents
             Dim rowIndex = dgvResidents.Rows.Add()
-            ' Keep checkbox accurate: do not auto-check on filter
-            dgvResidents.Rows(rowIndex).Cells("chkSelectAll").Value = False
+            ' Keep checkbox accurate: do not auto-check on filter (only if column exists)
+            If dgvResidents.Columns.Contains("chkSelectAll") Then
+                dgvResidents.Rows(rowIndex).Cells("chkSelectAll").Value = False
+            End If
             dgvResidents.Rows(rowIndex).Cells("colID").Value = "" ' ID column removed - using composite key instead
             dgvResidents.Rows(rowIndex).Cells("colLastName").Value = resident.LastName
             dgvResidents.Rows(rowIndex).Cells("colFirstName").Value = resident.FirstName
             dgvResidents.Rows(rowIndex).Cells("colMiddleName").Value = resident.MiddleName
             dgvResidents.Rows(rowIndex).Cells("colMobileNo").Value = resident.MobileNo
             dgvResidents.Rows(rowIndex).Cells("colGender").Value = resident.Gender
-            dgvResidents.Rows(rowIndex).Cells("colAction").Value = "Edit"
         Next
 
         lblShowEntries.Text = $"Showing 1 to {filteredResidents.Count} of {filteredResidents.Count} entries"
@@ -144,9 +146,9 @@
             Dim lastName As String = If(dgvResidents.Rows(e.RowIndex).Cells("colLastName").Value IsNot Nothing, dgvResidents.Rows(e.RowIndex).Cells("colLastName").Value.ToString(), "")
             Dim firstName As String = If(dgvResidents.Rows(e.RowIndex).Cells("colFirstName").Value IsNot Nothing, dgvResidents.Rows(e.RowIndex).Cells("colFirstName").Value.ToString(), "")
 
-            ' Check if the Edit button in the Action column was clicked
-            If e.ColumnIndex = dgvResidents.Columns("colAction").Index Then
-                EditResident(lastName, firstName)
+            ' Check if the Delete icon column was clicked
+            If e.ColumnIndex = dgvResidents.Columns("colDelete").Index Then
+                DeleteResidentRow(e.RowIndex)
             Else
                 ' Load and display resident details in the right panel
                 LoadResidentDetails(lastName, firstName)
@@ -510,6 +512,7 @@
     End Sub
 
     Private Sub HeaderCheckBox_CheckedChanged(sender As Object, e As EventArgs)
+        If Not dgvResidents.Columns.Contains("chkSelectAll") Then Return
         For Each row As DataGridViewRow In dgvResidents.Rows
             row.Cells("chkSelectAll").Value = headerCheckBox.Checked
         Next
@@ -537,7 +540,7 @@
 
                 If Not String.IsNullOrEmpty(lastName) AndAlso Not String.IsNullOrEmpty(firstName) Then
                     ' Only load if not clicking the Action column (to avoid conflicts with CellClick)
-                    If dgvResidents.CurrentCell Is Nothing OrElse dgvResidents.CurrentCell.ColumnIndex <> dgvResidents.Columns("colAction").Index Then
+                    If dgvResidents.CurrentCell Is Nothing OrElse dgvResidents.CurrentCell.ColumnIndex <> dgvResidents.Columns("colDelete").Index Then
                         LoadResidentDetails(lastName, firstName)
                     End If
                 End If
@@ -565,4 +568,119 @@
         ' Ensure header checkbox is positioned on initial load
         PositionHeaderCheckBox()
     End Sub
+
+    Private Sub DeleteResidentRow(rowIndex As Integer)
+        If rowIndex < 0 OrElse rowIndex >= dgvResidents.Rows.Count Then Return
+
+        Dim row As DataGridViewRow = dgvResidents.Rows(rowIndex)
+        Dim lastNameValue As Object = row.Cells("colLastName").Value
+        Dim firstNameValue As Object = row.Cells("colFirstName").Value
+        Dim middleNameValue As Object = row.Cells("colMiddleName").Value
+
+        Dim lastName As String = If(lastNameValue Is Nothing OrElse lastNameValue Is DBNull.Value, String.Empty, lastNameValue.ToString().Trim())
+        Dim firstName As String = If(firstNameValue Is Nothing OrElse firstNameValue Is DBNull.Value, String.Empty, firstNameValue.ToString().Trim())
+        Dim middleName As String = If(middleNameValue Is Nothing OrElse middleNameValue Is DBNull.Value, String.Empty, middleNameValue.ToString().Trim())
+
+        If String.IsNullOrEmpty(lastName) OrElse String.IsNullOrEmpty(firstName) Then
+            MessageBox.Show("Invalid resident data.", "Delete Resident", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim fullName As String = If(String.IsNullOrWhiteSpace(middleName), $"{firstName} {lastName}", $"{firstName} {middleName} {lastName}")
+        Dim confirmation = MessageBox.Show($"Delete {fullName}? The record will move to the restore list.", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If confirmation <> DialogResult.Yes Then Return
+
+        Try
+            Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
+                conn.Open()
+                Using tran = conn.BeginTransaction()
+                    Try
+                        Dim selectSql As String = "SELECT lastname, firstname, middlename, gender, birthdate, age, phoneno, civilstatus, citizenship, fathersname, mothersname, spouse, email, religion, voterstatus, weight, height, idpic, address FROM tbl_residentinfo WHERE lastname = @ln AND firstname = @fn AND ((@mn IS NULL AND (middlename IS NULL OR TRIM(middlename) = '')) OR middlename = @mn) LIMIT 1"
+                        Dim record As Dictionary(Of String, Object) = Nothing
+
+                        Using selectCmd As New Global.MySql.Data.MySqlClient.MySqlCommand(selectSql, conn, tran)
+                            selectCmd.Parameters.AddWithValue("@ln", lastName)
+                            selectCmd.Parameters.AddWithValue("@fn", firstName)
+                            Dim middleParam As Object = If(String.IsNullOrWhiteSpace(middleName), CType(DBNull.Value, Object), middleName)
+                            selectCmd.Parameters.AddWithValue("@mn", middleParam)
+
+                            Using reader As Global.MySql.Data.MySqlClient.MySqlDataReader = selectCmd.ExecuteReader()
+                                If reader.Read() Then
+                                    record = New Dictionary(Of String, Object)()
+                                    record("lastname") = reader.GetValue(0)
+                                    record("firstname") = reader.GetValue(1)
+                                    record("middlename") = reader.GetValue(2)
+                                    record("gender") = reader.GetValue(3)
+                                    record("birthdate") = reader.GetValue(4)
+                                    record("age") = reader.GetValue(5)
+                                    record("phoneno") = reader.GetValue(6)
+                                    record("civilstatus") = reader.GetValue(7)
+                                    record("citizenship") = reader.GetValue(8)
+                                    record("fathersname") = reader.GetValue(9)
+                                    record("mothersname") = reader.GetValue(10)
+                                    record("spouse") = reader.GetValue(11)
+                                    record("email") = reader.GetValue(12)
+                                    record("religion") = reader.GetValue(13)
+                                    record("voterstatus") = reader.GetValue(14)
+                                    record("weight") = reader.GetValue(15)
+                                    record("height") = reader.GetValue(16)
+                                    record("idpic") = reader.GetValue(17)
+                                    record("address") = reader.GetValue(18)
+                                End If
+                            End Using
+                        End Using
+
+                        If record Is Nothing Then
+                            MessageBox.Show("Resident record not found in database.", "Delete Resident", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Return
+                        End If
+
+                        Dim insertSql As String = "INSERT INTO tbl_restore (lastname, firstname, middlename, gender, birthdate, age, phoneno, civilstatus, citizenship, fathersname, mothersname, spouse, email, religion, voterstatus, weight, height, idpic, address) VALUES (@ln, @fn, @mn, @gender, @birthdate, @age, @phoneno, @civilstatus, @citizenship, @fathersname, @mothersname, @spouse, @email, @religion, @voterstatus, @weight, @height, @idpic, @address)"
+                        Using insertCmd As New Global.MySql.Data.MySqlClient.MySqlCommand(insertSql, conn, tran)
+                            insertCmd.Parameters.AddWithValue("@ln", record("lastname"))
+                            insertCmd.Parameters.AddWithValue("@fn", record("firstname"))
+                            insertCmd.Parameters.AddWithValue("@mn", record("middlename"))
+                            insertCmd.Parameters.AddWithValue("@gender", record("gender"))
+                            insertCmd.Parameters.AddWithValue("@birthdate", record("birthdate"))
+                            insertCmd.Parameters.AddWithValue("@age", record("age"))
+                            insertCmd.Parameters.AddWithValue("@phoneno", record("phoneno"))
+                            insertCmd.Parameters.AddWithValue("@civilstatus", record("civilstatus"))
+                            insertCmd.Parameters.AddWithValue("@citizenship", record("citizenship"))
+                            insertCmd.Parameters.AddWithValue("@fathersname", record("fathersname"))
+                            insertCmd.Parameters.AddWithValue("@mothersname", record("mothersname"))
+                            insertCmd.Parameters.AddWithValue("@spouse", record("spouse"))
+                            insertCmd.Parameters.AddWithValue("@email", record("email"))
+                            insertCmd.Parameters.AddWithValue("@religion", record("religion"))
+                            insertCmd.Parameters.AddWithValue("@voterstatus", record("voterstatus"))
+                            insertCmd.Parameters.AddWithValue("@weight", record("weight"))
+                            insertCmd.Parameters.AddWithValue("@height", record("height"))
+                            insertCmd.Parameters.AddWithValue("@idpic", record("idpic"))
+                            insertCmd.Parameters.AddWithValue("@address", record("address"))
+                            insertCmd.ExecuteNonQuery()
+                        End Using
+
+                        Dim deleteSql As String = "DELETE FROM tbl_residentinfo WHERE lastname = @ln AND firstname = @fn AND ((@mn IS NULL AND (middlename IS NULL OR TRIM(middlename) = '')) OR middlename = @mn) AND ((@birthdate IS NULL AND birthdate IS NULL) OR birthdate = @birthdate) LIMIT 1"
+                        Using deleteCmd As New Global.MySql.Data.MySqlClient.MySqlCommand(deleteSql, conn, tran)
+                            deleteCmd.Parameters.AddWithValue("@ln", record("lastname"))
+                            deleteCmd.Parameters.AddWithValue("@fn", record("firstname"))
+                            deleteCmd.Parameters.AddWithValue("@mn", record("middlename"))
+                            deleteCmd.Parameters.AddWithValue("@birthdate", record("birthdate"))
+                            deleteCmd.ExecuteNonQuery()
+                        End Using
+
+                        tran.Commit()
+                    Catch
+                        tran.Rollback()
+                        Throw
+                    End Try
+                End Using
+            End Using
+
+            LoadResidents()
+            MessageBox.Show($"Moved {fullName} to restore list.", "Delete Resident", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show("Failed to delete resident: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
 End Class

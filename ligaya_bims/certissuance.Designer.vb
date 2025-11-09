@@ -30,11 +30,11 @@ Partial Class certissuance
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.RoundedButton3 = New ligaya_bims.RoundedButton()
-        Me.RoundedButton4 = New ligaya_bims.RoundedButton()
-        Me.RoundedButton5 = New ligaya_bims.RoundedButton()
         Me.panelRight = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.RoundedButton5 = New ligaya_bims.RoundedButton()
+        Me.RoundedButton4 = New ligaya_bims.RoundedButton()
+        Me.RoundedButton3 = New ligaya_bims.RoundedButton()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -74,9 +74,6 @@ Partial Class certissuance
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Controls.Add(Me.Panel2)
-        Me.Panel1.Controls.Add(Me.RoundedButton3)
-        Me.Panel1.Controls.Add(Me.RoundedButton4)
-        Me.Panel1.Controls.Add(Me.RoundedButton5)
         Me.Panel1.Location = New System.Drawing.Point(595, 3)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(587, 815)
@@ -87,50 +84,8 @@ Partial Class certissuance
         Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(507, 728)
+        Me.Panel2.Size = New System.Drawing.Size(584, 815)
         Me.Panel2.TabIndex = 14
-        '
-        'RoundedButton3
-        '
-        Me.RoundedButton3.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.RoundedButton3.BorderRadius = 15
-        Me.RoundedButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RoundedButton3.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.RoundedButton3.ForeColor = System.Drawing.Color.White
-        Me.RoundedButton3.Location = New System.Drawing.Point(58, 753)
-        Me.RoundedButton3.Name = "RoundedButton3"
-        Me.RoundedButton3.Size = New System.Drawing.Size(108, 40)
-        Me.RoundedButton3.TabIndex = 13
-        Me.RoundedButton3.Text = "Delete"
-        Me.RoundedButton3.UseVisualStyleBackColor = False
-        '
-        'RoundedButton4
-        '
-        Me.RoundedButton4.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(95, Byte), Integer))
-        Me.RoundedButton4.BorderRadius = 15
-        Me.RoundedButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RoundedButton4.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.RoundedButton4.ForeColor = System.Drawing.Color.White
-        Me.RoundedButton4.Location = New System.Drawing.Point(199, 753)
-        Me.RoundedButton4.Name = "RoundedButton4"
-        Me.RoundedButton4.Size = New System.Drawing.Size(108, 40)
-        Me.RoundedButton4.TabIndex = 12
-        Me.RoundedButton4.Text = "Save"
-        Me.RoundedButton4.UseVisualStyleBackColor = False
-        '
-        'RoundedButton5
-        '
-        Me.RoundedButton5.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(164, Byte), Integer), CType(CType(251, Byte), Integer))
-        Me.RoundedButton5.BorderRadius = 15
-        Me.RoundedButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RoundedButton5.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.RoundedButton5.ForeColor = System.Drawing.Color.White
-        Me.RoundedButton5.Location = New System.Drawing.Point(338, 753)
-        Me.RoundedButton5.Name = "RoundedButton5"
-        Me.RoundedButton5.Size = New System.Drawing.Size(108, 40)
-        Me.RoundedButton5.TabIndex = 11
-        Me.RoundedButton5.Text = "Print"
-        Me.RoundedButton5.UseVisualStyleBackColor = False
         '
         'panelRight
         '
@@ -139,6 +94,9 @@ Partial Class certissuance
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.panelRight.BackColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer))
         Me.panelRight.Controls.Add(Me.Button1)
+        Me.panelRight.Controls.Add(Me.RoundedButton5)
+        Me.panelRight.Controls.Add(Me.RoundedButton4)
+        Me.panelRight.Controls.Add(Me.RoundedButton3)
         Me.panelRight.Controls.Add(Me.Label3)
         Me.panelRight.Controls.Add(Me.TextBox1)
         Me.panelRight.Controls.Add(Me.Label2)
@@ -152,18 +110,60 @@ Partial Class certissuance
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(560, 95)
+        Me.Button1.Location = New System.Drawing.Point(511, 95)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(52, 23)
         Me.Button1.TabIndex = 15
         Me.Button1.Text = "Search"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'RoundedButton5
+        '
+        Me.RoundedButton5.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(164, Byte), Integer), CType(CType(251, Byte), Integer))
+        Me.RoundedButton5.BorderRadius = 15
+        Me.RoundedButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.RoundedButton5.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.RoundedButton5.ForeColor = System.Drawing.Color.White
+        Me.RoundedButton5.Location = New System.Drawing.Point(420, 752)
+        Me.RoundedButton5.Name = "RoundedButton5"
+        Me.RoundedButton5.Size = New System.Drawing.Size(108, 40)
+        Me.RoundedButton5.TabIndex = 11
+        Me.RoundedButton5.Text = "Print"
+        Me.RoundedButton5.UseVisualStyleBackColor = False
+        '
+        'RoundedButton4
+        '
+        Me.RoundedButton4.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(195, Byte), Integer), CType(CType(95, Byte), Integer))
+        Me.RoundedButton4.BorderRadius = 15
+        Me.RoundedButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.RoundedButton4.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.RoundedButton4.ForeColor = System.Drawing.Color.White
+        Me.RoundedButton4.Location = New System.Drawing.Point(225, 752)
+        Me.RoundedButton4.Name = "RoundedButton4"
+        Me.RoundedButton4.Size = New System.Drawing.Size(108, 40)
+        Me.RoundedButton4.TabIndex = 12
+        Me.RoundedButton4.Text = "Save"
+        Me.RoundedButton4.UseVisualStyleBackColor = False
+        '
+        'RoundedButton3
+        '
+        Me.RoundedButton3.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.RoundedButton3.BorderRadius = 15
+        Me.RoundedButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.RoundedButton3.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.RoundedButton3.ForeColor = System.Drawing.Color.White
+        Me.RoundedButton3.Location = New System.Drawing.Point(23, 752)
+        Me.RoundedButton3.Name = "RoundedButton3"
+        Me.RoundedButton3.Size = New System.Drawing.Size(108, 40)
+        Me.RoundedButton3.TabIndex = 13
+        Me.RoundedButton3.Text = "Delete"
+        Me.RoundedButton3.UseVisualStyleBackColor = False
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(293, 97)
+        Me.Label3.Location = New System.Drawing.Point(244, 97)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(66, 18)
         Me.Label3.TabIndex = 14
@@ -172,7 +172,7 @@ Partial Class certissuance
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TextBox1.Location = New System.Drawing.Point(359, 95)
+        Me.TextBox1.Location = New System.Drawing.Point(310, 95)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(200, 23)
         Me.TextBox1.TabIndex = 13

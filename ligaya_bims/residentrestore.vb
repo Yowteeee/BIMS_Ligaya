@@ -1,0 +1,255 @@
+Imports System.Drawing
+Imports System.Drawing.Drawing2D
+
+Public Class residentrestore
+    Public Sub SetAsChildForm()
+        Me.FormBorderStyle = FormBorderStyle.None
+        Me.Dock = DockStyle.Fill
+        Me.TopLevel = False
+    End Sub
+
+    Private Sub residentrestore_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        SetRestoreIcon()
+        LoadRestoreRecords()
+    End Sub
+
+    Private Sub SetRestoreIcon()
+        If dgvProfiles IsNot Nothing AndAlso dgvProfiles.Columns.Contains("colRestore") Then
+            Dim restoreColumn As DataGridViewImageColumn = TryCast(dgvProfiles.Columns("colRestore"), DataGridViewImageColumn)
+            If restoreColumn IsNot Nothing Then
+                restoreColumn.Image = CreateCircularArrowIcon()
+            End If
+        End If
+    End Sub
+
+    Private Function CreateCircularArrowIcon() As Image
+        ' Create a 32x32 bitmap for the circular arrow icon (dark grey circular arrow)
+        Dim size As Integer = 32
+        Dim bmp As New Bitmap(size, size)
+        Using g As Graphics = Graphics.FromImage(bmp)
+            g.SmoothingMode = Drawing2D.SmoothingMode.AntiAlias
+            g.PixelOffsetMode = Drawing2D.PixelOffsetMode.HighQuality
+            g.Clear(Color.Transparent)
+
+            Dim centerX As Single = size / 2
+            Dim centerY As Single = size / 2
+            Dim radius As Single = (size - 8) / 2
+
+            ' Dark grey color for the arrow (RGB: 64, 64, 64)
+            Using brush As New SolidBrush(Color.FromArgb(64, 64, 64))
+                Using pen As New Pen(brush, 3.0F)
+                    ' Draw thick circular arc (most of the circle, leaving gap for arrow head)
+                    Dim rect As New RectangleF(centerX - radius, centerY - radius, radius * 2, radius * 2)
+                    ' Draw arc from 225 degrees (bottom-left) sweeping about 315 degrees (counter-clockwise)
+                    g.DrawArc(pen, rect, 225, 315)
+
+                    ' Draw arrow head at bottom-left (pointing down and left, counter-clockwise)
+                    ' Arrow head angle: 225 degrees (pointing down-left)
+                    Dim arrowAngle As Single = 225 * Math.PI / 180.0F
+                    Dim arrowTipX As Single = centerX + radius * CSng(Math.Cos(arrowAngle))
+                    Dim arrowTipY As Single = centerY + radius * CSng(Math.Sin(arrowAngle))
+
+                    ' Arrow head size and direction
+                    Dim arrowSize As Single = 5
+                    ' Points for arrow head triangle (pointing in counter-clockwise direction)
+                    Dim arrowBase1X As Single = arrowTipX + arrowSize * CSng(Math.Cos(arrowAngle - Math.PI / 3))
+                    Dim arrowBase1Y As Single = arrowTipY + arrowSize * CSng(Math.Sin(arrowAngle - Math.PI / 3))
+                    Dim arrowBase2X As Single = arrowTipX + arrowSize * CSng(Math.Cos(arrowAngle + Math.PI / 3))
+                    Dim arrowBase2Y As Single = arrowTipY + arrowSize * CSng(Math.Sin(arrowAngle + Math.PI / 3))
+
+                    ' Fill arrow head triangle
+                    Dim arrowPoints() As PointF = {
+                        New PointF(arrowTipX, arrowTipY),
+                        New PointF(arrowBase1X, arrowBase1Y),
+                        New PointF(arrowBase2X, arrowBase2Y)
+                    }
+                    g.FillPolygon(brush, arrowPoints)
+                End Using
+            End Using
+        End Using
+
+        Return bmp
+    End Function
+
+    Private Sub LoadRestoreRecords()
+        dgvProfiles.Rows.Clear()
+
+        Try
+            Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
+                conn.Open()
+                Dim sql As String = "SELECT lastname, firstname, middlename, gender, birthdate, age, phoneno, civilstatus, citizenship, fathersname, mothersname, spouse, email, religion, voterstatus, weight, height, idpic, address FROM tbl_residentrestore ORDER BY lastname, firstname"
+                Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
+                    Using reader As Global.MySql.Data.MySqlClient.MySqlDataReader = cmd.ExecuteReader()
+                        While reader.Read()
+                            Dim metadata As New RestoreMetadata()
+                            metadata.LastName = If(reader.IsDBNull(0), String.Empty, reader.GetString(0))
+                            metadata.FirstName = If(reader.IsDBNull(1), String.Empty, reader.GetString(1))
+                            metadata.MiddleName = If(reader.IsDBNull(2), String.Empty, reader.GetString(2))
+                            metadata.Gender = If(reader.IsDBNull(3), String.Empty, reader.GetString(3))
+                            metadata.BirthDate = If(reader.IsDBNull(4), CType(Nothing, DateTime?), reader.GetDateTime(4))
+                            metadata.Age = If(reader.IsDBNull(5), String.Empty, reader.GetString(5))
+                            metadata.Phoneno = If(reader.IsDBNull(6), String.Empty, reader.GetString(6))
+                            metadata.Civilstatus = If(reader.IsDBNull(7), String.Empty, reader.GetString(7))
+                            metadata.Citizenship = If(reader.IsDBNull(8), String.Empty, reader.GetString(8))
+                            metadata.Fathersname = If(reader.IsDBNull(9), String.Empty, reader.GetString(9))
+                            metadata.Mothersname = If(reader.IsDBNull(10), String.Empty, reader.GetString(10))
+                            metadata.Spouse = If(reader.IsDBNull(11), String.Empty, reader.GetString(11))
+                            metadata.Email = If(reader.IsDBNull(12), String.Empty, reader.GetString(12))
+                            metadata.Religion = If(reader.IsDBNull(13), String.Empty, reader.GetString(13))
+                            metadata.Voterstatus = If(reader.IsDBNull(14), String.Empty, reader.GetString(14))
+                            metadata.Weight = If(reader.IsDBNull(15), String.Empty, reader.GetString(15))
+                            metadata.Height = If(reader.IsDBNull(16), String.Empty, reader.GetString(16))
+                            metadata.Address = If(reader.IsDBNull(18), String.Empty, reader.GetString(18))
+
+                            ' Handle idpic (can be byte array or null)
+                            If Not reader.IsDBNull(17) Then
+                                metadata.Idpic = reader.GetValue(17)
+                            Else
+                                metadata.Idpic = DBNull.Value
+                            End If
+
+                            Dim rowIndex As Integer = dgvProfiles.Rows.Add()
+                            dgvProfiles.Rows(rowIndex).Cells("colSelect").Value = False
+                            dgvProfiles.Rows(rowIndex).Cells("colFullName").Value = BuildFullName(metadata.FirstName, metadata.MiddleName, metadata.LastName)
+                            dgvProfiles.Rows(rowIndex).Tag = metadata
+                        End While
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Failed to load restore records: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+        UpdateEntriesLabel()
+    End Sub
+
+    Private Function BuildFullName(firstName As String, middleName As String, lastName As String) As String
+        Dim parts As New List(Of String)()
+        If Not String.IsNullOrWhiteSpace(firstName) Then parts.Add(firstName.Trim())
+        If Not String.IsNullOrWhiteSpace(middleName) Then parts.Add(middleName.Trim())
+        If Not String.IsNullOrWhiteSpace(lastName) Then parts.Add(lastName.Trim())
+
+        Return String.Join(" ", parts)
+    End Function
+
+    Private Sub dgvProfiles_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProfiles.CellClick
+        If e.RowIndex < 0 Then Return
+        If e.ColumnIndex = dgvProfiles.Columns("colRestore").Index Then
+            RestoreRecord(e.RowIndex)
+        End If
+    End Sub
+
+    Private Sub RestoreRecord(rowIndex As Integer)
+        If rowIndex < 0 OrElse rowIndex >= dgvProfiles.Rows.Count Then Return
+
+        Dim row As DataGridViewRow = dgvProfiles.Rows(rowIndex)
+        Dim fullName As String = Convert.ToString(row.Cells("colFullName").Value)
+        Dim metadata As RestoreMetadata = TryCast(row.Tag, RestoreMetadata)
+        If metadata Is Nothing Then Return
+
+        Dim confirm = MessageBox.Show($"Restore {fullName} to resident records?", "Restore", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If confirm <> DialogResult.Yes Then Return
+
+        Try
+            Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
+                conn.Open()
+                Using tran = conn.BeginTransaction()
+                    Try
+                        Dim insertSql As String = "INSERT INTO tbl_residentinfo (lastname, firstname, middlename, gender, birthdate, age, phoneno, civilstatus, citizenship, fathersname, mothersname, spouse, email, religion, voterstatus, weight, height, idpic, address) VALUES (@ln, @fn, @mn, @gender, @birthdate, @age, @phoneno, @civilstatus, @citizenship, @fathersname, @mothersname, @spouse, @email, @religion, @voterstatus, @weight, @height, @idpic, @address)"
+
+                        Using insertCmd As New Global.MySql.Data.MySqlClient.MySqlCommand(insertSql, conn, tran)
+                            insertCmd.Parameters.AddWithValue("@ln", metadata.LastName)
+                            insertCmd.Parameters.AddWithValue("@fn", metadata.FirstName)
+                            Dim middleParam As Object = If(String.IsNullOrWhiteSpace(metadata.MiddleName), CType(DBNull.Value, Object), metadata.MiddleName)
+                            insertCmd.Parameters.AddWithValue("@mn", middleParam)
+                            insertCmd.Parameters.AddWithValue("@gender", If(String.IsNullOrWhiteSpace(metadata.Gender), DBNull.Value, metadata.Gender))
+                            Dim birthParam As Object = If(metadata.BirthDate.HasValue, CType(metadata.BirthDate.Value, Object), DBNull.Value)
+                            insertCmd.Parameters.AddWithValue("@birthdate", birthParam)
+                            insertCmd.Parameters.AddWithValue("@age", If(String.IsNullOrWhiteSpace(metadata.Age), DBNull.Value, metadata.Age))
+                            insertCmd.Parameters.AddWithValue("@phoneno", If(String.IsNullOrWhiteSpace(metadata.Phoneno), DBNull.Value, metadata.Phoneno))
+                            insertCmd.Parameters.AddWithValue("@civilstatus", If(String.IsNullOrWhiteSpace(metadata.Civilstatus), DBNull.Value, metadata.Civilstatus))
+                            insertCmd.Parameters.AddWithValue("@citizenship", If(String.IsNullOrWhiteSpace(metadata.Citizenship), DBNull.Value, metadata.Citizenship))
+                            insertCmd.Parameters.AddWithValue("@fathersname", If(String.IsNullOrWhiteSpace(metadata.Fathersname), DBNull.Value, metadata.Fathersname))
+                            insertCmd.Parameters.AddWithValue("@mothersname", If(String.IsNullOrWhiteSpace(metadata.Mothersname), DBNull.Value, metadata.Mothersname))
+                            insertCmd.Parameters.AddWithValue("@spouse", If(String.IsNullOrWhiteSpace(metadata.Spouse), DBNull.Value, metadata.Spouse))
+                            insertCmd.Parameters.AddWithValue("@email", If(String.IsNullOrWhiteSpace(metadata.Email), DBNull.Value, metadata.Email))
+                            insertCmd.Parameters.AddWithValue("@religion", If(String.IsNullOrWhiteSpace(metadata.Religion), DBNull.Value, metadata.Religion))
+                            insertCmd.Parameters.AddWithValue("@voterstatus", If(String.IsNullOrWhiteSpace(metadata.Voterstatus), DBNull.Value, metadata.Voterstatus))
+                            insertCmd.Parameters.AddWithValue("@weight", If(String.IsNullOrWhiteSpace(metadata.Weight), DBNull.Value, metadata.Weight))
+                            insertCmd.Parameters.AddWithValue("@height", If(String.IsNullOrWhiteSpace(metadata.Height), DBNull.Value, metadata.Height))
+                            insertCmd.Parameters.AddWithValue("@idpic", metadata.Idpic)
+                            insertCmd.Parameters.AddWithValue("@address", If(String.IsNullOrWhiteSpace(metadata.Address), DBNull.Value, metadata.Address))
+
+                            Dim rowsInserted As Integer = insertCmd.ExecuteNonQuery()
+                            If rowsInserted = 0 Then
+                                Throw New Exception("Unable to restore record. It may have been removed already.")
+                            End If
+                        End Using
+
+                        Dim deleteSql As String = "DELETE FROM tbl_residentrestore WHERE lastname = @ln AND firstname = @fn AND ((@mn IS NULL AND (middlename IS NULL OR TRIM(middlename) = '')) OR middlename = @mn) " &
+                                                 "AND ((@birthdate IS NULL AND birthdate IS NULL) OR birthdate = @birthdate) LIMIT 1"
+
+                        Using deleteCmd As New Global.MySql.Data.MySqlClient.MySqlCommand(deleteSql, conn, tran)
+                            deleteCmd.Parameters.AddWithValue("@ln", metadata.LastName)
+                            deleteCmd.Parameters.AddWithValue("@fn", metadata.FirstName)
+                            Dim middleParam As Object = If(String.IsNullOrWhiteSpace(metadata.MiddleName), CType(DBNull.Value, Object), metadata.MiddleName)
+                            deleteCmd.Parameters.AddWithValue("@mn", middleParam)
+                            Dim birthParam As Object = If(metadata.BirthDate.HasValue, CType(metadata.BirthDate.Value, Object), DBNull.Value)
+                            deleteCmd.Parameters.AddWithValue("@birthdate", birthParam)
+                            deleteCmd.ExecuteNonQuery()
+                        End Using
+
+                        tran.Commit()
+                    Catch
+                        tran.Rollback()
+                        Throw
+                    End Try
+                End Using
+            End Using
+
+            LoadRestoreRecords()
+            UpdateEntriesLabel()
+            MessageBox.Show($"Restored {fullName}.", "Restore", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show("Failed to restore record: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub UpdateEntriesLabel()
+        Dim visibleRows As Integer = 0
+        Dim totalRows As Integer = dgvProfiles.Rows.Count
+
+        For Each row As DataGridViewRow In dgvProfiles.Rows
+            If row.Visible Then visibleRows += 1
+        Next
+
+        If visibleRows > 0 Then
+            lblShowEntries.Text = $"Showing 1 to {visibleRows} of {totalRows} entries"
+        Else
+            lblShowEntries.Text = "Showing 0 entries"
+        End If
+    End Sub
+
+    Private Class RestoreMetadata
+        Public Property LastName As String
+        Public Property FirstName As String
+        Public Property MiddleName As String
+        Public Property BirthDate As Nullable(Of DateTime)
+        Public Property Gender As String
+        Public Property Age As String
+        Public Property Phoneno As String
+        Public Property Civilstatus As String
+        Public Property Citizenship As String
+        Public Property Fathersname As String
+        Public Property Mothersname As String
+        Public Property Spouse As String
+        Public Property Email As String
+        Public Property Religion As String
+        Public Property Voterstatus As String
+        Public Property Weight As String
+        Public Property Height As String
+        Public Property Idpic As Object
+        Public Property Address As String
+    End Class
+End Class
+
