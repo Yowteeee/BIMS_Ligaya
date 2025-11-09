@@ -433,7 +433,24 @@ Public Class dashboard
     End Sub
 
     Private Sub navLogout_Click(sender As Object, e As EventArgs) Handles navLogout.Click
+        Dim confirm As DialogResult = MessageBox.Show("Are you sure you want to log out?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
+        If confirm = DialogResult.Yes Then
+            ' Close any child forms
+            If currentChildForm IsNot Nothing Then
+                currentChildForm.Close()
+                currentChildForm.Dispose()
+                currentChildForm = Nothing
+            End If
+
+            ' Show login form (Form1)
+            Dim loginForm As New Form1()
+            loginForm.Show()
+
+            ' Close and dispose the dashboard
+            Me.Close()
+            Me.Dispose()
+        End If
     End Sub
 
     Private Sub chartPurokPopulation_Click_1(sender As Object, e As EventArgs) Handles chartPurokPopulation.Click

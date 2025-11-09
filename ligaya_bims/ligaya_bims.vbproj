@@ -180,6 +180,12 @@
     <Compile Include="cedulaform.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="cedularestore.Designer.vb">
+      <DependentUpon>cedularestore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="cedularestore.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="cedulatracker.Designer.vb">
       <DependentUpon>cedulatracker.vb</DependentUpon>
     </Compile>
@@ -228,6 +234,12 @@
     <Compile Include="CertResidency.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="certrestore.Designer.vb">
+      <DependentUpon>certrestore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="certrestore.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="certSC.Designer.vb">
       <DependentUpon>certSC.vb</DependentUpon>
     </Compile>
@@ -271,6 +283,12 @@
     </Compile>
     <Compile Include="DataAccessCommand.vb" />
     <Compile Include="Database.vb" />
+    <Compile Include="resirestore.Designer.vb">
+      <DependentUpon>resirestore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="resirestore.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SharedCertificateData.vb" />
     <Compile Include="CertificateFormManager.vb" />
     <Compile Include="reportsform.Designer.vb">
@@ -303,6 +321,9 @@
     <EmbeddedResource Include="cedulaform.resx">
       <DependentUpon>cedulaform.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="cedularestore.resx">
+      <DependentUpon>cedularestore.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="cedulatracker.resx">
       <DependentUpon>cedulatracker.vb</DependentUpon>
     </EmbeddedResource>
@@ -327,6 +348,9 @@
     <EmbeddedResource Include="CertResidency.resx">
       <DependentUpon>CertResidency.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="certrestore.resx">
+      <DependentUpon>certrestore.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="certSC.resx">
       <DependentUpon>certSC.vb</DependentUpon>
     </EmbeddedResource>
@@ -347,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reportsform.resx">
       <DependentUpon>reportsform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resirestore.resx">
+      <DependentUpon>resirestore.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="residentform.resx">
       <DependentUpon>residentform.vb</DependentUpon>

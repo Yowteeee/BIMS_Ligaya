@@ -28,6 +28,7 @@ Partial Class cedulatracker
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.panelMain = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.btnTransaction = New ligaya_bims.RoundedButton()
         Me.txtSearch = New System.Windows.Forms.TextBox()
@@ -38,7 +39,7 @@ Partial Class cedulatracker
         Me.colCTCNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFullName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colDateIssued = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.colDelete = New System.Windows.Forms.DataGridViewImageColumn()
         Me.panelMain.SuspendLayout()
         CType(Me.dgvCedula, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -59,6 +60,16 @@ Partial Class cedulatracker
         Me.panelMain.Padding = New System.Windows.Forms.Padding(20)
         Me.panelMain.Size = New System.Drawing.Size(1200, 700)
         Me.panelMain.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(880, 97)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(66, 18)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "Search:"
         '
         'lblTitle
         '
@@ -130,7 +141,7 @@ Partial Class cedulatracker
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvCedula.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvCedula.ColumnHeadersHeight = 40
-        Me.dgvCedula.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colAction, Me.colCTCNumber, Me.colFullName, Me.colDateIssued})
+        Me.dgvCedula.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colAction, Me.colCTCNumber, Me.colFullName, Me.colDateIssued, Me.colDelete})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -167,7 +178,7 @@ Partial Class cedulatracker
         Me.colAction.MinimumWidth = 6
         Me.colAction.Name = "colAction"
         Me.colAction.ReadOnly = True
-        Me.colAction.Width = 200
+        Me.colAction.Width = 170
         '
         'colCTCNumber
         '
@@ -175,7 +186,7 @@ Partial Class cedulatracker
         Me.colCTCNumber.MinimumWidth = 6
         Me.colCTCNumber.Name = "colCTCNumber"
         Me.colCTCNumber.ReadOnly = True
-        Me.colCTCNumber.Width = 300
+        Me.colCTCNumber.Width = 260
         '
         'colFullName
         '
@@ -191,17 +202,16 @@ Partial Class cedulatracker
         Me.colDateIssued.MinimumWidth = 6
         Me.colDateIssued.Name = "colDateIssued"
         Me.colDateIssued.ReadOnly = True
-        Me.colDateIssued.Width = 242
+        Me.colDateIssued.Width = 180
         '
-        'Label1
+        'colDelete
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(880, 97)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(66, 18)
-        Me.Label1.TabIndex = 6
-        Me.Label1.Text = "Search:"
+        Me.colDelete.HeaderText = "Delete"
+        Me.colDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
+        Me.colDelete.MinimumWidth = 6
+        Me.colDelete.Name = "colDelete"
+        Me.colDelete.ReadOnly = True
+        Me.colDelete.Width = 130
         '
         'cedulatracker
         '
@@ -232,4 +242,5 @@ Partial Class cedulatracker
     Friend WithEvents colCTCNumber As DataGridViewTextBoxColumn
     Friend WithEvents colFullName As DataGridViewTextBoxColumn
     Friend WithEvents colDateIssued As DataGridViewTextBoxColumn
+    Friend WithEvents colDelete As DataGridViewImageColumn
 End Class
