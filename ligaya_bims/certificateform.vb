@@ -1,3 +1,5 @@
+Imports System.Drawing.Printing
+
 Public Class certificateform
     Private btnPageSetup As Object
     Private btnPreview As Object
@@ -226,7 +228,27 @@ Public Class certificateform
     End Sub
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
-        ' Get the current certificate image
+        Dim certType As String = If(cmbCertificateType.SelectedItem IsNot Nothing, cmbCertificateType.SelectedItem.ToString(), String.Empty)
+        If String.IsNullOrWhiteSpace(certType) Then
+            e.Cancel = True
+            Return
+        End If
+
+        e.Graphics.SmoothingMode = Drawing2D.SmoothingMode.AntiAlias
+        e.Graphics.TextRenderingHint = Drawing.Text.TextRenderingHint.ClearTypeGridFit
+
+        Select Case certType
+            Case "Certificate of Annual Income"
+                RenderAnnualCertificate(e.Graphics, e.MarginBounds)
+            Case Else
+                ' Fallback to existing visual if other templates are still image-based
+                RenderImageCertificate(e.Graphics, e.MarginBounds)
+        End Select
+
+        e.HasMorePages = False
+    End Sub
+
+    Private Sub RenderImageCertificate(g As Graphics, bounds As Rectangle)
         Dim certImage As Image = Nothing
         If certResidency.Visible Then
             certImage = certResidency.Image
@@ -239,26 +261,95 @@ Public Class certificateform
         End If
 
         If certImage Is Nothing Then
-            e.Cancel = True
-            Return
+            Throw New InvalidOperationException("No certificate template selected.")
         End If
 
-        ' Calculate the size to fit the page
-        Dim pageBounds As Rectangle = e.MarginBounds
         Dim imageSize As Size = certImage.Size
-        Dim scaleX As Double = pageBounds.Width / imageSize.Width
-        Dim scaleY As Double = pageBounds.Height / imageSize.Height
+        Dim scaleX As Double = bounds.Width / imageSize.Width
+        Dim scaleY As Double = bounds.Height / imageSize.Height
         Dim scale As Double = Math.Min(scaleX, scaleY)
 
         Dim scaledWidth As Integer = CInt(imageSize.Width * scale)
         Dim scaledHeight As Integer = CInt(imageSize.Height * scale)
-        Dim x As Integer = pageBounds.X + (pageBounds.Width - scaledWidth) \ 2
-        Dim y As Integer = pageBounds.Y + (pageBounds.Height - scaledHeight) \ 2
+        Dim x As Integer = bounds.X + (bounds.Width - scaledWidth) \ 2
+        Dim y As Integer = bounds.Y + (bounds.Height - scaledHeight) \ 2
 
-        ' Draw the certificate image
-        e.Graphics.DrawImage(certImage, x, y, scaledWidth, scaledHeight)
-        e.HasMorePages = False
+        g.DrawImage(certImage, x, y, scaledWidth, scaledHeight)
     End Sub
+
+    Private Sub RenderAnnualCertificate(g As Graphics, bounds As Rectangle)
+        Dim applicantName As String = GetPanel2Text("txt3")
+        Dim relationship As String = GetPanel2Text("txt2")
+        Dim parentName As String = GetPanel2Text("txt1")
+        Dim addressVal As String = GetPanel2Text("txt4")
+        Dim reason As String = GetPanel2Text("txt5")
+        Dim issuedDate As DateTime = GetPanel2Date("dtpissueddate")
+        If issuedDate = DateTime.MinValue Then issuedDate = DateTime.Now
+
+        Dim bodyFont As New Font("Times New Roman", 12.0F, FontStyle.Regular)
+        Dim headerFont As New Font("Times New Roman", 16.0F, FontStyle.Bold)
+        Dim subHeaderFont As New Font("Times New Roman", 12.0F, FontStyle.Bold)
+
+        Dim currentY As Single = bounds.Top
+
+        ' Header
+        Dim header As String = "Republic of the Philippines" & Environment.NewLine &
+                               "City of General Santos" & Environment.NewLine &
+                               "BARANGAY LIGAYA" & Environment.NewLine &
+                               "Barangay Hall, Sorrilla St., Ligaya, G.S.C" & Environment.NewLine &
+                               "Office of the Punong Barangay"
+
+        Dim headerFormat As New StringFormat() With {
+            .Alignment = StringAlignment.Center
+        }
+
+        g.DrawString(header, subHeaderFont, Brushes.Black, New RectangleF(bounds.Left, currentY, bounds.Width, bodyFont.Height * 5), headerFormat)
+        currentY += bodyFont.Height * 5 + 20
+
+        g.DrawString("CERTIFICATION", headerFont, Brushes.Black, New RectangleF(bounds.Left, currentY, bounds.Width, headerFont.Height * 2), headerFormat)
+        currentY += headerFont.Height * 2 + 30
+
+        g.DrawString("TO WHOM IT MAY CONCERN:", subHeaderFont, Brushes.Black, New RectangleF(bounds.Left, currentY, bounds.Width, subHeaderFont.Height * 2))
+        currentY += subHeaderFont.Height * 2 + 10
+
+        Dim paragraphWidth As Single = bounds.Width
+        Dim indent As Single = bounds.Left + 40
+        Dim paragraphBounds As New RectangleF(indent, currentY, paragraphWidth - 80, bodyFont.Height * 4)
+
+        Dim paragraph1 As String = $"This is to certify that {FormatValue(applicantName)} is the {FormatValue(relationship)} of {FormatValue(parentName)} and a bonafide resident of {FormatValue(addressVal)}, Barangay Ligaya, General Santos City."
+        currentY = DrawParagraph(g, paragraph1, bodyFont, paragraphBounds) + 15
+
+        paragraphBounds.Y = currentY
+        Dim paragraph2 As String = $"This is to certify further that {FormatValue(applicantName)}’s parents have an annual income of not more than Thirty Six Thousand Pesos (P36,000.00)."
+        currentY = DrawParagraph(g, paragraph2, bodyFont, paragraphBounds) + 15
+
+        paragraphBounds.Y = currentY
+        Dim paragraph3 As String = $"This certification is being issued upon the request of {FormatValue(parentName)} for {FormatValue(reason)} and for whatever legal purpose it may serve best."
+        currentY = DrawParagraph(g, paragraph3, bodyFont, paragraphBounds) + 15
+
+        paragraphBounds.Y = currentY
+        Dim paragraph4 As String = $"Issued this {issuedDate:dd} day of {issuedDate:MMMM} {issuedDate:yyyy} at Barangay Hall, Ligaya, General Santos City."
+        currentY = DrawParagraph(g, paragraph4, bodyFont, paragraphBounds) + 40
+
+        g.DrawString("Punong Barangay", subHeaderFont, Brushes.Black, New RectangleF(bounds.Left, currentY, bounds.Width - 60, subHeaderFont.Height * 2), New StringFormat() With {.Alignment = StringAlignment.Far})
+    End Sub
+
+    Private Function FormatValue(value As String) As String
+        If String.IsNullOrWhiteSpace(value) Then
+            Return "____________________"
+        End If
+        Return value.Trim()
+    End Function
+
+    Private Function DrawParagraph(g As Graphics, text As String, font As Font, layout As RectangleF) As Single
+        Dim format As New StringFormat() With {
+            .Alignment = StringAlignment.Near,
+            .LineAlignment = StringAlignment.Near
+        }
+        g.DrawString(text, font, Brushes.Black, layout, format)
+        Dim measure As SizeF = g.MeasureString(text, font, New SizeF(layout.Width, 1000.0F))
+        Return layout.Y + measure.Height
+    End Function
 
 
     Private Sub PrintPreviewControl1_Click(sender As Object, e As EventArgs)
@@ -882,20 +973,73 @@ Public Class certificateform
             Return
         End If
 
-        ' Generate PNG
+        ' Generate PDF
         Try
-            GeneratePNG()
-            MessageBox.Show("Certificate saved and PNG generated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            
-            ' Ask if user wants to clear the form
-            Dim result As DialogResult = MessageBox.Show("Clear the form for the next entry?", "Clear Form", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            If result = DialogResult.Yes Then
-                ClearForm()
+            Dim pdfSaved As Boolean = SaveCertificateAsPdf()
+            If pdfSaved Then
+                MessageBox.Show("Certificate saved as PDF successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                ' Ask if user wants to clear the form
+                Dim result As DialogResult = MessageBox.Show("Clear the form for the next entry?", "Clear Form", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                If result = DialogResult.Yes Then
+                    ClearForm()
+                End If
             End If
         Catch ex As Exception
-            MessageBox.Show("Error generating PNG: " & ex.Message, "PNG Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Error generating PDF: " & ex.Message, "PDF Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
+    Private Function SaveCertificateAsPdf() As Boolean
+        Dim certType As String = If(cmbCertificateType.SelectedItem IsNot Nothing, cmbCertificateType.SelectedItem.ToString(), "").Trim()
+        If String.IsNullOrWhiteSpace(certType) Then
+            MessageBox.Show("Select a certificate type before saving.", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
+        End If
+
+        Dim pdfPrinterName As String = Nothing
+        For Each printer As String In Printing.PrinterSettings.InstalledPrinters
+            If printer.Equals("Microsoft Print to PDF", StringComparison.OrdinalIgnoreCase) Then
+                pdfPrinterName = printer
+                Exit For
+            End If
+        Next
+
+        If String.IsNullOrWhiteSpace(pdfPrinterName) Then
+            MessageBox.Show("Microsoft Print to PDF printer is not available on this system.", "Printer Missing", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End If
+
+        Using saveDialog As New SaveFileDialog()
+            saveDialog.Filter = "PDF files (*.pdf)|*.pdf"
+            saveDialog.Title = "Save Certificate as PDF"
+            saveDialog.FileName = $"{certType.Replace(" ", "_")}_{DateTime.Now:yyyyMMddHHmmss}.pdf"
+
+            If saveDialog.ShowDialog() <> DialogResult.OK Then
+                Return False
+            End If
+
+            Dim originalController As Printing.PrintController = PrintDocument1.PrintController
+            Dim originalSettings As Printing.PrinterSettings = CType(PrintDocument1.PrinterSettings.Clone(), Printing.PrinterSettings)
+
+            Try
+                Dim pdfSettings As New Printing.PrinterSettings()
+                pdfSettings.PrinterName = pdfPrinterName
+                pdfSettings.PrintToFile = True
+                pdfSettings.PrintFileName = saveDialog.FileName
+                pdfSettings.DefaultPageSettings.Margins = originalSettings.DefaultPageSettings.Margins
+                pdfSettings.DefaultPageSettings.Landscape = originalSettings.DefaultPageSettings.Landscape
+
+                PrintDocument1.PrintController = New Printing.StandardPrintController()
+                PrintDocument1.PrinterSettings = pdfSettings
+                PrintDocument1.Print()
+                Return True
+            Finally
+                PrintDocument1.PrintController = originalController
+                PrintDocument1.PrinterSettings = originalSettings
+            End Try
+        End Using
+    End Function
 
     Private Sub GeneratePNG()
         ' Get the active picturebox

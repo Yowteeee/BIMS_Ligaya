@@ -47,6 +47,7 @@ Partial Class certificateform
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.PageSetupDialog1 = New System.Windows.Forms.PageSetupDialog()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.panelMain.SuspendLayout()
         Me.panelRight.SuspendLayout()
         Me.pnlPic.SuspendLayout()
@@ -67,9 +68,9 @@ Partial Class certificateform
         Me.panelMain.Controls.Add(Me.panelLeft)
         Me.panelMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panelMain.Location = New System.Drawing.Point(0, 0)
-        Me.panelMain.Margin = New System.Windows.Forms.Padding(2)
+        Me.panelMain.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.panelMain.Name = "panelMain"
-        Me.panelMain.Size = New System.Drawing.Size(1183, 756)
+        Me.panelMain.Size = New System.Drawing.Size(1924, 1055)
         Me.panelMain.TabIndex = 0
         '
         'panelRight
@@ -78,11 +79,11 @@ Partial Class certificateform
         Me.panelRight.Controls.Add(Me.pnlPic)
         Me.panelRight.Controls.Add(Me.panelButtons)
         Me.panelRight.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelRight.Location = New System.Drawing.Point(400, 0)
-        Me.panelRight.Margin = New System.Windows.Forms.Padding(2)
-        Me.panelRight.MinimumSize = New System.Drawing.Size(500, 0)
+        Me.panelRight.Location = New System.Drawing.Point(533, 0)
+        Me.panelRight.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.panelRight.MinimumSize = New System.Drawing.Size(667, 0)
         Me.panelRight.Name = "panelRight"
-        Me.panelRight.Size = New System.Drawing.Size(783, 756)
+        Me.panelRight.Size = New System.Drawing.Size(1391, 1055)
         Me.panelRight.TabIndex = 1
         '
         'pnlPic
@@ -94,8 +95,9 @@ Partial Class certificateform
         Me.pnlPic.Controls.Add(Me.certResidency)
         Me.pnlPic.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlPic.Location = New System.Drawing.Point(0, 0)
+        Me.pnlPic.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.pnlPic.Name = "pnlPic"
-        Me.pnlPic.Size = New System.Drawing.Size(783, 706)
+        Me.pnlPic.Size = New System.Drawing.Size(1391, 993)
         Me.pnlPic.TabIndex = 4
         '
         'certSC
@@ -103,8 +105,9 @@ Partial Class certificateform
         Me.certSC.Dock = System.Windows.Forms.DockStyle.Fill
         Me.certSC.Image = Global.ligaya_bims.My.Resources.Resources.CSC_2
         Me.certSC.Location = New System.Drawing.Point(0, 0)
+        Me.certSC.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.certSC.Name = "certSC"
-        Me.certSC.Size = New System.Drawing.Size(783, 706)
+        Me.certSC.Size = New System.Drawing.Size(1391, 993)
         Me.certSC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.certSC.TabIndex = 3
         Me.certSC.TabStop = False
@@ -115,8 +118,9 @@ Partial Class certificateform
         Me.certCC.Dock = System.Windows.Forms.DockStyle.Fill
         Me.certCC.Image = Global.ligaya_bims.My.Resources.Resources.CC_21
         Me.certCC.Location = New System.Drawing.Point(0, 0)
+        Me.certCC.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.certCC.Name = "certCC"
-        Me.certCC.Size = New System.Drawing.Size(783, 706)
+        Me.certCC.Size = New System.Drawing.Size(1391, 993)
         Me.certCC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.certCC.TabIndex = 2
         Me.certCC.TabStop = False
@@ -127,8 +131,9 @@ Partial Class certificateform
         Me.certAnnual.Dock = System.Windows.Forms.DockStyle.Fill
         Me.certAnnual.Image = Global.ligaya_bims.My.Resources.Resources.CAI_2
         Me.certAnnual.Location = New System.Drawing.Point(0, 0)
+        Me.certAnnual.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.certAnnual.Name = "certAnnual"
-        Me.certAnnual.Size = New System.Drawing.Size(783, 706)
+        Me.certAnnual.Size = New System.Drawing.Size(1391, 993)
         Me.certAnnual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.certAnnual.TabIndex = 1
         Me.certAnnual.TabStop = False
@@ -139,8 +144,9 @@ Partial Class certificateform
         Me.certResidency.Dock = System.Windows.Forms.DockStyle.Fill
         Me.certResidency.Image = Global.ligaya_bims.My.Resources.Resources.CR_21
         Me.certResidency.Location = New System.Drawing.Point(0, 0)
+        Me.certResidency.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.certResidency.Name = "certResidency"
-        Me.certResidency.Size = New System.Drawing.Size(783, 706)
+        Me.certResidency.Size = New System.Drawing.Size(1391, 993)
         Me.certResidency.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.certResidency.TabIndex = 0
         Me.certResidency.TabStop = False
@@ -153,10 +159,10 @@ Partial Class certificateform
         Me.panelButtons.Controls.Add(Me.btnCancel)
         Me.panelButtons.Controls.Add(Me.btnPrint)
         Me.panelButtons.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.panelButtons.Location = New System.Drawing.Point(0, 706)
-        Me.panelButtons.Margin = New System.Windows.Forms.Padding(2)
+        Me.panelButtons.Location = New System.Drawing.Point(0, 993)
+        Me.panelButtons.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.panelButtons.Name = "panelButtons"
-        Me.panelButtons.Size = New System.Drawing.Size(783, 50)
+        Me.panelButtons.Size = New System.Drawing.Size(1391, 62)
         Me.panelButtons.TabIndex = 2
         '
         'btnSave
@@ -166,9 +172,10 @@ Partial Class certificateform
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.Location = New System.Drawing.Point(223, 10)
+        Me.btnSave.Location = New System.Drawing.Point(297, 12)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(100, 30)
+        Me.btnSave.Size = New System.Drawing.Size(133, 37)
         Me.btnSave.TabIndex = 2
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = False
@@ -180,10 +187,10 @@ Partial Class certificateform
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancel.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btnCancel.ForeColor = System.Drawing.Color.White
-        Me.btnCancel.Location = New System.Drawing.Point(343, 10)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnCancel.Location = New System.Drawing.Point(457, 12)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(100, 30)
+        Me.btnCancel.Size = New System.Drawing.Size(133, 37)
         Me.btnCancel.TabIndex = 1
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = False
@@ -195,10 +202,10 @@ Partial Class certificateform
         Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPrint.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.btnPrint.ForeColor = System.Drawing.Color.White
-        Me.btnPrint.Location = New System.Drawing.Point(463, 10)
-        Me.btnPrint.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnPrint.Location = New System.Drawing.Point(617, 12)
+        Me.btnPrint.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(100, 30)
+        Me.btnPrint.Size = New System.Drawing.Size(133, 37)
         Me.btnPrint.TabIndex = 0
         Me.btnPrint.Text = "Print"
         Me.btnPrint.UseVisualStyleBackColor = False
@@ -209,22 +216,23 @@ Partial Class certificateform
         Me.panelLeft.Controls.Add(Me.panelFormFields)
         Me.panelLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.panelLeft.Location = New System.Drawing.Point(0, 0)
-        Me.panelLeft.Margin = New System.Windows.Forms.Padding(2)
-        Me.panelLeft.MinimumSize = New System.Drawing.Size(350, 0)
+        Me.panelLeft.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.panelLeft.MinimumSize = New System.Drawing.Size(467, 0)
         Me.panelLeft.Name = "panelLeft"
-        Me.panelLeft.Size = New System.Drawing.Size(400, 756)
+        Me.panelLeft.Size = New System.Drawing.Size(533, 1055)
         Me.panelLeft.TabIndex = 0
         '
         'panelFormFields
         '
         Me.panelFormFields.BackColor = System.Drawing.Color.White
+        Me.panelFormFields.Controls.Add(Me.Label1)
         Me.panelFormFields.Controls.Add(Me.cmbCertificateType)
         Me.panelFormFields.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panelFormFields.Location = New System.Drawing.Point(0, 0)
-        Me.panelFormFields.Margin = New System.Windows.Forms.Padding(2)
+        Me.panelFormFields.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.panelFormFields.Name = "panelFormFields"
-        Me.panelFormFields.Padding = New System.Windows.Forms.Padding(15, 16, 15, 16)
-        Me.panelFormFields.Size = New System.Drawing.Size(400, 756)
+        Me.panelFormFields.Padding = New System.Windows.Forms.Padding(20, 20, 20, 20)
+        Me.panelFormFields.Size = New System.Drawing.Size(533, 1055)
         Me.panelFormFields.TabIndex = 1
         '
         'cmbCertificateType
@@ -232,10 +240,10 @@ Partial Class certificateform
         Me.cmbCertificateType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCertificateType.FormattingEnabled = True
         Me.cmbCertificateType.Items.AddRange(New Object() {"Certificate of Residency", "Certificate of Annual Income", "Certificate of Cohabitation", "Certificate of Senior Citizen"})
-        Me.cmbCertificateType.Location = New System.Drawing.Point(22, 41)
-        Me.cmbCertificateType.Margin = New System.Windows.Forms.Padding(2)
+        Me.cmbCertificateType.Location = New System.Drawing.Point(29, 80)
+        Me.cmbCertificateType.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmbCertificateType.Name = "cmbCertificateType"
-        Me.cmbCertificateType.Size = New System.Drawing.Size(301, 21)
+        Me.cmbCertificateType.Size = New System.Drawing.Size(400, 24)
         Me.cmbCertificateType.TabIndex = 0
         '
         'panelLeftHeader
@@ -294,14 +302,23 @@ Partial Class certificateform
         '
         Me.PageSetupDialog1.Document = Me.PrintDocument1
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(26, 50)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(110, 16)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Select Certificate:"
+        '
         'certificateform
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1600, 1000)
+        Me.ClientSize = New System.Drawing.Size(1924, 1055)
         Me.Controls.Add(Me.panelMain)
-        Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.MinimumSize = New System.Drawing.Size(1200, 800)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.MinimumSize = New System.Drawing.Size(1594, 974)
         Me.Name = "certificateform"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Certificate Form"
@@ -315,6 +332,7 @@ Partial Class certificateform
         Me.panelButtons.ResumeLayout(False)
         Me.panelLeft.ResumeLayout(False)
         Me.panelFormFields.ResumeLayout(False)
+        Me.panelFormFields.PerformLayout()
         Me.panelRightHeader.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -342,4 +360,5 @@ Partial Class certificateform
     Friend WithEvents certCC As PictureBox
     Friend WithEvents certSC As PictureBox
     Friend WithEvents btnCancel As RoundedButton
+    Friend WithEvents Label1 As Label
 End Class

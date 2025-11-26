@@ -311,4 +311,8 @@ Public Class resirestore
         Public Property Idpic As Object
         Public Property Address As String
     End Class
+
+    Private Sub dgvProfiles_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProfiles.CellContentClick
+
+    End Sub
 End Class
