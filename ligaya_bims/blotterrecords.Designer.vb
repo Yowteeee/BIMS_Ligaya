@@ -36,6 +36,12 @@ Partial Class blotterrecords
         Me.pnlDataArea = New System.Windows.Forms.Panel()
         Me.pnlRightTable = New System.Windows.Forms.Panel()
         Me.dgvSchedule = New System.Windows.Forms.DataGridView()
+        Me.pnlScheduleActionBackground = New ligaya_bims.RoundedPanel()
+        Me.flpScheduleActions = New System.Windows.Forms.FlowLayoutPanel()
+        Me.btnAddSchedule = New ligaya_bims.RoundedButton()
+        Me.btnEditSchedule = New ligaya_bims.RoundedButton()
+        Me.btnDeleteSchedule = New ligaya_bims.RoundedButton()
+        Me.btnUpdateSettlementStatus = New ligaya_bims.RoundedButton()
         Me.pnlScheduleButtons = New System.Windows.Forms.Panel()
         Me.lblComplainantVsRespondent = New System.Windows.Forms.Label()
         Me.pnlLeftTable = New System.Windows.Forms.Panel()
@@ -43,27 +49,21 @@ Partial Class blotterrecords
         Me.pnlBlotterButtons = New System.Windows.Forms.Panel()
         Me.lblBlotterTitle = New System.Windows.Forms.Label()
         Me.pnlSearch = New System.Windows.Forms.Panel()
+        Me.btnAddNew = New ligaya_bims.RoundedButton()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.cmbSearchBy = New System.Windows.Forms.ComboBox()
         Me.lblSearchBy = New System.Windows.Forms.Label()
-        Me.pnlScheduleActionBackground = New ligaya_bims.RoundedPanel()
-        Me.flpScheduleActions = New System.Windows.Forms.FlowLayoutPanel()
-        Me.btnAddSchedule = New ligaya_bims.RoundedButton()
-        Me.btnEditSchedule = New ligaya_bims.RoundedButton()
-        Me.btnDeleteSchedule = New ligaya_bims.RoundedButton()
-        Me.btnUpdateSettlementStatus = New ligaya_bims.RoundedButton()
-        Me.btnAddNew = New ligaya_bims.RoundedButton()
         Me.pnlMain.SuspendLayout()
         Me.pnlDataArea.SuspendLayout()
         Me.pnlRightTable.SuspendLayout()
         CType(Me.dgvSchedule, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlScheduleActionBackground.SuspendLayout()
+        Me.flpScheduleActions.SuspendLayout()
         Me.pnlScheduleButtons.SuspendLayout()
         Me.pnlLeftTable.SuspendLayout()
         CType(Me.dgvBlotterRecords, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlBlotterButtons.SuspendLayout()
         Me.pnlSearch.SuspendLayout()
-        Me.pnlScheduleActionBackground.SuspendLayout()
-        Me.flpScheduleActions.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlMain
@@ -147,6 +147,100 @@ Partial Class blotterrecords
         Me.dgvSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvSchedule.Size = New System.Drawing.Size(662, 610)
         Me.dgvSchedule.TabIndex = 0
+        '
+        'pnlScheduleActionBackground
+        '
+        Me.pnlScheduleActionBackground.BackColor = System.Drawing.Color.FromArgb(CType(CType(229, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.pnlScheduleActionBackground.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
+        Me.pnlScheduleActionBackground.BorderRadius = 25
+        Me.pnlScheduleActionBackground.BorderThickness = 1
+        Me.pnlScheduleActionBackground.Controls.Add(Me.flpScheduleActions)
+        Me.pnlScheduleActionBackground.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.pnlScheduleActionBackground.Location = New System.Drawing.Point(10, 670)
+        Me.pnlScheduleActionBackground.Name = "pnlScheduleActionBackground"
+        Me.pnlScheduleActionBackground.Padding = New System.Windows.Forms.Padding(15)
+        Me.pnlScheduleActionBackground.Size = New System.Drawing.Size(662, 100)
+        Me.pnlScheduleActionBackground.TabIndex = 4
+        '
+        'flpScheduleActions
+        '
+        Me.flpScheduleActions.BackColor = System.Drawing.Color.Transparent
+        Me.flpScheduleActions.Controls.Add(Me.btnAddSchedule)
+        Me.flpScheduleActions.Controls.Add(Me.btnEditSchedule)
+        Me.flpScheduleActions.Controls.Add(Me.btnDeleteSchedule)
+        Me.flpScheduleActions.Controls.Add(Me.btnUpdateSettlementStatus)
+        Me.flpScheduleActions.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.flpScheduleActions.Location = New System.Drawing.Point(15, 15)
+        Me.flpScheduleActions.Name = "flpScheduleActions"
+        Me.flpScheduleActions.Padding = New System.Windows.Forms.Padding(5, 5, 5, 0)
+        Me.flpScheduleActions.Size = New System.Drawing.Size(632, 70)
+        Me.flpScheduleActions.TabIndex = 0
+        Me.flpScheduleActions.WrapContents = False
+        '
+        'btnAddSchedule
+        '
+        Me.btnAddSchedule.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
+        Me.btnAddSchedule.BorderRadius = 15
+        Me.btnAddSchedule.FlatAppearance.BorderSize = 0
+        Me.btnAddSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddSchedule.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddSchedule.ForeColor = System.Drawing.Color.White
+        Me.btnAddSchedule.Location = New System.Drawing.Point(10, 10)
+        Me.btnAddSchedule.Margin = New System.Windows.Forms.Padding(5)
+        Me.btnAddSchedule.Name = "btnAddSchedule"
+        Me.btnAddSchedule.Size = New System.Drawing.Size(120, 40)
+        Me.btnAddSchedule.TabIndex = 0
+        Me.btnAddSchedule.Text = "ADD SCHEDULE"
+        Me.btnAddSchedule.UseVisualStyleBackColor = False
+        '
+        'btnEditSchedule
+        '
+        Me.btnEditSchedule.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
+        Me.btnEditSchedule.BorderRadius = 15
+        Me.btnEditSchedule.FlatAppearance.BorderSize = 0
+        Me.btnEditSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEditSchedule.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEditSchedule.ForeColor = System.Drawing.Color.White
+        Me.btnEditSchedule.Location = New System.Drawing.Point(140, 10)
+        Me.btnEditSchedule.Margin = New System.Windows.Forms.Padding(5)
+        Me.btnEditSchedule.Name = "btnEditSchedule"
+        Me.btnEditSchedule.Size = New System.Drawing.Size(120, 40)
+        Me.btnEditSchedule.TabIndex = 1
+        Me.btnEditSchedule.Text = "EDIT SCHEDULE"
+        Me.btnEditSchedule.UseVisualStyleBackColor = False
+        '
+        'btnDeleteSchedule
+        '
+        Me.btnDeleteSchedule.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
+        Me.btnDeleteSchedule.BorderRadius = 15
+        Me.btnDeleteSchedule.FlatAppearance.BorderSize = 0
+        Me.btnDeleteSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDeleteSchedule.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDeleteSchedule.ForeColor = System.Drawing.Color.White
+        Me.btnDeleteSchedule.Location = New System.Drawing.Point(270, 10)
+        Me.btnDeleteSchedule.Margin = New System.Windows.Forms.Padding(5)
+        Me.btnDeleteSchedule.Name = "btnDeleteSchedule"
+        Me.btnDeleteSchedule.Size = New System.Drawing.Size(120, 40)
+        Me.btnDeleteSchedule.TabIndex = 2
+        Me.btnDeleteSchedule.Text = "DELETE SCHEDULE"
+        Me.btnDeleteSchedule.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnDeleteSchedule.UseVisualStyleBackColor = False
+        '
+        'btnUpdateSettlementStatus
+        '
+        Me.btnUpdateSettlementStatus.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
+        Me.btnUpdateSettlementStatus.BorderRadius = 15
+        Me.btnUpdateSettlementStatus.FlatAppearance.BorderSize = 0
+        Me.btnUpdateSettlementStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnUpdateSettlementStatus.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdateSettlementStatus.ForeColor = System.Drawing.Color.White
+        Me.btnUpdateSettlementStatus.Location = New System.Drawing.Point(400, 10)
+        Me.btnUpdateSettlementStatus.Margin = New System.Windows.Forms.Padding(5)
+        Me.btnUpdateSettlementStatus.Name = "btnUpdateSettlementStatus"
+        Me.btnUpdateSettlementStatus.Size = New System.Drawing.Size(217, 40)
+        Me.btnUpdateSettlementStatus.TabIndex = 3
+        Me.btnUpdateSettlementStatus.Text = "UPDATE SETTLEMENT STATUS"
+        Me.btnUpdateSettlementStatus.UseVisualStyleBackColor = False
         '
         'pnlScheduleButtons
         '
@@ -265,6 +359,22 @@ Partial Class blotterrecords
         Me.pnlSearch.Size = New System.Drawing.Size(1236, 60)
         Me.pnlSearch.TabIndex = 1
         '
+        'btnAddNew
+        '
+        Me.btnAddNew.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAddNew.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
+        Me.btnAddNew.BorderRadius = 15
+        Me.btnAddNew.FlatAppearance.BorderSize = 0
+        Me.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddNew.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddNew.ForeColor = System.Drawing.Color.White
+        Me.btnAddNew.Location = New System.Drawing.Point(23, 12)
+        Me.btnAddNew.Name = "btnAddNew"
+        Me.btnAddNew.Size = New System.Drawing.Size(110, 32)
+        Me.btnAddNew.TabIndex = 0
+        Me.btnAddNew.Text = "ADD NEW"
+        Me.btnAddNew.UseVisualStyleBackColor = False
+        '
         'txtSearch
         '
         Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -297,116 +407,6 @@ Partial Class blotterrecords
         Me.lblSearchBy.TabIndex = 0
         Me.lblSearchBy.Text = "Search by:"
         '
-        'pnlScheduleActionBackground
-        '
-        Me.pnlScheduleActionBackground.BackColor = System.Drawing.Color.FromArgb(CType(CType(229, Byte), Integer), CType(CType(239, Byte), Integer), CType(CType(252, Byte), Integer))
-        Me.pnlScheduleActionBackground.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
-        Me.pnlScheduleActionBackground.BorderRadius = 25
-        Me.pnlScheduleActionBackground.BorderThickness = 1
-        Me.pnlScheduleActionBackground.Controls.Add(Me.flpScheduleActions)
-        Me.pnlScheduleActionBackground.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlScheduleActionBackground.Location = New System.Drawing.Point(10, 670)
-        Me.pnlScheduleActionBackground.Name = "pnlScheduleActionBackground"
-        Me.pnlScheduleActionBackground.Padding = New System.Windows.Forms.Padding(15)
-        Me.pnlScheduleActionBackground.Size = New System.Drawing.Size(662, 100)
-        Me.pnlScheduleActionBackground.TabIndex = 4
-        '
-        'flpScheduleActions
-        '
-        Me.flpScheduleActions.BackColor = System.Drawing.Color.Transparent
-        Me.flpScheduleActions.Controls.Add(Me.btnAddSchedule)
-        Me.flpScheduleActions.Controls.Add(Me.btnEditSchedule)
-        Me.flpScheduleActions.Controls.Add(Me.btnDeleteSchedule)
-        Me.flpScheduleActions.Controls.Add(Me.btnUpdateSettlementStatus)
-        Me.flpScheduleActions.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.flpScheduleActions.Location = New System.Drawing.Point(15, 15)
-        Me.flpScheduleActions.Name = "flpScheduleActions"
-        Me.flpScheduleActions.Padding = New System.Windows.Forms.Padding(5, 5, 5, 0)
-        Me.flpScheduleActions.Size = New System.Drawing.Size(632, 70)
-        Me.flpScheduleActions.TabIndex = 0
-        Me.flpScheduleActions.WrapContents = False
-        '
-        'btnAddSchedule
-        '
-        Me.btnAddSchedule.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
-        Me.btnAddSchedule.BorderRadius = 15
-        Me.btnAddSchedule.FlatAppearance.BorderSize = 0
-        Me.btnAddSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddSchedule.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddSchedule.ForeColor = System.Drawing.Color.White
-        Me.btnAddSchedule.Location = New System.Drawing.Point(10, 10)
-        Me.btnAddSchedule.Margin = New System.Windows.Forms.Padding(5)
-        Me.btnAddSchedule.Name = "btnAddSchedule"
-        Me.btnAddSchedule.Size = New System.Drawing.Size(120, 40)
-        Me.btnAddSchedule.TabIndex = 0
-        Me.btnAddSchedule.Text = "ADD SCHEDULE"
-        Me.btnAddSchedule.UseVisualStyleBackColor = False
-        '
-        'btnEditSchedule
-        '
-        Me.btnEditSchedule.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
-        Me.btnEditSchedule.BorderRadius = 15
-        Me.btnEditSchedule.FlatAppearance.BorderSize = 0
-        Me.btnEditSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEditSchedule.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEditSchedule.ForeColor = System.Drawing.Color.White
-        Me.btnEditSchedule.Location = New System.Drawing.Point(140, 10)
-        Me.btnEditSchedule.Margin = New System.Windows.Forms.Padding(5)
-        Me.btnEditSchedule.Name = "btnEditSchedule"
-        Me.btnEditSchedule.Size = New System.Drawing.Size(120, 40)
-        Me.btnEditSchedule.TabIndex = 1
-        Me.btnEditSchedule.Text = "EDIT SCHEDULE"
-        Me.btnEditSchedule.UseVisualStyleBackColor = False
-        '
-        'btnDeleteSchedule
-        '
-        Me.btnDeleteSchedule.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
-        Me.btnDeleteSchedule.BorderRadius = 15
-        Me.btnDeleteSchedule.FlatAppearance.BorderSize = 0
-        Me.btnDeleteSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDeleteSchedule.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDeleteSchedule.ForeColor = System.Drawing.Color.White
-        Me.btnDeleteSchedule.Location = New System.Drawing.Point(270, 10)
-        Me.btnDeleteSchedule.Margin = New System.Windows.Forms.Padding(5)
-        Me.btnDeleteSchedule.Name = "btnDeleteSchedule"
-        Me.btnDeleteSchedule.Size = New System.Drawing.Size(120, 40)
-        Me.btnDeleteSchedule.TabIndex = 2
-        Me.btnDeleteSchedule.Text = "DELETE SCHEDULE"
-        Me.btnDeleteSchedule.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnDeleteSchedule.UseVisualStyleBackColor = False
-        '
-        'btnUpdateSettlementStatus
-        '
-        Me.btnUpdateSettlementStatus.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
-        Me.btnUpdateSettlementStatus.BorderRadius = 15
-        Me.btnUpdateSettlementStatus.FlatAppearance.BorderSize = 0
-        Me.btnUpdateSettlementStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUpdateSettlementStatus.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUpdateSettlementStatus.ForeColor = System.Drawing.Color.White
-        Me.btnUpdateSettlementStatus.Location = New System.Drawing.Point(400, 10)
-        Me.btnUpdateSettlementStatus.Margin = New System.Windows.Forms.Padding(5)
-        Me.btnUpdateSettlementStatus.Name = "btnUpdateSettlementStatus"
-        Me.btnUpdateSettlementStatus.Size = New System.Drawing.Size(217, 40)
-        Me.btnUpdateSettlementStatus.TabIndex = 3
-        Me.btnUpdateSettlementStatus.Text = "UPDATE SETTLEMENT STATUS"
-        Me.btnUpdateSettlementStatus.UseVisualStyleBackColor = False
-        '
-        'btnAddNew
-        '
-        Me.btnAddNew.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAddNew.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
-        Me.btnAddNew.BorderRadius = 15
-        Me.btnAddNew.FlatAppearance.BorderSize = 0
-        Me.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddNew.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddNew.ForeColor = System.Drawing.Color.White
-        Me.btnAddNew.Location = New System.Drawing.Point(20, 12)
-        Me.btnAddNew.Name = "btnAddNew"
-        Me.btnAddNew.Size = New System.Drawing.Size(110, 32)
-        Me.btnAddNew.TabIndex = 0
-        Me.btnAddNew.Text = "ADD NEW"
-        Me.btnAddNew.UseVisualStyleBackColor = False
-        '
         'blotterrecords
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -414,8 +414,6 @@ Partial Class blotterrecords
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1236, 850)
         Me.Controls.Add(Me.pnlMain)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.MaximizeBox = False
         Me.Name = "blotterrecords"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Blotter Records"
@@ -423,6 +421,8 @@ Partial Class blotterrecords
         Me.pnlDataArea.ResumeLayout(False)
         Me.pnlRightTable.ResumeLayout(False)
         CType(Me.dgvSchedule, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlScheduleActionBackground.ResumeLayout(False)
+        Me.flpScheduleActions.ResumeLayout(False)
         Me.pnlScheduleButtons.ResumeLayout(False)
         Me.pnlScheduleButtons.PerformLayout()
         Me.pnlLeftTable.ResumeLayout(False)
@@ -431,8 +431,6 @@ Partial Class blotterrecords
         Me.pnlBlotterButtons.PerformLayout()
         Me.pnlSearch.ResumeLayout(False)
         Me.pnlSearch.PerformLayout()
-        Me.pnlScheduleActionBackground.ResumeLayout(False)
-        Me.flpScheduleActions.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
