@@ -60,22 +60,26 @@ Partial Class reportsform
         Return True
     End Function
 
-    Private Function GenerateCaseNumber() As String
-        Return $"B-{DateTime.Now:yyyyMMddHHmmss}"
-    End Function
-
     Private Function SaveIncidentToDatabase() As Boolean
         Try
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
-                Dim sql As String = "INSERT INTO tbl_blotter (case_number, accusation, complainant_name, purok) VALUES (@caseNumber, @accusation, @complainant, @purok)"
-                Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
-                    lastGeneratedCaseNumber = GenerateCaseNumber()
-                    cmd.Parameters.AddWithValue("@caseNumber", lastGeneratedCaseNumber)
-                    cmd.Parameters.AddWithValue("@accusation", txtTypeOfIncident.Text.Trim())
-                    cmd.Parameters.AddWithValue("@complainant", txtComplainantName.Text.Trim())
-                    cmd.Parameters.AddWithValue("@purok", txtComplainantAddress.Text.Trim())
+                Dim insertSql As String = "INSERT INTO tbl_blotter (complainant_name, complainant_address, date_time, location_of_incident, involved_person, narrative_incident) VALUES (@name, @address, @dateTime, @location, @involved, @narrative)"
+                Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(insertSql, conn)
+                    cmd.Parameters.AddWithValue("@name", txtComplainantName.Text.Trim())
+                    cmd.Parameters.AddWithValue("@address", txtComplainantAddress.Text.Trim())
+                    cmd.Parameters.AddWithValue("@complaint", txtTypeOfIncident.Text.Trim())
+                    cmd.Parameters.AddWithValue("@dateTime", dtpFrom.Value)
+                    cmd.Parameters.AddWithValue("@location", txtExactLocation.Text.Trim())
+                    cmd.Parameters.AddWithValue("@involved", txtInvolved.Text.Trim())
+                    cmd.Parameters.AddWithValue("@narrative", txtNarrative.Text.Trim())
                     cmd.ExecuteNonQuery()
+                End Using
+
+                Using idCmd As New Global.MySql.Data.MySqlClient.MySqlCommand("SELECT LAST_INSERT_ID();", conn)
+                    Dim insertedId As Object = idCmd.ExecuteScalar()
+                    Dim caseNumberValue As Integer = Convert.ToInt32(insertedId)
+                    lastGeneratedCaseNumber = caseNumberValue.ToString("0000")
                 End Using
             End Using
             Return True

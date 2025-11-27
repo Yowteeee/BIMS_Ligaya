@@ -71,11 +71,11 @@ Partial Class residentinfo
         Me.panelLeft = New System.Windows.Forms.Panel()
         Me.dgvResidents = New System.Windows.Forms.DataGridView()
         Me.lblShowEntries = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button1 = New ligaya_bims.RoundedButton()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblTitle = New System.Windows.Forms.Label()
-        Me.btnNewResidentApp = New System.Windows.Forms.Button()
+        Me.btnNewResidentApp = New ligaya_bims.RoundedButton()
         Me.colID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colLastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFirstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -622,12 +622,18 @@ Partial Class residentinfo
         '
         'Button1
         '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
+        Me.Button1.BorderRadius = 12
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.Button1.ForeColor = System.Drawing.Color.White
         Me.Button1.Location = New System.Drawing.Point(560, 95)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(52, 23)
         Me.Button1.TabIndex = 10
         Me.Button1.Text = "Search"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'txtSearch
         '
@@ -661,6 +667,8 @@ Partial Class residentinfo
         'btnNewResidentApp
         '
         Me.btnNewResidentApp.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(164, Byte), Integer), CType(CType(251, Byte), Integer))
+        Me.btnNewResidentApp.BorderRadius = 15
+        Me.btnNewResidentApp.FlatAppearance.BorderSize = 0
         Me.btnNewResidentApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNewResidentApp.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.btnNewResidentApp.ForeColor = System.Drawing.Color.White
@@ -748,11 +756,11 @@ Partial Class residentinfo
 
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents panelLeft As Panel
-    Friend WithEvents Button1 As Button
+    Friend WithEvents Button1 As RoundedButton
     Friend WithEvents Label1 As Label
     Friend WithEvents lblTitle As Label
     Friend WithEvents lblShowEntries As Label
-    Friend WithEvents btnNewResidentApp As Button
+    Friend WithEvents btnNewResidentApp As RoundedButton
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents dgvResidents As DataGridView
     Friend WithEvents panelRight As Panel

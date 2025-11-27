@@ -1,18 +1,48 @@
-﻿' Use fully qualified MySQL types to avoid collisions with local placeholder classes
+' Use fully qualified MySQL types to avoid collisions with local placeholder classes
 
 Partial Class cedulatracker
 	Private cedulaTable As DataTable
 
 	Public Sub New()
 		InitializeComponent()
+        If IsInDesigner Then
+            Return
+        End If
+
 		cmbFilter.SelectedIndex = 0
 	End Sub
 
 	Private Sub cedulatracker_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If IsInDesigner Then
+            Return
+        End If
+
 		LoadCedulaData()
 	End Sub
 
+    Private Function IsInDesigner() As Boolean
+        Try
+            If Me IsNot Nothing AndAlso Me.DesignMode Then Return True
+        Catch
+        End Try
+        Try
+            If System.ComponentModel.LicenseManager.UsageMode = System.ComponentModel.LicenseUsageMode.Designtime Then Return True
+        Catch
+        End Try
+        Try
+            Dim procName As String = System.Diagnostics.Process.GetCurrentProcess().ProcessName
+            If String.Equals(procName, "devenv", StringComparison.OrdinalIgnoreCase) Then Return True
+        Catch
+        End Try
+        Return False
+    End Function
+
 	Private Sub LoadCedulaData()
+        If IsInDesigner Then
+            dgvCedula.Rows.Clear()
+            Return
+        End If
+
 		cedulaTable = New DataTable()
 		Try
 			Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
@@ -162,5 +192,5 @@ Partial Class cedulatracker
 		Else
 			MessageBox.Show("Invalid CTC number.", "Delete Cedula", MessageBoxButtons.OK, MessageBoxIcon.Warning)
 		End If
-	End Sub
+    End Sub
 End Class
