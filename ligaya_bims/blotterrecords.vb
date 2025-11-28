@@ -1,6 +1,7 @@
 Imports System.Drawing
 Imports System.Drawing.Drawing2D
 Imports System.Windows.Forms
+Imports ligaya_bims
 Public Class blotterrecords
 
     Public Sub New()
@@ -99,6 +100,9 @@ Public Class blotterrecords
         StyleDataGridView(dgvBlotterRecords)
         StyleDataGridView(dgvSchedule)
 
+        ' Add DataError handler to prevent error dialogs
+        AddHandler dgvBlotterRecords.DataError, AddressOf dgvBlotterRecords_DataError
+
         AssignActionIcon("colEdit", editIcon, "Edit record")
         AssignActionIcon("colDelete", deleteIcon, "Delete record")
         AssignActionIcon("colPrint", printIcon, "Print record")
@@ -129,7 +133,7 @@ Public Class blotterrecords
 
         column.Image = icon
         column.ToolTipText = toolTip
-        column.ValuesAreIcons = True
+        column.ValuesAreIcons = False  ' Changed to False - we're using Bitmaps, not Icons
         column.DefaultCellStyle.NullValue = icon
     End Sub
 
@@ -159,7 +163,7 @@ Public Class blotterrecords
         End Try
     End Sub
 
-    Private Sub LoadBlotterRecords()
+    Private Sub LoadBlotterRecords(Optional searchBy As String = Nothing, Optional searchText As String = Nothing)
         If IsInDesigner() Then
             dgvBlotterRecords.Rows.Clear()
             Return
@@ -170,18 +174,77 @@ Public Class blotterrecords
 
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
-                Dim sql As String = "SELECT case_number, complainant_name, complainant_address, date_time, location_of_incident, involved_person, narrative_incident FROM tbl_blotter ORDER BY case_number DESC"
+
+                ' Build SQL query with optional search filter
+                Dim sql As String = "SELECT case_number, complainant_name, complainant_address, type_of_incident, date_time, location_of_incident, involved_person, narrative_incident FROM tbl_blotter"
+
+                ' Add WHERE clause based on search criteria
+                If Not String.IsNullOrWhiteSpace(searchBy) AndAlso Not String.IsNullOrWhiteSpace(searchText) AndAlso searchBy <> "ALL" Then
+                    Dim whereClause As String = ""
+                    Select Case searchBy
+                        Case "Case #"
+                            ' Search by case number
+                            Dim caseNum As Integer
+                            If Integer.TryParse(searchText.Trim(), caseNum) Then
+                                whereClause = "WHERE case_number = @searchValue"
+                            Else
+                                ' If not a valid number, return no results
+                                whereClause = "WHERE 1 = 0"
+                            End If
+                        Case "Complainant Name"
+                            whereClause = "WHERE complainant_name LIKE @searchValue"
+                        Case "Complainant Address"
+                            whereClause = "WHERE complainant_address LIKE @searchValue"
+                        Case "Complaint Details"
+                            whereClause = "WHERE type_of_incident LIKE @searchValue"
+                        Case "Location"
+                            whereClause = "WHERE location_of_incident LIKE @searchValue"
+                    End Select
+                    sql &= " " & whereClause
+                ElseIf Not String.IsNullOrWhiteSpace(searchText) AndAlso searchBy = "ALL" Then
+                    ' Search all fields
+                    sql &= " WHERE (case_number LIKE @searchValue OR complainant_name LIKE @searchValue OR complainant_address LIKE @searchValue OR type_of_incident LIKE @searchValue OR location_of_incident LIKE @searchValue OR involved_person LIKE @searchValue OR narrative_incident LIKE @searchValue)"
+                End If
+
+                sql &= " ORDER BY case_number DESC"
+
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
+                    ' Add search parameter if search text is provided
+                    If Not String.IsNullOrWhiteSpace(searchText) Then
+                        If searchBy = "Case #" AndAlso Integer.TryParse(searchText.Trim(), Nothing) Then
+                            ' For case number, use exact match
+                            Dim caseNum As Integer = Integer.Parse(searchText.Trim())
+                            cmd.Parameters.AddWithValue("@searchValue", caseNum)
+                        Else
+                            ' For text searches, use LIKE with wildcards
+                            cmd.Parameters.AddWithValue("@searchValue", "%" & searchText.Trim() & "%")
+                        End If
+                    End If
+
                     Using reader As Global.MySql.Data.MySqlClient.MySqlDataReader = cmd.ExecuteReader()
                         While reader.Read()
                             Dim caseNumberValue As Integer = If(reader.IsDBNull(0), 0, reader.GetInt32(0))
                             Dim complainantName As String = If(reader.IsDBNull(1), String.Empty, reader.GetString(1))
                             Dim complainantAddress As String = If(reader.IsDBNull(2), String.Empty, reader.GetString(2))
-                            Dim complaintName As String = If(reader.IsDBNull(3), String.Empty, reader.GetString(3))
+                            Dim typeOfIncident As String = If(reader.IsDBNull(3), String.Empty, reader.GetString(3))
+
+                            ' Ensure date_time is always converted to string for display
                             Dim incidentDateDisplay As String = String.Empty
+                            Dim incidentDateValue As DateTime? = Nothing
                             If Not reader.IsDBNull(4) Then
-                                incidentDateDisplay = reader.GetDateTime(4).ToString("MMM dd, yyyy hh:mm tt")
+                                Try
+                                    incidentDateValue = reader.GetDateTime(4)
+                                    incidentDateDisplay = incidentDateValue.Value.ToString("MMM dd, yyyy hh:mm tt")
+                                Catch ex As Exception
+                                    ' If GetDateTime fails, try GetString
+                                    Try
+                                        incidentDateDisplay = reader.GetString(4)
+                                    Catch
+                                        incidentDateDisplay = String.Empty
+                                    End Try
+                                End Try
                             End If
+
                             Dim location As String = If(reader.IsDBNull(5), String.Empty, reader.GetString(5))
                             Dim involvedPerson As String = If(reader.IsDBNull(6), String.Empty, reader.GetString(6))
                             Dim narrative As String = If(reader.IsDBNull(7), String.Empty, reader.GetString(7))
@@ -190,8 +253,8 @@ Public Class blotterrecords
                                 FormatCaseNumberValue(caseNumberValue),
                                 complainantName,
                                 complainantAddress,
-                                complaintName,
-                                incidentDateDisplay,
+                                typeOfIncident,
+                                incidentDateDisplay,  ' Always a string
                                 location,
                                 involvedPerson,
                                 narrative,
@@ -200,8 +263,9 @@ Public Class blotterrecords
                             )
                             Dim rowReference = dgvBlotterRecords.Rows(rowIndex)
                             rowReference.Cells("CaseNumber").Tag = caseNumberValue
-                            If Not reader.IsDBNull(4) Then
-                                rowReference.Cells("IncidentDate").Tag = reader.GetDateTime(4)
+                            ' Store the DateTime in Tag for editing purposes
+                            If incidentDateValue.HasValue Then
+                                rowReference.Cells("IncidentDate").Tag = incidentDateValue.Value
                             Else
                                 rowReference.Cells("IncidentDate").Tag = Nothing
                             End If
@@ -235,7 +299,7 @@ Public Class blotterrecords
 
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
-                Dim sql As String = "SELECT summon_level, case_date, start_time, end_time FROM tbl_blotter_schedule WHERE case_number = @caseNumber ORDER BY case_date DESC"
+                Dim sql As String = "SELECT summon_level, case_date, start_time, end_time, settlement_status FROM tbl_blotter_schedule WHERE case_number = @caseNumber ORDER BY case_date DESC"
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
                     cmd.Parameters.AddWithValue("@caseNumber", caseNumberValue.Value)
                     Using reader As Global.MySql.Data.MySqlClient.MySqlDataReader = cmd.ExecuteReader()
@@ -245,14 +309,18 @@ Public Class blotterrecords
                                 .SummonLevel = If(reader.IsDBNull(0), String.Empty, reader.GetString(0)),
                                 .CaseDate = If(reader.IsDBNull(1), Date.MinValue, reader.GetDateTime(1)),
                                 .StartTime = If(reader.IsDBNull(2), TimeSpan.Zero, ReadTimeValue(reader, 2)),
-                                .EndTime = If(reader.IsDBNull(3), TimeSpan.Zero, ReadTimeValue(reader, 3))
+                                .EndTime = If(reader.IsDBNull(3), TimeSpan.Zero, ReadTimeValue(reader, 3)),
+                                .SettlementStatus = If(reader.IsDBNull(4), String.Empty, reader.GetString(4))
                             }
 
+                            ' Add row with all columns including Column1 (CaseNumber)
                             Dim rowIndex = dgvSchedule.Rows.Add(
-                                record.SummonLevel,
-                                FormatCaseDate(record.CaseDate),
-                                FormatTime(record.StartTime),
-                                FormatTime(record.EndTime)
+                                FormatCaseNumberValue(caseNumberValue.Value),  ' Column1 - CaseNumber (hidden)
+                                record.SummonLevel,                            ' colSummonLevel
+                                FormatCaseDate(record.CaseDate),               ' colCaseDate
+                                FormatTime(record.StartTime),                  ' colStartTime
+                                FormatTime(record.EndTime),                    ' colEndTime
+                                record.SettlementStatus                         ' colSettlementStatus
                             )
 
                             dgvSchedule.Rows(rowIndex).Tag = record
@@ -400,9 +468,10 @@ Public Class blotterrecords
             Try
                 UpdateSettlementStatus(caseNumber.Value, dialog.SelectedStatus)
                 LoadBlotterRecords()
+                LoadScheduleRecords()  ' Add this line to refresh the schedule grid
                 MessageBox.Show("Settlement status updated.", "Update Settlement", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Catch ex As Global.MySql.Data.MySqlClient.MySqlException
-                MessageBox.Show(String.Format("Unable to update settlement status. Please ensure the 'settlement_status' column exists in tbl_blotter.{0}Details: {1}", Environment.NewLine, ex.Message), "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show(String.Format("Unable to update settlement status. Please ensure the 'settlement_status' column exists in tbl_blotter_schedule.{0}Details: {1}", Environment.NewLine, ex.Message), "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Catch ex As Exception
                 MessageBox.Show(String.Format("Unable to update settlement status: {0}", ex.Message), "Update Settlement", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -415,9 +484,20 @@ Public Class blotterrecords
             Return
         End If
 
-        ' TODO: Implement search filtering
-        ' For now, just reload all records
-        LoadBlotterRecords()
+        ' Search will be triggered on Enter key, not on text change
+        ' This prevents searching on every keystroke
+    End Sub
+
+    Private Sub txtSearch_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearch.KeyDown
+        If IsInDesigner() Then
+            Return
+        End If
+
+        ' Trigger search when Enter key is pressed
+        If e.KeyCode = Keys.Enter Then
+            e.SuppressKeyPress = True  ' Prevent beep sound
+            PerformSearch()
+        End If
     End Sub
 
     Private Sub cmbSearchBy_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSearchBy.SelectedIndexChanged
@@ -427,6 +507,23 @@ Public Class blotterrecords
 
         ' Reset search when filter changes
         txtSearch.Clear()
+    End Sub
+
+    Private Sub PerformSearch()
+        If IsInDesigner() Then
+            Return
+        End If
+
+        Dim searchBy As String = If(cmbSearchBy.SelectedItem IsNot Nothing, cmbSearchBy.SelectedItem.ToString(), "ALL")
+        Dim searchText As String = txtSearch.Text.Trim()
+
+        ' If search text is empty, load all records
+        If String.IsNullOrWhiteSpace(searchText) Then
+            LoadBlotterRecords()
+        Else
+            ' Perform search with criteria
+            LoadBlotterRecords(searchBy, searchText)
+        End If
     End Sub
 
     ' DataGridView event handlers
@@ -473,13 +570,27 @@ Public Class blotterrecords
         End If
 
         Dim incidentCell As DataGridViewCell = row.Cells("IncidentDate")
-        Dim incidentSource As Object = If(incidentCell IsNot Nothing AndAlso incidentCell.Tag IsNot Nothing, incidentCell.Tag, incidentCell.Value)
+        Dim incidentSource As Object = Nothing
+        If incidentCell IsNot Nothing Then
+            ' Prefer Tag (DateTime) if available, otherwise use Value (String) and convert
+            If incidentCell.Tag IsNot Nothing Then
+                incidentSource = incidentCell.Tag
+            Else
+                ' Value should be a string, but handle if it's DateTime
+                Dim cellValue As Object = incidentCell.Value
+                If TypeOf cellValue Is DateTime Then
+                    incidentSource = CType(cellValue, DateTime)
+                Else
+                    incidentSource = Convert.ToString(cellValue)
+                End If
+            End If
+        End If
 
         Dim record As New BlotterRecord With {
             .CaseNumber = caseNumberValue.Value,
             .ComplainantName = Convert.ToString(row.Cells("ComplainantName").Value),
             .ComplainantAddress = Convert.ToString(row.Cells("ComplainantAddress").Value),
-            .ComplaintName = Convert.ToString(row.Cells("ComplaintName").Value),
+            .ComplaintName = Convert.ToString(row.Cells("ComplaintName").Value),  ' This column now contains type_of_incident
             .IncidentDate = ReadIncidentDate(incidentSource),
             .LocationOfIncident = Convert.ToString(row.Cells("LocationOfIncident").Value),
             .InvolvedPerson = Convert.ToString(row.Cells("InvolvedPerson").Value),
@@ -511,7 +622,8 @@ Public Class blotterrecords
         End If
 
         Dim displayCaseNumber As String = FormatCaseNumberValue(caseNumberValue.Value)
-        Dim confirm = MessageBox.Show(String.Format("Delete blotter record for Case #{0}? This cannot be undone.", displayCaseNumber), "Delete Blotter", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim complainantName As String = Convert.ToString(row.Cells("ComplainantName").Value)
+        Dim confirm = MessageBox.Show(String.Format("Delete blotter record for Case #{0}? The record will be moved to the restore list.", displayCaseNumber), "Delete Blotter", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
         If confirm <> DialogResult.Yes Then
             Return
         End If
@@ -519,19 +631,64 @@ Public Class blotterrecords
         Try
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
-                Dim sql As String = "DELETE FROM tbl_blotter WHERE case_number = @caseNumber LIMIT 1"
-                Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
-                    cmd.Parameters.AddWithValue("@caseNumber", caseNumberValue.Value)
-                    Dim affected = cmd.ExecuteNonQuery()
-                    If affected = 0 Then
-                        MessageBox.Show("No blotter record was deleted. It may have been removed already.", "Delete Blotter", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        Return
-                    End If
+                Using tran = conn.BeginTransaction()
+                    Try
+                        ' First, get the full record from tbl_blotter
+                        Dim selectSql As String = "SELECT case_number, complainant_name, complainant_address, type_of_incident, date_time, location_of_incident, involved_person, narrative_incident FROM tbl_blotter WHERE case_number = @caseNumber LIMIT 1"
+                        Dim record As Dictionary(Of String, Object) = Nothing
+
+                        Using selectCmd As New Global.MySql.Data.MySqlClient.MySqlCommand(selectSql, conn, tran)
+                            selectCmd.Parameters.AddWithValue("@caseNumber", caseNumberValue.Value)
+                            Using reader As Global.MySql.Data.MySqlClient.MySqlDataReader = selectCmd.ExecuteReader()
+                                If reader.Read() Then
+                                    record = New Dictionary(Of String, Object)()
+                                    record("case_number") = reader.GetInt32(0)
+                                    record("complainant_name") = If(reader.IsDBNull(1), String.Empty, reader.GetString(1))
+                                    record("complainant_address") = If(reader.IsDBNull(2), String.Empty, reader.GetString(2))
+                                    record("type_of_incident") = If(reader.IsDBNull(3), String.Empty, reader.GetString(3))
+                                    record("date_time") = If(reader.IsDBNull(4), DBNull.Value, reader.GetDateTime(4))
+                                    record("location_of_incident") = If(reader.IsDBNull(5), String.Empty, reader.GetString(5))
+                                    record("involved_person") = If(reader.IsDBNull(6), String.Empty, reader.GetString(6))
+                                    record("narrative_incident") = If(reader.IsDBNull(7), String.Empty, reader.GetString(7))
+                                End If
+                            End Using
+                        End Using
+
+                        If record Is Nothing Then
+                            MessageBox.Show("Blotter record not found in database.", "Delete Blotter", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Return
+                        End If
+
+                        ' Insert into restore table
+                        Dim insertSql As String = "INSERT INTO tbl_blotterrestore (case_number, complainant_name, complainant_address, type_of_incident, date_time, location_of_incident, involved_person, narrative_incident) VALUES (@case_number, @complainant_name, @complainant_address, @type_of_incident, @date_time, @location_of_incident, @involved_person, @narrative_incident)"
+                        Using insertCmd As New Global.MySql.Data.MySqlClient.MySqlCommand(insertSql, conn, tran)
+                            insertCmd.Parameters.AddWithValue("@case_number", record("case_number"))
+                            insertCmd.Parameters.AddWithValue("@complainant_name", If(String.IsNullOrWhiteSpace(record("complainant_name").ToString()), DBNull.Value, record("complainant_name")))
+                            insertCmd.Parameters.AddWithValue("@complainant_address", If(String.IsNullOrWhiteSpace(record("complainant_address").ToString()), DBNull.Value, record("complainant_address")))
+                            insertCmd.Parameters.AddWithValue("@type_of_incident", If(String.IsNullOrWhiteSpace(record("type_of_incident").ToString()), DBNull.Value, record("type_of_incident")))
+                            insertCmd.Parameters.AddWithValue("@date_time", record("date_time"))
+                            insertCmd.Parameters.AddWithValue("@location_of_incident", If(String.IsNullOrWhiteSpace(record("location_of_incident").ToString()), DBNull.Value, record("location_of_incident")))
+                            insertCmd.Parameters.AddWithValue("@involved_person", If(String.IsNullOrWhiteSpace(record("involved_person").ToString()), DBNull.Value, record("involved_person")))
+                            insertCmd.Parameters.AddWithValue("@narrative_incident", If(String.IsNullOrWhiteSpace(record("narrative_incident").ToString()), DBNull.Value, record("narrative_incident")))
+                            insertCmd.ExecuteNonQuery()
+                        End Using
+
+                        ' Delete from main table
+                        Dim deleteSql As String = "DELETE FROM tbl_blotter WHERE case_number = @caseNumber LIMIT 1"
+                        Using deleteCmd As New Global.MySql.Data.MySqlClient.MySqlCommand(deleteSql, conn, tran)
+                            deleteCmd.Parameters.AddWithValue("@caseNumber", caseNumberValue.Value)
+                            deleteCmd.ExecuteNonQuery()
+                        End Using
+
+                        tran.Commit()
+                        MessageBox.Show(String.Format("Moved blotter record Case #{0} to restore list.", displayCaseNumber), "Delete Blotter", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        LoadBlotterRecords()
+                    Catch
+                        tran.Rollback()
+                        Throw
+                    End Try
                 End Using
             End Using
-
-            LoadBlotterRecords()
-            MessageBox.Show("Blotter record deleted successfully.", "Delete Blotter", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Global.MySql.Data.MySqlClient.MySqlException
             MessageBox.Show(String.Format("Unable to delete blotter record. Details: {0}", ex.Message), "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Catch ex As Exception
@@ -602,13 +759,14 @@ Public Class blotterrecords
     Private Sub InsertSchedule(schedule As ScheduleRecord)
         Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
             conn.Open()
-            Dim sql As String = "INSERT INTO tbl_blotter_schedule (case_number, summon_level, case_date, start_time, end_time) VALUES (@caseNumber, @summonLevel, @caseDate, @startTime, @endTime)"
+            Dim sql As String = "INSERT INTO tbl_blotter_schedule (case_number, summon_level, case_date, start_time, end_time, settlement_status) VALUES (@caseNumber, @summonLevel, @caseDate, @startTime, @endTime, @settlementStatus)"
             Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
                 cmd.Parameters.AddWithValue("@caseNumber", schedule.CaseNumber)
                 cmd.Parameters.AddWithValue("@summonLevel", schedule.SummonLevel)
                 cmd.Parameters.AddWithValue("@caseDate", schedule.CaseDate)
                 cmd.Parameters.AddWithValue("@startTime", schedule.StartTime)
                 cmd.Parameters.AddWithValue("@endTime", schedule.EndTime)
+                cmd.Parameters.AddWithValue("@settlementStatus", If(String.IsNullOrEmpty(schedule.SettlementStatus), "Pending", schedule.SettlementStatus))
                 cmd.ExecuteNonQuery()
             End Using
         End Using
@@ -619,7 +777,7 @@ Public Class blotterrecords
             conn.Open()
             Dim sql As String =
                 "UPDATE tbl_blotter_schedule " &
-                "SET summon_level = @newSummonLevel, case_date = @newCaseDate, start_time = @newStartTime, end_time = @newEndTime " &
+                "SET summon_level = @newSummonLevel, case_date = @newCaseDate, start_time = @newStartTime, end_time = @newEndTime, settlement_status = @newSettlementStatus " &
                 "WHERE case_number = @caseNumber AND summon_level = @oldSummonLevel AND case_date = @oldCaseDate AND start_time = @oldStartTime AND end_time = @oldEndTime LIMIT 1"
 
             Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
@@ -627,6 +785,7 @@ Public Class blotterrecords
                 cmd.Parameters.AddWithValue("@newCaseDate", updatedRecord.CaseDate)
                 cmd.Parameters.AddWithValue("@newStartTime", updatedRecord.StartTime)
                 cmd.Parameters.AddWithValue("@newEndTime", updatedRecord.EndTime)
+                cmd.Parameters.AddWithValue("@newSettlementStatus", If(String.IsNullOrEmpty(updatedRecord.SettlementStatus), "Pending", updatedRecord.SettlementStatus))
                 cmd.Parameters.AddWithValue("@caseNumber", originalRecord.CaseNumber)
                 cmd.Parameters.AddWithValue("@oldSummonLevel", originalRecord.SummonLevel)
                 cmd.Parameters.AddWithValue("@oldCaseDate", originalRecord.CaseDate)
@@ -717,7 +876,8 @@ Public Class blotterrecords
         Try
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
-                Dim sql As String = "SELECT settlement_status FROM tbl_blotter WHERE case_number = @caseNumber LIMIT 1"
+                ' Get settlement_status from tbl_blotter_schedule (get the latest one)
+                Dim sql As String = "SELECT settlement_status FROM tbl_blotter_schedule WHERE case_number = @caseNumber ORDER BY case_date DESC LIMIT 1"
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
                     cmd.Parameters.AddWithValue("@caseNumber", caseNumber)
                     Dim result = cmd.ExecuteScalar()
@@ -733,7 +893,8 @@ Public Class blotterrecords
     Private Sub UpdateSettlementStatus(caseNumber As Integer, newStatus As String)
         Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
             conn.Open()
-            Dim sql As String = "UPDATE tbl_blotter SET settlement_status = @status WHERE case_number = @caseNumber LIMIT 1"
+            ' Update all schedule records for this case number
+            Dim sql As String = "UPDATE tbl_blotter_schedule SET settlement_status = @status WHERE case_number = @caseNumber"
             Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
                 cmd.Parameters.AddWithValue("@status", newStatus)
                 cmd.Parameters.AddWithValue("@caseNumber", caseNumber)
@@ -745,11 +906,11 @@ Public Class blotterrecords
     Private Sub UpdateBlotterRecord(record As BlotterRecord)
         Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
             conn.Open()
-            Dim sql As String = "UPDATE tbl_blotter SET complainant_name = @complainant, complainant_address = @address, complaint_name = @complaint, date_time = @incidentDate, location_of_incident = @location, involved_person = @involved, narrative_incident = @narrative WHERE case_number = @case LIMIT 1"
+            Dim sql As String = "UPDATE tbl_blotter SET complainant_name = @complainant, complainant_address = @address, type_of_incident = @typeOfIncident, date_time = @incidentDate, location_of_incident = @location, involved_person = @involved, narrative_incident = @narrative WHERE case_number = @case LIMIT 1"
             Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(sql, conn)
                 cmd.Parameters.AddWithValue("@complainant", record.ComplainantName)
                 cmd.Parameters.AddWithValue("@address", record.ComplainantAddress)
-                cmd.Parameters.AddWithValue("@complaint", record.ComplaintName)
+                cmd.Parameters.AddWithValue("@typeOfIncident", record.ComplaintName)
                 cmd.Parameters.AddWithValue("@incidentDate", If(record.IncidentDate.HasValue, CType(record.IncidentDate.Value, Object), DBNull.Value))
                 cmd.Parameters.AddWithValue("@location", record.LocationOfIncident)
                 cmd.Parameters.AddWithValue("@involved", record.InvolvedPerson)
@@ -873,6 +1034,11 @@ Public Class blotterrecords
     Private Sub pnlSearch_Paint(sender As Object, e As PaintEventArgs) Handles pnlSearch.Paint
 
     End Sub
+
+    Private Sub dgvBlotterRecords_DataError(sender As Object, e As DataGridViewDataErrorEventArgs)
+        ' Suppress the error dialog - handle errors gracefully
+        e.ThrowException = False
+    End Sub
 End Class
 
 Friend Class ScheduleRecord
@@ -881,6 +1047,7 @@ Friend Class ScheduleRecord
     Public Property CaseDate As Date
     Public Property StartTime As TimeSpan
     Public Property EndTime As TimeSpan
+    Public Property SettlementStatus As String  ' Add this property
 
     Public Function Clone() As ScheduleRecord
         Return CType(Me.MemberwiseClone(), ScheduleRecord)
@@ -905,8 +1072,9 @@ Friend Class ScheduleEditorDialog
     Private ReadOnly dtpCaseDate As DateTimePicker
     Private ReadOnly dtpStartTime As DateTimePicker
     Private ReadOnly dtpEndTime As DateTimePicker
-    Private ReadOnly btnSave As Button
-    Private ReadOnly btnCancel As Button
+    Private ReadOnly cmbSettlementStatus As ComboBox  ' Add this
+    Private ReadOnly btnSave As RoundedButton  ' Changed from Button
+    Private ReadOnly btnCancel As RoundedButton  ' Changed from Button
 
     Private _scheduleData As ScheduleRecord
 
@@ -922,20 +1090,20 @@ Friend Class ScheduleEditorDialog
         MaximizeBox = False
         MinimizeBox = False
         StartPosition = FormStartPosition.CenterParent
-        ClientSize = New Size(430, 300)
+        ClientSize = New Size(430, 350)  ' Increased height to accommodate new field
         BackColor = Color.White
 
         Dim layout As New TableLayoutPanel() With {
             .Dock = DockStyle.Fill,
             .ColumnCount = 2,
-            .RowCount = 5,
+            .RowCount = 6,  ' Changed from 5 to 6
             .Padding = New Padding(20),
             .AutoSize = False
         }
 
         layout.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 40.0F))
         layout.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 60.0F))
-        For i As Integer = 0 To 3
+        For i As Integer = 0 To 4  ' Changed from 3 to 4
             layout.RowStyles.Add(New RowStyle(SizeType.Absolute, 45.0F))
         Next
         layout.RowStyles.Add(New RowStyle(SizeType.Absolute, 60.0F))
@@ -972,6 +1140,14 @@ Friend Class ScheduleEditorDialog
             .ShowUpDown = True,
             .Font = New Font("Segoe UI", 10.0F, FontStyle.Regular)
         }
+
+        ' Add Settlement Status ComboBox
+        cmbSettlementStatus = New ComboBox() With {
+            .Dock = DockStyle.Fill,
+            .Font = New Font("Segoe UI", 10.0F, FontStyle.Regular),
+            .DropDownStyle = ComboBoxStyle.DropDownList
+        }
+        cmbSettlementStatus.Items.AddRange(New Object() {"Pending", "For Mediation", "Under Hearing", "Settled", "Dismissed", "For Follow-up"})
 
         btnSave = New RoundedButton() With {
             .Text = "Save",
@@ -1012,7 +1188,9 @@ Friend Class ScheduleEditorDialog
         layout.Controls.Add(dtpStartTime, 1, 2)
         layout.Controls.Add(CreateFieldLabel("End Time"), 0, 3)
         layout.Controls.Add(dtpEndTime, 1, 3)
-        layout.Controls.Add(buttonsPanel, 0, 4)
+        layout.Controls.Add(CreateFieldLabel("Settlement Status"), 0, 4)  ' Add this
+        layout.Controls.Add(cmbSettlementStatus, 1, 4)  ' Add this
+        layout.Controls.Add(buttonsPanel, 0, 5)  ' Changed from 4 to 5
         layout.SetColumnSpan(buttonsPanel, 2)
 
         Controls.Add(layout)
@@ -1022,6 +1200,14 @@ Friend Class ScheduleEditorDialog
         dtpCaseDate.Value = If(existing IsNot Nothing AndAlso existing.CaseDate > Date.MinValue, existing.CaseDate, today)
         dtpStartTime.Value = today.Add(If(existing IsNot Nothing AndAlso existing.StartTime > TimeSpan.Zero, existing.StartTime, TimeSpan.FromHours(8)))
         dtpEndTime.Value = today.Add(If(existing IsNot Nothing AndAlso existing.EndTime > TimeSpan.Zero, existing.EndTime, TimeSpan.FromHours(9)))
+
+        ' Set settlement status
+        If existing IsNot Nothing AndAlso Not String.IsNullOrEmpty(existing.SettlementStatus) Then
+            Dim index As Integer = cmbSettlementStatus.Items.IndexOf(existing.SettlementStatus)
+            cmbSettlementStatus.SelectedIndex = If(index >= 0, index, 0)
+        Else
+            cmbSettlementStatus.SelectedIndex = 0
+        End If
 
         AddHandler btnSave.Click, AddressOf HandleSaveClick
 
@@ -1055,7 +1241,8 @@ Friend Class ScheduleEditorDialog
             .SummonLevel = txtSummonLevel.Text.Trim(),
             .CaseDate = dtpCaseDate.Value,
             .StartTime = dtpStartTime.Value.TimeOfDay,
-            .EndTime = dtpEndTime.Value.TimeOfDay
+            .EndTime = dtpEndTime.Value.TimeOfDay,
+            .SettlementStatus = If(cmbSettlementStatus.SelectedItem IsNot Nothing, cmbSettlementStatus.SelectedItem.ToString(), "Pending")
         }
 
         DialogResult = DialogResult.OK
@@ -1277,8 +1464,8 @@ Friend Class SettlementStatusDialog
     Inherits Form
 
     Private ReadOnly cmbStatus As ComboBox
-    Private ReadOnly btnSave As Button
-    Private ReadOnly btnCancel As Button
+    Private ReadOnly btnSave As RoundedButton  ' Changed from Button
+    Private ReadOnly btnCancel As RoundedButton  ' Changed from Button
 
     Public ReadOnly Property SelectedStatus As String
         Get

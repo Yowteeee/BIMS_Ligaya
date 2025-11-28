@@ -24,10 +24,10 @@ Partial Class residentinfo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(residentinfo))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.panelRight = New System.Windows.Forms.Panel()
@@ -70,12 +70,6 @@ Partial Class residentinfo
         Me.lblInfoTitle = New System.Windows.Forms.Label()
         Me.panelLeft = New System.Windows.Forms.Panel()
         Me.dgvResidents = New System.Windows.Forms.DataGridView()
-        Me.lblShowEntries = New System.Windows.Forms.Label()
-        Me.Button1 = New ligaya_bims.RoundedButton()
-        Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblTitle = New System.Windows.Forms.Label()
-        Me.btnNewResidentApp = New ligaya_bims.RoundedButton()
         Me.colID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colLastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFirstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -83,6 +77,12 @@ Partial Class residentinfo
         Me.colMobileNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colGender = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colAction = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.lblShowEntries = New System.Windows.Forms.Label()
+        Me.Button1 = New ligaya_bims.RoundedButton()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblTitle = New System.Windows.Forms.Label()
+        Me.btnNewResidentApp = New ligaya_bims.RoundedButton()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.panelRight.SuspendLayout()
         CType(Me.picProfile, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -157,7 +157,7 @@ Partial Class residentinfo
         '
         'btnUpdate
         '
-        Me.btnUpdate.BackColor = System.Drawing.Color.Cyan
+        Me.btnUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
         Me.btnUpdate.BorderRadius = 15
         Me.btnUpdate.FlatAppearance.BorderSize = 0
         Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -567,34 +567,34 @@ Partial Class residentinfo
         Me.dgvResidents.AllowUserToAddRows = False
         Me.dgvResidents.AllowUserToDeleteRows = False
         Me.dgvResidents.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(246, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(201, Byte), Integer))
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
-        Me.dgvResidents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(246, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(201, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.dgvResidents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         Me.dgvResidents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvResidents.BackgroundColor = System.Drawing.Color.White
         Me.dgvResidents.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(26, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(26, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvResidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(26, Byte), Integer))
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(26, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvResidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.dgvResidents.ColumnHeadersHeight = 45
         Me.dgvResidents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvResidents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colID, Me.colLastName, Me.colFirstName, Me.colMiddleName, Me.colMobileNo, Me.colGender, Me.colAction})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(201, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvResidents.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(201, Byte), Integer))
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvResidents.DefaultCellStyle = DataGridViewCellStyle7
         Me.dgvResidents.EnableHeadersVisualStyles = False
         Me.dgvResidents.GridColor = System.Drawing.Color.FromArgb(CType(CType(189, Byte), Integer), CType(CType(189, Byte), Integer), CType(CType(189, Byte), Integer))
         Me.dgvResidents.Location = New System.Drawing.Point(23, 200)
@@ -603,11 +603,63 @@ Partial Class residentinfo
         Me.dgvResidents.ReadOnly = True
         Me.dgvResidents.RowHeadersVisible = False
         Me.dgvResidents.RowHeadersWidth = 51
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        Me.dgvResidents.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
+        Me.dgvResidents.RowsDefaultCellStyle = DataGridViewCellStyle8
         Me.dgvResidents.RowTemplate.Height = 40
         Me.dgvResidents.Size = New System.Drawing.Size(635, 525)
         Me.dgvResidents.TabIndex = 7
+        '
+        'colID
+        '
+        Me.colID.HeaderText = "ID"
+        Me.colID.MinimumWidth = 6
+        Me.colID.Name = "colID"
+        Me.colID.ReadOnly = True
+        Me.colID.Visible = False
+        '
+        'colLastName
+        '
+        Me.colLastName.HeaderText = "Last Name"
+        Me.colLastName.MinimumWidth = 6
+        Me.colLastName.Name = "colLastName"
+        Me.colLastName.ReadOnly = True
+        '
+        'colFirstName
+        '
+        Me.colFirstName.HeaderText = "First Name"
+        Me.colFirstName.MinimumWidth = 6
+        Me.colFirstName.Name = "colFirstName"
+        Me.colFirstName.ReadOnly = True
+        '
+        'colMiddleName
+        '
+        Me.colMiddleName.HeaderText = "Middle Name"
+        Me.colMiddleName.MinimumWidth = 6
+        Me.colMiddleName.Name = "colMiddleName"
+        Me.colMiddleName.ReadOnly = True
+        '
+        'colMobileNo
+        '
+        Me.colMobileNo.HeaderText = "Mobile No."
+        Me.colMobileNo.MinimumWidth = 6
+        Me.colMobileNo.Name = "colMobileNo"
+        Me.colMobileNo.ReadOnly = True
+        '
+        'colGender
+        '
+        Me.colGender.HeaderText = "Gender"
+        Me.colGender.MinimumWidth = 6
+        Me.colGender.Name = "colGender"
+        Me.colGender.ReadOnly = True
+        '
+        'colAction
+        '
+        Me.colAction.HeaderText = "Action"
+        Me.colAction.Image = CType(resources.GetObject("colAction.Image"), System.Drawing.Image)
+        Me.colAction.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
+        Me.colAction.MinimumWidth = 6
+        Me.colAction.Name = "colAction"
+        Me.colAction.ReadOnly = True
         '
         'lblShowEntries
         '
@@ -666,7 +718,7 @@ Partial Class residentinfo
         '
         'btnNewResidentApp
         '
-        Me.btnNewResidentApp.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(164, Byte), Integer), CType(CType(251, Byte), Integer))
+        Me.btnNewResidentApp.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnNewResidentApp.BorderRadius = 15
         Me.btnNewResidentApp.FlatAppearance.BorderSize = 0
         Me.btnNewResidentApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -679,58 +731,6 @@ Partial Class residentinfo
         Me.btnNewResidentApp.TabIndex = 11
         Me.btnNewResidentApp.Text = "New Resident +"
         Me.btnNewResidentApp.UseVisualStyleBackColor = False
-        '
-        'colID
-        '
-        Me.colID.HeaderText = "ID"
-        Me.colID.MinimumWidth = 6
-        Me.colID.Name = "colID"
-        Me.colID.ReadOnly = True
-        Me.colID.Visible = False
-        '
-        'colLastName
-        '
-        Me.colLastName.HeaderText = "Last Name"
-        Me.colLastName.MinimumWidth = 6
-        Me.colLastName.Name = "colLastName"
-        Me.colLastName.ReadOnly = True
-        '
-        'colFirstName
-        '
-        Me.colFirstName.HeaderText = "First Name"
-        Me.colFirstName.MinimumWidth = 6
-        Me.colFirstName.Name = "colFirstName"
-        Me.colFirstName.ReadOnly = True
-        '
-        'colMiddleName
-        '
-        Me.colMiddleName.HeaderText = "Middle Name"
-        Me.colMiddleName.MinimumWidth = 6
-        Me.colMiddleName.Name = "colMiddleName"
-        Me.colMiddleName.ReadOnly = True
-        '
-        'colMobileNo
-        '
-        Me.colMobileNo.HeaderText = "Mobile No."
-        Me.colMobileNo.MinimumWidth = 6
-        Me.colMobileNo.Name = "colMobileNo"
-        Me.colMobileNo.ReadOnly = True
-        '
-        'colGender
-        '
-        Me.colGender.HeaderText = "Gender"
-        Me.colGender.MinimumWidth = 6
-        Me.colGender.Name = "colGender"
-        Me.colGender.ReadOnly = True
-        '
-        'colAction
-        '
-        Me.colAction.HeaderText = "Action"
-        Me.colAction.Image = CType(resources.GetObject("colAction.Image"), System.Drawing.Image)
-        Me.colAction.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
-        Me.colAction.MinimumWidth = 6
-        Me.colAction.Name = "colAction"
-        Me.colAction.ReadOnly = True
         '
         'residentinfo
         '

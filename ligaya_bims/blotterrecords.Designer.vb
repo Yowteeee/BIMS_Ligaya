@@ -58,6 +58,7 @@ Partial Class blotterrecords
         Me.colCaseDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colStartTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colEndTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colSettlementStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pnlScheduleActionBackground = New ligaya_bims.RoundedPanel()
         Me.btnAddSchedule = New ligaya_bims.RoundedButton()
         Me.btnEditSchedule = New ligaya_bims.RoundedButton()
@@ -309,7 +310,6 @@ Partial Class blotterrecords
         DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(201, Byte), Integer))
         DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.dgvSchedule.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
-        Me.dgvSchedule.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvSchedule.BackgroundColor = System.Drawing.Color.White
         Me.dgvSchedule.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -322,7 +322,7 @@ Partial Class blotterrecords
         Me.dgvSchedule.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.dgvSchedule.ColumnHeadersHeight = 45
         Me.dgvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgvSchedule.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.colSummonLevel, Me.colCaseDate, Me.colStartTime, Me.colEndTime})
+        Me.dgvSchedule.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.colSummonLevel, Me.colCaseDate, Me.colStartTime, Me.colEndTime, Me.colSettlementStatus})
         DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -352,13 +352,15 @@ Partial Class blotterrecords
         Me.Column1.HeaderText = "CaseNumber"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
+        Me.Column1.Visible = False
         '
         'colSummonLevel
         '
         Me.colSummonLevel.HeaderText = "Summon Level"
-        Me.colSummonLevel.MinimumWidth = 100
+        Me.colSummonLevel.MinimumWidth = 90
         Me.colSummonLevel.Name = "colSummonLevel"
         Me.colSummonLevel.ReadOnly = True
+        Me.colSummonLevel.Width = 90
         '
         'colCaseDate
         '
@@ -366,23 +368,34 @@ Partial Class blotterrecords
         DataGridViewCellStyle8.NullValue = Nothing
         Me.colCaseDate.DefaultCellStyle = DataGridViewCellStyle8
         Me.colCaseDate.HeaderText = "Schedule Date"
-        Me.colCaseDate.MinimumWidth = 140
+        Me.colCaseDate.MinimumWidth = 130
         Me.colCaseDate.Name = "colCaseDate"
         Me.colCaseDate.ReadOnly = True
+        Me.colCaseDate.Width = 130
         '
         'colStartTime
         '
         Me.colStartTime.HeaderText = "Start Time"
-        Me.colStartTime.MinimumWidth = 100
+        Me.colStartTime.MinimumWidth = 80
         Me.colStartTime.Name = "colStartTime"
         Me.colStartTime.ReadOnly = True
+        Me.colStartTime.Width = 80
         '
         'colEndTime
         '
         Me.colEndTime.HeaderText = "End Time"
-        Me.colEndTime.MinimumWidth = 100
+        Me.colEndTime.MinimumWidth = 80
         Me.colEndTime.Name = "colEndTime"
         Me.colEndTime.ReadOnly = True
+        Me.colEndTime.Width = 80
+        '
+        'colSettlementStatus
+        '
+        Me.colSettlementStatus.HeaderText = "Settlement Status"
+        Me.colSettlementStatus.MinimumWidth = 120
+        Me.colSettlementStatus.Name = "colSettlementStatus"
+        Me.colSettlementStatus.ReadOnly = True
+        Me.colSettlementStatus.Width = 120
         '
         'pnlScheduleActionBackground
         '
@@ -403,7 +416,7 @@ Partial Class blotterrecords
         '
         'btnAddSchedule
         '
-        Me.btnAddSchedule.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
+        Me.btnAddSchedule.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnAddSchedule.BorderRadius = 15
         Me.btnAddSchedule.FlatAppearance.BorderSize = 0
         Me.btnAddSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -435,7 +448,7 @@ Partial Class blotterrecords
         '
         'btnDeleteSchedule
         '
-        Me.btnDeleteSchedule.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
+        Me.btnDeleteSchedule.BackColor = System.Drawing.Color.Red
         Me.btnDeleteSchedule.BorderRadius = 15
         Me.btnDeleteSchedule.FlatAppearance.BorderSize = 0
         Me.btnDeleteSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -505,7 +518,7 @@ Partial Class blotterrecords
         'btnAddNew
         '
         Me.btnAddNew.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAddNew.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(215, Byte), Integer))
+        Me.btnAddNew.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnAddNew.BorderRadius = 15
         Me.btnAddNew.FlatAppearance.BorderSize = 0
         Me.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -591,14 +604,14 @@ Partial Class blotterrecords
     Friend WithEvents cmbSearchBy As ComboBox
     Friend WithEvents lblSearchBy As Label
     Friend WithEvents pnlScheduleButtons As Panel
-    Friend WithEvents btnUpdateSettlementStatus As RoundedButton
-    Friend WithEvents btnDeleteSchedule As RoundedButton
-    Friend WithEvents btnEditSchedule As RoundedButton
-    Friend WithEvents btnAddSchedule As RoundedButton
-    Friend WithEvents pnlScheduleActionBackground As RoundedPanel
-        Friend WithEvents pnlBlotterButtons As Panel
-        Friend WithEvents btnAddNew As RoundedButton
-        Friend WithEvents lblBlotterTitle As Label
+    Friend WithEvents btnUpdateSettlementStatus As ligaya_bims.RoundedButton
+    Friend WithEvents btnDeleteSchedule As ligaya_bims.RoundedButton
+    Friend WithEvents btnEditSchedule As ligaya_bims.RoundedButton
+    Friend WithEvents btnAddSchedule As ligaya_bims.RoundedButton
+    Friend WithEvents pnlScheduleActionBackground As ligaya_bims.RoundedPanel
+    Friend WithEvents pnlBlotterButtons As Panel
+    Friend WithEvents btnAddNew As ligaya_bims.RoundedButton
+    Friend WithEvents lblBlotterTitle As Label
     Friend WithEvents CaseNumber As DataGridViewTextBoxColumn
     Friend WithEvents ComplainantName As DataGridViewTextBoxColumn
     Friend WithEvents ComplainantAddress As DataGridViewTextBoxColumn
@@ -614,4 +627,5 @@ Partial Class blotterrecords
     Friend WithEvents colCaseDate As DataGridViewTextBoxColumn
     Friend WithEvents colStartTime As DataGridViewTextBoxColumn
     Friend WithEvents colEndTime As DataGridViewTextBoxColumn
+    Friend WithEvents colSettlementStatus As DataGridViewTextBoxColumn
 End Class

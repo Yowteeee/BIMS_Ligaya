@@ -64,15 +64,44 @@ Partial Class reportsform
         Try
             Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
                 conn.Open()
-                Dim insertSql As String = "INSERT INTO tbl_blotter (complainant_name, complainant_address, date_time, location_of_incident, involved_person, narrative_incident) VALUES (@name, @address, @dateTime, @location, @involved, @narrative)"
+                ' Ensure all values are trimmed and validated before inserting
+                Dim complainantName As String = txtComplainantName.Text.Trim()
+                Dim complainantAddress As String = txtComplainantAddress.Text.Trim()
+                
+                ' CRITICAL: Read type_of_incident value and verify it exists
+                Dim typeOfIncident As String = String.Empty
+                Try
+                    typeOfIncident = txtTypeOfIncident.Text.Trim()
+                Catch ex As Exception
+                    MessageBox.Show("Error reading Type of Incident field: " & ex.Message, "Control Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Return False
+                End Try
+                
+                Dim location As String = txtExactLocation.Text.Trim()
+                Dim involvedPerson As String = txtInvolved.Text.Trim()
+                Dim narrative As String = txtNarrative.Text.Trim()
+                
+                ' CRITICAL: Verify type_of_incident has a value before proceeding
+                If String.IsNullOrEmpty(typeOfIncident) OrElse String.IsNullOrWhiteSpace(typeOfIncident) Then
+                    MessageBox.Show("Type of Incident cannot be empty. Current value: '" & typeOfIncident & "' (Length: " & typeOfIncident.Length & ")", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    txtTypeOfIncident.Focus()
+                    Return False
+                End If
+                
+                ' Build SQL statement - use simple approach that matches working SQL query
+                Dim insertSql As String = "INSERT INTO tbl_blotter (complainant_name, complainant_address, type_of_incident, date_time, location_of_incident, involved_person, narrative_incident) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7)"
+                
                 Using cmd As New Global.MySql.Data.MySqlClient.MySqlCommand(insertSql, conn)
-                    cmd.Parameters.AddWithValue("@name", txtComplainantName.Text.Trim())
-                    cmd.Parameters.AddWithValue("@address", txtComplainantAddress.Text.Trim())
-                    cmd.Parameters.AddWithValue("@complaint", txtTypeOfIncident.Text.Trim())
-                    cmd.Parameters.AddWithValue("@dateTime", dtpFrom.Value)
-                    cmd.Parameters.AddWithValue("@location", txtExactLocation.Text.Trim())
-                    cmd.Parameters.AddWithValue("@involved", txtInvolved.Text.Trim())
-                    cmd.Parameters.AddWithValue("@narrative", txtNarrative.Text.Trim())
+                    ' Use simple AddWithValue - order is critical
+                    cmd.Parameters.AddWithValue("@p1", complainantName)
+                    cmd.Parameters.AddWithValue("@p2", complainantAddress)
+                    cmd.Parameters.AddWithValue("@p3", typeOfIncident)  ' CRITICAL: This is type_of_incident
+                    cmd.Parameters.AddWithValue("@p4", dtpFrom.Value)
+                    cmd.Parameters.AddWithValue("@p5", location)
+                    cmd.Parameters.AddWithValue("@p6", involvedPerson)
+                    cmd.Parameters.AddWithValue("@p7", narrative)
+                    
+                    ' Execute the command
                     cmd.ExecuteNonQuery()
                 End Using
 

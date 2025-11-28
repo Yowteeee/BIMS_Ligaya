@@ -47,7 +47,7 @@ Partial Class cedulatracker
 		Try
 			Using conn As Global.MySql.Data.MySqlClient.MySqlConnection = Database.CreateConnection()
 				conn.Open()
-				Dim sql As String = "SELECT ctcnumber, lastname, firstname, middlename, CONCAT(lastname, ', ', firstname, IF(middlename IS NULL OR middlename = '', '', CONCAT(' ', middlename))) AS fullname, dateissued FROM tbl_cedulatracker ORDER BY dateissued DESC"
+				Dim sql As String = "SELECT ctcnumber, fullname, dateissued FROM tbl_cedulatracker ORDER BY dateissued DESC"
 				Using da As New Global.MySql.Data.MySqlClient.MySqlDataAdapter(sql, conn)
 					da.Fill(cedulaTable)
 				End Using
@@ -101,7 +101,7 @@ Partial Class cedulatracker
 		f.StartPosition = FormStartPosition.CenterScreen
 		If f.ShowDialog(Me) = DialogResult.OK Then
 			LoadCedulaData()
-		End If
+		 End If
 	End Sub
 
 	Private Sub dgvCedula_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCedula.CellContentClick
@@ -132,7 +132,7 @@ Partial Class cedulatracker
 					Using tran = conn.BeginTransaction()
 						Try
 							' First, get the full record from tbl_cedulatracker
-							Dim selectSql As String = "SELECT ctcnumber, lastname, firstname, middlename, address, placeissued, dateissued FROM tbl_cedulatracker WHERE ctcnumber = @ctcnumber LIMIT 1"
+							Dim selectSql As String = "SELECT ctcnumber, year, placeissued, fullname, address, gender, dateissued, citizenship, placeofbirth, civilstatus, dateofbirth, profession FROM tbl_cedulatracker WHERE ctcnumber = @ctcnumber LIMIT 1"
 							Dim record As Dictionary(Of String, Object) = Nothing
 
 							Using selectCmd As New Global.MySql.Data.MySqlClient.MySqlCommand(selectSql, conn, tran)
@@ -141,12 +141,17 @@ Partial Class cedulatracker
 									If reader.Read() Then
 										record = New Dictionary(Of String, Object)()
 										record("ctcnumber") = reader.GetInt32(0)
-										record("lastname") = If(reader.IsDBNull(1), String.Empty, reader.GetString(1))
-										record("firstname") = If(reader.IsDBNull(2), String.Empty, reader.GetString(2))
-										record("middlename") = If(reader.IsDBNull(3), String.Empty, reader.GetString(3))
+										record("year") = If(reader.IsDBNull(1), DBNull.Value, CType(reader.GetInt32(1), Object))
+										record("placeissued") = If(reader.IsDBNull(2), String.Empty, reader.GetString(2))
+										record("fullname") = If(reader.IsDBNull(3), String.Empty, reader.GetString(3))
 										record("address") = If(reader.IsDBNull(4), String.Empty, reader.GetString(4))
-										record("placeissued") = If(reader.IsDBNull(5), String.Empty, reader.GetString(5))
+										record("gender") = If(reader.IsDBNull(5), DBNull.Value, reader.GetString(5))
 										record("dateissued") = If(reader.IsDBNull(6), DateTime.MinValue, reader.GetDateTime(6))
+										record("citizenship") = If(reader.IsDBNull(7), DBNull.Value, reader.GetString(7))
+										record("placeofbirth") = If(reader.IsDBNull(8), DBNull.Value, reader.GetString(8))
+										record("civilstatus") = If(reader.IsDBNull(9), DBNull.Value, reader.GetString(9))
+										record("dateofbirth") = If(reader.IsDBNull(10), DBNull.Value, reader.GetDateTime(10))
+										record("profession") = If(reader.IsDBNull(11), DBNull.Value, reader.GetString(11))
 									End If
 								End Using
 							End Using
@@ -157,16 +162,20 @@ Partial Class cedulatracker
 							End If
 
 							' Insert into restore table
-							Dim insertSql As String = "INSERT INTO tbl_cedularestore (ctcnumber, lastname, firstname, middlename, address, placeissued, dateissued) VALUES (@ctcnumber, @lastname, @firstname, @middlename, @address, @placeissued, @dateissued)"
+							Dim insertSql As String = "INSERT INTO tbl_cedularestore (ctcnumber, year, placeissued, fullname, address, gender, dateissued, citizenship, placeofbirth, civilstatus, dateofbirth, profession) VALUES (@ctcnumber, @year, @placeissued, @fullname, @address, @gender, @dateissued, @citizenship, @placeofbirth, @civilstatus, @dateofbirth, @profession)"
 							Using insertCmd As New Global.MySql.Data.MySqlClient.MySqlCommand(insertSql, conn, tran)
 								insertCmd.Parameters.AddWithValue("@ctcnumber", record("ctcnumber"))
-								insertCmd.Parameters.AddWithValue("@lastname", record("lastname"))
-								insertCmd.Parameters.AddWithValue("@firstname", record("firstname"))
-								Dim middleParam As Object = If(String.IsNullOrWhiteSpace(record("middlename").ToString()), CType(DBNull.Value, Object), record("middlename"))
-								insertCmd.Parameters.AddWithValue("@middlename", middleParam)
-								insertCmd.Parameters.AddWithValue("@address", If(String.IsNullOrWhiteSpace(record("address").ToString()), DBNull.Value, record("address")))
+								insertCmd.Parameters.AddWithValue("@year", record("year"))
 								insertCmd.Parameters.AddWithValue("@placeissued", If(String.IsNullOrWhiteSpace(record("placeissued").ToString()), DBNull.Value, record("placeissued")))
+								insertCmd.Parameters.AddWithValue("@fullname", If(String.IsNullOrWhiteSpace(record("fullname").ToString()), DBNull.Value, record("fullname")))
+								insertCmd.Parameters.AddWithValue("@address", If(String.IsNullOrWhiteSpace(record("address").ToString()), DBNull.Value, record("address")))
+								insertCmd.Parameters.AddWithValue("@gender", record("gender"))
 								insertCmd.Parameters.AddWithValue("@dateissued", record("dateissued"))
+								insertCmd.Parameters.AddWithValue("@citizenship", record("citizenship"))
+								insertCmd.Parameters.AddWithValue("@placeofbirth", record("placeofbirth"))
+								insertCmd.Parameters.AddWithValue("@civilstatus", record("civilstatus"))
+								insertCmd.Parameters.AddWithValue("@dateofbirth", record("dateofbirth"))
+								insertCmd.Parameters.AddWithValue("@profession", record("profession"))
 								insertCmd.ExecuteNonQuery()
 							End Using
 
